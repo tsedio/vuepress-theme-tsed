@@ -1,5 +1,13 @@
+$fontFamily: 'Source Sans Pro', sans-serif;
+// $fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
 // colors
-$accentColor: #3eaf7c;
+$primaryColor: #0074d9;
+$secondaryColor: #ffa000;
+
+$accentColor: $primaryColor;
+$accentColorHover: $secondaryColor;
+
 $textColor: #2c3e50;
 $borderColor: #eaecef;
 $codeBgColor: #282c34;
@@ -17,4 +25,14 @@ $MQMobileNarrow: 419px;
 
 // code
 $lineNumbersWrapperWidth: 3.5rem;
-$codeLang: "js ts html md vue css sass scss less stylus go java c sh yaml py"
+$codeLang: js ts html md vue css sass scss less stylus go java c sh yaml py;
+
+//
+// Footer
+//
+$footerBg: #e6e6e6;
+$footerContentBg: #ddd;
+$footerLinkColor: $accentColorHover;
+$footerLinkColorHover: $accentColor;
+$footerHeadingColor: #0c3645;
+

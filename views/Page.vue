@@ -4,23 +4,6 @@
 
     <Content :custom="false"/>
 
-    <div class="page-edit">
-      <div class="edit-link"
-           v-if="editLink">
-        <a :href="editLink"
-           target="_blank"
-           rel="noopener noreferrer"
-        >{{ editLinkText }}</a>
-        <OutboundLink/>
-      </div>
-
-      <div class="last-updated"
-           v-if="lastUpdated">
-        <span class="prefix">{{ lastUpdatedText }}: </span>
-        <span class="time">{{ lastUpdated }}</span>
-      </div>
-    </div>
-
     <div class="page-nav" v-if="prev || next">
       <p class="inner">
         <span v-if="prev"
@@ -54,21 +37,6 @@
     props: ['sidebarItems'],
 
     computed: {
-      lastUpdated() {
-        if (this.$page.lastUpdated) {
-          return new Date(this.$page.lastUpdated).toLocaleString(this.$lang);
-        }
-      },
-
-      lastUpdatedText() {
-        if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
-          return this.$themeLocaleConfig.lastUpdated;
-        }
-        if (typeof this.$site.themeConfig.lastUpdated === 'string') {
-          return this.$site.themeConfig.lastUpdated;
-        }
-        return 'Last Updated';
-      },
 
       prev() {
         const prev = this.$page.frontmatter.prev;
@@ -90,66 +58,6 @@
         } else {
           return resolveNext(this.$page, this.sidebarItems);
         }
-      },
-
-      editLink() {
-        if (this.$page.frontmatter.editLink === false) {
-          return;
-        }
-        const {
-          repo,
-          editLinks,
-          docsDir = '',
-          docsBranch = 'master',
-          docsRepo = repo
-        } = this.$site.themeConfig;
-
-        let path = normalize(this.$page.path);
-        if (endingSlashRE.test(path)) {
-          path += 'readme.md';
-        } else {
-          path += '.md';
-        }
-        if (docsRepo && editLinks) {
-          return this.createEditLink(repo, docsRepo, docsDir, docsBranch, path);
-        }
-      },
-
-      editLinkText() {
-        return (
-          this.$themeLocaleConfig.editLinkText ||
-          this.$site.themeConfig.editLinkText ||
-          `Edit this page`
-        );
-      }
-    },
-
-    methods: {
-      createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
-        const bitbucket = /bitbucket.org/;
-        if (bitbucket.test(repo)) {
-          const base = outboundRE.test(docsRepo)
-            ? docsRepo
-            : repo;
-          return (
-            base.replace(endingSlashRE, '') +
-            `/${docsBranch}` +
-            (docsDir ? '/' + docsDir.replace(endingSlashRE, '') : '') +
-            path +
-            `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
-          );
-        }
-
-        const base = outboundRE.test(docsRepo)
-          ? docsRepo
-          : `https://github.com/${docsRepo}`;
-
-        return (
-          base.replace(endingSlashRE, '') +
-          `/edit/${docsBranch}` +
-          (docsDir ? '/' + docsDir.replace(endingSlashRE, '') : '') +
-          path
-        );
       }
     }
   };

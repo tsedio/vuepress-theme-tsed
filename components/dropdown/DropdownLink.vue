@@ -17,11 +17,15 @@
             <li class="dropdown-subitem"
                 :key="childSubItem.link"
                 v-for="childSubItem in subItem.items">
-              <NavLink :item="childSubItem"/>
+              <NavLink :href="childSubItem.link">
+                {{childSubItem.text}}
+              </NavLink>
             </li>
           </ul>
 
-          <NavLink v-else :item="subItem"/>
+          <NavLink v-else :href="subItem.link">
+            {{subItem.text}}
+          </NavLink>
         </li>
       </ul>
     </DropdownTransition>

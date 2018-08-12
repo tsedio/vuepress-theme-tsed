@@ -3,13 +3,10 @@
        :class="pageClasses"
        @touchstart="onTouchStart"
        @touchend="onTouchEnd">
-    <Navbar v-if="shouldShowNavbar"
-            @toggle-sidebar="toggleSidebar"/>
 
-    <div class="sidebar-mask"
-         @click="toggleSidebar(false)">
+    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
 
-    </div>
+    <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
     <Sidebar :items="sidebarItems"
              @toggle-sidebar="toggleSidebar">
@@ -28,7 +25,10 @@
       <slot name="page-bottom" slot="bottom"/>
     </Page>
 
+    <Footer></Footer>
+
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
+
   </div>
 </template>
 
@@ -37,13 +37,14 @@
   import Vue from 'vue';
   import Navbar from './components/navbar/Navbar.vue';
   import Sidebar from './components/sidebar/Sidebar.vue';
+  import Footer from './components/footer/Footer.vue';
   import SWUpdatePopup from './components/sw-update-popop/SWUpdatePopup.vue';
   import { resolveSidebarItems } from './utils/index';
   import Home from './views/Home.vue';
   import Page from './views/Page.vue';
 
   export default {
-    components: { Home, Page, Sidebar, Navbar, SWUpdatePopup },
+    components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, Footer },
 
     data() {
       return {

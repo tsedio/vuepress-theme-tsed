@@ -1,0 +1,48 @@
+@import "~sass-rem/rem";
+@import "../../styles/variables";
+
+$footerBg: #e6e6e6 !default;
+$footerContentBg: #ddd !default;
+$footerLinkColor: #3eaf7c !default;
+$footerLinkColorHover: #3eaf7c !default;
+$footerHeadingColor: #0c3645 !default;
+
+.footer {
+  background: $footerBg;
+
+  &__content {
+    position: relative;
+    padding: 40px 50px;
+    padding-right: 105px;
+    background: $footerContentBg;
+  }
+
+  &__improve-docs {
+    text-align: center;
+    padding: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $footerLinkColor;
+    font-weight: 600;
+    &:hover {
+      color: $footerLinkColorHover;
+    }
+  }
+
+  p {
+    font-size: rem(12px);
+  }
+
+  &__next-step-header {
+    font-size: 1.25em;
+    color: $footerHeadingColor;
+  }
+
+  .github-stars {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+  }
+}

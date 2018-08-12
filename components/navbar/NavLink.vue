@@ -3,16 +3,18 @@
                :to="link"
                v-if="!isExternal(link)"
                :exact="exact">
-    {{ item.text }}
+    <slot></slot>
   </router-link>
+
   <a v-else
      :href="link"
      class="nav-link external"
      :target="isMailto(link) || isTel(link) ? null : '_blank'"
      :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'">
-    {{ item.text }}
+    <slot></slot>
     <OutboundLink/>
   </a>
+
 </template>
 
 <script>
@@ -20,14 +22,15 @@
 
   export default {
     props: {
-      item: {
+      href: {
+        type: String,
         required: true
       }
     },
 
     computed: {
       link() {
-        return ensureExt(this.item.link);
+        return ensureExt(this.href);
       },
 
       exact() {
