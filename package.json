@@ -1,0 +1,19 @@
+{
+  "name": "vuepress-theme-tsed",
+  "version": "1.0.0",
+  "description": "Vuepress theme for tsed.io",
+  "main": "utils/index.js",
+  "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
+  "author": "Romain Lenzotti",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "vuepress": "^0.14.1"
+  }
+}
