@@ -104,4 +104,4 @@
   };
 </script>
 
-<style lang="stylus" src="./NavLinks.styl"></style>
+<style lang="scss" src="./NavLinks.scss"></style>

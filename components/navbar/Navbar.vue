@@ -73,4 +73,4 @@
   }
 </script>
 
-<style lang="stylus" src="./Navbar.styl"></style>
+<style lang="scss" src="./Navbar.scss"></style>

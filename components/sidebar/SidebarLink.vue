@@ -58,4 +58,4 @@
   }
 </script>
 
-<style lang="stylus" src="SidebarLink.styl"></style>
+<style lang="scss" src="./SidebarLink.scss"></style>

@@ -8,4 +8,4 @@
   </div>
 </template>
 
-<style lang="stylus" src="./SidebarButton.styl"></style>
+<style lang="scss" src="./SidebarButton.scss"></style>

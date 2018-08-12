@@ -6438,6 +6438,14 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
+vuepress-theme-tsed@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-tsed/-/vuepress-theme-tsed-1.0.0.tgz#0fba873ad500f15eb1e06e9f7184a3b475ff875f"
+  dependencies:
+    node-sass "^4.9.3"
+    sass-loader "^7.1.0"
+    vuepress "^0.14.1"
+
 vuepress@^0.14.1:
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/vuepress/-/vuepress-0.14.1.tgz#4b3fc46601ce2fd8ff2265a2e39098b9f9580c58"

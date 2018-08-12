@@ -52,4 +52,4 @@
     }
   };
 </script>
-<style lang="stylus" src="./AlgoliaSeachBox.styl"></style>
+<style lang="scss" src="AlgoliaSeachBox.scss"></style>

@@ -33,6 +33,6 @@
   };
 </script>
 
-<style lang="stylus" src="./SidebarGroup.styl">
+<style lang="scss" src="./SidebarGroup.scss">
 
 </style>

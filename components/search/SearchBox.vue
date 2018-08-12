@@ -145,4 +145,4 @@
   };
 </script>
 
-<style lang="stylus" src="./SearchBox.styl"></style>
+<style lang="scss" src="./SearchBox.scss"></style>

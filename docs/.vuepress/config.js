@@ -2,6 +2,7 @@ module.exports = {
   title: 'Ts.ED',
   description: 'A TypeScript Framework on top of Express',
   serviceWorker: false,
+  theme: 'tsed',
   themeConfig: {
     repo: 'romakita/ts-express-decorators',
     editLinks: true,
@@ -14,14 +15,14 @@ module.exports = {
         lastUpdated: 'Last Updated',
         serviceWorker: {
           updatePopup: {
-            message: "New content is available.",
-            buttonText: "Refresh"
+            message: 'New content is available.',
+            buttonText: 'Refresh'
           }
         },
         nav: [
           {
             text: 'Guide',
-            link: '/guide/',
+            link: '/guide/'
           },
           {
             text: 'Config Reference',

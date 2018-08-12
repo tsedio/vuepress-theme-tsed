@@ -76,4 +76,4 @@
   }
 </script>
 
-<style lang="stylus" src="./Sidebar.styl"></style>
+<style lang="scss" src="./Sidebar.scss"></style>

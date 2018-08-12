@@ -24,4 +24,4 @@
   };
 </script>
 
-<style lang="stylus" src="./DropdownTransition.styl"></style>
+<style lang="scss" src="./DropdownTransition.scss"></style>

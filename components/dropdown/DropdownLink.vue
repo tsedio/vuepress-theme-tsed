@@ -55,4 +55,4 @@
   };
 </script>
 
-<style lang="stylus" src="./DropdownLink.styl"></style>
+<style lang="scss" src="./DropdownLink.scss"></style>
