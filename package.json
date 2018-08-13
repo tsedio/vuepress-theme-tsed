@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "include-media": "^1.4.9",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "sass-rem": "^2.0.1",

@@ -1,10 +1,12 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="footer__improve-docs" v-if="editLink">
-      <p>
-        {{userFooter.caughtMistake}}
-        <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ userFooter.editPageOnGithub }}</a>
-      </p>
+      <div class="container">
+        <p>
+          {{userFooter.caughtMistake}}
+          <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ userFooter.editPageOnGithub }}</a>
+        </p>
+      </div>
 
       <!--<div class="last-updated"
            v-if="lastUpdated">
@@ -13,34 +15,39 @@
       </div>-->
     </div>
 
-    <div class="footer__content">
+    <div class="container--footer">
+      <div class="container container--padded">
+        <div class="footer__content">
+          <div class="footer__next-step-header">
+            {{userFooter.contribute}}
+          </div>
 
-      <div class="footer__next-step-header">
-        {{userFooter.contribute}}
+          <p>
+            {{userFooter.helpToContribute}}
+            <a :href="repoLink">{{userFooter.githubRepository}}</a>
+          </p>
+
+          <div class="footer__next-step-header">
+            {{userFooter.license}}
+          </div>
+
+          <p>
+            {{userFooter.releaseUnder}} <a href="#/license">MIT License</a> - © Copyright 2016 - {{date}}.
+          </p>
+
+          <GithubStars></GithubStars>
+        </div>
       </div>
-
-      <p>
-        {{userFooter.helpToContribute}}
-        <github-repository>{{userFooter.githubRepository}}</github-repository>
-      </p>
-
-      <div class="page-footer__next-step-header">
-        {{userFooter.license}}
-      </div>
-
-      <p>
-        {{userFooter.releaseUnder}} <a href="#/license">MIT License</a> - © Copyright 2016 - {{date}}.
-      </p>
-
-      <github-stars></github-stars>
     </div>
-  </div>
+  </footer>
 </template>
 <script>
   import { endingSlashRE, normalize, outboundRE } from '../../utils/index';
+  import GithubStars from '../github-stars/GithubStars';
 
   export default {
     name: 'Footer',
+    components: { GithubStars },
     data() {
       return {
         date: new Date().getFullYear()
@@ -49,6 +56,16 @@
     computed: {
       userFooter() {
         return this.$themeLocaleConfig.footer || this.$site.themeConfig.footer || {};
+      },
+
+      repoLink() {
+        const {
+          repo
+        } = this.$site.themeConfig;
+
+        return outboundRE.test(repo)
+          ? repo
+          : `https://github.com/${repo}`;
       },
 
       editLink() {
@@ -94,20 +111,6 @@
     methods: {
 
       createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
-        const bitbucket = /bitbucket.org/;
-        if (bitbucket.test(repo)) {
-          const base = outboundRE.test(docsRepo)
-            ? docsRepo
-            : repo;
-          return (
-            base.replace(endingSlashRE, '') +
-            `/${docsBranch}` +
-            (docsDir ? '/' + docsDir.replace(endingSlashRE, '') : '') +
-            path +
-            `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
-          );
-        }
-
         const base = outboundRE.test(docsRepo)
           ? docsRepo
           : `https://github.com/${docsRepo}`;

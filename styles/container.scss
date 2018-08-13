@@ -1,5 +1,23 @@
+@import "mixins/variables";
+
 .container {
-  max-width: 960px;
-  padding: 0 2rem 0;
-  margin: 0px auto;
+  max-width: $containerMaxWidth;
+  padding: 0 $containerGutter 0;
+  margin: 0 auto;
+
+  &--grey-lighter {
+    background: $greyLighterColor;
+  }
+
+  &--primary-color {
+    background: $primaryColor;
+  }
+
+  &--padded {
+    padding-top: rem(40px);
+    padding-bottom: rem(40px);
+  }
+  &--centered {
+    text-align: center;
+  }
 }

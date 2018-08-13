@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import '../../styles/mixins/index';
 
 .sidebar .sidebar-sub-headers {
   padding-left: 1rem;
@@ -19,8 +19,8 @@ a.sidebar-link {
   }
   &.active {
     font-weight: 600;
-    color: $accentColor;
-    border-left-color: $accentColor;
+    color: $secondaryColor;
+    border-left-color: $secondaryColor;
   }
   .sidebar-group & {
     padding-left: 2rem;

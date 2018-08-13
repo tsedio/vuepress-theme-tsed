@@ -1,7 +1,8 @@
-@import '../../styles/variables';
+@import '../../styles/mixins/index';
 
 .dropdown-wrapper {
   cursor: pointer;
+
   .dropdown-title {
     display: block;
     &:hover {
@@ -9,11 +10,14 @@
     }
     .arrow {
       vertical-align: middle;
-      margin-top: -1px;
+      margin-top: 3px;
       margin-left: 0.4rem;
     }
   }
+
   .nav-dropdown {
+    color: $textColor;
+
     .dropdown-item {
       color: inherit;
       line-height: 1.7rem;
@@ -64,34 +68,35 @@
   }
 }
 
-@media (max-width: $MQMobile) {
-  .dropdown-wrapper {
-    &.open .dropdown-title {
-      margin-bottom: 0.5rem;
-    }
-    .nav-dropdown {
-      transition: height .1s ease-out;
-      overflow: hidden;
-      .dropdown-item {
-        h4 {
-          border-top: 0;
-          margin-top: 0;
-          padding-top: 0;
-        }
-        h4, & > a {
-          font-size: 15px;
-          line-height: 2rem;
-        }
-        .dropdown-subitem {
-          font-size: 14px;
-          padding-left: 1rem;
-        }
-      }
-    }
-  }
-}
+//@media (max-width: map_get($breakpoints, 'medium')) {
+//  .dropdown-wrapper {
+//    &.open .dropdown-title {
+//      margin-bottom: 0.5rem;
+//    }
+//    .nav-dropdown {
+//      transition: height .1s ease-out;
+//      overflow: hidden;
+//      .dropdown-item {
+//        h4 {
+//          border-top: 0;
+//          margin-top: 0;
+//          padding-top: 0;
+//        }
+//        h4, & > a {
+//          font-size: 15px;
+//          line-height: 2rem;
+//        }
+//        .dropdown-subitem {
+//          font-size: 14px;
+//          padding-left: 1rem;
+//        }
+//      }
+//    }
+//  }
+//}
 
-@media (min-width: $MQMobile) {
+@include media(">medium") {
+
   .dropdown-wrapper {
     height: 1.8rem;
     &:hover .nav-dropdown {
@@ -111,16 +116,14 @@
       height: auto !important;
       box-sizing: border-box;
       max-height: calc(100vh - 2.7rem);
+      @include box-shadow(0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2));
       overflow-y: auto;
       position: absolute;
       top: 100%;
       right: 0;
       background-color: #fff;
       padding: 0.6rem 0;
-      border: 1px solid #ddd;
-      border-bottom-color: #ccc;
       text-align: left;
-      border-radius: 0.25rem;
       white-space: nowrap;
       margin: 0;
     }

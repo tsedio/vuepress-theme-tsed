@@ -1,13 +1,9 @@
-@import 'variables';
+@import 'mixins/index';
 @import 'fonts/source-sans-pro';
 @import 'fonts/inconsolata';
 // @import 'fonts/prestashop-icon';
-@import 'mixins/wrapper';
-@import 'mixins/background';
-@import 'mixins/border';
-@import 'mixins/box-shadow';
-@import 'mixins/color';
 @import 'container';
+@import 'heading';
 @import 'nprogress';
 @import 'code';
 @import 'custom-blocks';

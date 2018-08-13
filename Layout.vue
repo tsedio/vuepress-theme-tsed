@@ -4,28 +4,40 @@
        @touchstart="onTouchStart"
        @touchend="onTouchEnd">
 
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
+    <Navbar v-if="shouldShowNavbar"
+            :class="{'--fluid': shouldShowSidebar}"
+            @toggle-sidebar="toggleSidebar"/>
 
-    <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
+    <main class="main-content">
+      <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
-    <Sidebar :items="sidebarItems"
-             @toggle-sidebar="toggleSidebar">
-      <slot name="sidebar-top" slot="top"/>
-      <slot name="sidebar-bottom" slot="bottom"/>
-    </Sidebar>
+      <Sidebar :items="sidebarItems"
+               @toggle-sidebar="toggleSidebar">
+        <slot name="sidebar-top" slot="top"/>
+        <slot name="sidebar-bottom" slot="bottom"/>
+      </Sidebar>
 
-    <div class="custom-layout" v-if="$page.frontmatter.layout">
-      <component :is="$page.frontmatter.layout"/>
-    </div>
+      <div class="custom-layout" v-if="isCustomLayout">
+        <component :is="$page.frontmatter.layout"/>
+      </div>
 
-    <Home v-else-if="$page.frontmatter.home"/>
+      <Home v-else-if="isHome"/>
+      <Contributing v-else-if="isContributing"/>
 
-    <Page v-else :sidebar-items="sidebarItems">
-      <slot name="page-top" slot="top"/>
-      <slot name="page-bottom" slot="bottom"/>
-    </Page>
+      <Page v-else :sidebar-items="sidebarItems">
+        <slot name="page-top" slot="top"/>
+        <slot name="page-bottom" slot="bottom"/>
+        <OtherTopics slot="bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
+          <h3 class="heading" slot="top">
+            Other <br/><b>topics</b>
+          </h3>
+        </OtherTopics>
+      </Page>
 
-    <Footer></Footer>
+
+    </main>
+
+    <Footer :class="{'--with-sidebar': shouldShowSidebar}"></Footer>
 
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
 
@@ -35,16 +47,32 @@
 <script>
   import nprogress from 'nprogress';
   import Vue from 'vue';
-  import Navbar from './components/navbar/Navbar.vue';
-  import Sidebar from './components/sidebar/Sidebar.vue';
+  import Banner from './components/banner/Banner.vue';
   import Footer from './components/footer/Footer.vue';
-  import SWUpdatePopup from './components/sw-update-popop/SWUpdatePopup.vue';
-  import { resolveSidebarItems } from './utils/index';
+  import Gist from './components/gist/Gist.vue';
+  import Navbar from './components/navbar/Navbar.vue';
+  import OtherTopics from './components/other-topics/OtherTopics';
+  import Sidebar from './components/sidebar/Sidebar.vue';
+  import SWUpdatePopup from './components/sw-update-popup/SWUpdatePopup.vue';
+  import { resolveOtherTopicsItems, resolveSidebarItems } from './utils/index';
   import Home from './views/Home.vue';
   import Page from './views/Page.vue';
+  import Contributing from './views/Contributing.vue';
+
+  Vue.component('Gist', Gist);
+  Vue.component('Banner', Banner);
 
   export default {
-    components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, Footer },
+    components: {
+      OtherTopics,
+      Home,
+      Page,
+      Contributing,
+      Sidebar,
+      Navbar,
+      SWUpdatePopup,
+      Footer
+    },
 
     data() {
       return {
@@ -54,6 +82,25 @@
     },
 
     computed: {
+
+      isHome() {
+        const { home, layout } = this.$page.frontmatter;
+
+        return home || layout === 'home';
+      },
+
+
+      isContributing() {
+        const { layout } = this.$page.frontmatter;
+
+        return layout === 'contributing';
+      },
+
+      isCustomLayout() {
+        const { layout } = this.$page.frontmatter;
+        return !this.isHome && ['contributing'].indexOf(layout);
+      },
+
       shouldShowNavbar() {
         const { themeConfig } = this.$site;
         const { frontmatter } = this.$page;
@@ -75,14 +122,33 @@
         const { frontmatter } = this.$page;
         return (
           !frontmatter.layout &&
-          !frontmatter.home &&
+          !this.isHome &&
           frontmatter.sidebar !== false &&
           this.sidebarItems.length
         );
       },
 
+      shouldShowOtherTopics() {
+        const { frontmatter } = this.$page;
+        return (
+          !frontmatter.layout &&
+          !this.isHome &&
+          frontmatter.otherTopics !== false &&
+          this.otherTopicsItems.length
+        );
+      },
+
       sidebarItems() {
         return resolveSidebarItems(
+          this.$page,
+          this.$route,
+          this.$site,
+          this.$localePath
+        );
+      },
+
+      otherTopicsItems() {
+        return resolveOtherTopicsItems(
           this.$page,
           this.$route,
           this.$site,

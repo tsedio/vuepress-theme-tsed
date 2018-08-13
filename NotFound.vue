@@ -4,24 +4,40 @@
        @touchstart="onTouchStart"
        @touchend="onTouchEnd">
 
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
+    <Navbar v-if="shouldShowNavbar"
+            :class="{'--fluid': shouldShowSidebar}"
+            @toggle-sidebar="toggleSidebar"/>
 
-    <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
+    <main class="main-content">
+      <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
-    <Sidebar :items="sidebarItems"
-             @toggle-sidebar="toggleSidebar">
-      <slot name="sidebar-top" slot="top"/>
-      <slot name="sidebar-bottom" slot="bottom"/>
-    </Sidebar>
+      <Sidebar :items="sidebarItems"
+               v-if="shouldShowNavbar"
+               @toggle-sidebar="toggleSidebar">
+        <slot name="sidebar-top" slot="top"/>
+        <slot name="sidebar-bottom" slot="bottom"/>
+      </Sidebar>
 
-    <div class="home">
-      <Content :custom="false"/>
+      <div class="home">
+        <div class="page">
+          <article class="container">
+            <slot name="top"/>
 
-      <h1>404</h1>
-      <blockquote>{{ getMsg() }}</blockquote>
-      <router-link to="/">Take me home.</router-link>
+            <h1>Page not found</h1>
+            <blockquote>{{ getMsg() }}</blockquote>
+            <router-link to="/">Take me home.</router-link>
 
-    </div>
+            <p>In the meantime you can look at the following pages:</p>
+
+            <Content :custom="false"/>
+
+            <slot name="bottom"/>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <Footer :class="{'--with-sidebar': shouldShowSidebar}"></Footer>
 
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
   </div>
@@ -30,9 +46,10 @@
 <script>
   import nprogress from 'nprogress';
   import Vue from 'vue';
+  import Footer from './components/footer/Footer.vue';
   import Navbar from './components/navbar/Navbar.vue';
   import Sidebar from './components/sidebar/Sidebar.vue';
-  import SWUpdatePopup from './components/sw-update-popop/SWUpdatePopup.vue';
+  import SWUpdatePopup from './components/sw-update-popup/SWUpdatePopup.vue';
   import { resolveSidebarItems } from './utils/index';
   import Home from './views/Home.vue';
   import Page from './views/Page.vue';
@@ -45,7 +62,14 @@
   ];
 
   export default {
-    components: { Home, Page, Sidebar, Navbar, SWUpdatePopup },
+    components: {
+      Home,
+      Page,
+      Sidebar,
+      Navbar,
+      SWUpdatePopup,
+      Footer
+    },
 
     data() {
       return {
@@ -78,7 +102,7 @@
           !frontmatter.layout &&
           !frontmatter.home &&
           frontmatter.sidebar !== false &&
-          this.sidebarItems.length
+          this.sidebarItems.length > 1
         );
       },
 
@@ -93,6 +117,7 @@
 
       pageClasses() {
         const userPageClass = this.$page.frontmatter.pageClass;
+
         return [
           {
             'no-navbar': !this.shouldShowNavbar,

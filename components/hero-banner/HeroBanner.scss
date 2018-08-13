@@ -1,5 +1,4 @@
-@import "~sass-rem/rem";
-@import "../../styles/variables";
+@import "../../styles/mixins/index";
 
 $sq-size: 75px;
 $heroBannerBg: #3872cc !default;
@@ -10,63 +9,7 @@ $heroBannerColorDark1: $heroBannerBg !default;
 $heroBannerColorDark2: #3a74ce !default;
 $heroBannerColorDark3: #326cc6 !default;
 
-@mixin sq-big($color1, $w: 3, $h: 3) {
-  position: absolute;
-  width: calc(#{$sq-size} * #{$w});
-  height: calc(#{$sq-size} * #{$h});
-  background: $color1;
-}
-
-@mixin sq-variant($color1) {
-  position: absolute;
-  width: $sq-size;
-  height: $sq-size;
-  background: $color1;
-}
-
-@mixin sq-variant2($color1, $color2) {
-  position: absolute;
-  width: $sq-size;
-  height: $sq-size;
-  background: $color1;
-  transform: skew(45deg);
-  transform-origin: 0 0;
-  overflow: hidden;
-  &:before {
-    content: "";
-    right: -37px;
-    position: absolute;
-    width: $sq-size;
-    height: $sq-size;
-    background: $color2;
-    transform: skew(-45deg);
-  }
-}
-
-@mixin sq-variant3($color1) {
-  position: absolute;
-  width: $sq-size;
-  height: $sq-size;
-  background: $color1;
-  transform: skew(0, 45deg);
-  transform-origin: 0 0;
-  overflow: hidden;
-}
-
-@mixin sq-variant4($color1, $color2) {
-  @include sq-big($color1, 1, 1);
-  &:before {
-    content: "";
-    position: absolute;
-    width: $sq-size;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background: $color2;
-    transform: skew(45deg);
-    transform-origin: 0 0;
-  }
-}
+@import "background";
 
 .hero-banner {
   $root: this;
@@ -76,11 +19,12 @@ $heroBannerColorDark3: #326cc6 !default;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 
   color: $heroBannerColor;
   text-align: center;
   padding: rem(10px);
-  height: calc(100vh - #{$navbarHeight});
+  height: calc(70vh - #{$navbarHeight});
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,7 +39,7 @@ $heroBannerColorDark3: #326cc6 !default;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    margin: -20px 16px 0;
+    margin: 0px 16px 0;
     text-align: center;
     z-index: 1;
   }
@@ -137,7 +81,7 @@ $heroBannerColorDark3: #326cc6 !default;
     font-size: 1.5rem;
     text-align: center;
     color: white;
-    margin-bottom: 50px;
+    margin-bottom: rem(40);
   }
 
   &__terms {
@@ -146,188 +90,32 @@ $heroBannerColorDark3: #326cc6 !default;
     margin: 1em auto;
     max-width: 500px;
     padding: 0;
+
     li {
-      color: $secondaryColor;
       font-weight: bold;
-    }
-  }
+      display: inline-block;
+      padding: 5px;
 
-  &__bg {
-    z-index: 0;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    width: 350px;
-    overflow: hidden;
-    transform: scale3d(1, 1, 1);
-
-    &.hero-banner__bg-2 {
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: unset;
-      transform: scaleX(-1);
-    }
-
-    > div {
-      position: absolute;
-      transform: rotate(45deg) skew(-15deg, -15deg);
-      top: 50%;
-      margin-top: -400px;
-      left: 315px;
-    }
-
-    .sq-1 {
-      left: 0px;
-      top: calc(#{$sq-size} * 1);
-      z-index: 3;
-
-      @include sq-big($heroBannerColorLight1);
-
-      .sqv-1 {
-        left: $sq-size;
-        top: calc(#{$sq-size} * 1);
-        @include sq-variant($heroBannerColorLight2);
-      }
-
-      .sqv-2 {
-        left: calc(#{$sq-size} * 1);
-        top: calc(#{$sq-size} * 1);
-        @include sq-variant2($heroBannerColorDark1, $heroBannerColorDark2);
-      }
-    }
-
-    .sq-2 {
-      z-index: 2;
-      left: calc(#{$sq-size} * 2);
-      top: calc(#{$sq-size} * 2);
-      @include sq-big($heroBannerColorLight2);
-
-      .sqv-1 {
-        left: calc(#{$sq-size} * 1);
-        top: calc(#{$sq-size} * 0);
-        @include sq-variant3($heroBannerColorDark1);
-      }
-
-      .sqv-2 {
-        left: calc(#{$sq-size} * 0);
-        top: calc(#{$sq-size} * 2);
-        @include sq-variant2($heroBannerColorDark2, $heroBannerColorDark1);
-      }
-    }
-    .sq-3 {
-      z-index: 1;
-      left: calc(#{$sq-size} * 3);
-      top: calc(#{$sq-size} * 4);
-      @include sq-big($heroBannerColorDark1);
-
-      .sqv-1 {
-        left: calc(#{$sq-size} * 0);
-        top: calc(#{$sq-size} * 1);
-        @include sq-variant2($heroBannerColorLight2, $heroBannerColorLight2);
-      }
-
-      .sqv-2 {
-        content: '';
-        position: absolute;
-        left: calc(#{$sq-size} * 2);
-        top: calc(#{$sq-size} * 0);
-        width: $sq-size;
-        height: $sq-size;
-        background: $heroBannerColorDark2;
-      }
-    }
-
-    .sq-4 {
-      z-index: 2;
-      left: calc(#{$sq-size} * 5);
-      top: calc(#{$sq-size} * 5);
-      @include sq-big($heroBannerColorLight2);
-
-    }
-
-    .sq-5 {
-      z-index: 2;
-      left: calc(#{$sq-size} * 4);
-      top: calc(#{$sq-size} * 6);
-      @include sq-big($heroBannerColorDark1, 2, 3);
-
-      .sqv-1 {
-        left: calc(#{$sq-size} * 1);
-        top: calc(#{$sq-size} * 0);
-        @include sq-variant2($heroBannerColorDark2, $heroBannerColorLight1);
-      }
-    }
-
-    .sq-6 {
-      z-index: 2;
-      left: calc(#{$sq-size} * 6);
-      top: calc(#{$sq-size} * 8);
-      @include sq-big($heroBannerColorDark1, 3, 2);
-
-      .sqv-1 {
-        left: calc(#{$sq-size} * 1);
-        top: calc(#{$sq-size} * -1);
-        @include sq-big($heroBannerColorLight2, 1, 3);
-      }
-
-      .sqv-2 {
-        left: calc(#{$sq-size} * 0);
-        top: calc(#{$sq-size} * 1);
-
-        @include sq-variant4($heroBannerColorLight1, $heroBannerColorDark1);
-
-        &:before {
-          top: -1px;
-          bottom: -1px;
-        }
-      }
-
-      .sqv-3 {
-        overflow: hidden;
-        left: calc(#{$sq-size} * 2);
-        top: calc(#{$sq-size} * 0);
-        @include sq-variant4($heroBannerColorDark3, $heroBannerColorLight1);
+      &:before {
+        color: $secondaryColor;
+        content: "# ";
       }
     }
   }
 
-  @media only screen and (min-width: 1355px) {
-    &__bg {
-      transform: scale(1.49);
-      width: 550px;
-
-      &.hero-banner__bg-2 {
-        transform: scale(-1.49, 1.49);
-      }
-
-      > div {
-        left: 415px;
-      }
-    }
-  }
-
-  @media only screen and (max-width: 425px) {
-    &__bg {
-      > div {
-        left: 420px;
-        margin-top: -300px;
-      }
-    }
-  }
-
-  @media only screen and (max-width: 375px) {
-    &__bg {
-      > div {
-        left: 440px;
-        margin-top: -300px;
-      }
-    }
-  }
 }
 
-@media (max-width: $MQMobileNarrow) {
+@media (max-width: map_get($breakpoints, 'medium')) {
+  .hero-banner {
+    height: calc(100vh - #{$navbarHeight});
+    min-height: 400px;
+    h1 {
+      font-size: 80px;
+    }
+    .button {
+      width: 80%;
+    }
+  }
   /*.hero-banner {
     img {
       max-height: 210px;

@@ -11,8 +11,9 @@
            @keyup.enter="go(focusIndex)"
            @keyup.up="onUp"
            @keyup.down="onDown">
+    <div class="search-box__wrapper"></div>
     <ul class="suggestions"
-        v-if="showSuggestions"
+
         :class="{ 'align-right': alignRight }"
         @mouseleave="unfocus">
       <li class="suggestion"

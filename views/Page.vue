@@ -1,11 +1,12 @@
 <template>
   <div class="page">
-    <slot name="top"/>
+    <article class="container">
+      <slot name="top"/>
 
-    <Content :custom="false"/>
+      <Content :custom="false"/>
 
-    <div class="page-nav" v-if="prev || next">
-      <p class="inner">
+      <div class="page-nav" v-if="prev || next">
+        <p class="inner">
         <span v-if="prev"
               class="prev">
           ←
@@ -16,22 +17,24 @@
           </router-link>
         </span>
 
-        <span v-if="next"
-              class="next">
+          <span v-if="next"
+                class="next">
           <router-link v-if="next" :to="next.path">
             {{ next.title || next.path }}
           </router-link>
           →
         </span>
-      </p>
-    </div>
+        </p>
+      </div>
 
-    <slot name="bottom"/>
+      <slot name="bottom"/>
+
+    </article>
   </div>
 </template>
 
 <script>
-  import { endingSlashRE, normalize, outboundRE, resolvePage } from '../utils/index';
+  import { resolvePage } from '../utils/index';
 
   export default {
     props: ['sidebarItems'],

@@ -1,5 +1,4 @@
-@import "~sass-rem/rem";
-@import "../../styles/variables";
+@import "../../styles/mixins/index";
 
 $footerBg: #e6e6e6 !default;
 $footerContentBg: #ddd !default;
@@ -10,16 +9,18 @@ $footerHeadingColor: #0c3645 !default;
 .footer {
   background: $footerBg;
 
+  > .container--footer {
+    background: $footerContentBg;
+  }
+
   &__content {
     position: relative;
-    padding: 40px 50px;
     padding-right: 105px;
-    background: $footerContentBg;
   }
 
   &__improve-docs {
     text-align: center;
-    padding: 10px;
+    padding: 10px 0;
   }
 
   a {
@@ -36,13 +37,14 @@ $footerHeadingColor: #0c3645 !default;
   }
 
   &__next-step-header {
-    font-size: 1.25em;
+    font-size: 1.10em;
     color: $footerHeadingColor;
+    text-transform: uppercase;
   }
 
   .github-stars {
     position: absolute;
-    top: 30px;
-    right: 10px;
+    top: 0;
+    right: -#{$containerGutter};
   }
 }

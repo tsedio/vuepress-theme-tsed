@@ -1,5 +1,5 @@
 @import "~sass-rem/rem";
-@import "variables";
+@import "mixins/variables";
 
 .button {
   background: white;
@@ -34,6 +34,17 @@
       background: white;
       @include color($primaryColor, --primary-color);
       @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+    }
+  }
+
+  &.primary-color {
+    color: white;
+    @include background-color($primaryColor, --primary-color);
+    @include border(1px solid $primaryColor, --primary-color);
+    &:hover {
+      @include color($primaryColor, --primary-color);
+      border: 1px solid white;
+      background: white;
     }
   }
 }

@@ -6,7 +6,9 @@
            :src="logoSrc"
            alt="hero">
 
-      <h1>{{ title }}</h1>
+      <h1>{{ title }}
+        <small v-show="version">{{version}}</small>
+      </h1>
 
       <p class="hero-banner__description">
         {{ description }}
@@ -84,6 +86,10 @@
       title: {
         type: String,
         required: true
+      },
+      version: {
+        type: String,
+        required: false
       },
       description: {
         type: String,

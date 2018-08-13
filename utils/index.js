@@ -58,6 +58,7 @@ export function resolvePage(pages, rawPath, base) {
     rawPath = resolvePath(rawPath, base);
   }
   const path = normalize(rawPath);
+
   for (let i = 0; i < pages.length; i++) {
     if (normalize(pages[i].path) === path) {
       return Object.assign({}, pages[i], {
@@ -125,8 +126,33 @@ export function resolveSidebarItems(page, route, site, localePath) {
     return [];
   } else {
     const { base, config } = resolveMatchingConfig(route, sidebarConfig);
+    console.log('=>s', base, config);
     return config
       ? config.map(item => resolveItem(item, pages, base))
+      : [];
+  }
+}
+
+export function resolveOtherTopicsItems(page, route, site, localePath) {
+  const { pages, themeConfig } = site;
+  const localeConfig = localePath && themeConfig.locales
+    ? themeConfig.locales[localePath] || themeConfig
+    : themeConfig;
+
+  const otherTopicsConfig = localeConfig.otherTopics || themeConfig.otherTopics;
+
+  console.log(otherTopicsConfig);
+
+  if (!otherTopicsConfig) {
+    return [];
+  } else {
+    const { base, config } = resolveMatchingConfig(route, otherTopicsConfig);
+    console.log('=>', base, config);
+    return config
+      ? config.map(item => {
+        console.log(item);
+        return resolvePage(pages, item, base);
+      })
       : [];
   }
 }

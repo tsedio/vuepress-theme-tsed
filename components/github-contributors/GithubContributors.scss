@@ -1,0 +1,47 @@
+@import "../../styles/mixins/index";
+
+$contributorBadgeWidth: rem(80px) !default;
+$contributorBadgeItemsPerLine: 10;
+$contributorBadgeItemsPerLineMobile: 3;
+$contributorBadgeMarginRight: rem(40px);
+
+.contributors {
+
+  padding-top: 30px;
+
+  &.-white {
+    a {
+      color: #FFF
+    }
+  }
+
+  &__badge {
+    text-align: center;
+    display: inline-block;
+    width: calc((100% / #{$contributorBadgeItemsPerLine}) - #{$contributorBadgeMarginRight});
+    margin-right: $contributorBadgeMarginRight;
+    margin-bottom: 20px;
+
+    &-img {
+      width: 100%;
+      background: white;
+      border-radius: 20%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      transform: rotate3d(0, 0, -1, 30deg);
+
+      img {
+        width: 100%;
+        display: block;
+        transform: rotate3d(0, 0, 1, 30deg) scale(1.3);
+      }
+    }
+
+  }
+
+  @media (max-width: $MQMobile) {
+    &__badge {
+      width: calc((100% / #{$contributorBadgeItemsPerLineMobile}) - #{$contributorBadgeMarginRight});
+    }
+  }
+}
