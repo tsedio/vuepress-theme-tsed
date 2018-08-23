@@ -7,7 +7,7 @@ when they occur.
 
 This schemes resume the order of the server's lifecycle and a service's lifecycle.
 
-![lifecycle-hooks](_media/hooks-in-sequence.png)
+![lifecycle-hooks](./../assets/hooks-in-sequence.png)
 
 Hook method | Description
 --- | --- | ---
@@ -18,7 +18,7 @@ Hook method | Description
 [`$onReady`](#serverloaderonready-void) | Respond when the server is ready. At this step, HttpServer or/and HttpsServer object is available. The server listen the port.
 `$onServerInitError`| Respond when an error is triggered on server initialization.
 
-> For more information on Service hooks see [Services lifecycle hooks](/docs/services/lifecycle-hooks.md)
+> For more information on Service hooks see [Services lifecycle hooks](/docs/services.md#lifecycle-hook)
 
 ### Hooks examples
 #### ServerLoader.$onInit(): void | Promise

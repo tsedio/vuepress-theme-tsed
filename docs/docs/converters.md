@@ -232,7 +232,9 @@ export class ArrayConverter implements IConverter {
 }
 ```
 
-?> Note that this example will replace the default Ts.ED converter.
+::: tip Note
+This example will replace the default Ts.ED converter.
+:::
 
 It is therefore quite possible to replace all converters with your own classes (especially the Date).
 
@@ -344,5 +346,7 @@ const result = convertersService.deserialize({unknowProperty: "test"}, TaskModel
 console.log(result) // TaskModel {unknowProperty: "test"}
 ```
 
-?> If you have disabled `strict` validation at the global level, you can use the `@ModelStrict(true)` decorator
- to enable validation for a specific model.
+::: tip
+If you have disabled `strict` validation at the global level, you can use the `@ModelStrict(true)` decorator
+to enable validation for a specific model.
+:::

@@ -25,6 +25,7 @@
       <Contributing v-else-if="isContributing"/>
 
       <Page v-else :sidebar-items="sidebarItems">
+
         <slot name="page-top" slot="top"/>
         <slot name="page-bottom" slot="bottom"/>
         <OtherTopics slot="bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
@@ -33,7 +34,6 @@
           </h3>
         </OtherTopics>
       </Page>
-
 
     </main>
 
@@ -54,13 +54,15 @@
   import OtherTopics from './components/other-topics/OtherTopics';
   import Sidebar from './components/sidebar/Sidebar.vue';
   import SWUpdatePopup from './components/sw-update-popup/SWUpdatePopup.vue';
+  import Api from './components/api/Api.vue';
   import { resolveOtherTopicsItems, resolveSidebarItems } from './utils/index';
+  import Contributing from './views/Contributing.vue';
   import Home from './views/Home.vue';
   import Page from './views/Page.vue';
-  import Contributing from './views/Contributing.vue';
 
   Vue.component('Gist', Gist);
   Vue.component('Banner', Banner);
+  Vue.component('Api', Api);
 
   export default {
     components: {
@@ -98,7 +100,7 @@
 
       isCustomLayout() {
         const { layout } = this.$page.frontmatter;
-        return !this.isHome && ['contributing'].indexOf(layout);
+        return layout && !this.isHome && ['contributing'].indexOf(layout);
       },
 
       shouldShowNavbar() {
@@ -133,7 +135,7 @@
         return (
           !frontmatter.layout &&
           !this.isHome &&
-          frontmatter.otherTopics !== false &&
+          frontmatter.otherTopics === true &&
           this.otherTopicsItems.length
         );
       },

@@ -126,7 +126,7 @@ export function resolveSidebarItems(page, route, site, localePath) {
     return [];
   } else {
     const { base, config } = resolveMatchingConfig(route, sidebarConfig);
-    console.log('=>s', base, config);
+
     return config
       ? config.map(item => resolveItem(item, pages, base))
       : [];

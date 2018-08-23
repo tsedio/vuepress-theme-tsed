@@ -62,9 +62,11 @@ The previous example will generate the following JsonSchema:
 
 > This JsonSchema can be used by all modules supporting the JsonSchema spec.
 
-!> Some of you will notice that the `_id` property doesn't appear in the JsonSchema. It's very important to understand that
+::: warning
+Some of you will notice that the `_id` property doesn't appear in the JsonSchema. It's very important to understand that
 **TypeScript** only generates metadata on properties with at least one decorator.
 In the case of our model, it will always be necessary that there is at least one of the decorators of the list hereafter.
+:::
 
 ## Decorators
 

@@ -305,7 +305,7 @@ export class CalendarCtrl {
 When a request is sent to the server all middlewares added in the ServerLoader, Controller or Endpoint with decorators
  will be called while a response isn't sent by one of the middleware in the stack.
 
-<img src="_media/middleware-call-sequence.png" style="max-width:400px">
+<img src="./../assets/middleware-call-sequence.png" style="max-width:400px">
 
 > See [middleware call sequence](/docs/middlewares/call-sequence.md) for more information.
 

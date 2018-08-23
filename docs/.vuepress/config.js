@@ -4,13 +4,14 @@ module.exports = {
   serviceWorker: false,
   theme: 'tsed',
 
+
   themeConfig: {
     version: require('../../package').version,
     repo: 'romakita/ts-express-decorators',
     editLinks: true,
     docsDir: 'docs',
     sidebar: 'auto',
-
+    api: require('../api/api.json'),
     locales: {
       '/': {
         label: 'English',
@@ -62,13 +63,34 @@ module.exports = {
               { link: '/docs/scope.html', text: 'Scope' },
               { link: '/docs/filters.html', text: 'Filters' },
               { link: '/docs/interceptors.html', text: 'Interceptors' },
-              { link: '/docs/server-loader/_sidebar', text: 'ServerLoader' },
+              { link: '/docs/server-loader.html', text: 'ServerLoader' },
               { link: '/docs/testing.html', text: 'Testing' }
             ]
+          },
+          {
+            text: 'Api Reference',
+            link: '/api.html'
           }
         ],
 
         sidebar: {
+          '/docs/middlewares/': [{
+            title: 'Middlewares',
+            collapsable: false,
+            children: [
+              'global-middleware',
+              'global-error-middleware',
+              'endpoint-middleware',
+              'endpoint-error-middleware',
+              'call-sequence',
+              'override-middleware',
+              'override/authentication',
+              'override/global-error-handler',
+              'override/response-view',
+              'override/send-response'
+            ]
+          }],
+
           '/docs/': [{
             title: 'Documentation',
             collapsable: false,
@@ -87,6 +109,7 @@ module.exports = {
               'testing'
             ]
           }],
+
 
           '/tutorials/': [{
             title: 'Guide',

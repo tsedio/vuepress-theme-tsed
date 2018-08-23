@@ -153,7 +153,7 @@ export class MySocketService {
 
 You have a many choice to send a response to your client. Ts.ED offer some decorators to send a response:
 
-![socketio](_media/socketio.png)
+![socketio](./../assets/socketio.png)
 
 Example:
 

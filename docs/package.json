@@ -7,5 +7,6 @@
   },
   "devDependencies": {
     "vuepress-theme-tsed": "^1.0.0"
-  }
+  },
+  "dependencies": {}
 }

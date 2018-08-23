@@ -25,6 +25,7 @@ $heroBannerColorDark3: #326cc6 !default;
   text-align: center;
   padding: rem(10px);
   height: calc(70vh - #{$navbarHeight});
+  min-height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

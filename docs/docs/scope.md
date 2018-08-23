@@ -66,7 +66,9 @@ export class TokenMiddleware implements IMiddleware {
 
 For the Service, it's almost the case of the previous example, but you need to keep in mind this point:
 
-!> `@Scope` on service work only if the provider that uses it's annotated by `@Scope` decorator too.
+::: warning
+`@Scope` on service work only if the provider that uses it's annotated by `@Scope` decorator too.
+:::
 
 ```typescript
 @Service()
@@ -91,4 +93,6 @@ export class TokenMiddleware implements IMiddleware {
     }
 }
 ```
-!> <sup>(1)</sup> Leaving out `@Scope("request")` on `TokenMiddleware` will give an [InjectionScopeError](/api/common/di/injectionscopeerror.md).
+::: warning
+<sup>(1)</sup> Leaving out `@Scope("request")` on `TokenMiddleware` will give an [InjectionScopeError](/api/common/di/injectionscopeerror.md).
+:::

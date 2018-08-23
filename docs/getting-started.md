@@ -266,38 +266,6 @@ export class CalendarCtrl {
 
 To test your method, just run your `server.ts` and send a HTTP request on `/rest/calendars/1`.
 
-
-
 ### Ready for More?
 
 We’ve briefly introduced the most basic features of Ts.ED - the rest of this guide will cover them and other advanced features with much finer details, so make sure to read through it all!
-
-***
-
-### Other topics
-
-<div class="topics">
-  [Controllers](/docs/controllers.md)
-  [Services](/docs/services/README.md)
-  [Middlewares](/docs/middlewares/README.md)
-  [Scope](/docs/scope.md)
-  [Model](/docs/model.md)
-  [Converters](/docs/converters.md)
-  [Filters](/docs/filters.md)
-  [Interceptors](/docs/interceptors.md)
-  [Testing](/docs/testing.md)
-  [Authentication](/docs/middlewares/override/authentication.md)
-  [Global Error Handler](/docs/middlewares/override/global-error-handler.md)
-  [Guides](/tutorials/README.md)
-  [Passport.js](/tutorials/passport.md)
-  [TypeORM](/tutorials/typeorm.md)
-  [Mongoose](/tutorials/mongoose.md)
-  [Socket.io](/tutorials/socket-io.md)
-  [Swagger](/tutorials/swagger.md)
-  [AJV Validation](/tutorials/ajv.md)
-  [Upload files](/tutorials/upload-files-with-multer.md)
-  [Serve static files](/tutorials/serve-static-files.md)
-  [Templating](/tutorials/templating.md)
-  [Throw HTTP exceptions](/tutorials/throw-http-exceptions.md)
-  [AWS project](/tutorials/aws.md)
-</div>  

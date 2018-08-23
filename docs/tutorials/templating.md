@@ -3,7 +3,7 @@
 `@ResponseView()` or `@Render()` is a decorator that can be used on a controller method (endpoint).
 This decorator will use the response return by the method and will use the view to create the output.
 
-![templating-engine](_media/templating-engine.png)
+![templating-engine](./../assets/templating-engine.png)
 
 ## Installation
 This example use EJS as engine rendering. To use other engine, see the documentation of the concerned project. 
