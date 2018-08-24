@@ -55,6 +55,7 @@
   import Sidebar from './components/sidebar/Sidebar.vue';
   import SWUpdatePopup from './components/sw-update-popup/SWUpdatePopup.vue';
   import Api from './components/api/Api.vue';
+  import ApiList from './components/api-list/ApiList.vue';
   import { resolveOtherTopicsItems, resolveSidebarItems } from './utils/index';
   import Contributing from './views/Contributing.vue';
   import Home from './views/Home.vue';
@@ -63,6 +64,7 @@
   Vue.component('Gist', Gist);
   Vue.component('Banner', Banner);
   Vue.component('Api', Api);
+  Vue.component('ApiList', ApiList);
 
   export default {
     components: {

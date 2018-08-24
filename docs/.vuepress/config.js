@@ -12,6 +12,7 @@ module.exports = {
     docsDir: 'docs',
     sidebar: 'auto',
     api: require('../api/api.json'),
+    ga: 'UA-35240348-1',
     locales: {
       '/': {
         label: 'English',

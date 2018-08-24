@@ -13,35 +13,20 @@
     <div v-for="module in modules" v-if="module.symbols.length">
       <h2>{{module.name}}</h2>
 
-      <ul class="api-list">
-        <li class="api-item" v-for="symbol in module.symbols">
-          <a :href="symbolLink(symbol)"
-             :class="symbolLinkClass(symbol)"
-             :title="symbol.symbolName">
-
-            <span :class="'symbol ' + symbol.symbolType"></span>
-
-            <template v-if="symbolIsDreprecated(symbol)">
-              <del>{{symbol.symbolName}}</del>
-            </template>
-
-            <template v-else>
-              {{symbol.symbolName}}
-            </template>
-          </a>
-        </li>
-      </ul>
+      <ApiList :items="modules.symbols"></ApiList>
     </div>
 
 
   </div>
 </template>
 <script>
+  import ApiList from '../api-list/ApiList';
   import Select from '../select/Select';
 
   export default {
     name: 'Api',
     components: {
+      ApiList,
       Select
     },
 
@@ -64,15 +49,13 @@
             .symbols
             .filter((symbol) => {
 
-              if (!!this.currentType) {
-                if (symbol.symbolType !== this.currentType) {
-                  return false;
-                }
+              if (!!this.currentType && symbol.symbolType !== this.currentType) {
+                return false;
               }
 
-              // if (!!this.currentStatus) {
-              //  return symbol.symbolStatus === this.currentType;
-              // }
+              if (!!this.currentStatus && symbol.symbolStatus !== this.currentType) {
+                return false;
+              }
 
               if (!!this.keyword) {
                 return symbol.symbolName.toLowerCase().indexOf(this.keyword.toLocaleLowerCase()) > -1;
@@ -97,20 +80,6 @@
     },
 
     methods: {
-      symbolLink(symbol) {
-        return `${symbol.path}.html`;
-      },
-
-      symbolLinkClass(symbol) {
-        return [
-          'symbol-container',
-          'symbol-type-' + symbol.symbolType
-        ];
-      },
-
-      symbolIsDreprecated(symbol) {
-        return symbol.labels.find(label => label.key === 'deprecated');
-      },
 
       onTypeChange(item) {
         this.currentType = item.value;

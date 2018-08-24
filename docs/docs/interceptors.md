@@ -8,8 +8,7 @@ Creating and consuming an interceptor is two-step process.
 
 ## Decorators
 
-<ul class="api-list"><li class="api-item" data-symbol="common/interceptors;Intercept;decorator;@;false;false;false;false"><a href="#/api/common/interceptors/intercept"class="symbol-container symbol-type-decorator symbol-name-commoninterceptors-Intercept"title="Intercept"><span class="symbol decorator"></span>Intercept</a></li><li class="api-item" data-symbol="common/interceptors;Interceptor;decorator;@;false;false;false;false"><a href="#/api/common/interceptors/interceptor"class="symbol-container symbol-type-decorator symbol-name-commoninterceptors-Interceptor"title="Interceptor"><span class="symbol decorator"></span>Interceptor</a></li></ul>
-
+<ApiList query="module == '@tsed/common/interceptors' && symbolType === 'decorator'">
 
 ## Interceptor class
 

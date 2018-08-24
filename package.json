@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-tsed",
-  "version": "1.2.0",
+  "version": "0.0.0-development",
   "description": "Vuepress theme for tsed.io",
   "main": "index.js",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
@@ -15,6 +15,12 @@
     "vuepress": "^0.14.1"
   },
   "scripts": {
-    "test": "exit 0"
+    "test": "exit 0",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "travis-deploy-once": "^5.0.2",
+    "semantic-release": "^15.9.9"
   }
 }
