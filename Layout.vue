@@ -47,6 +47,8 @@
 <script>
   import nprogress from 'nprogress';
   import Vue from 'vue';
+  import ApiList from './components/api-list/ApiList.vue';
+  import Api from './components/api/Api.vue';
   import Banner from './components/banner/Banner.vue';
   import Footer from './components/footer/Footer.vue';
   import Gist from './components/gist/Gist.vue';
@@ -54,8 +56,7 @@
   import OtherTopics from './components/other-topics/OtherTopics';
   import Sidebar from './components/sidebar/Sidebar.vue';
   import SWUpdatePopup from './components/sw-update-popup/SWUpdatePopup.vue';
-  import Api from './components/api/Api.vue';
-  import ApiList from './components/api-list/ApiList.vue';
+  import { getApi } from './utils/api';
   import { resolveOtherTopicsItems, resolveSidebarItems } from './utils/index';
   import Contributing from './views/Contributing.vue';
   import Home from './views/Home.vue';
@@ -174,6 +175,8 @@
     },
 
     mounted() {
+      getApi(this.$site.themeConfig.apiUrl);
+
       window.addEventListener('scroll', this.onScroll);
 
       // configure progress bar

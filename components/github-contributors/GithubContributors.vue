@@ -7,7 +7,7 @@
       <div class="contributors__badge-img">
         <img :src="contributor.avatar_url">
       </div>
-      <a :href="contributor.url" target="_blank">{{contributor.login}}</a>
+      <a :href="contributor.url" target="_blank" @click="() => onClick(contributor)">{{contributor.login}}</a>
     </div>
 
     <slot name="bottom"></slot>
@@ -39,6 +39,19 @@
         .then(contributors => {
           this.contributors = contributors;
         });
+    },
+
+    methods: {
+      onClick(contributor) {
+        if (this.$ga) {
+          this.$ga.event({
+            eventCategory: 'contributors',
+            eventAction: 'click',
+            eventLabel: 'name',
+            eventValue: contributor.login
+          });
+        }
+      }
     }
   };
 </script>

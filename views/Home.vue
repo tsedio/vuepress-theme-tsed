@@ -6,11 +6,11 @@
                 :terms="data.heroTerms"
                 :description="data.heroDescription || $description || 'Welcome to your VuePress site'">
 
-      <NavLink class="button" v-if="data.actionText && data.actionLink" :href="data.actionLink">
+      <NavLink class="button" v-if="data.actionText && data.actionLink" :href="data.actionLink" @click="onClickAction()">
         {{data.actionText}}
       </NavLink>
 
-      <NavLink class="button transparent" v-if="data.repoText && data.repoLink" :href="data.repoLink">
+      <NavLink class="button transparent" v-if="data.repoText && data.repoLink" :href="data.repoLink" @click="onClickRepo()">
         {{data.repoText}}
       </NavLink>
 
@@ -125,6 +125,29 @@
           link: this.data.repoLink,
           text: this.data.repoText
         };
+      }
+    },
+
+    methods: {
+      onClickAction() {
+        if (this.$ga) {
+          this.$ga.event({
+            eventCategory: 'home',
+            eventAction: 'click',
+            eventLabel: 'action',
+            eventValue: this.data.actionText
+          });
+        }
+      },
+      onClickRepo() {
+        if (this.$ga) {
+          this.$ga.event({
+            eventCategory: 'home',
+            eventAction: 'click',
+            eventLabel: 'repository',
+            eventValue: this.data.repoText
+          });
+        }
       }
     }
   };

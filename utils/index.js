@@ -141,16 +141,12 @@ export function resolveOtherTopicsItems(page, route, site, localePath) {
 
   const otherTopicsConfig = localeConfig.otherTopics || themeConfig.otherTopics;
 
-  console.log(otherTopicsConfig);
-
   if (!otherTopicsConfig) {
     return [];
   } else {
     const { base, config } = resolveMatchingConfig(route, otherTopicsConfig);
-    console.log('=>', base, config);
     return config
       ? config.map(item => {
-        console.log(item);
         return resolvePage(pages, item, base);
       })
       : [];
