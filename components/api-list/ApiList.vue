@@ -95,13 +95,23 @@
       }
     };
 
-    return Object.keys(modules).reduce((acc, moduleName) => {
+    const symbols = new Map();
+    const list = [];
+
+    Object.keys(modules).forEach((moduleName) => {
       const module = modules[moduleName];
 
-      return acc.concat(module.symbols.filter((symbol) =>
-        compile(query, { module: module.name, ...symbol, labels: symbol.status })
-      ));
-    }, []);
+      module.symbols.forEach((symbol) => {
+        if (!symbols.has(symbol.symbolName)) {
+          if (compile(query, { module: module.name, ...symbol, labels: symbol.status })) {
+            list.push(symbol);
+            symbols.set(symbol.symbolName, symbol);
+          }
+        }
+      });
+    });
+
+    return list;
 
   }
 </script>
