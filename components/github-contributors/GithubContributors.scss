@@ -15,6 +15,14 @@ $contributorBadgeMarginRight: rem(40px);
     }
   }
 
+  a {
+    display: inline-block;
+    width: 120%;
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: pre;
+    text-overflow: ellipsis;
+  }
   &__badge {
     text-align: center;
     display: inline-block;
