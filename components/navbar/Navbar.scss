@@ -46,6 +46,7 @@ $navbarTiming: .5s !default;
   a, span, img {
     display: inline-block;
   }
+
   .logo {
     height: $navbarHeight - 1.4rem;
     min-width: $navbarHeight - 1.4rem;
@@ -53,12 +54,14 @@ $navbarTiming: .5s !default;
     vertical-align: top;
 
   }
+
   .site-name {
     font-size: rem(30px);
     font-weight: 300;
     color: $navbarColor;
     position: relative;
   }
+
   .links {
     color: darken($navbarColor, 10%);
     padding-left: 1.5rem;
@@ -79,9 +82,11 @@ $navbarTiming: .5s !default;
 
     .nav-links {
       flex: 1;
+
       .nav-item {
         margin: 0 rem(5px);
       }
+
       .nav-item > a,
       .nav-item .dropdown-title {
         padding: 0 rem(10px);
@@ -91,23 +96,35 @@ $navbarTiming: .5s !default;
 
     &-external {
       flex: 1;
+      display: flex;
+      align-items: center;
+
       &-item {
         margin: 0 rem(5px);
       }
+
       &-item a {
         padding: 0 rem(10px);
         border-radius: rem(5px);
       }
-    }
-    .repo-link {
-      display: block;
-      color: $navbarColor;
 
-      svg {
-        width: 25px;
+      a {
         display: block;
+        color: $navbarColor;
+        fill: $navbarColor;
+
+        svg {
+          width: 25px;
+          display: block;
+        }
+
+        &.gitter-link svg {
+          width: 18px;
+        }
       }
     }
+
+
   }
 }
 
@@ -116,9 +133,11 @@ $navbarTiming: .5s !default;
     .home-link {
       margin-left: 2rem;
     }
+
     .can-hide {
       display: none;
     }
+
     .links {
       // padding-left: 1.5rem;
       right: 1rem;
