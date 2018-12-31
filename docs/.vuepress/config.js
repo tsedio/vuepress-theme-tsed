@@ -15,6 +15,11 @@ module.exports = {
     sidebar: 'auto',
     api: require('../api/api.json'),
     ga: 'UA-35240348-1',
+    algolia: {
+      appId: 'UFN39UDHAA',
+      apiKey: 'c9b22f846ce94d21032cf48185f458f8',
+      indexName: 'test_TSED'
+    },
     locales: {
       '/': {
         label: 'English',
