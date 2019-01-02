@@ -16,9 +16,8 @@ module.exports = {
     api: require('../api/api.json'),
     ga: 'UA-35240348-1',
     algolia: {
-      appId: 'UFN39UDHAA',
-      apiKey: 'c9b22f846ce94d21032cf48185f458f8',
-      indexName: 'test_TSED'
+      apiKey: 'f8a038207e461aaac0e2fd16403c2b01',
+      indexName: 'ts_ed'
     },
     locales: {
       '/': {

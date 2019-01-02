@@ -20,7 +20,7 @@
           import(/* webpackChunkName: "docsearch" */ 'docsearch.js/dist/cdn/docsearch.min.css')
         ]).then(([docsearch]) => {
           docsearch = docsearch.default;
-          const { algoliaOptions = {} } = userOptions;
+          const {algoliaOptions = {}} = userOptions;
           docsearch(Object.assign(
             {},
             userOptions,
@@ -52,4 +52,4 @@
     }
   };
 </script>
-<style lang="scss" src="AlgoliaSeachBox.scss"></style>
+<style lang="scss" src="./AlgoliaSeachBox.scss"></style>

@@ -84,7 +84,7 @@
 </template>
 
 <script>
-  import AlgoliaSearchBox from '@AlgoliaSearchBox';
+  import AlgoliaSearchBox from '../algolia-search/AlgoliaSearchBox';
   import { getCss } from '../../utils/get-css';
   import { scrollPosition } from '../../utils/scroll-position';
   import { throttle } from '../../utils/throttle';
