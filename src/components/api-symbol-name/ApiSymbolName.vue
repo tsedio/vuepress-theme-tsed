@@ -12,7 +12,7 @@
     computed: {
       query () {
         console.log(this.$slots)
-        return `symbolName='${ this.$slots.default[0].text }'`
+        return `symbolName === '${ this.$slots.default[0].text.trim() }'`
       }
     }
   }
