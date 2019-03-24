@@ -4,7 +4,6 @@ prev: false
 next: /configuration.html
 otherTopics: true
 ---
-
 # Getting started
 ## Installation
 

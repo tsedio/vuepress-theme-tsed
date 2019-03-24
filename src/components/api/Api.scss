@@ -1,0 +1,12 @@
+.api {
+  .api-nav > * {
+    float: left;
+    margin: 8px;
+  }
+
+  .api-nav:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}

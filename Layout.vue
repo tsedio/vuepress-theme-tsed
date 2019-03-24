@@ -45,74 +45,46 @@
 </template>
 
 <script>
-  import nprogress from 'nprogress';
-  import Vue from 'vue';
-  import ApiList from './components/api-list/ApiList.vue';
-  import Api from './components/api/Api.vue';
-  import Banner from './components/banner/Banner.vue';
-  import Footer from './components/footer/Footer.vue';
-  import Gist from './components/gist/Gist.vue';
-  import Navbar from './components/navbar/Navbar.vue';
-  import OtherTopics from './components/other-topics/OtherTopics';
-  import Sidebar from './components/sidebar/Sidebar.vue';
-  import SWUpdatePopup from './components/sw-update-popup/SWUpdatePopup.vue';
-  import { getApi } from './utils/api';
-  import { resolveOtherTopicsItems, resolveSidebarItems } from './utils/index';
-  import Contributing from './views/Contributing.vue';
-  import Home from './views/Home.vue';
-  import Page from './views/Page.vue';
+  import nprogress from 'nprogress'
+  import Vue from 'vue'
+  import VueTsed, { getApi, resolveOtherTopicsItems, resolveSidebarItems } from './src'
 
-  Vue.component('Gist', Gist);
-  Vue.component('Banner', Banner);
-  Vue.component('Api', Api);
-  Vue.component('ApiList', ApiList);
+  Vue.use(VueTsed)
 
   export default {
-    components: {
-      OtherTopics,
-      Home,
-      Page,
-      Contributing,
-      Sidebar,
-      Navbar,
-      SWUpdatePopup,
-      Footer
-    },
-
-    data() {
+    data () {
       return {
         isSidebarOpen: false,
         swUpdateEvent: null
-      };
+      }
     },
 
     computed: {
+      isHome () {
+        const { home, layout } = this.$page.frontmatter
 
-      isHome() {
-        const { home, layout } = this.$page.frontmatter;
-
-        return home || layout === 'home';
+        return home || layout === 'home'
       },
 
 
-      isContributing() {
-        const { layout } = this.$page.frontmatter;
+      isContributing () {
+        const { layout } = this.$page.frontmatter
 
-        return layout === 'contributing';
+        return layout === 'contributing'
       },
 
-      isCustomLayout() {
-        const { layout } = this.$page.frontmatter;
-        return layout && !this.isHome && ['contributing'].indexOf(layout);
+      isCustomLayout () {
+        const { layout } = this.$page.frontmatter
+        return layout && !this.isHome && ['contributing'].indexOf(layout)
       },
 
-      shouldShowNavbar() {
-        const { themeConfig } = this.$site;
-        const { frontmatter } = this.$page;
+      shouldShowNavbar () {
+        const { themeConfig } = this.$site
+        const { frontmatter } = this.$page
         if (
           frontmatter.navbar === false ||
           themeConfig.navbar === false) {
-          return false;
+          return false
         }
         return (
           this.$title ||
@@ -120,49 +92,49 @@
           themeConfig.repo ||
           themeConfig.nav ||
           this.$themeLocaleConfig.nav
-        );
+        )
       },
 
-      shouldShowSidebar() {
-        const { frontmatter } = this.$page;
+      shouldShowSidebar () {
+        const { frontmatter } = this.$page
         return (
           !frontmatter.layout &&
           !this.isHome &&
           frontmatter.sidebar !== false &&
           this.sidebarItems.length
-        );
+        )
       },
 
-      shouldShowOtherTopics() {
-        const { frontmatter } = this.$page;
+      shouldShowOtherTopics () {
+        const { frontmatter } = this.$page
         return (
           !frontmatter.layout &&
           !this.isHome &&
           frontmatter.otherTopics === true &&
           this.otherTopicsItems.length
-        );
+        )
       },
 
-      sidebarItems() {
+      sidebarItems () {
         return resolveSidebarItems(
           this.$page,
           this.$route,
           this.$site,
           this.$localePath
-        );
+        )
       },
 
-      otherTopicsItems() {
+      otherTopicsItems () {
         return resolveOtherTopicsItems(
           this.$page,
           this.$route,
           this.$site,
           this.$localePath
-        );
+        )
       },
 
-      pageClasses() {
-        const userPageClass = this.$page.frontmatter.pageClass;
+      pageClasses () {
+        const userPageClass = this.$page.frontmatter.pageClass
         return [
           {
             'no-navbar': !this.shouldShowNavbar,
@@ -170,64 +142,62 @@
             'no-sidebar': !this.shouldShowSidebar
           },
           userPageClass
-        ];
+        ]
       }
     },
 
-    mounted() {
-      getApi(this.$site.themeConfig.apiUrl);
+    mounted () {
+      getApi(this.$site.themeConfig.apiUrl)
 
-      window.addEventListener('scroll', this.onScroll);
+      window.addEventListener('scroll', this.onScroll)
 
       // configure progress bar
-      nprogress.configure({ showSpinner: false });
+      nprogress.configure({ showSpinner: false })
 
       this.$router.beforeEach((to, from, next) => {
         if (to.path !== from.path && !Vue.component(to.name)) {
-          nprogress.start();
+          nprogress.start()
         }
-        next();
-      });
+        next()
+      })
 
       this.$router.afterEach(() => {
-        nprogress.done();
-        this.isSidebarOpen = false;
-      });
+        nprogress.done()
+        this.isSidebarOpen = false
+      })
 
-      this.$on('sw-updated', this.onSWUpdated);
+      this.$on('sw-updated', this.onSWUpdated)
     },
 
     methods: {
-      toggleSidebar(to) {
-        this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen;
+      toggleSidebar (to) {
+        this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       },
 
       // side swipe
-      onTouchStart(e) {
+      onTouchStart (e) {
         this.touchStart = {
           x: e.changedTouches[0].clientX,
           y: e.changedTouches[0].clientY
-        };
+        }
       },
 
-      onTouchEnd(e) {
-        const dx = e.changedTouches[0].clientX - this.touchStart.x;
-        const dy = e.changedTouches[0].clientY - this.touchStart.y;
+      onTouchEnd (e) {
+        const dx = e.changedTouches[0].clientX - this.touchStart.x
+        const dy = e.changedTouches[0].clientY - this.touchStart.y
         if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
           if (dx > 0 && this.touchStart.x <= 80) {
-            this.toggleSidebar(true);
+            this.toggleSidebar(true)
           } else {
-            this.toggleSidebar(false);
+            this.toggleSidebar(false)
           }
         }
       },
 
-      onSWUpdated(e) {
-        this.swUpdateEvent = e;
+      onSWUpdated (e) {
+        this.swUpdateEvent = e
       }
     }
-  };
+  }
 </script>
 
-<style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="./styles/theme.scss" lang="scss"></style>

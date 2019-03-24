@@ -46,7 +46,8 @@
 <script>
   import nprogress from 'nprogress'
   import Vue from 'vue'
-  import VueTsed, { resolveSidebarItems } from './src'
+  import VueTsed from '../../../src'
+  import { resolveSidebarItems } from '../../../src/utils'
 
   Vue.use(VueTsed)
 
@@ -173,4 +174,7 @@
     }
   }
 </script>
+
+<style src="prismjs/themes/prism-tomorrow.css"></style>
+<style src="../../../src/styles/theme.scss" lang="scss"></style>
 

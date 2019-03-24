@@ -12,50 +12,44 @@
       <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
       <Sidebar :items="sidebarItems"
-               v-if="shouldShowNavbar"
                @toggle-sidebar="toggleSidebar">
         <slot name="sidebar-top" slot="top"/>
         <slot name="sidebar-bottom" slot="bottom"/>
       </Sidebar>
 
-      <div class="home">
-        <div class="page">
-          <article class="container">
-            <slot name="top"/>
-
-            <h1>Page not found</h1>
-            <blockquote>{{ getMsg() }}</blockquote>
-            <router-link to="/">Take me home.</router-link>
-
-            <p>In the meantime you can look at the following pages:</p>
-
-            <Content :custom="false"/>
-
-            <slot name="bottom"/>
-          </article>
-        </div>
+      <div class="custom-layout" v-if="isCustomLayout">
+        <component :is="$page.frontmatter.layout"/>
       </div>
+
+      <Home v-else-if="isHome"/>
+      <Contributing v-else-if="isContributing"/>
+
+      <Page v-else :sidebar-items="sidebarItems">
+
+        <slot name="page-top" slot="top"/>
+        <slot name="page-bottom" slot="bottom"/>
+        <OtherTopics slot="bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
+          <h3 class="heading" slot="top">
+            Other <br/><b>topics</b>
+          </h3>
+        </OtherTopics>
+      </Page>
+
     </main>
 
     <Footer :class="{'--with-sidebar': shouldShowSidebar}"></Footer>
 
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
+
   </div>
 </template>
 
 <script>
   import nprogress from 'nprogress'
   import Vue from 'vue'
-  import VueTsed, { resolveSidebarItems } from './src'
+  import VueTsed, { getApi, resolveOtherTopicsItems, resolveSidebarItems } from '../../../src'
 
   Vue.use(VueTsed)
-
-  const msgs = [
-    `There's nothing here.`,
-    `How did we get here?`,
-    `That's a Four-Oh-Four.`,
-    `Looks like we've got some broken links.`
-  ]
 
   export default {
     data () {
@@ -66,6 +60,25 @@
     },
 
     computed: {
+
+      isHome () {
+        const { home, layout } = this.$page.frontmatter
+
+        return home || layout === 'home'
+      },
+
+
+      isContributing () {
+        const { layout } = this.$page.frontmatter
+
+        return layout === 'contributing'
+      },
+
+      isCustomLayout () {
+        const { layout } = this.$page.frontmatter
+        return layout && !this.isHome && ['contributing'].indexOf(layout)
+      },
+
       shouldShowNavbar () {
         const { themeConfig } = this.$site
         const { frontmatter } = this.$page
@@ -87,9 +100,19 @@
         const { frontmatter } = this.$page
         return (
           !frontmatter.layout &&
-          !frontmatter.home &&
+          !this.isHome &&
           frontmatter.sidebar !== false &&
-          this.sidebarItems.length > 1
+          this.sidebarItems.length
+        )
+      },
+
+      shouldShowOtherTopics () {
+        const { frontmatter } = this.$page
+        return (
+          !frontmatter.layout &&
+          !this.isHome &&
+          frontmatter.otherTopics === true &&
+          this.otherTopicsItems.length
         )
       },
 
@@ -102,9 +125,17 @@
         )
       },
 
+      otherTopicsItems () {
+        return resolveOtherTopicsItems(
+          this.$page,
+          this.$route,
+          this.$site,
+          this.$localePath
+        )
+      },
+
       pageClasses () {
         const userPageClass = this.$page.frontmatter.pageClass
-
         return [
           {
             'no-navbar': !this.shouldShowNavbar,
@@ -117,6 +148,8 @@
     },
 
     mounted () {
+      getApi(this.$site.themeConfig.apiUrl)
+
       window.addEventListener('scroll', this.onScroll)
 
       // configure progress bar
@@ -138,11 +171,6 @@
     },
 
     methods: {
-
-      getMsg () {
-        return msgs[Math.floor(Math.random() * msgs.length)]
-      },
-
       toggleSidebar (to) {
         this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       },
@@ -174,3 +202,5 @@
   }
 </script>
 
+<style src="prismjs/themes/prism-tomorrow.css"></style>
+<style src="../../../src/styles/theme.scss" lang="scss"></style>
