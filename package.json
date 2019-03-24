@@ -23,5 +23,6 @@
     "vue-template-compiler": "^2.6.10"
   },
   "devDependencies": {
+    "semantic-release": "^15.13.3"
   }
 }
