@@ -12,11 +12,12 @@
   margin: rem(8px) rem(16px);
   padding: .75em 2rem;
   text-decoration: none;
-  transition: all 0.15s ease;
   text-transform: uppercase;
   box-sizing: border-box;
   display: inline-block;
   min-width: 180px;
+  transition: all 300ms;
+  line-height: normal;
 
   &:hover {
     color: white;

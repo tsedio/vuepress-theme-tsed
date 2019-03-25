@@ -1,13 +1,13 @@
 @import "../../styles/mixins/index";
 
 $sq-size: 75px;
-$heroBannerBg: #3872cc !default;
+$heroBannerBg: $primaryColor !default;
 $heroBannerColor: white !default;
-$heroBannerColorLight1: #4f89e3 !default;
-$heroBannerColorLight2: #4781db !default;
+$heroBannerColorLight1: lighten($heroBannerBg, 6%) !default; //#4f89e3
+$heroBannerColorLight2: lighten($heroBannerBg, 3%) !default; // #4781db
 $heroBannerColorDark1: $heroBannerBg !default;
-$heroBannerColorDark2: #3a74ce !default;
-$heroBannerColorDark3: #326cc6 !default;
+$heroBannerColorDark2: darken($heroBannerBg, 2%) !default; // #3a74ce !default;
+$heroBannerColorDark3: darken($heroBannerBg, 2.5%) !default; ///#326cc6 !default;
 
 @import "background";
 
@@ -78,24 +78,31 @@ $heroBannerColorDark3: #326cc6 !default;
   }
 
   &__description {
-    font-size: 24px;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-align: center;
     color: white;
-    margin-bottom: rem(40);
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   &__terms {
     line-height: 1.8;
     list-style-type: none;
     margin: 1em auto;
+    margin-top: 0;
     max-width: 500px;
     padding: 0;
 
     li {
+      font-size: 0.8rem;
       font-weight: bold;
       display: inline-block;
-      padding: 5px;
+      padding: 0 5px;
+      transition: transform 300ms;
+
+      &:hover {
+        transform: scale(1.1);
+      }
 
       &:before {
         color: $secondaryColor;
@@ -110,9 +117,11 @@ $heroBannerColorDark3: #326cc6 !default;
   .hero-banner {
     height: calc(100vh - #{$navbarHeight});
     min-height: 400px;
+
     h1 {
       font-size: 80px;
     }
+
     .button {
       width: 80%;
     }

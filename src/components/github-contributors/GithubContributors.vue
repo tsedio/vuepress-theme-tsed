@@ -7,52 +7,44 @@
       <div class="contributors__badge-img">
         <img :src="contributor.avatar_url">
       </div>
-      <a :href="contributor.url" target="_blank" @click="() => onClick(contributor)">{{contributor.login}}</a>
+      <a :href="contributor.html_url" target="_blank" @click="() => onClick(contributor)">{{contributor.login}}</a>
     </div>
 
     <slot name="bottom"></slot>
   </div>
 </template>
 <script>
-  import { outboundRE } from '../../utils/index';
+  import { getContributors } from '../../utils/github'
 
   export default {
     name: 'GithubContributors',
     data: () => {
       return {
         contributors: []
-      };
+      }
     },
 
-    mounted() {
+    async mounted () {
       const {
         repo,
         docsRepo = repo
-      } = this.$site.themeConfig;
+      } = this.$site.themeConfig
 
-      const base = outboundRE.test(docsRepo)
-        ? docsRepo
-        : `https://github.com/${docsRepo}`;
-
-      fetch(base.replace('/github.com', '/api.github.com/repos') + '/contributors')
-        .then((response) => response.json())
-        .then(contributors => {
-          this.contributors = contributors;
-        });
+      this.contributors = await getContributors(docsRepo)
     },
 
     methods: {
-      onClick(contributor) {
+      onClick (contributor) {
         if (this.$ga) {
           this.$ga.event({
             eventCategory: 'contributors',
             eventAction: 'click',
             eventLabel: 'name',
             eventValue: contributor.login
-          });
+          })
         }
       }
     }
-  };
+  }
 </script>
 <style lang="scss" src="./GithubContributors.scss"></style>

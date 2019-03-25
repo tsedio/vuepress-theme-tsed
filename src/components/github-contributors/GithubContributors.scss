@@ -6,7 +6,6 @@ $contributorBadgeItemsPerLineMobile: 3;
 $contributorBadgeMarginRight: rem(40px);
 
 .contributors {
-
   padding-top: 30px;
 
   &.-white {
@@ -22,13 +21,35 @@ $contributorBadgeMarginRight: rem(40px);
     word-wrap: normal;
     white-space: pre;
     text-overflow: ellipsis;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
   }
+
   &__badge {
+    $root: &;
+    position: relative;
     text-align: center;
     display: inline-block;
     width: calc((100% / #{$contributorBadgeItemsPerLine}) - #{$contributorBadgeMarginRight});
     margin-right: $contributorBadgeMarginRight;
     margin-bottom: 20px;
+    transition: transform ease-in-out 300ms;
+
+    &:hover {
+      transform: scale(1.1, 1.1);
+
+      #{$root}-img {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      }
+    }
 
     &-img {
       width: 100%;
@@ -37,6 +58,7 @@ $contributorBadgeMarginRight: rem(40px);
       overflow: hidden;
       margin-bottom: 20px;
       transform: rotate3d(0, 0, -1, 30deg);
+      transition: all ease-in-out 300ms;
 
       img {
         width: 100%;

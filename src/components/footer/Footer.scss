@@ -45,6 +45,7 @@ $footerHeadingColor: #0c3645 !default;
   .github-stars {
     position: absolute;
     top: 0;
-    right: -#{$containerGutter};
+    right: 15px;
+    color: #414141;
   }
 }

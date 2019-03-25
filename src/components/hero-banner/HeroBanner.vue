@@ -14,14 +14,13 @@
         {{ description }}
       </p>
 
-      <p class="hero-banner__actions">
-        <slot></slot>
-      </p>
-
       <ul v-if="terms" class="hero-banner__terms">
         <li v-for="term in terms">{{term}}</li>
       </ul>
 
+      <p class="hero-banner__actions">
+        <slot></slot>
+      </p>
     </div>
 
     <div class="hero-banner__bg hero-banner__bg-1">

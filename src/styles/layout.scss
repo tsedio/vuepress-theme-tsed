@@ -55,14 +55,17 @@ main {
   > *:first-child {
     margin-top: $navbarHeight;
   }
+
   a:hover {
     text-decoration: underline;
   }
+
   p.demo {
     padding: 1rem 1.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
   }
+
   img {
     max-width: 100%;
   }
@@ -71,6 +74,7 @@ main {
 .content.custom {
   padding: 0;
   margin: 0;
+
   img {
     max-width: 100%;
   }
@@ -80,6 +84,8 @@ a {
   font-weight: 500;
   color: $accentColor;
   text-decoration: none;
+  transition: all 300ms;
+
   &:hover {
     color: $accentColorHover;
   }
@@ -122,6 +128,7 @@ a.header-anchor {
   padding-right: 0.23em;
   margin-top: 0.125em;
   opacity: 0;
+
   &:hover {
     text-decoration: none;
   }
@@ -149,6 +156,7 @@ table {
 
 tr {
   border-top: 1px solid #dfe2e5;
+
   &:nth-child(2n) {
     background-color: #f6f8fa;
   }
@@ -180,14 +188,17 @@ figure img {
       display: block;
     }
   }
+
   &.no-navbar {
     .content:not(.custom) > h1, h2, h3, h4, h5, h6 {
       margin-top: 1.5rem;
       padding-top: 0;
     }
+
     .sidebar {
       top: 0;
     }
+
     .custom-layout {
       padding-top: 0;
     }
@@ -204,6 +215,7 @@ figure img {
     .sidebar {
       display: none;
     }
+
     .page {
       padding-left: 0;
     }
@@ -266,6 +278,7 @@ figure img {
         transform: translateX(0);
       }
     }
+
     &.no-navbar {
       .sidebar {
         padding-top: 0;
@@ -283,6 +296,7 @@ figure img {
     img {
       max-width: 100%;
     }
+
     div[class*="language-"] {
       margin: 0.85rem -1.5rem;
       border-radius: 0;

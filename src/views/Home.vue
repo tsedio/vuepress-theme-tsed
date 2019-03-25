@@ -6,13 +6,18 @@
                 :terms="data.heroTerms"
                 :description="data.heroDescription || $description || 'Welcome to your VuePress site'">
 
-      <NavLink class="button" v-if="data.actionText && data.actionLink" :href="data.actionLink" @click="onClickAction()">
-        {{data.actionText}}
-      </NavLink>
+      <ul class="home__actions">
+        <li>
+          <NavLink class="button" v-if="data.actionText && data.actionLink" :href="data.actionLink"
+                   @click="onClickAction()">
+            {{data.actionText}}
+          </NavLink>
+        </li>
+        <li>
+          <GithubStars v-if="data.repoText && data.repoLink"></GithubStars>
+        </li>
+      </ul>
 
-      <NavLink class="button transparent" v-if="data.repoText && data.repoLink" :href="data.repoLink" @click="onClickRepo()">
-        {{data.repoText}}
-      </NavLink>
 
     </HeroBanner>
 
@@ -93,15 +98,17 @@
 </template>
 
 <script>
-  import Features from '../components/features/Features.vue';
-  import GithubContributors from '../components/github-contributors/GithubContributors.vue';
-  import HeroBanner from '../components/hero-banner/HeroBanner.vue';
-  import NavLink from '../components/navbar/NavLink.vue';
-  import Testimonial from '../components/testimonial/Testimonial.vue';
+  import Features from '../components/features/Features.vue'
+  import GithubContributors from '../components/github-contributors/GithubContributors.vue'
+  import HeroBanner from '../components/hero-banner/HeroBanner.vue'
+  import NavLink from '../components/navbar/NavLink.vue'
+  import Testimonial from '../components/testimonial/Testimonial.vue'
+  import GithubStars from '../components/github-stars/GithubStars'
 
   export default {
     name: 'Home',
     components: {
+      GithubStars,
       HeroBanner,
       Testimonial,
       NavLink,
@@ -110,48 +117,48 @@
     },
 
     computed: {
-      data() {
-        return this.$page.frontmatter;
+      data () {
+        return this.$page.frontmatter
       },
 
-      actionLink() {
+      actionLink () {
         return {
           link: this.data.actionLink,
           text: this.data.actionText
-        };
+        }
       },
 
-      repoLink() {
+      repoLink () {
         return {
           link: this.data.repoLink,
           text: this.data.repoText
-        };
+        }
       }
     },
 
     methods: {
-      onClickAction() {
+      onClickAction () {
         if (this.$ga) {
           this.$ga.event({
             eventCategory: 'home',
             eventAction: 'click',
             eventLabel: 'action',
             eventValue: this.data.actionText
-          });
+          })
         }
       },
-      onClickRepo() {
+      onClickRepo () {
         if (this.$ga) {
           this.$ga.event({
             eventCategory: 'home',
             eventAction: 'click',
             eventLabel: 'repository',
             eventValue: this.data.repoText
-          });
+          })
         }
       }
     }
-  };
+  }
 </script>
 
 <style lang="scss" src="./Home.scss"></style>
