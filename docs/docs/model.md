@@ -70,7 +70,7 @@ In the case of our model, it will always be necessary that there is at least one
 
 ## Decorators
 
-<ApiList query="module === '@tsed/common/jsonschema' && symbolType === 'decorator'">
+<ApiList query="module === '@tsed/common/jsonschema' && symbolType === 'decorator'" />
 
 ## Usage
 

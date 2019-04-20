@@ -62,7 +62,7 @@ export class Server extends ServerLoader {
 
 ## Decorators
 
-<ApiList query="module == '@tsed/common/mvc' && symbolType === 'decorator' || module == 'common/filters' && symbolType === 'decorator'">
+<ApiList query="module == '@tsed/common/mvc' && symbolType === 'decorator' || module == 'common/filters' && symbolType === 'decorator'" />
 
 ## Async and Promise
 

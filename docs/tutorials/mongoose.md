@@ -100,7 +100,7 @@ export class MyService {
 
 Ts.ED give some decorators and service to write your code:
 
-<ApiList query="labels.indexOf('mongoose') > -1 || module === '@tsed/mongoose' && symbolType === 'decorator'">
+<ApiList query="labels.indexOf('mongoose') > -1 || module === '@tsed/mongoose' && symbolType === 'decorator'" />
 
 ## Declaring a Model
 

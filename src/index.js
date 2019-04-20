@@ -1,4 +1,5 @@
 import * as components from './components'
+import 'whatwg-fetch'
 import 'prismjs/themes/prism-tomorrow.css'
 import './styles/theme.scss'
 
@@ -15,4 +16,3 @@ export * from './utils/get-css'
 export * from './utils/scroll-position'
 export * from './utils/throttle'
 export * from './utils'
-

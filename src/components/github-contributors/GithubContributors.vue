@@ -1,20 +1,9 @@
 <template>
-  <div class="contributors">
-
-    <slot name="top"></slot>
-
-    <div class="contributors__badge" v-for="contributor in contributors">
-      <div class="contributors__badge-img">
-        <img :src="contributor.avatar_url">
-      </div>
-      <a :href="contributor.html_url" target="_blank" @click="() => onClick(contributor)">{{contributor.login}}</a>
-    </div>
-
-    <slot name="bottom"></slot>
-  </div>
+  <Contributors type="github-contributors" :contributors="contributors"></Contributors>
 </template>
 <script>
-  import { getContributors } from '../../utils/github'
+  import { getContributors } from '../../services/GithubClient'
+  import Contributors from '../contributors/Contributors.vue'
 
   export default {
     name: 'GithubContributors',
@@ -24,27 +13,18 @@
       }
     },
 
+
+    components: {
+      Contributors
+    },
+
     async mounted () {
       const {
         repo,
         docsRepo = repo
       } = this.$site.themeConfig
-
+      console.log(docsRepo)
       this.contributors = await getContributors(docsRepo)
-    },
-
-    methods: {
-      onClick (contributor) {
-        if (this.$ga) {
-          this.$ga.event({
-            eventCategory: 'contributors',
-            eventAction: 'click',
-            eventLabel: 'name',
-            eventValue: contributor.login
-          })
-        }
-      }
     }
   }
 </script>
-<style lang="scss" src="./GithubContributors.scss"></style>

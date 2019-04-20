@@ -22,7 +22,7 @@
   </a>
 </template>
 <script>
-  import { getGithubMetadata } from '../../utils/github'
+  import { getGithubMetadata } from '../../services/GithubClient'
 
   export default {
     name: 'GithubStars',

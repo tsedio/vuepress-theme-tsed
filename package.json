@@ -14,13 +14,14 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "vue": "^2.6.9",
     "include-media": "^1.4.9",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "sass-rem": "^2.0.1",
+    "vue": "^2.6.9",
+    "vue-template-compiler": "^2.6.10",
     "vuepress": "^0.14.1",
-    "vue-template-compiler": "^2.6.10"
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "semantic-release": "^15.13.3"

@@ -37,9 +37,7 @@
           {{data.backers.details}}
         </p>
 
-        <a :href="data.backers.link" target="_blank">
-          <img :src="data.backers.src">
-        </a>
+        <OpenCollectiveBackers></OpenCollectiveBackers>
 
         <div class="container--centered container--padded" v-if="data.backers.button">
           <NavLink class="button" :href="data.backers.button.link">
@@ -57,9 +55,7 @@
           {{data.sponsors.details}}
         </p>
 
-        <a v-if="data.sponsors.link" :href="data.sponsors.link" target="_blank">
-          <img :src="data.sponsors.src">
-        </a>
+        <OpenCollectiveSponsors></OpenCollectiveSponsors>
 
         <div class="container--centered container--padded" v-if="data.sponsors.button">
           <NavLink class="button primary-color" :href="data.sponsors.button.link">
@@ -75,6 +71,8 @@
 <script>
   import Features from '../components/features/Features.vue'
   import GithubContributors from '../components/github-contributors/GithubContributors.vue'
+  import OpenCollectiveBackers from '../components/open-collective-backers/OpenCollectiveBackers.vue'
+  import OpenCollectiveSponsors from '../components/open-collective-sponsors/OpenCollectiveSponsors.vue'
   import HeroBanner from '../components/hero-banner/HeroBanner.vue'
   import NavLink from '../components/navbar/NavLink.vue'
   import Testimonial from '../components/testimonial/Testimonial.vue'
@@ -86,7 +84,9 @@
       Testimonial,
       NavLink,
       Features,
-      GithubContributors
+      GithubContributors,
+      OpenCollectiveBackers,
+      OpenCollectiveSponsors
     },
 
     computed: {

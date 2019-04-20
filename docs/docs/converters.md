@@ -11,7 +11,7 @@ It has two modes of operation:
 
 The Converters service is used by the following decorators:
 
-<ApiList query="['BodyParams', 'Cookies', 'CookiesParams', 'PathParams', 'QueryParams', 'Session'].indexOf(symbolName) > -1">
+<ApiList query="['BodyParams', 'Cookies', 'CookiesParams', 'PathParams', 'QueryParams', 'Session'].indexOf(symbolName) > -1" />
 
 ## Usage
 
@@ -144,7 +144,7 @@ The Converters service relies on a subservice set to convert the following types
 
 > Set and Map types will be converted into an JSON object (instead of Array).
 
-<ApiList query="module === '@tsed/common/converters' && status.indexOf('component') > -1">
+<ApiList query="module === '@tsed/common/converters' && status.indexOf('component') > -1" />
 
 ### Example
 

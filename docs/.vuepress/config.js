@@ -10,6 +10,7 @@ module.exports = {
   themeConfig: {
     version: require('../../package').version,
     repo: 'TypedProject/ts-express-decorators',
+    openCollective: 'tsed',
     gitterUrl: 'https://gitter.im/Tsed-io/community',
     twitterUrl: 'https://twitter.com/RomainLenzotti',
     editLinks: true,
@@ -101,24 +102,23 @@ module.exports = {
             ]
           }],
 
-          '/docs/': [{
-            title: 'Documentation',
-            collapsable: false,
-            children: [
-              'controllers',
-              'services',
-              'factory',
-              'provider',
-              'model',
-              'converters',
-              'middlewares',
-              'scope',
-              'filters',
-              'interceptors',
-              'server-loader',
-              'testing'
-            ]
-          }],
+          '/docs/': [
+            {
+              title: 'Overview',
+              collapsable: false,
+              children: [
+                'provider',
+                'model'
+              ]
+            },
+            {
+              title: 'Advanced',
+              collapsable: false,
+              children: [
+                'scope'
+              ]
+            }
+          ],
 
 
           '/tutorials/': [{

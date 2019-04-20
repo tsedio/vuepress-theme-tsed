@@ -61,9 +61,7 @@
             {{data.backers.details}}
           </p>
 
-          <a :href="data.backers.link" target="_blank">
-            <img :src="data.backers.src">
-          </a>
+          <OpenCollectiveBackers></OpenCollectiveBackers>
 
           <div class="container--centered container--padded" v-if="data.backers.button">
             <NavLink class="button" :href="data.backers.button.link">
@@ -81,9 +79,7 @@
             {{data.sponsors.details}}
           </p>
 
-          <a v-if="data.sponsors.link" :href="data.sponsors.link" target="_blank">
-            <img :src="data.sponsors.src">
-          </a>
+          <OpenCollectiveSponsors></OpenCollectiveSponsors>
 
           <div class="container--centered container--padded" v-if="data.sponsors.button">
             <NavLink class="button primary-color" :href="data.sponsors.button.link">
@@ -104,6 +100,8 @@
   import NavLink from '../components/navbar/NavLink.vue'
   import Testimonial from '../components/testimonial/Testimonial.vue'
   import GithubStars from '../components/github-stars/GithubStars'
+  import OpenCollectiveBackers from '../components/open-collective-backers/OpenCollectiveBackers'
+  import OpenCollectiveSponsors from '../components/open-collective-sponsors/OpenCollectiveSponsors'
 
   export default {
     name: 'Home',
@@ -113,7 +111,9 @@
       Testimonial,
       NavLink,
       Features,
-      GithubContributors
+      GithubContributors,
+      OpenCollectiveBackers,
+      OpenCollectiveSponsors
     },
 
     computed: {
