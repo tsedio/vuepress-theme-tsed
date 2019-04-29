@@ -21,7 +21,7 @@
     "vue": "^2.6.9",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^0.14.1",
-    "whatwg-fetch": "^3.0.0"
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "semantic-release": "^15.13.3"

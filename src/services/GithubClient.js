@@ -1,4 +1,5 @@
 import { outboundRE } from '../utils'
+import axios from 'axios'
 
 let CONTRIBUTORS
 
@@ -10,8 +11,7 @@ export async function getContributors (docsRepo) {
     ? docsRepo
     : `https://github.com/${docsRepo}`
 
-  const response = await fetch(base.replace('/github.com', '/api.github.com/repos') + '/contributors')
-  const contributors = await response.json()
+  const { data: contributors } = await axios.get(base.replace('/github.com', '/api.github.com/repos') + '/contributors')
 
   CONTRIBUTORS = contributors
     .filter(contributor => contributor.login.indexOf('semantic-release-bot') === -1)
@@ -39,8 +39,8 @@ export async function getGithubMetadata (docsRepo) {
     ? docsRepo
     : `https://github.com/${docsRepo}`
 
-  const response = await fetch(base.replace('/github.com', '/api.github.com/repos'))
-  METADATA = await response.json()
+  const { data } = await axios.get(base.replace('/github.com', '/api.github.com/repos'))
+  METADATA = data
 
   return METADATA
 }

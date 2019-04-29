@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export async function getBackers (repo) {
   const members = await getMembers(repo)
 
@@ -16,12 +18,11 @@ export async function getMembers (repo) {
   if (MEMBERS) {
     return MEMBERS
   }
-  const response = await fetch(`https://cors-anywhere.herokuapp.com/https://opencollective.com/${repo}/members/all.json`, {
+  const { data: members } = await axios.get(`https://cors-anywhere.herokuapp.com/https://opencollective.com/${repo}/members/all.json`, {
     headers: {
       'x-requested-with': 'https://opencollective.com'
     }
   })
-  const members = await response.json()
 
   MEMBERS = members
     .map((member) => {

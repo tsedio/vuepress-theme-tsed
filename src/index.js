@@ -1,5 +1,4 @@
 import * as components from './components'
-import 'whatwg-fetch'
 import 'prismjs/themes/prism-tomorrow.css'
 import './styles/theme.scss'
 

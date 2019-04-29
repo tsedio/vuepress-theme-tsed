@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 let API
 
 export function getApi (url) {
@@ -5,14 +7,14 @@ export function getApi (url) {
     return API
   }
 
-  API = fetch(url).then((response) => response.json())
+  API = axios.get(url).then((response) => response.data)
 
   return API
 }
 
 export function compileQuery (query, scope) {
   query = Object.keys(scope).reduce((q, key) =>
-      q.replace(new RegExp('\\b' + key + '\\b', 'gi'), `scope.${ key }`)
+      q.replace(new RegExp('\\b' + key + '\\b', 'gi'), `scope.${key}`)
     , query)
 
   try {
