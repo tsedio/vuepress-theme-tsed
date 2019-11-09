@@ -2,10 +2,8 @@ module.exports = {
   title: 'Ts.ED',
   description: 'A TypeScript Framework on top of Express',
   serviceWorker: false,
-  markdown: {
-    config: md => {
-      md.use(require('../../plugins/markdown-it-symbol'))
-    }
+  extendMarkdown (md) {
+    md.use(require('../../plugins/markdown-it-symbol'))
   },
   themeConfig: {
     version: require('../../package').version,
@@ -17,7 +15,14 @@ module.exports = {
     docsDir: 'docs',
     sidebar: 'auto',
     apiUrl: '/api.json',
-    ga: 'UA-35240348-1',
+    plugins: [
+      [
+        '@vuepress/google-analytics',
+        {
+          ga: 'UA-35240348-1'
+        }
+      ]
+    ],
     algolia: {
       apiKey: 'f8a038207e461aaac0e2fd16403c2b01',
       indexName: 'ts_ed'
