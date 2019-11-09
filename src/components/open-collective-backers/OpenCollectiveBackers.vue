@@ -22,7 +22,6 @@
         openCollective
       } = this.$site.themeConfig
 
-      console.log('openCollective', openCollective)
       this.backers = await getBackers(openCollective)
     }
   }
