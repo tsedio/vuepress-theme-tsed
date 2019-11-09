@@ -1,17 +1,33 @@
-import * as components from './components'
-import 'prismjs/themes/prism-tomorrow.css'
-import './styles/theme.scss'
+const path = require('path')
 
-export default function install (Vue) {
-  Object.keys(components).forEach((key) => {
-    const component = components[key]
-    Vue.component(component.name, component)
-  })
+// Theme API.
+module.exports = (options, ctx) => {
+  const { themeConfig, siteConfig } = ctx
+
+  // resolve algolia
+  const isAlgoliaSearch = (
+    themeConfig.algolia
+    || Object
+      .keys(siteConfig.locales && themeConfig.locales || {})
+      .some(base => themeConfig.locales[base].algolia)
+  )
+
+  const enableSmoothScroll = themeConfig.smoothScroll === true
+
+  return {
+    alias () {
+      return {
+        '@AlgoliaSearchBox': isAlgoliaSearch
+          ? path.resolve(__dirname, 'components/AlgoliaSearchBox.vue')
+          : path.resolve(__dirname, 'noopModule.js')
+      }
+    },
+
+    plugins: [
+      ['@vuepress/active-header-links', options.activeHeaderLinks],
+      '@vuepress/search',
+      '@vuepress/plugin-nprogress',
+      ['smooth-scroll', enableSmoothScroll]
+    ]
+  }
 }
-
-export * from './components'
-export * from './utils/api'
-export * from './utils/get-css'
-export * from './utils/scroll-position'
-export * from './utils/throttle'
-export * from './utils'

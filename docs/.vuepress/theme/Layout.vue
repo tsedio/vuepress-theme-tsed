@@ -4,6 +4,7 @@
        @touchstart="onTouchStart"
        @touchend="onTouchEnd">
 
+
     <Navbar v-if="shouldShowNavbar"
             :class="{'--fluid': shouldShowSidebar}"
             @toggle-sidebar="toggleSidebar"/>
@@ -25,9 +26,12 @@
       <Contributing v-else-if="isContributing"/>
 
       <Page v-else :sidebar-items="sidebarItems">
-
-        <slot name="page-top" slot="top"/>
-        <slot name="page-bottom" slot="bottom"/>
+        <template #top>
+          <slot name="page-top"/>
+        </template>
+        <template #bottom>
+          <slot name="page-bottom"/>
+        </template>
         <OtherTopics slot="bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
           <h3 class="heading" slot="top">
             Other <br/><b>topics</b>
@@ -38,35 +42,45 @@
     </main>
 
     <Footer :class="{'--with-sidebar': shouldShowSidebar}"></Footer>
-
-    <SWUpdatePopup :updateEvent="swUpdateEvent"/>
-
   </div>
 </template>
 
 <script>
-  import nprogress from 'nprogress'
   import Vue from 'vue'
-  import VueTsed, { getApi, resolveOtherTopicsItems, resolveSidebarItems } from '../../../src'
+  import VueTsed from '../../../src/install'
+  import { resolveOtherTopicsItems, resolveSidebarItems } from '../../../src/utils'
+  import Navbar from '../../../src/components/navbar/Navbar'
+  import Sidebar from '../../../src/components/sidebar/Sidebar'
+  import Home from '../../../src/views/Home'
+  import Page from '../../../src/views/Page'
+  import Contributing from '../../../src/views/Contributing'
+  import Footer from '../../../src/components/footer/Footer'
+  import OtherTopics from '../../../src/components/other-topics/OtherTopics'
 
   Vue.use(VueTsed)
 
   export default {
+    components: {
+      Navbar,
+      Sidebar,
+      Home,
+      Contributing,
+      Footer,
+      Page,
+      OtherTopics
+    },
     data () {
       return {
-        isSidebarOpen: false,
-        swUpdateEvent: null
+        isSidebarOpen: false
       }
     },
 
     computed: {
-
       isHome () {
         const { home, layout } = this.$page.frontmatter
 
         return home || layout === 'home'
       },
-
 
       isContributing () {
         const { layout } = this.$page.frontmatter
@@ -148,31 +162,15 @@
     },
 
     mounted () {
-      getApi(this.$site.themeConfig.apiUrl)
-
-      window.addEventListener('scroll', this.onScroll)
-
-      // configure progress bar
-      nprogress.configure({ showSpinner: false })
-
-      this.$router.beforeEach((to, from, next) => {
-        if (to.path !== from.path && !Vue.component(to.name)) {
-          nprogress.start()
-        }
-        next()
-      })
-
       this.$router.afterEach(() => {
-        nprogress.done()
         this.isSidebarOpen = false
       })
-
-      this.$on('sw-updated', this.onSWUpdated)
     },
 
     methods: {
       toggleSidebar (to) {
         this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+        this.$emit('toggle-sidebar', this.isSidebarOpen)
       },
 
       // side swipe
@@ -193,10 +191,6 @@
             this.toggleSidebar(false)
           }
         }
-      },
-
-      onSWUpdated (e) {
-        this.swUpdateEvent = e
       }
     }
   }

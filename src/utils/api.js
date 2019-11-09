@@ -1,21 +1,3 @@
-import axios from 'axios'
-
-let API
-
-export async function getApi ({ apiUrl, api }) {
-  if (API) {
-    return API
-  }
-
-  if (api) {
-    return api
-  } else {
-    API = axios.get(apiUrl).then((response) => response.data)
-
-    return API
-  }
-}
-
 export function compileQuery (query, scope) {
   query = Object.keys(scope).reduce((q, key) =>
       q.replace(new RegExp('\\b' + key + '\\b', 'gi'), `scope.${key}`)

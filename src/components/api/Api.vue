@@ -32,7 +32,6 @@
 
     data () {
       return {
-        api: undefined,
         currentStatus: '',
         currentType: '',
         keyword: ''
@@ -40,6 +39,9 @@
     },
 
     computed: {
+      api () {
+        return this.$site.themeConfig.api
+      },
       modules () {
         const { modules } = this.$site.themeConfig.api
 

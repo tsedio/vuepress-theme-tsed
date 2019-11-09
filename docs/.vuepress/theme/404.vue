@@ -38,16 +38,17 @@
     </main>
 
     <Footer :class="{'--with-sidebar': shouldShowSidebar}"></Footer>
-
-    <SWUpdatePopup :updateEvent="swUpdateEvent"/>
   </div>
 </template>
 
 <script>
-  import nprogress from 'nprogress'
   import Vue from 'vue'
-  import VueTsed from '../../../src'
+  import VueTsed from '../../../src/install'
   import { resolveSidebarItems } from '../../../src/utils'
+  import Navbar from '../../../src/components/navbar/Navbar'
+  import Sidebar from '../../../src/components/sidebar/Sidebar'
+  import Contributing from '../../../src/views/Contributing'
+  import Footer from '../../../src/components/footer/Footer'
 
   Vue.use(VueTsed)
 
@@ -59,6 +60,12 @@
   ]
 
   export default {
+    components: {
+      Navbar,
+      Sidebar,
+      Contributing,
+      Footer
+    },
     data () {
       return {
         isSidebarOpen: false,
@@ -120,22 +127,9 @@
     mounted () {
       window.addEventListener('scroll', this.onScroll)
 
-      // configure progress bar
-      nprogress.configure({ showSpinner: false })
-
-      this.$router.beforeEach((to, from, next) => {
-        if (to.path !== from.path && !Vue.component(to.name)) {
-          nprogress.start()
-        }
-        next()
-      })
-
       this.$router.afterEach(() => {
-        nprogress.done()
         this.isSidebarOpen = false
       })
-
-      this.$on('sw-updated', this.onSWUpdated)
     },
 
     methods: {

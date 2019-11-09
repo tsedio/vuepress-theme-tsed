@@ -157,7 +157,6 @@ Any of theses converters can be overrided with @@OverrideProvider@@ decorators:
 
 Here an example of a type converter:
 
-<<< @/packages/common/src/converters/components/PrimitiveConverter.ts
 
 ### Create a custom converter
 
@@ -184,7 +183,6 @@ export class Server extends ServerLoader {
 
 Then you will need to declare your class with the @@Converter@@ annotation:
 
-<<< @/packages/common/src/converters/components/ArrayConverter.ts
 
 ::: tip Note
 This example will replace the default Ts.ED converter.

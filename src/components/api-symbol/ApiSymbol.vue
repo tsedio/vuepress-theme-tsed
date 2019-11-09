@@ -29,7 +29,7 @@
         return this.item.symbolType
       },
       link () {
-        return `${ this.item.path }.html`
+        return `${this.item.path.replace(/\/\//gi, '/')}.html`
       },
       classes () {
         return [

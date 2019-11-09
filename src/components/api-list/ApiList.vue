@@ -25,13 +25,12 @@
       }
     },
 
-    data () {
-      return {
-        api: null
-      }
-    },
-
     computed: {
+      api () {
+        if (this.query) {
+          return this.$site.themeConfig.api
+        }
+      },
       symbols () {
         if (this.items) {
           return this.items
@@ -46,9 +45,7 @@
     },
 
     mounted () {
-      if (this.query) {
-        this.api = this.$site.themeConfig.api
-      }
+
     }
   }
 </script>

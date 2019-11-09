@@ -2,7 +2,6 @@
 
 There is the current implementation of the @@SendResponseMiddleware@@:
 
-<<< @/packages/common/src/mvc/components/SendResponseMiddleware.ts
 
 But for some reason, this implementation isn't enough to meet your needs.
 

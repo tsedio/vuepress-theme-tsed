@@ -43,7 +43,7 @@ module.exports = {
               {
                 text: 'Overview',
                 items: [
-                  { link: '/docs/controllers.html', text: 'Controllers'},
+                  { link: '/docs/controllers.html', text: 'Controllers' },
                   { link: '/docs/providers.html', text: 'Providers' },
                   { link: '/docs/model.html', text: 'Models' },
                   { link: '/docs/converters.html', text: 'Converters' },
