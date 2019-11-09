@@ -4,6 +4,7 @@
        @touchstart="onTouchStart"
        @touchend="onTouchEnd">
 
+
     <Navbar v-if="shouldShowNavbar"
             :class="{'--fluid': shouldShowSidebar}"
             @toggle-sidebar="toggleSidebar"/>
@@ -12,29 +13,32 @@
       <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
       <Sidebar :items="sidebarItems"
-               v-if="shouldShowNavbar"
                @toggle-sidebar="toggleSidebar">
         <slot name="sidebar-top" slot="top"/>
         <slot name="sidebar-bottom" slot="bottom"/>
       </Sidebar>
 
-      <div class="home">
-        <div class="page">
-          <article class="container">
-            <slot name="top"/>
-
-            <h1>Page not found</h1>
-            <blockquote>{{ getMsg() }}</blockquote>
-            <router-link to="/">Take me home.</router-link>
-
-            <p>In the meantime you can look at the following pages:</p>
-
-            <Content :custom="false"/>
-
-            <slot name="bottom"/>
-          </article>
-        </div>
+      <div class="custom-layout" v-if="isCustomLayout">
+        <component :is="$page.frontmatter.layout"/>
       </div>
+
+      <Home v-else-if="isHome"/>
+      <Contributing v-else-if="isContributing"/>
+
+      <Page v-else :sidebar-items="sidebarItems">
+        <template #top>
+          <slot name="page-top"/>
+        </template>
+        <template #bottom>
+          <slot name="page-bottom"/>
+        </template>
+        <OtherTopics slot="bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
+          <h3 class="heading" slot="top">
+            Other <br/><b>topics</b>
+          </h3>
+        </OtherTopics>
+      </Page>
+
     </main>
 
     <Footer :class="{'--with-sidebar': shouldShowSidebar}"></Footer>
@@ -44,36 +48,51 @@
 <script>
   import Vue from 'vue'
   import VueTsed from '../../src/install'
-  import { resolveSidebarItems } from '../../src/utils'
+  import { resolveOtherTopicsItems, resolveSidebarItems } from '../../src/utils'
   import Navbar from '../../src/components/navbar/Navbar'
   import Sidebar from '../../src/components/sidebar/Sidebar'
+  import Home from '../../src/views/Home'
+  import Page from '../../src/views/Page'
   import Contributing from '../../src/views/Contributing'
   import Footer from '../../src/components/footer/Footer'
+  import OtherTopics from '../../src/components/other-topics/OtherTopics'
 
   Vue.use(VueTsed)
-
-  const msgs = [
-    `There's nothing here.`,
-    `How did we get here?`,
-    `That's a Four-Oh-Four.`,
-    `Looks like we've got some broken links.`
-  ]
 
   export default {
     components: {
       Navbar,
       Sidebar,
+      Home,
       Contributing,
-      Footer
+      Footer,
+      Page,
+      OtherTopics
     },
     data () {
       return {
-        isSidebarOpen: false,
-        swUpdateEvent: null
+        isSidebarOpen: false
       }
     },
 
     computed: {
+      isHome () {
+        const { home, layout } = this.$page.frontmatter
+
+        return home || layout === 'home'
+      },
+
+      isContributing () {
+        const { layout } = this.$page.frontmatter
+
+        return layout === 'contributing'
+      },
+
+      isCustomLayout () {
+        const { layout } = this.$page.frontmatter
+        return layout && !this.isHome && ['contributing'].indexOf(layout)
+      },
+
       shouldShowNavbar () {
         const { themeConfig } = this.$site
         const { frontmatter } = this.$page
@@ -95,9 +114,19 @@
         const { frontmatter } = this.$page
         return (
           !frontmatter.layout &&
-          !frontmatter.home &&
+          !this.isHome &&
           frontmatter.sidebar !== false &&
-          this.sidebarItems.length > 1
+          this.sidebarItems.length
+        )
+      },
+
+      shouldShowOtherTopics () {
+        const { frontmatter } = this.$page
+        return (
+          !frontmatter.layout &&
+          !this.isHome &&
+          frontmatter.otherTopics === true &&
+          this.otherTopicsItems.length
         )
       },
 
@@ -110,9 +139,17 @@
         )
       },
 
+      otherTopicsItems () {
+        return resolveOtherTopicsItems(
+          this.$page,
+          this.$route,
+          this.$site,
+          this.$localePath
+        )
+      },
+
       pageClasses () {
         const userPageClass = this.$page.frontmatter.pageClass
-
         return [
           {
             'no-navbar': !this.shouldShowNavbar,
@@ -125,21 +162,15 @@
     },
 
     mounted () {
-      window.addEventListener('scroll', this.onScroll)
-
       this.$router.afterEach(() => {
         this.isSidebarOpen = false
       })
     },
 
     methods: {
-
-      getMsg () {
-        return msgs[Math.floor(Math.random() * msgs.length)]
-      },
-
       toggleSidebar (to) {
         this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+        this.$emit('toggle-sidebar', this.isSidebarOpen)
       },
 
       // side swipe
@@ -160,10 +191,6 @@
             this.toggleSidebar(false)
           }
         }
-      },
-
-      onSWUpdated (e) {
-        this.swUpdateEvent = e
       }
     }
   }
@@ -171,4 +198,3 @@
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="../../src/styles/theme.scss" lang="scss"></style>
-
