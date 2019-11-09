@@ -1,3 +1,10 @@
+---
+meta:
+ - name: description
+   content: Guide to deploy your Ts.ED application on AWS.
+ - name: keywords
+   content: ts.ed express typescript aws node.js javascript decorators
+---
 # AWS
 
 Amazon Web Services is one possible way host your Node.js application.
@@ -18,72 +25,45 @@ npm install --save aws-serverless-express
 
 You need to create three files:
 
- - One for the `ServerLoader` configuration
- - One for aws, named lambda.js (the entry point on AWS Lambda, that contains the function handler)
- - One for the local development, for example "local.js" (that you can use to run the app locally with `node local.js`)
- 
+ - One for the `ServerLoader` configuration,
+ - One for aws, named `lambda.ts` (the entry point on AWS Lambda, that contains the function handler),
+ - One for the local development, for example "index.js" (that you can use to run the app locally with `ts-node local.ts`)
+
+Create the server and add the aws middleware: 
+
+<<< @/docs/tutorials/snippets/aws/server-configuration.ts
+
+Then create the lambda.ts:
+
+<<< @/docs/tutorials/snippets/aws/lambda.ts
+
+And finally create an index.ts to run your server in development mode:
 ```typescript
-// server.js
-import {ServerSettings, ServerLoader} from "@tsed/common";
+import {$log, ServerLoader} from "@tsed/common";
+import {Server} from "./Server";
 
-@ServerSettings({ 
-   port: 3000,
-   rootDir: __dirname
-})
-export class Server extends ServerLoader {
+async function bootstrap() {
+  try {
+    $log.debug("Start server...");
+    const server = await ServerLoader.bootstrap(Server);
 
-  $onMountingMiddlewares() {
-      
-      const cookieParser = require('cookie-parser'),
-                  bodyParser = require('body-parser'),
-                  compress = require('compression'),
-                  methodOverride = require('method-override'),
-                  cors = require('cors'),
-                  compression = require('compression'),
-                  awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
-
-              this
-                  .use(compression())
-                  .use(cors())
-                  .use(cookieParser())
-                  .use(compress({}))
-                  .use(methodOverride())
-                  .use(bodyParser.json())
-                  .use(bodyParser.urlencoded({
-                      extended: true
-                  }));
-              
-      this.use(awsServerlessExpressMiddleware.eventContext())
+    await server.listen();
+    $log.debug("Server initialized");
+  } catch (er) {
+    $log.error(er);
   }
 }
+
+bootstrap();
 ```
+::: tip
+You can find a project example with [AWS configurattion here](https://github.com/TypedProject/tsed-example-aws).
+:::
 
-```typescript
-// lambda.js
-import {Server} from "./server.js";
-const awsServerlessExpress = require("aws-serverless-express");
+::: tip Example
+You can see an example provided by the AWS Team on this [github repository](https://github.com/awslabs/aws-serverless-express/tree/master/examples/basic-starter).
+:::
 
-const server = new Server();
-// optional: Ts.ED creates two servers that listen for HTTP and HTTPS requests respectively.
-// You can enable/disable each one independently with these flags
-server.settings.httpPort = false;
-server.settings.httpsPort = false;
-
-const lambdaServer = awsServerlessExpress.createServer(server.expressApp);
-
-server.start();
-
-// The function handler to setup on AWS Lambda console -- the name of this function must match the one configured on AWS
-export const handler = (event, context, callback) => awsServerlessExpress.proxy(lambdaServer, event, context);
-```
-
-```typescript
-// local.js
-import {Server} from "./server.js";
-
-new Server().start();
-```
-> You can see an example provided by the AWS Team on this: [github repository](https://github.com/awslabs/aws-serverless-express/tree/master/example).
-
-
-> Credits : Thanks to [vetras](https://github.com/vetras) for his contribution.
+::: tip Credits
+Thanks to [vetras](https://github.com/vetras) for his contribution.
+:::

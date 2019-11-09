@@ -2,14 +2,18 @@ import axios from 'axios'
 
 let API
 
-export function getApi (url) {
+export async function getApi ({ apiUrl, api }) {
   if (API) {
     return API
   }
 
-  API = axios.get(url).then((response) => response.data)
+  if (api) {
+    return api
+  } else {
+    API = axios.get(apiUrl).then((response) => response.data)
 
-  return API
+    return API
+  }
 }
 
 export function compileQuery (query, scope) {

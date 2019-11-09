@@ -11,7 +11,8 @@
     "serve": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "test": "exit 0",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "serve:prod": "lite-server --baseDir=\"docs/.vuepress/dist\""
   },
   "dependencies": {
     "@vuepress/plugin-google-analytics": "^1.2.0",
@@ -25,6 +26,7 @@
     "vuepress": "1.2.0"
   },
   "devDependencies": {
+    "lite-server": "2.5.4",
     "semantic-release": "15.13.30"
   }
 }

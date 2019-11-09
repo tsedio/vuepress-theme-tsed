@@ -1,18 +1,26 @@
 # Templating
 
-`@ResponseView()` or `@Render()` is a decorator that can be used on a controller method (endpoint).
+`@ResponseView()` or `@Render()` is a decorator which can be used on a controller method (endpoint).
 This decorator will use the response return by the method and will use the view to create the output.
 
-![templating-engine](./../assets/templating-engine.png)
+<figure><img src="./../assets/templating-engine.png" style="max-height: 300px; padding:20px"></figure>
 
 ## Installation
+
 This example use EJS as engine rendering. To use other engine, see the documentation of the concerned project. 
+
 ```typescript
-import Path = require("path");
-const rootDir = Path.resolve(__dirname);
+import {ServerSettings, ServerLoader} from "@tsed/common"
+const cons = require("consolidate");
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const compress = require('compression');
+const methodOverride = require('method-override');
+const rootDir = __dirname;
 
 @ServerSettings({
    rootDir,
+   viewsDir: `${rootDir}/views`,
    mount: {
       '/rest': `${rootDir}/controllers/**/**.js`
    },
@@ -21,15 +29,12 @@ const rootDir = Path.resolve(__dirname);
    ]
 })
 class Server extends ServerLoader {
+    $onInit(){
+        this.set("views", this.settings.get('viewsDir')); // le repertoire des vues
+        this.engine("ejs", cons.ejs);
+    }
 
-    async $onMountingMiddlewares()  {
-
-        const cookieParser = require('cookie-parser'),
-            bodyParser = require('body-parser'),
-            compress = require('compression'),
-            methodOverride = require('method-override'),
-            session = require('express-session');
-
+    async $beforeRoutesInit()  {
         this.use(ServerLoader.AcceptMime("application/json"))
             .use(bodyParser.json())
             .use(bodyParser.urlencoded({
@@ -38,38 +43,30 @@ class Server extends ServerLoader {
             .use(cookieParser())
             .use(compress({}))
             .use(methodOverride());
-
-        // EJS Engine Setting
-        this.engine('.html', require('ejs').__express)
-            .set('views', './views')
-            .set('view engine', 'html');
     }
 }
 ```
 
 > The configuration engine is exactly the same as Express configuration engine. 
 
-## Use decorator
+## Usage
 
-```typescript
-@Controller("/events")
-export class EventCtrl {
+Template feature depending on the engine rendering use by your application. Ts.ED provide decorator `@Render` to define a view which will be used
+by the Endpoint to generate the response.
 
-    @Get("/:id")
-    @Render("eventCard")
-    public get(request: Express.Request, response: Express.Response): any {
-        return {startDate: new Date(), name: "MyEvent"};
-    }
-}
-```
-> @Render() is an alias of @ResponseView().
+Here an example of a controller which use the `@Render` decorator:
 
-## Create your template
+<<< @/docs/docs/snippets/controllers/response-templating.ts
 
-`views/eventCard.html`
+And his view:
 ```html
 <h1><%- name %></h1>
 <div>
     Start: <%- startDate %>
 </div>
 ```
+
+::: tip
+@Render() is an alias of @ResponseView().
+:::
+

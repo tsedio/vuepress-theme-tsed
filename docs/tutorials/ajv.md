@@ -3,10 +3,11 @@ meta:
  - name: description
    content: Use AJV with Express, TypeScript and Ts.ED. AJV allows you to validate your data models from a JsonSchema.
  - name: keywords
-   content: ts.ed express typescript socket.io websocket node.js javascript decorators jsonschema class models
+   content: ts.ed express typescript ajv node.js javascript decorators jsonschema class models
 ---
 
-# AJV <Badge text="beta" type="warn"/>
+# AJV
+<Badge text="beta" type="warn"/>
 
 <Banner src="https://ajv.js.org/images/ajv_logo.png" href="https://ajv.js.org/" height="100" />
 
@@ -23,7 +24,7 @@ Before using the validation decorators, we need to install the [ajv](https://www
 npm install --save ajv
 ```
 
-Then import `@tsed/ajv` in your [ServerLoader](/api/common/server/serverloader.md):
+Then import `@tsed/ajv` in your [ServerLoader](/api/common/server/components/ServerLoader.md):
 
 ```typescript
 import {ServerLoader, ServerSettings} from "@tsed/common";
@@ -70,7 +71,7 @@ Ts.ED given some decorators to write your validation model:
 
 #### Model validation
 
-A model can used on a method controller along with [@BodyParams](/api/common/filters/bodyparams.md) or other decorators, and will
+A model can used on a method controller along with [@BodyParams](/api/common/filters/decorators/BodyParams.md) or other decorators, and will
 be validated by Ajv.
 
 ```typescript

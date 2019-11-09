@@ -1,42 +1,76 @@
 ---
 sidebar: auto
-prev: false
-next: /configuration.html
+prev: /configuration.html
+next: /docs/controllers.html
 otherTopics: true
+meta:
+ - name: description
+   content: Start a new REST application with Ts.ED framework. Ts.ED is built on top of Express and use TypeScript language.
+ - name: keywords
+   content: getting started ts.ed express typescript node.js javascript decorators mvc class models
 ---
+
 # Getting started
-## Installation
+
+You can start your project from the [getting started project boilerplate](https://github.com/TypedProject/tsed-getting-started).
+
+Or from another examples:
+
+- 
+
+## Installation from scratch
 
 You can get the latest version of Ts.ED using the following npm command:
 
 ```bash
 $ npm install --save-dev typescript @types/express
-$ npm install --save express@4 @tsed/core @tsed/common
+$ npm install --save express@4 @tsed/core @tsed/di @tsed/common
 ```
 
+::: tip
 The following modules are also recommended:
 
 ```bash
 $ npm install --save body-parser compression cookie-parser method-override
 $ npm install --save-dev ts-node nodemon
 ```
+:::
 
-> **Important!** Ts.ED requires Node >= 6, Express >= 4, TypeScript >= 2.0 and 
+::: warning
+It's really important to keep the same version for all `@tsed/*` packages.
+To prevent errors, fix the version for each Ts.ED packages:
+```json
+{
+  "dependencies": {
+    "@tsed/common": "5.0.7",
+    "@tsed/di": "5.0.7",
+    "@tsed/core": "5.0.7",
+    "@tsed/swagger": "5.0.7",
+    "@tsed/testing": "5.0.7"
+  }
+} 
+```
+:::
+
+::: warning
+Ts.ED requires Node >= 8, Express >= 4, TypeScript >= 2.0 and 
 the `experimentalDecorators`, `emitDecoratorMetadata`, `types` and `lib` compilation 
 options in your `tsconfig.json` file.
+:::
 
 ```json
 {
   "compilerOptions": {
-    "target": "es2015",
-    "lib": ["es2015"],
-    "types": ["reflect-metadata"],
+    "target": "es2016",
+    "lib": ["es2016"],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "experimentalDecorators":true,
     "emitDecoratorMetadata": true,
-    "sourceMap": true,
-    "declaration": false
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules"
@@ -44,11 +78,9 @@ options in your `tsconfig.json` file.
 }
 ```
 
-> **Note** : target must be set to ES2015/ES6 (or more).
-
 ### Optional
 
-You can copy this example of package.json to develop your application:
+You can copy this example of `package.json` to develop your application:
 
 ```json
 {
@@ -64,7 +96,7 @@ You can copy this example of package.json to develop your application:
     "test": "mocha --reporter spec --check-leaks --bail test/",
     "tsc": "tsc --project tsconfig.json",
     "tsc:w": "tsc -w",
-    "start": "nodemon --watch '**/*.ts' --ignore 'node_modules/**/*' --exec ts-node app.ts"
+    "start": "nodemon --watch '**/*.ts' --ignore 'node_modules/**/*' --exec ts-node src/index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -91,177 +123,86 @@ You can copy this example of package.json to develop your application:
 ## Quick start
 ### Create your express server
 
-Ts.ED provide a `ServerLoader` class to configure your 
+Ts.ED provide a @@ServerLoader@@ class to configure your 
 Express application quickly. Just create a `server.ts` in your root project, declare 
-a new `Server` class that extends [`ServerLoader`](/docs/server-loader/_sidebar.md).
+a new `Server` class that extends [`ServerLoader`](/docs/server-loader.md).
 
-#### With decorators
+<<< @/docs/snippets/getting-started/server.ts
 
-```typescript
-import {ServerLoader, ServerSettings, GlobalAcceptMimesMiddleware} from "@tsed/common";
-import Path = require("path");
-
-@ServerSettings({
-    rootDir: Path.resolve(__dirname), // optional. By default it's equal to process.cwd()
-    acceptMimes: ["application/json"]
-})
-export class Server extends ServerLoader {
-
-    /**
-     * This method let you configure the middleware required by your application to works.
-     * @returns {Server}
-     */
-    public $onMountingMiddlewares(): void|Promise<any> {
-    
-        const cookieParser = require('cookie-parser'),
-            bodyParser = require('body-parser'),
-            compress = require('compression'),
-            methodOverride = require('method-override');
-
-        this
-            .use(GlobalAcceptMimesMiddleware)
-            .use(cookieParser())
-            .use(compress({}))
-            .use(methodOverride())
-            .use(bodyParser.json())
-            .use(bodyParser.urlencoded({
-                extended: true
-            }));
-
-        return null;
-    }
-
-    public $onReady(){
-        console.log('Server started...');
-    }
-   
-    public $onServerInitError(err){
-        console.error(err);
-    }
-}
-
-new Server().start();
-```
 > By default ServerLoader load controllers in `${rootDir}/controllers` and mount it to `/rest` endpoint.
 
 To customize the server settings see [Configuration](configuration.md) page.
 
-#### With the methods
+Finally create an `index.ts` file to bootstrap your server, on the same level of the `Server.ts`:
 
-```typescript
-import {ServerLoader, GlobalAcceptMimesMiddleware} from "@tsed/common";
-import * as Path from "path";
+<<< @/docs/snippets/configuration/bootstrap.ts
 
-export class Server extends ServerLoader {
-    /**
-     * In your constructor set the global endpoint and configure the folder to scan the controllers.
-     * You can start the http and https server.
-     */
-    constructor() {
-        super();
+You should have this tree directories: 
 
-        const appPath: string = Path.resolve(__dirname);
-        
-        this.mount("/rest", appPath + "/controllers/**/**.js")    // Declare the directory that contains your controllers
-            .createHttpServer(8000)
-            .createHttpsServer({
-                port: 8080
-            });
-
-    }
-
-    /**
-     * This method let you configure the middleware required by your application to works.
-     * @returns {Server}
-     */
-    $onMountingMiddlewares(): void|Promise<any> {
-    
-        const morgan = require('morgan'),
-            cookieParser = require('cookie-parser'),
-            bodyParser = require('body-parser'),
-            compress = require('compression'),
-            methodOverride = require('method-override');
-
-        this
-            .use(morgan('dev'))
-            .use(GlobalAcceptMimesMiddleware)
-
-            .use(cookieParser())
-            .use(compress({}))
-            .use(methodOverride())
-            .use(bodyParser.json())
-            .use(bodyParser.urlencoded({
-                extended: true
-            }));
-
-        return null;
-    }
-
-    public $onReady(){
-        console.log('Server started...');
-    }
-   
-    public $onServerInitError(err){
-        console.error(err);
-    }
-}
-
-new Server().start();
 ```
+.
+├── src
+│   ├── controllers
+│   ├── services
+│   ├── middlewares
+│   ├── index.ts
+│   └── Server.ts
+└── package.json
+```
+
+::: tip
+By default ServerLoader load automatically Services, Controllers and Middlewares in a specific directories.
+This behavior can be change by editing the [componentScan configuration](/configuration.md).
+:::
+
+::: tip
+In addiction, it also possible to use [node-config](https://www.npmjs.com/package/config) or [dotenv](https://www.npmjs.com/package/dotenv) to load your configuration from file:
+
+<<< @/docs/snippets/configuration/bootstrap-with-node-config.ts
+
+You should have this tree directories: 
+
+```
+.
+├── config
+│   └── default.json (or .yaml)
+├── src
+│   ├── controllers
+│   ├── services
+│   ├── middlewares
+│   ├── index.ts
+│   └── Server.ts
+└── package.json
+```
+
+With [dotenv](https://www.npmjs.com/package/dotenv):
+
+<<< @/docs/snippets/configuration/bootstrap-with-dotenv.ts
+
+:::
 
 ## Create your first controller
 
 Create a new `CalendarCtrl.ts` in your controllers directory (by default `root/controllers`).
-All controllers declared with `@Controller` decorators is considered as an Express router. 
+All controllers declared with @@Controller@@ decorators is considered as an Express router. 
 An Express router require a path (here, the path is `/calendars`) to expose an url on your server. 
 More precisely, it's a part of path, and entire exposed url depend on the Server configuration (see [Configuration](configuration.md)) 
-and the [controllers dependencies](/docs/controllers.md).
+and the [children controllers](/docs/controllers.md).
 
 In this case, we haven't a dependencies and the root endpoint is set to `/rest`. 
 So the controller's url will be `http://host/rest/calendars`.
 
-```typescript
-import {
-    Controller, Get, Render, Post, 
-    Authenticated, Required, BodyParams,
-    Delete
-} from "@tsed/common";
+<<< @/docs/docs/snippets/controllers/basic-controller.ts
 
-export interface Calendar{
-    id: string;
-    name: string;
-}
+::: tip
+Decorators @@Get@@, @@Post@@, @@Delete@@, @@Put@@, etc..., supports dynamic pathParams (eg: `/:id`) and `RegExp` like Express API.
 
-@Controller("/calendars")
-export class CalendarCtrl {
+See [Controllers](/docs/controllers.md) section for more details
+:::
 
-    @Get("/")
-    @Render("calendars/index")
-    async renderCalendars(): Promise<Array<Calendar>> {
-        return [{id: '1', name: "test"}];
-    }
-    
-    @Post("/")
-    @Authenticated()
-    async post(
-        @Required() @BodyParams("calendar") calendar: Calendar
-    ): Promise<Calendar> {
-        return new Promise<Calendar>((resolve: Function, reject: Function) => {
-            calendar.id = "1";
-            resolve(calendar);
-        });
-    }
-    
-    @Delete("/")
-    @Authenticated()
-    async deleteItem(
-        @BodyParams("calendar.id") @Required() id: string 
-    ): Promise<Calendar> {
-        return {id, name: "calendar"};
-    }
-}
-```
-> **Note** : Decorators `@Get`, `@Post`, `@Delete`, `@Put`, etc..., supports dynamic pathParams (see `/:id`) and `RegExp` like Express API. 
+::: warning
+You have to configure [engine rendering](/tutorials/templating) if you want to use the decorator @@Render@@.
+:::
 
 To test your method, just run your `server.ts` and send a HTTP request on `/rest/calendars/1`.
 

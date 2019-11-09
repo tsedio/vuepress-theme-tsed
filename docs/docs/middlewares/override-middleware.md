@@ -1,22 +1,41 @@
 # Override a Middleware
 
-The decorator [@OverrideMiddleware](/api/common/mvc/overridemiddleware.md) gives you the ability to
-override some internal Ts.ED middlewares.
+The decorator @@OverrideProvider@@ gives you the ability to override some internal Ts.ED middlewares.
 
 > All Ts.ED middlewares can be overrided. You can find the complete list [here](/api/index.md?query=keywords_Middleware|type_class).
 
 ## Usage
 
-```typescript
-import {OriginalMiddlware, OverrideMiddleware} from "@tsed/common";
+<<< @/docs/docs/snippets/middlewares/override-middleware.ts
 
-@OverrideMiddleware(OriginalMiddlware)
-export class CustomMiddleware extends OriginalMiddlware {
-    public use() {
-        
-    }
+::: tip
+By default, the server import automatically you middlewares matching with this rules `${rootDir}/middlewares/**/*.ts` (See [componentScan configuration](/configuration.md)).
+
+```
+.
+├── src
+│   ├── controllers
+│   ├── services
+│   ├── middlewares
+│   └── Server.ts
+└── package.json
+```
+
+If not, just import your middleware in your server or edit the [componentScan configuration](/configuration.md).
+
+```typescript
+import {ServerLoader, ServerSettings} from "@tsed/common";
+import "./src/other/directory/CustomMiddleware";
+
+@ServerSettings({
+    ...
+})
+export class Server extends ServerLoader {
+  
+ 
 }
 ```
+:::
 
 ## Examples
 

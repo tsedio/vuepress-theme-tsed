@@ -147,7 +147,7 @@
     },
 
     mounted () {
-      getApi(this.$site.themeConfig.apiUrl)
+      // getApi(this.$site.themeConfig.apiUrl)
 
       window.addEventListener('scroll', this.onScroll)
 

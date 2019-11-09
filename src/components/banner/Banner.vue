@@ -17,10 +17,10 @@
         type: String
       },
       height: {
-        type: Number
+        type: [Number, String]
       }
     }
-  };
+  }
 </script>
 <style lang="scss">
   @import "../../styles/mixins/index";

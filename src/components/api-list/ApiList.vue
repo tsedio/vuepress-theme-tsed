@@ -6,7 +6,7 @@
   </ul>
 </template>
 <script>
-  import { findSymbols, getApi } from '../../utils/api'
+  import { findSymbols } from '../../utils/api'
   import ApiSymbol from '../api-symbol/ApiSymbol'
 
   export default {
@@ -47,10 +47,7 @@
 
     mounted () {
       if (this.query) {
-        getApi(this.$site.themeConfig.apiUrl)
-          .then((api) => {
-            this.api = api
-          })
+        this.api = this.$site.themeConfig.api
       }
     }
   }

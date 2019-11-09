@@ -1,6 +1,6 @@
-# Override Authentication
+# Override Authentication <Badge text="deprecated" type="warn" />
 
-The annotation [`@Authenticated()`](/api/common/mvc/authenticated.md) use the [`AuthenticatedMiddleware`](/api/common/mvc/authenticatedmiddleware.md)
+The annotation @@Authenticated@@ use the @@AuthenticatedMiddleware@@
 to check the authentication strategy. 
 
 To customise this behavior, the right way is to override the default `AuthenticatedMiddleware` then implement directly 
@@ -9,7 +9,9 @@ your authentication strategy (with [passport.js for example](/tutorials/passport
 ## Use case
 
 ```typescript
-@ControllerProvider("/mypath")
+import {Controller, Get, Authenticated} from "@tsed/common";
+
+@Controller("/mypath")
 class MyCtrl {
   @Get("/")
   @Authenticated({role: "admin"})
@@ -20,25 +22,46 @@ class MyCtrl {
 ## Example
 
 ```typescript
-import {OverrideMiddleware, AuthenticatedMiddleware} from "@tsed/common";
-import {Forbidden} from "ts-httpexceptions";
+import {Unauthorized} from "ts-httpexceptions";
+import {IMiddleware, EndpointInfo, Req, Middleware} from "@tsed/common";
 
-@OverrideMiddleware(AuthenticatedMiddleware)
-export class MyAuthenticatedMiddleware implements IMiddleware {
-    public use(@EndpointInfo() endpoint: EndpointMetadata,
-               @Request() request: Express.Request,
-               @Response() response: Express.Response,
-               @Next() next: Express.NextFunction) { // next is optional
-        
-        // options given to the @Authenticated decorator
-        const options = endpoint.get(AuthenticatedMiddleware) || {};
-        // options => {role: 'admin'}
-        
-        if (!request.isAuthenticated()) { // passport.js
-          throw new Forbidden("Forbidden")  
-        }
-        
-        next();
+@Middleware()
+export class AuthenticatedMiddleware implements IMiddleware {
+  public use(@Req() request: Req, @EndpointInfo() endpoint: EndpointInfo) {
+    const options = endpoint.get(AuthenticatedMiddleware) || {};
+    // @ts-ignore
+    if (!request.isAuthenticated(options)) {
+      throw new Unauthorized("Unauthorized");
     }
+  }
 }
 ```
+
+::: tip
+By default, the server import automatically your middlewares matching with this rules `${rootDir}/middlewares/**/*.ts` (See [componentScan configuration](/configuration.md)).
+
+```
+.
+├── src
+│   ├── controllers
+│   ├── services
+│   ├── middlewares
+│   └── Server.ts
+└── package.json
+```
+
+If not, just import your middleware in your server or edit the [componentScan configuration](/configuration.md).
+
+```typescript
+import {ServerLoader, ServerSettings} from "@tsed/common";
+import "./src/other/directory/MyAuthMiddleware";
+
+@ServerSettings({
+    ...
+})
+export class Server extends ServerLoader {
+  
+ 
+}
+```
+:::

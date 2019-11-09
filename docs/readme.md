@@ -8,9 +8,9 @@ meta:
  - name: keywords
    content: TS.ED express typescript javascript es6 decorators mvc model ioc service model middleware socket.io swagger typeorm mongoose ajv
 actionText: Get Started →
-actionLink: /guide/
+actionLink: /getting-started.html
 repoText: Github
-repoLink: /guide/
+repoLink: https://github.com/TypedProject/ts-express-decorators
 heroText: TS.ED
 heroDescription: A TypeScript Framework on top of Express
 heroTerms:
@@ -42,6 +42,8 @@ contributors:
 backers:
  title: Our<br /><b>Backers</b>
  details: Thank you to all our backers! 🙏
+ src: https://opencollective.com/tsed/tiers/backer.svg?width=890
+ link: https://opencollective.com/tsed#backers
  button:
    text: Become backers
    link: https://opencollective.com/tsed#backers

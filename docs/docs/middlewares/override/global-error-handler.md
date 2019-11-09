@@ -1,64 +1,44 @@
 # Override Global error handler
 
-All errors are intercepted by the [GlobalErrorHandlerMiddleware](/docs/api/common/mvc/globalerrorhandlermiddleware.md).
+All errors are intercepted by the @@GlobalErrorHandlerMiddleware@@.
 By default, all HTTP Exceptions are automatically sent to the client, and technical error are
 sent as Internal Server Error. 
 
-You can override this middleware with the decorator [@OverrideMiddleware](/docs/api/common/mvc/globalerrorhandlermiddleware.md).
+Here the original @@GlobalErrorHandlerMiddleware@@:
+
+<<< @/packages/common/src/server/components/GlobalErrorHandlerMiddleware.ts
+
+With @@OverrideProvider@@  it's possible to change the default implementation like
+this:
+
+<<< @/docs/docs/snippets/middlewares/override-global-error-handler-middleware.ts
+
+::: tip
+By default, the server import automatically your middlewares matching with this rules `${rootDir}/middlewares/**/*.ts` (See [componentScan configuration](/configuration.md)).
+
+```
+.
+├── src
+│   ├── controllers
+│   ├── services
+│   ├── middlewares
+│   └── Server.ts
+└── package.json
+```
+
+If not, just import your middleware in your server or edit the [componentScan configuration](/configuration.md).
 
 ```typescript
-import * as Express from "express";
-import {OverrideMiddleware, GlobalErrorHandlerMiddleware, Err, Req, Res} from "@tsed/common";
+import {ServerLoader, ServerSettings} from "@tsed/common";
+import "./src/other/directory/MyGEHMiddleware";
 
-@OverrideMiddleware(GlobalErrorHandlerMiddleware)
-export class MyGEHMiddleware {
+@ServerSettings({
+    ...
+})
+export class Server extends ServerLoader {
+  
  
-   use(@Err() error: any,
-           @Req() request: Express.Request,
-           @Res() response: Express.Response): any {
-   
-           const toHTML = (message = "") => message.replace(/\n/gi, "<br />");
-   
-           if (error instanceof Exception || error.status) {
-               request.log.error({
-                   error: {
-                       message: error.message,
-                       stack: error.stack,
-                       status: error.status
-                   }
-               });
-               response.status(error.status).send(toHTML(error.message));
-               return;
-           }
-   
-           if (typeof error === "string") {
-               response.status(404).send(toHTML(error));
-               return;
-           }
-   
-           request.log.error({
-               error: {
-                   status: 500,
-                   message: error.message,
-                   stack: error.stack
-               }
-           });
-           response.status(error.status || 500).send("Internal Error");
-   
-           return;
-       }
 }
 ```
+:::
 
-Then, add your middleware in [`ServerLoader`](/api/common/server/serverloader.md):
-
-```typescript
-import {ServerSettings, ServerLoader} from "@tsed/common";
-// Just import the middleware
-import './MyGEHMiddleware';
-
-
-@ServerSettings({...})
-export class ServerLoader {
-}
-```

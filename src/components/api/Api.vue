@@ -20,9 +20,8 @@
   </div>
 </template>
 <script>
-  import { getApi } from '../../utils/api';
-  import ApiList from '../api-list/ApiList';
-  import Select from '../select/Select';
+  import ApiList from '../api-list/ApiList'
+  import Select from '../select/Select'
 
   export default {
     name: 'Api',
@@ -31,21 +30,21 @@
       Select
     },
 
-    data() {
+    data () {
       return {
         api: undefined,
         currentStatus: '',
         currentType: '',
         keyword: ''
-      };
+      }
     },
 
     computed: {
-      modules() {
-        const { modules } = this.api;
+      modules () {
+        const { modules } = this.$site.themeConfig.api
 
         if (!modules) {
-          return {};
+          return {}
         }
 
         return Object.keys(modules).reduce((acc, key) => {
@@ -55,37 +54,30 @@
             .filter((symbol) => {
 
               if (!!(this.currentType && symbol.symbolType !== this.currentType)) {
-                return false;
+                return false
               }
 
               if (!!(this.currentStatus && symbol.status.indexOf(this.currentStatus))) {
-                return false;
+                return false
               }
 
               if (!!this.keyword) {
-                return symbol.symbolName.toLowerCase().indexOf(this.keyword.toLocaleLowerCase()) > -1;
+                return symbol.symbolName.toLowerCase().indexOf(this.keyword.toLocaleLowerCase()) > -1
               }
 
-              return true;
-            });
+              return true
+            })
 
-          acc[key] = { ...modules[key], symbols };
+          acc[key] = { ...modules[key], symbols }
 
-          return acc;
-        }, {});
+          return acc
+        }, {})
       }
     },
 
-    mounted() {
-      getApi(this.$site.themeConfig.apiUrl).then((api) => {
-        this.api = api;
-      });
-    },
-
     methods: {
-
-      onTypeChange(item) {
-        this.currentType = item.value;
+      onTypeChange (item) {
+        this.currentType = item.value
 
         if (this.$ga) {
           this.$ga.event({
@@ -93,12 +85,12 @@
             eventAction: 'search',
             eventLabel: 'type',
             eventValue: this.currentType
-          });
+          })
         }
       },
 
-      onStatusChange(item) {
-        this.currentStatus = item.value;
+      onStatusChange (item) {
+        this.currentStatus = item.value
 
         if (this.$ga) {
           this.$ga.event({
@@ -106,21 +98,21 @@
             eventAction: 'search',
             eventLabel: 'status',
             eventValue: this.currentStatus
-          });
+          })
         }
       },
 
-      onKeywordsChange(evt) {
+      onKeywordsChange (evt) {
         if (this.$ga) {
           this.$ga.event({
             eventCategory: 'api',
             eventAction: 'search',
             eventLabel: 'keywords',
             eventValue: evt.target.value
-          });
+          })
         }
       }
     }
-  };
+  }
 </script>
 <style lang="scss" src="./Api.scss"></style>

@@ -9,12 +9,16 @@ contributors:
 backers:
  title: Our<br /><b>Backers</b>
  details: Thank you to all our backers! 🙏
+ src: https://opencollective.com/tsed/tiers/backer.svg?width=890
+ link: https://opencollective.com/tsed#backers
  button:
    text: Become backers
    link: https://opencollective.com/tsed#backers
 sponsors:
  title: Our<br /><b>sponsors</b>
  details: Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
+ src: https://opencollective.com/tsed/tiers/sponsor.svg?width=890
+ link: https://opencollective.com/tsed#sponsor
  button:
    text: Become sponsor
    link: https://opencollective.com/tsed#sponsor
@@ -29,7 +33,7 @@ We welcome any type of contribution, not only code. You can help with
 - QA: file bug reports, the more details you can give the better (e.g. screenshots with the console open)
 - Marketing: writing blog posts, howto's, printing stickers, ...
 - Community: presenting the project at meetups, organizing a dedicated meetup for the local community, ...
-- Code: take a look at the [open issues](https://github.com/Romakita/tsed/blob/master/issues). Even if you can't write code, commenting on them, showing that you care about a given issue matters. It helps us triage them.
+- Code: take a look at the [open issues](https://github.com/TypedProject/ts-express-decorators/issues). Even if you can't write code, commenting on them, showing that you care about a given issue matters. It helps us triage them.
 - Money: we welcome financial contributions in full transparency on our [open collective](https://opencollective.com/tsed).
 
 ## Your First Contribution
@@ -49,7 +53,7 @@ We also welcome financial contributions in full transparency on our open collect
 
 ## Questions
 
-If you have any questions, create an [issue](https://github.com/Romakita/tsed/blob/master/issue) (protip: do a quick search first to see if someone else didn't ask the same question before!). You can also reach us at hello@tsed.opencollective.com.
+If you have any questions, create an [issue](https://github.com/TypedProject/ts-express-decorators/issues) (protip: do a quick search first to see if someone else didn't ask the same question before!). You can also reach us at hello@tsed.opencollective.com.
 
 ## How to work on Ts.ED
 ### Setup
@@ -60,27 +64,32 @@ Clone your fork of the repository
 $ git clone https://github.com/YOUR_USERNAME/ts-express-decorators.git
 ```
 
-Install npm dependencies
-
+Install npm dependencies with yarn (not with NPM!):
 ```bash
-npm install
+yarn
 ```
+> After installing dependencies, yarn/npm run the `postinstall` hook and mounted all packages with `npm link` (e.g. `yarn run repo:bootstrap`).
 
-Run build process
-
+Compile TypeScript:
 ```bash
-npm run build
+tsc
+# or
+yarn tsc
+# or
+npm run tsc
 ```
 
 ### Test
 
 ```bash
+yarn test
+# or
 npm run test
 ```
 
-### Gflow
+### Gflow (optional)
 
-[Gflow](https://www.npmjs.com/package/gflow) is a command line tool to help developer with the Git Flow process used in Ts.ED.
+[Gflow](https://www.npmjs.com/package/gflow) is a command line tool to help developer with the Git process used in Ts.ED.
 
 Gflow help you to create a branch from production, rebase and run the test before pushing your branch on your remote repository.
 
@@ -88,25 +97,40 @@ Gflow help you to create a branch from production, rebase and run the test befor
 npm install -g gflow
 ```
 
-#### Start a feature branch
+### Start a feature branch
 
 ```bash
+git fetch
+git branch --no-track -b feat-branch-name origin/production  # !IMPORTANT
+yarn
+
+## OR
 gflow new feat name_of_feat
 ```
 
-#### Commit & Push a feature
+### Commit & Push a feature
 
 This command rebase your branch feature from the production branch, run the test and push your branch.
 
 ```bash
 git commit -m "feat(domain): Your message"
+```
+> To write your commit message see [convention page](https://www.conventionalcommits.org/en/v1.0.0-beta.4/)
+
+Then:
+```bash
+npm run test
+git fetch
+git rebase origin/production
+git push -f
+
+# OR using gflow (run fetch, rebase and push for you)
 gflow push
 ```
-> To write your commit message see [convention page](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit)
 
 When your feature is ready to review, you can open a PR on Ts.ED github.
 
-#### Finish a feature
+### Finish a feature (repo owner and maintainers)
 
 After the PR has been accepted, the feature will be automatically merge on the master branch, but
 your feature isn't merge with the production branch.
@@ -128,9 +152,7 @@ the Api documentation. To preview your comments on a class you can run this comm
 npm run doc:serve
 ```
 
-***
-
-## Guidelines
+### Guidelines
 
 - Ts.ED follow the git flow to generate a release note. To write your commit message see [convention page](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit)
 - Please try to combine multiple commits before pushing

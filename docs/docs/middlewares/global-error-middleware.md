@@ -1,6 +1,6 @@
 # Global Error middleware
 
-`@MiddlewareError()` lets you handle all the errors when you add your middleware in your [ServerLoader](/api/common/server/serverloader.md).
+`@MiddlewareError()` lets you handle all the errors when you add your middleware in your [ServerLoader](/api/common/server/components/ServerLoader.md).
 
 ::: tip
 You have two to handle error (globally). The first (better) way is to override the default [Global Error Handler](/docs/middlewares/override/global-error-handler.md).
@@ -51,7 +51,7 @@ export class GlobalErrorHandlerMiddleware implements IMiddlewareError {
 }
 ```
 
-Then, add your middleware in [`ServerLoader`](/api/common/server/serverloader.md):
+Then, add your middleware in [`ServerLoader`](/api/common/server/components/ServerLoader.md):
 
 ```typescript
 @ServerSettings({
