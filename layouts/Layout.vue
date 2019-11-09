@@ -47,7 +47,7 @@
 <script>
   import nprogress from 'nprogress'
   import Vue from 'vue'
-  import VueTsed, { getApi, resolveOtherTopicsItems, resolveSidebarItems } from './src'
+  import VueTsed, { resolveOtherTopicsItems, resolveSidebarItems } from '../src'
 
   Vue.use(VueTsed)
 

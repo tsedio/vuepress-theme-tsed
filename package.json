@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@vuepress/plugin-google-analytics": "^1.2.0",
+    "nprogress": "0.2.0",
     "axios": "0.19.0",
     "include-media": "1.4.9",
     "node-sass": "4.13.0",
