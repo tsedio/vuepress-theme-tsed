@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <article class="container">
-      <slot name="top"/>
+      <slot name="page-top"/>
 
       <Content :custom="false"/>
 
@@ -27,7 +27,7 @@
         </p>
       </div>
 
-      <slot name="bottom"/>
+      <slot name="page-bottom"/>
 
     </article>
   </div>

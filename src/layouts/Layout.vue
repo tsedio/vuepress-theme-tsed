@@ -32,7 +32,7 @@
         <template #bottom>
           <slot name="page-bottom"/>
         </template>
-        <OtherTopics slot="bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
+        <OtherTopics slot="page-bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
           <h3 class="heading" slot="top">
             Other <br/><b>topics</b>
           </h3>
