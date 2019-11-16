@@ -2,7 +2,7 @@ import { resolveMatchingConfig, resolvePage } from '@vuepress/theme-default/util
 
 export * from '@vuepress/theme-default/util'
 
-export function resolveOtherTopicsItems (page, route, site, localePath) {
+export function resolveOtherTopicsItems (page, regularPath, site, localePath) {
   const { pages, themeConfig } = site
   const localeConfig = localePath && themeConfig.locales
     ? themeConfig.locales[localePath] || themeConfig
@@ -13,7 +13,7 @@ export function resolveOtherTopicsItems (page, route, site, localePath) {
   if (!otherTopicsConfig) {
     return []
   } else {
-    const { base, config } = resolveMatchingConfig(route, otherTopicsConfig)
+    const { base, config } = resolveMatchingConfig(regularPath, otherTopicsConfig)
     return config
       ? config.map(item => {
         return resolvePage(pages, item, base)

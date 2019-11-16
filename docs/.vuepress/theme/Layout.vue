@@ -113,10 +113,9 @@
       shouldShowSidebar () {
         const { frontmatter } = this.$page
         return (
-          !frontmatter.layout &&
-          !this.isHome &&
-          frontmatter.sidebar !== false &&
-          this.sidebarItems.length
+          !frontmatter.home
+          && frontmatter.sidebar !== false
+          && this.sidebarItems.length
         )
       },
 
@@ -133,7 +132,7 @@
       sidebarItems () {
         return resolveSidebarItems(
           this.$page,
-          this.$route,
+          this.$page.regularPath,
           this.$site,
           this.$localePath
         )
@@ -142,7 +141,7 @@
       otherTopicsItems () {
         return resolveOtherTopicsItems(
           this.$page,
-          this.$route,
+          this.$page.regularPath,
           this.$site,
           this.$localePath
         )

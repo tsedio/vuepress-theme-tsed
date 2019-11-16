@@ -14,8 +14,12 @@
 
       <Sidebar :items="sidebarItems"
                @toggle-sidebar="toggleSidebar">
-        <slot name="sidebar-top" slot="top"/>
-        <slot name="sidebar-bottom" slot="bottom"/>
+        <template #top>
+          <slot name="sidebar-top" />
+        </template>
+        <template #bottom>
+          <slot name="sidebar-bottom"/>
+        </template>
       </Sidebar>
 
       <div class="custom-layout" v-if="isCustomLayout">
@@ -113,10 +117,9 @@
       shouldShowSidebar () {
         const { frontmatter } = this.$page
         return (
-          !frontmatter.layout &&
-          !this.isHome &&
-          frontmatter.sidebar !== false &&
-          this.sidebarItems.length
+          !frontmatter.home
+          && frontmatter.sidebar !== false
+          && this.sidebarItems.length
         )
       },
 
@@ -133,7 +136,7 @@
       sidebarItems () {
         return resolveSidebarItems(
           this.$page,
-          this.$route,
+          this.$page.regularPath,
           this.$site,
           this.$localePath
         )
@@ -142,7 +145,7 @@
       otherTopicsItems () {
         return resolveOtherTopicsItems(
           this.$page,
-          this.$route,
+          this.$page.regularPath,
           this.$site,
           this.$localePath
         )
