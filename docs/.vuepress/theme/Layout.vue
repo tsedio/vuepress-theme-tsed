@@ -124,7 +124,7 @@
         return (
           !frontmatter.layout &&
           !this.isHome &&
-          frontmatter.otherTopics === true &&
+          frontmatter.otherTopics !== false &&
           this.otherTopicsItems.length
         )
       },
