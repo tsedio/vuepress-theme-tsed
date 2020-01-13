@@ -1,8 +1,9 @@
 module.exports = {
-  title: 'Ts.ED',
+  title: 'Ts.ED - Test',
   description: 'A TypeScript Framework on top of Express',
   serviceWorker: false,
   themeConfig: {
+    shortTitle: 'Ts.ED',
     version: require('../../package').version,
     repo: 'TypedProject/ts-express-decorators',
     openCollective: 'tsed',

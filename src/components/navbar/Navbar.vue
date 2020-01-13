@@ -12,7 +12,7 @@
               class="site-name"
               v-if="$siteTitle"
               :class="{ 'can-hide': $site.themeConfig.logo }">
-        {{ $siteTitle }}
+        {{this.$site.themeConfig.shortTitle || this.$siteTitle }}
       </span>
       </router-link>
 
@@ -109,10 +109,6 @@
     },
 
     computed: {
-      siteTitle () {
-        return this.$site.themeConfig.shortTitle || this.$siteTitle
-      },
-
       algolia () {
         return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
       },
