@@ -109,6 +109,10 @@
     },
 
     computed: {
+      siteTitle () {
+        return this.$site.themeConfig.shortTitle || this.$siteTitle
+      },
+
       algolia () {
         return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
       },
@@ -122,7 +126,7 @@
         if (repo) {
           return /^https?:/.test(repo)
             ? repo
-            : `https://github.com/${ repo }`
+            : `https://github.com/${repo}`
         }
       },
       gitterLink () {
