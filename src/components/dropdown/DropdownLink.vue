@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown-wrapper" :class="{ open }">
-    <a class="dropdown-title" @click="toggle">
+    <a class="dropdown-title" @click="toggle" :title="item.title">
       <span class="title">{{ item.text }}</span>
       <span class="arrow" :class="open ? 'down' : 'right'"></span>
     </a>
@@ -17,13 +17,13 @@
             <li class="dropdown-subitem"
                 :key="childSubItem.link"
                 v-for="childSubItem in subItem.items">
-              <NavLink :href="childSubItem.link">
+              <NavLink :href="childSubItem.link" :title="childSubItem.title">
                 {{childSubItem.text}}
               </NavLink>
             </li>
           </ul>
 
-          <NavLink v-else :href="subItem.link">
+          <NavLink v-else :href="subItem.link" :title="subItem.title">
             {{subItem.text}}
           </NavLink>
         </li>

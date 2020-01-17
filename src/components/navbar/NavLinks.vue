@@ -9,7 +9,7 @@
       <DropdownLink v-if="item.type === 'links'"
                     :item="item"/>
 
-      <NavLink v-else :href="item.link" v-html="item.text"></NavLink>
+      <NavLink v-else :href="item.link" v-html="item.text" :title="item.title"></NavLink>
     </div>
 
   </nav>
