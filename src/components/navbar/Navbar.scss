@@ -109,9 +109,27 @@ $navbarTiming: .5s !default;
       }
 
       a {
-        display: block;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        text-align: center;
         color: $navbarColor;
         fill: $navbarColor;
+        &.stackoverflow-link {
+          svg {
+            margin-right: -4px;
+          }
+        }
+        &.gitter-link {
+          svg {
+            margin-right: -8px;
+          }
+        }
+        &.sponsor-link{
+          svg {
+            margin-right: -3px;
+          }
+        }
 
         &:hover {
           color: $secondaryColor;
@@ -120,6 +138,7 @@ $navbarTiming: .5s !default;
 
         svg {
           width: 18px;
+          height: 18px;
           display: block;
         }
 
