@@ -9,6 +9,7 @@ module.exports = {
     openCollective: 'tsed',
     gitterUrl: 'https://gitter.im/Tsed-io/community',
     twitterUrl: 'https://twitter.com/RomainLenzotti',
+    stackoverflowUrl: 'https://stackoverflow.com/questions/tagged/tsed',
     editLinks: true,
     docsDir: 'docs',
     sidebar: 'auto',

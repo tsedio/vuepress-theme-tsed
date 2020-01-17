@@ -100,7 +100,7 @@ $navbarTiming: .5s !default;
       align-items: center;
 
       &-item {
-        margin: 0 rem(5px);
+        margin: 0 rem(6px);
       }
 
       &-item a {
@@ -113,8 +113,13 @@ $navbarTiming: .5s !default;
         color: $navbarColor;
         fill: $navbarColor;
 
+        &:hover {
+          color: $secondaryColor;
+          fill: $secondaryColor;
+        }
+
         svg {
-          width: 25px;
+          width: 18px;
           display: block;
         }
 
