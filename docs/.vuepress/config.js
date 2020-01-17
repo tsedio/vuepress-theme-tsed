@@ -1,3 +1,4 @@
+const title = 'Ts.ED - Test'
 module.exports = {
   title: 'Ts.ED - Test',
   description: 'A TypeScript Framework on top of Express',
@@ -34,7 +35,8 @@ module.exports = {
         nav: [
           {
             text: 'Getting started',
-            link: '/getting-started.html'
+            link: '/getting-started.html',
+            title: `Getting started | ${title}`
           },
           {
             text: 'Configuration',

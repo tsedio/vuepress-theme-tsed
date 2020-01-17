@@ -2,6 +2,7 @@
   <router-link class="nav-link"
                :to="link"
                v-if="!isExternal(link)"
+               :title="title"
                :exact="exact">
     <slot></slot>
   </router-link>
