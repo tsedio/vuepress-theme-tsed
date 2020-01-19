@@ -25,8 +25,10 @@
 
     computed: {
       item () {
+
         if (this.query && this.api) {
           const symbols = findSymbols(this.api.modules, this.query)
+
           return symbols[0]
         }
 

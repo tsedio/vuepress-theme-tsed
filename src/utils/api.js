@@ -1,6 +1,6 @@
 export function compileQuery (query, scope) {
   query = Object.keys(scope).reduce((q, key) =>
-      q.replace(new RegExp('\\b' + key + '\\b', 'gi'), `scope.${key}`)
+      q.replace(new RegExp('\\b' + key + '\\b', 'g'), `scope.${key}`)
     , query)
 
   try {
