@@ -23,6 +23,7 @@ testimonial:
   details: Ts.ED is a framework on top of Express to write your application with TypeScript (or ES6). It provide a lot of decorators and guideline to write your code.
 features:
 - title: Rest API
+  src: /api2.svg
   details: Create your Rest API easily and create different version path of your API
 - title: Configuration
   details: Didn't waste your time with configuration, the server is preconfigured to start quickly!

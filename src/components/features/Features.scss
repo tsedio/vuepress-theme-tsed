@@ -1,6 +1,7 @@
 @import "../../styles/mixins/index";
 
 .features {
+  $root: &;
   padding: 1.2rem 0;
   display: flex;
   flex-wrap: wrap;
@@ -8,11 +9,27 @@
   align-content: stretch;
   justify-content: space-between;
 
+  &__icon-wrapper {
+    width: rem(70px);
+    height: rem(75px);
+    margin: 0 auto;
+    display: block;
+
+    img {
+
+    }
+  }
+
   &__item {
     flex-grow: 1;
     flex-basis: 30%;
     max-width: 30%;
-    h2 {
+
+    &.-icon {
+      text-align: center;
+    }
+
+    h3 {
       font-size: rem(16px);
       font-weight: bold;
       border-bottom: none;
@@ -21,9 +38,13 @@
       text-transform: uppercase;
       color: $primaryColor;
     }
+
     p {
-      // text-align: center;
       color: lighten($textColor, 25%);
+    }
+
+    &:after {
+
     }
   }
 }

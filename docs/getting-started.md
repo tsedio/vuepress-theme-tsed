@@ -34,6 +34,21 @@ meta:
 
 # Getting started
 
+
+<Tabs class="-code">
+  <Tab label="Server.ts">
+     
+<<< @/docs/snippets/configuration/bootstrap-with-dotenv.ts
+     
+  </Tab>
+  <Tab label="Server.spec.ts">
+     
+<<< @/docs/snippets/configuration/bootstrap-with-dotenv.ts
+
+  </Tab>
+</Tabs>
+
+
 Save your time by starting your project on one of this kit:
 
 <Projects type="getting-started" />
@@ -197,7 +212,14 @@ You should have this tree directories:
 
 With [dotenv](https://www.npmjs.com/package/dotenv):
 
+<Tabs>
+  <Tab>
+     
 <<< @/docs/snippets/configuration/bootstrap-with-dotenv.ts
+     
+  </Tab>
+</Tabs>
+
 
 :::
 
