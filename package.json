@@ -28,9 +28,8 @@
     "lodash": "^4.17.15",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "vue": "2.6.10",
-    "vue-template-compiler": "2.6.10",
-    "vue-server-renderer": "2.6.11",
+    "vue": "2.6.11",
+    "vue-template-compiler": "2.6.11",
     "vuepress": "1.2.0",
     "vuepress-plugin-container": "^2.0.2",
     "vuepress-plugin-smooth-scroll": "^0.0.3"
