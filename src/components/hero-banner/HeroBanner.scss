@@ -59,6 +59,7 @@ $heroBannerColorDark3: darken($heroBannerBg, 2.5%) !default; ///#326cc6 !default
     position: relative;
     text-align: center;
     font-size: 100px;
+    text-transform: none;
 
     .anchor span {
       color: white;
