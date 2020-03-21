@@ -1,26 +1,9 @@
 <template>
-
   <section class="hero-banner">
     <div class="hero-banner__content">
-      <img v-if="logoSrc"
-           :src="logoSrc"
-           alt="hero">
-
-      <h1>{{ title }}
-        <small v-show="version">{{version}}</small>
-      </h1>
-
-      <p class="hero-banner__description">
-        {{ description }}
-      </p>
-
-      <ul v-if="terms" class="hero-banner__terms">
-        <li v-for="term in terms">{{term}}</li>
-      </ul>
-
-      <p class="hero-banner__actions">
+      <Component :is="component" v-bind="info">
         <slot></slot>
-      </p>
+      </Component>
     </div>
 
     <div class="hero-banner__bg hero-banner__bg-1">
@@ -74,13 +57,15 @@
         </div>
       </div>
     </div>
-
   </section>
 
 </template>
 <script>
+  import HeroBannerContent from './HeroBannerContent'
+
   export default {
     name: 'HeroBanner',
+    components: { HeroBannerContent },
     props: {
       title: {
         type: String,
@@ -101,8 +86,24 @@
       logoSrc: {
         type: String,
         required: false
+      },
+      component: {
+        type: String,
+        required: false,
+        default: HeroBannerContent
+      }
+    },
+    computed: {
+      info () {
+        return {
+          title: this.title,
+          version: this.version,
+          description: this.description,
+          terms: this.terms,
+          logoSrc: this.logoSrc
+        }
       }
     }
-  };
+  }
 </script>
 <style lang="scss" src="./HeroBanner.scss"></style>

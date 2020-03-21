@@ -4,7 +4,8 @@
                 :title="data.heroText || $title || 'Hello'"
                 :version="data.heroVersion || $site.themeConfig.version"
                 :terms="data.heroTerms"
-                :description="data.heroDescription || $description || 'Welcome to your VuePress site'">
+                :description="data.heroDescription || $description || 'Welcome to your VuePress site'"
+                :component="data.heroComponent">
 
       <ul class="home__actions">
         <li>
@@ -17,8 +18,6 @@
           <GithubStars v-if="data.repoText && data.repoLink"></GithubStars>
         </li>
       </ul>
-
-
     </HeroBanner>
 
     <article>
