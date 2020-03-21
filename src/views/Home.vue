@@ -94,27 +94,9 @@
 </template>
 
 <script>
-  import Features from '../components/features/Features.vue'
-  import GithubContributors from '../components/github-contributors/GithubContributors.vue'
-  import HeroBanner from '../components/hero-banner/HeroBanner.vue'
-  import NavLink from '../components/navbar/NavLink.vue'
-  import Testimonial from '../components/testimonial/Testimonial.vue'
-  import GithubStars from '../components/github-stars/GithubStars'
-  import OpenCollectiveBackers from '../components/open-collective-backers/OpenCollectiveBackers'
-  import OpenCollectiveSponsors from '../components/open-collective-sponsors/OpenCollectiveSponsors'
-
   export default {
     name: 'Home',
-    components: {
-      GithubStars,
-      HeroBanner,
-      Testimonial,
-      NavLink,
-      Features,
-      GithubContributors,
-      OpenCollectiveBackers,
-      OpenCollectiveSponsors
-    },
+    components: {},
 
     computed: {
       data () {

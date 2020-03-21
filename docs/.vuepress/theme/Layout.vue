@@ -3,8 +3,6 @@
        :class="pageClasses"
        @touchstart="onTouchStart"
        @touchend="onTouchEnd">
-
-
     <Navbar v-if="shouldShowNavbar"
             :class="{'--fluid': shouldShowSidebar}"
             @toggle-sidebar="toggleSidebar"/>
