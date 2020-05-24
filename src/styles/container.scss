@@ -14,8 +14,8 @@
   }
 
   &--padded {
-    padding-top: rem(40px);
-    padding-bottom: rem(40px);
+    padding-top: sass-rem(40px);
+    padding-bottom: sass-rem(40px);
   }
   &--centered {
     text-align: center;
