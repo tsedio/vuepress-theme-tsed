@@ -15,25 +15,25 @@
     "serve:prod": "lite-server --baseDir=\"docs/.vuepress/dist\""
   },
   "dependencies": {
-    "@vuepress/theme-default": "1.2.0",
+    "@sass-collective/sass-rem": "^1.4.0",
     "@vuepress/plugin-active-header-links": "1.2.0",
     "@vuepress/plugin-nprogress": "1.2.0",
     "@vuepress/plugin-search": "1.2.0",
-    "docsearch.js": "^2.5.2",
+    "@vuepress/theme-default": "1.2.0",
     "axios": "0.19.0",
+    "docsearch.js": "^2.5.2",
     "include-media": "1.4.9",
-    "node-sass": "4.13.0",
-    "sass-loader": "8.0.0",
-    "sass-rem": "2.0.1",
     "lodash": "^4.17.15",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vuepress-plugin-container": "^2.0.2",
     "vuepress-plugin-smooth-scroll": "^0.0.3"
   },
   "devDependencies": {
-    "vuepress": "1.4.0",
     "lite-server": "2.5.4",
-    "semantic-release": "15.13.30"
+    "semantic-release": "15.13.30",
+    "vuepress": "1.4.0"
   }
 }

@@ -1,4 +1,4 @@
-@import "~sass-rem/rem";
+@import "~@sass-collective/sass-rem";
 @import "mixins/variables";
 
 .button {
@@ -7,9 +7,9 @@
   @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
   @include color($primaryColor, --primary-color);
   border-radius: 2rem;
-  font-size: rem(16.8px);
-  letter-spacing: rem(1.6px);
-  margin: rem(8px) rem(16px);
+  font-size: sass-rem(16.8px);
+  letter-spacing: sass-rem(1.6px);
+  margin: sass-rem(8px 16px);
   padding: .75em 2rem;
   text-decoration: none;
   text-transform: uppercase;
