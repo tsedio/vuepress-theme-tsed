@@ -20,7 +20,7 @@
     "@vuepress/plugin-nprogress": "1.2.0",
     "@vuepress/plugin-search": "1.2.0",
     "@vuepress/theme-default": "1.2.0",
-    "axios": "0.19.0",
+    "axios": "0.19.2",
     "docsearch.js": "^2.5.2",
     "include-media": "1.4.9",
     "lodash": "^4.17.15",
