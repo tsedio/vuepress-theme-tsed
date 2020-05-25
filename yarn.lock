@@ -1237,17 +1237,10 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@vuepress/plugin-nprogress@1.2.0", "@vuepress/plugin-nprogress@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-nprogress/-/plugin-nprogress-1.2.0.tgz#ff6166946a0b118a39a562acb57983529afce4d2"
-  integrity sha512-0apt3Dp6XVCOkLViX6seKSEJgARihi+pX3/r8j8ndFp9Y+vmgLFZnQnGE5iKNi1ty+A6PZOK0RQcBjwTAU4pAw==
-  dependencies:
-    nprogress "^0.2.0"
-
-"@vuepress/plugin-nprogress@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-nprogress/-/plugin-nprogress-1.4.0.tgz#90bb16ab8d43321e5911dea489986de25adb56d1"
-  integrity sha512-hJ9phJHONWWZqcWztbVtmmRjZduHQHIOBifUBvAfAGcuOBLVHqRnv3i7XD5UB3MIWPM1/bAoTA2TVs4sb9Wg4Q==
+"@vuepress/plugin-nprogress@1.5.0", "@vuepress/plugin-nprogress@^1.2.0", "@vuepress/plugin-nprogress@^1.4.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-nprogress/-/plugin-nprogress-1.5.0.tgz#bbf5d331a4acc1d862e2c7143b3b7587c3e4f0cc"
+  integrity sha512-0xs5Y0igCpA03/WXBvo01crJLVkirglh+JAIZY+daJUdjY38u4FXtrxe4/Nq7Nwo++Qy/OGFCWoilukgzpL8tA==
   dependencies:
     nprogress "^0.2.0"
 
