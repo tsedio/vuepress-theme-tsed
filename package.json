@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-tsed",
-  "version": "1.3.3",
+  "version": "2.7.0",
   "description": "Vuepress theme for tsed.io",
   "main": "src/index.js",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
