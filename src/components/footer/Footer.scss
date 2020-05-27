@@ -1,3 +1,4 @@
+@import "~@sass-collective/sass-rem";
 @import "../../styles/mixins/index";
 
 $footerBg: #e6e6e6 !default;
@@ -33,7 +34,7 @@ $footerHeadingColor: #0c3645 !default;
   }
 
   p {
-    font-size: rem(12px);
+    font-size: sass-rem(12px);
   }
 
   &__next-step-header {

@@ -1,4 +1,4 @@
-@import "~sass-rem";
+@import "~@sass-collective/sass-rem";
 
 // -----------------------------------------------------------------------------
 // Colors
@@ -22,7 +22,7 @@ $baseFontSize: 16;
 $fontFamily: 'Source Sans Pro', sans-serif;
 // $fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
-$fontSize: rem($baseFontSize);
+$fontSize: sass-rem($baseFontSize);
 $rootFontSize: percentage($baseFontSize / 16);
 $defaultLineHeight: 18 / $baseFontSize;
 
@@ -80,7 +80,7 @@ $MQNarrow: 1024px;
 $MQMobile: 768px;
 $MQMobileNarrow: 320px;
 
-$containerMaxWidth: rem(1024px);
+$containerMaxWidth: sass-rem(1024px);
 $containerGutter: 2rem;
 $sidebarWidth: 20rem;
 // $contentWidth: 740px;
