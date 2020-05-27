@@ -114,7 +114,7 @@
 
       &--ul {
         display: flex;
-        border-top: sass-rem(1px) solid rgba(0, 0, 0, .05);
+        border-top: sass-rem(1) solid rgba(0, 0, 0, .05);
         border-bottom: 0 !important;
       }
 
@@ -140,12 +140,12 @@
         display: block;
         width: auto;
         border-bottom: 0 !important;
-        border-right: sass-rem(1px) solid rgba(0, 0, 0, .05);
+        border-right: sass-rem(1) solid rgba(0, 0, 0, .05);
       }
 
       .activeChild {
         button {
-          padding: sass-rem(10px) sass-rem(8px) sass-rem(10px) sass-rem(12px) !important;
+          padding: sass-rem(10) sass-rem(8) sass-rem(10) sass-rem(12) !important;
         }
       }
     }
@@ -168,11 +168,11 @@
         display: block;
         width: auto;
         border-bottom: 0 !important;
-        border-left: sass-rem(1px) solid rgba(0, 0, 0, .05);
+        border-left: sass-rem(1) solid rgba(0, 0, 0, .05);
 
         .activeChild {
           button {
-            padding: sass-rem(10px) sass-rem(12px) sass-rem(10px) sass-rem(8px) !important;
+            padding: sass-rem(10) sass-rem(12) sass-rem(10) sass-rem(8) !important;
           }
         }
       }
@@ -183,7 +183,7 @@
     position: relative;
     width: 100%;
     display: block;
-    padding: sass-rem(10px);
+    padding: sass-rem(10);
   }
 
   &__body {
@@ -224,8 +224,8 @@
     }
 
     &--line {
-      width: sass-rem(100px);
-      height: sass-rem(2px);
+      width: sass-rem(100);
+      height: sass-rem(2);
       display: block;
       position: absolute;
       transition: all .2s ease;
@@ -251,14 +251,14 @@
     }
 
     &--btn {
-      font-size: sass-rem(14px);
+      font-size: sass-rem(14);
       box-sizing: border-box;
       display: block;
       position: relative;
       width: 100%;
       background: transparent;
       margin: 0;
-      padding: sass-rem(10px);
+      padding: sass-rem(10);
       border: 0;
       cursor: pointer;
       transition: all .2s ease;
@@ -270,7 +270,7 @@
     }
 
     &--btn-icon + span {
-      padding-left: sass-rem(9px);
+      padding-left: sass-rem(9);
     }
   }
 
@@ -280,26 +280,26 @@
     }
 
     button.tabs__header--btn {
-      padding-top: sass-rem(8px);
-      padding-bottom: sass-rem(12px);
+      padding-top: sass-rem(8);
+      padding-bottom: sass-rem(12);
     }
   }
 }
 
 //.vs-tabs--btn-tag {
 //  position: absolute;
-//  width: sass-rem(20px);
-//  height: sass-rem(20px);
+//  width: sass-rem(20);
+//  height: sass-rem(20);
 //  display: flex;
 //  align-items: center;
 //  justify-content: center;
-//  top: sass-rem(-10px);
-//  right: sass-rem(-10px);
+//  top: sass-rem(-10);
+//  right: sass-rem(-10);
 //  z-index: 200;
-//  border-radius: sass-rem(3px);
+//  border-radius: sass-rem(3);
 //  border: 0;
 //  background: rgb(255, 255, 255);
-//  box-shadow: 0 0 sass-rem(10px) 0 rgba(0, 0, 0, .05);
+//  box-shadow: 0 0 sass-rem(10) 0 rgba(0, 0, 0, .05);
 //  cursor: pointer;
 //
 //  i {

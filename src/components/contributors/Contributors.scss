@@ -1,16 +1,16 @@
 @import "~@sass-collective/sass-rem";
 @import "../../styles/mixins/index";
 
-$contributorBadgeWidth: sass-rem(60px) !default;
-$contributorBadgePadding: sass-rem(10px);
+$contributorBadgeWidth: sass-rem(60) !default;
+$contributorBadgePadding: sass-rem(10);
 
 .contributors {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: sass-rem(30px) 0 0;
+  padding: sass-rem(30) 0 0;
   justify-content: flex-start;
-  font-size: sass-rem(10px);
+  font-size: sass-rem(10);
 
   > li {
     margin: $contributorBadgePadding;
@@ -34,7 +34,7 @@ $contributorBadgePadding: sass-rem(10px);
     background-color: white;
     z-index: 100;
     position: relative;
-    margin-bottom: sass-rem(5px);
+    margin-bottom: sass-rem(5);
 
     &.-blur {
       position: absolute !important;
@@ -64,11 +64,11 @@ $contributorBadgePadding: sass-rem(10px);
     align-items: center;
     color: rgb(196, 199, 204);
     font-weight: bold;
-    font-size: sass-rem(16px);
+    font-size: sass-rem(16);
     text-align: center;
     border-radius: 35%;
     justify-content: center;
-    margin-bottom: sass-rem(5px);
+    margin-bottom: sass-rem(5);
   }
 
   &.-white {

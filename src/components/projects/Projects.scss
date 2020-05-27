@@ -1,16 +1,16 @@
 @import "~@sass-collective/sass-rem";
 @import "../../styles/mixins/index";
 
-$projectBadgeWidth: sass-rem(100px) !default;
-$projectBadgePadding: sass-rem(10px);
+$projectBadgeWidth: sass-rem(100) !default;
+$projectBadgePadding: sass-rem(10);
 
 .projects {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: sass-rem(30px) 0 0;
+  padding: sass-rem(30) 0 0;
   justify-content: flex-start;
-  font-size: sass-rem(15px);
+  font-size: sass-rem(15);
 
   > li {
     margin: $projectBadgePadding;
@@ -34,7 +34,7 @@ $projectBadgePadding: sass-rem(10px);
     background-color: white;
     z-index: 100;
     position: relative;
-    margin-bottom: sass-rem(5px);
+    margin-bottom: sass-rem(5);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
 

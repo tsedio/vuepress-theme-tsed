@@ -57,7 +57,7 @@ $navbarTiming: .5s !default;
   }
 
   .site-name {
-    font-size: sass-rem(30px);
+    font-size: sass-rem(30);
     font-weight: 300;
     color: $navbarColor;
     position: relative;
@@ -85,13 +85,13 @@ $navbarTiming: .5s !default;
       flex: 1;
 
       .nav-item {
-        margin: 0 sass-rem(5px);
+        margin: 0 sass-rem(5);
       }
 
       .nav-item > a,
       .nav-item .dropdown-title {
-        padding: 0 sass-rem(10px);
-        border-radius: sass-rem(5px);
+        padding: 0 sass-rem(10);
+        border-radius: sass-rem(5);
       }
     }
 
@@ -101,12 +101,12 @@ $navbarTiming: .5s !default;
       align-items: center;
 
       &-item {
-        margin: 0 sass-rem(6px);
+        margin: 0 sass-rem(6);
       }
 
       &-item a {
-        padding: 0 sass-rem(10px);
-        border-radius: sass-rem(5px);
+        padding: 0 sass-rem(10);
+        border-radius: sass-rem(5);
       }
 
       a {
