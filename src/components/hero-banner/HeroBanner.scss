@@ -23,7 +23,7 @@ $heroBannerColorDark3: darken($heroBannerBg, 2.5%) !default; ///#326cc6 !default
 
   color: $heroBannerColor;
   text-align: center;
-  padding: rem(10px);
+  padding: sass-rem(10);
   height: calc(70vh - #{$navbarHeight});
   min-height: 500px;
   display: -webkit-box;

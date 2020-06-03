@@ -33,7 +33,7 @@ $footerHeadingColor: #0c3645 !default;
   }
 
   p {
-    font-size: rem(12px);
+    font-size: sass-rem(12);
   }
 
   &__next-step-header {
