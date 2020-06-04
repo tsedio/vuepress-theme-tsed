@@ -20,6 +20,10 @@ main {
   padding-top: $navbarHeight;
 }
 
+button:focus {
+  outline: none;
+}
+
 .page {
   padding-left: $sidebarWidth;
   padding-bottom: sass-rem(30);
