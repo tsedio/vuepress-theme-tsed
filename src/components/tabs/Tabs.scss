@@ -145,7 +145,7 @@
 
       .activeChild {
         button {
-          padding: sass-rem(10) sass-rem(8) sass-rem(10) sass-rem(12) !important;
+          padding: sass-rem(10 8 10 12) !important;
         }
       }
     }
@@ -172,7 +172,7 @@
 
         .activeChild {
           button {
-            padding: sass-rem(10) sass-rem(12) sass-rem(10) sass-rem(8) !important;
+            padding: sass-rem(10 12 10 8) !important;
           }
         }
       }
@@ -183,8 +183,7 @@
     position: relative;
     width: 100%;
     display: block;
-    padding-top: sass-rem(10);
-    padding-bottom: sass-rem(10);
+    padding: sass-rem(10 0);
   }
 
   &__body {
