@@ -89,6 +89,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  margin-bottom: sass-rem(10);
 
   &.-code {
     #{$root}__body {
@@ -182,7 +183,8 @@
     position: relative;
     width: 100%;
     display: block;
-    padding: sass-rem(10);
+    padding-top: sass-rem(10);
+    padding-bottom: sass-rem(10);
   }
 
   &__body {
