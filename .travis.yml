@@ -1,13 +1,10 @@
 language: node_js
-cache:
-  directories:
-    - ~/.npm
-notifications:
-  email: false
+cache: yarn
+
 node_js:
-  - 10.15.3
-after_success:
-  - npm run semantic-release
+  - 12
+script: yarn release
+
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

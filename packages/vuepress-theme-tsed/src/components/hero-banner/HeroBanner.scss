@@ -1,0 +1,151 @@
+@import "../../styles/mixins/index";
+
+$sq-size: 75px;
+$heroBannerBg: $primaryColor !default;
+$heroBannerColor: white !default;
+$heroBannerColorLight1: lighten($heroBannerBg, 6%) !default; //#4f89e3
+$heroBannerColorLight2: lighten($heroBannerBg, 3%) !default; // #4781db
+$heroBannerColorDark1: $heroBannerBg !default;
+$heroBannerColorDark2: darken($heroBannerBg, 2%) !default; // #3a74ce !default;
+$heroBannerColorDark3: darken($heroBannerBg, 2.5%) !default; ///#326cc6 !default;
+
+@import "background";
+
+.hero-banner {
+  $root: this;
+
+  position: relative;
+  background: $heroBannerBg;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+
+  color: $heroBannerColor;
+  text-align: center;
+  padding: sass-rem(10);
+  height: calc(70vh - #{$navbarHeight});
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0px 16px 0;
+    text-align: center;
+    z-index: 1;
+  }
+
+  img {
+    max-height: 280px;
+    display: block;
+    margin: 3rem auto 1.5rem;
+  }
+
+  h1 {
+    color: inherit;
+    font-weight: 300;
+    margin: 10px 0 40px;
+    margin: .625rem 0 2.5rem;
+    position: relative;
+    text-align: center;
+    font-size: 100px;
+    text-transform: none;
+
+    .anchor span {
+      color: white;
+    }
+
+    a {
+      display: block;
+    }
+
+    small {
+      bottom: -7px;
+      bottom: -.4375rem;
+      font-size: 16px;
+      font-size: 1rem;
+      position: absolute;
+    }
+  }
+
+  &__description {
+    font-size: 1.6rem;
+    text-align: center;
+    color: white;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  &__terms {
+    line-height: 1.8;
+    list-style-type: none;
+    margin: 1em auto;
+    margin-top: 0;
+    max-width: 500px;
+    padding: 0;
+
+    li {
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: inline-block;
+      padding: 0 5px;
+      transition: transform 300ms;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:before {
+        color: $secondaryColor;
+        content: "# ";
+      }
+    }
+  }
+
+}
+
+@media (max-width: map_get($breakpoints, 'medium')) {
+  .hero-banner {
+    height: calc(100vh - #{$navbarHeight});
+    min-height: 400px;
+    padding-left: 0;
+    padding-right: 0;
+
+    h1 {
+      font-size: 80px;
+    }
+
+    .button {
+      width: 80%;
+    }
+  }
+  /*.hero-banner {
+    img {
+      max-height: 210px;
+      margin: 2rem auto 1.2rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    h1, .description, .action {
+      margin: 1.2rem auto;
+    }
+    .description {
+      font-size: 1.2rem;
+    }
+    .action-button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+  }*/
+}

@@ -1,17 +1,17 @@
 {
-  "name": "@tsed/root",
+  "name": "vuepress-theme-tsed",
   "version": "2.7.0",
   "description": "Vuepress theme for tsed.io",
+  "main": "./src/index.js",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
   "author": "Romain Lenzotti",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
-    "build": "monorepo build",
-    "publish": "monorepo publish --dry-run",
-    "server": "lerna run serve --stream",
     "test": "exit 0",
-    "release": "semantic-release"
+    "docs:build": "vuepress build docs",
+    "serve": "vuepress dev docs",
+    "serve:prod": "lite-server --baseDir=\"docs/.vuepress/dist\""
   },
   "dependencies": {
     "@sass-collective/sass-rem": "^1.4.1",
@@ -34,18 +34,11 @@
     "vuepress-plugin-smooth-scroll": "^0.0.9"
   },
   "devDependencies": {
-    "@tsed/monorepo-utils": "1.4.2",
-    "lerna": "3.22.0",
     "lite-server": "2.5.4",
-    "semantic-release": "15.13.30",
+    "semantic-release": "17.0.8",
     "vuepress": "1.5.0"
   },
   "resolutions": {
     "watchpack": "1.6.1"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
   }
 }

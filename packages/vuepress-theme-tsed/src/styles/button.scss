@@ -1,0 +1,58 @@
+@import "../../../../node_modules/@sass-collective/sass-rem";
+@import "mixins/variables";
+
+.button {
+  background: white;
+  border: 1px solid white;
+  @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+  @include color($primaryColor, --primary-color);
+  border-radius: 2rem;
+  font-size: sass-rem(16.8);
+  letter-spacing: sass-rem(1.6);
+  margin: sass-rem(8px 16);
+  padding: .75em 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 180px;
+  transition: all 300ms;
+  line-height: normal;
+
+  &:hover {
+    color: white;
+    @include background-color($secondaryColor, --secondary-color);
+    @include border(1px solid $secondaryColor, --secondary-color);
+  }
+
+  &.transparent {
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    box-shadow: none;
+    &:hover {
+      opacity: 1;
+      background: white;
+      @include color($primaryColor, --primary-color);
+      @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.26));
+    }
+  }
+
+  &.primary-color {
+    color: white;
+    @include background-color($primaryColor, --primary-color);
+    @include border(1px solid $primaryColor, --primary-color);
+    &:hover {
+      @include color($primaryColor, --primary-color);
+      border: 1px solid white;
+      background: white;
+    }
+  }
+}
+
+@media (max-width: $MQMobileNarrow) {
+  .action-button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
