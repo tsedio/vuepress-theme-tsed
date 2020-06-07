@@ -1,6 +1,10 @@
 import { resolveMatchingConfig, resolvePage } from '@vuepress/theme-default/util'
 
 export * from '@vuepress/theme-default/util'
+export * from './api'
+export * from './get-css'
+export * from './scroll-position'
+export * from './throttle'
 
 export function resolveOtherTopicsItems (page, regularPath, site, localePath) {
   const { pages, themeConfig } = site

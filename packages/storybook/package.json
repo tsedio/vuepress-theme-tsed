@@ -1,0 +1,10 @@
+{
+  "name": "@tsed/vuepress-storybook",
+  "version": "2.8.4",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {}
+}
