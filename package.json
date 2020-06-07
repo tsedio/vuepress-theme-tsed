@@ -1,6 +1,6 @@
 {
   "name": "@tsed/root",
-  "version": "2.7.0",
+  "version": "2.8.3",
   "description": "Vuepress theme for tsed.io",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
   "author": "Romain Lenzotti",
@@ -34,7 +34,7 @@
     "vuepress-plugin-smooth-scroll": "^0.0.9"
   },
   "devDependencies": {
-    "@tsed/monorepo-utils": "1.4.2",
+    "@tsed/monorepo-utils": "1.4.4",
     "lerna": "3.22.0",
     "lite-server": "2.5.4",
     "semantic-release": "15.13.30",
