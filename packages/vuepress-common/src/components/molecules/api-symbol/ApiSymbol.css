@@ -1,0 +1,92 @@
+a.symbol-container {
+  @apply text-api-default inline-block relative no-underline overflow-hidden truncate whitespace-no-wrap cursor-pointer px-2 py-1 rounded-xs mr-1 flex items-center;
+  transition: all ease-in var(--Global-transition-duration);
+
+  &.-list {
+    @apply text-sm;
+    &:hover {
+      @apply text-blue bg-gray-lighter;
+    }
+  }
+  &.-bubble {
+    @apply text-sm;
+    background: rgba(27, 31, 35, 0.05);
+
+    &:hover {
+      @apply text-blue-active;
+    }
+  }
+}
+
+.symbol {
+  @apply hidden font-source rounded-xs shadow-symbol text-white text-xxs text-center mr-2;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1.1rem;
+
+  &.class {
+    @apply bg-deepBlue inline-block;
+
+    &:before {
+      content: "C";
+    }
+  }
+
+  &.interface {
+    @apply bg-waterGreen inline-block;
+
+    &:before {
+      content: "I";
+    }
+  }
+
+  &.decorator {
+    @apply bg-blue inline-block;
+    line-height: 1rem;
+
+    &:before {
+      content: "@";
+    }
+  }
+
+  &.type {
+    @apply bg-greenLight inline-block;
+
+    &:before {
+      content: "T";
+    }
+  }
+
+  &.service,
+  &.provider {
+    @apply bg-pink inline-block;
+
+    &:before {
+      content: "S";
+    }
+  }
+
+  &.function {
+    @apply bg-emerald inline-block;
+
+    &:before {
+      content: "F";
+    }
+  }
+
+  &.const {
+    @apply bg-gray-darker inline-block;
+
+    &:before {
+      content: "K";
+    }
+  }
+
+  &.enum {
+    @apply bg-amber inline-block;
+
+    &:before {
+      content: "E";
+    }
+  }
+}

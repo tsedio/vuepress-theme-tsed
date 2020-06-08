@@ -4,7 +4,36 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "vue": "2.6.11",
+    "@tsed/vuepress-tailwind-config": "2.8.4"
+  },
+  "scripts": {
+    "serve": "start-storybook --port 3008"
+  },
+  "devDependencies": {
+    "@tsed/vuepress-common": "2.8.4",
+    "@babel/core": "^7.10.2",
+    "@storybook/vue": "5.3.19",
+    "@storybook/addon-knobs": "5.3.19",
+    "@storybook/addon-actions": "5.3.19",
+    "@storybook/addon-a11y": "5.3.19",
+    "@storybook/addon-centered": "5.3.19",
+    "@storybook/addon-notes": "5.3.19",
+    "@storybook/addon-viewport": "5.3.19",
+    "@storybook/addon-backgrounds": "5.3.19",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
+    "vue-loader": "^15.9.2",
+    "vue-template-compiler": "^2.6.11",
+    "autoprefixer": "9.8.0",
+    "postcss-omit-import-tilde": "1.0.1",
+    "postcss-import": "12.0.1",
+    "postcss-nested": "4.2.1",
+    "postcss-at-rules-variables": "0.1.10",
+    "postcss-each": "0.10.0",
+    "postcss-for": "2.1.1",
+    "postcss-mixins": "6.2.3"
+  },
   "peerDependencies": {}
 }

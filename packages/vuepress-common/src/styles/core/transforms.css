@@ -1,0 +1,112 @@
+/* translations */
+.translate-0 {
+    transform: translate(0, 0);
+}
+
+.translate-x-0 {
+    transform: translateX(0);
+}
+
+.-translate-x-50 {
+    transform: translateX(-50%);
+}
+
+.translate-x-100,
+.rtl\:translate-x-100,
+body[dir='rtl'] .rtl\:-translate-x-100 {
+    transform: translateX(100%);
+}
+
+.-translate-x-100,
+.rtl\:-translate-x-100,
+body[dir='rtl'] .rtl\:translate-x-100 {
+    transform: translateX(-100%);
+}
+
+.translate-y-0 {
+    transform: translateY(0);
+}
+
+.-translate-y-50 {
+    transform: translateY(-50%);
+}
+
+.translate-y-50 {
+    transform: translateY(50%);
+}
+
+.translate-y-100 {
+    transform: translateY(100%);
+}
+
+.-translate-y-100 {
+    transform: translateY(-100%);
+}
+
+.-translate-50 {
+    transform: translate(-50%, -50%);
+}
+
+.rtl\:-translate-50-x-reverse {
+    transform: translate(-50%, -50%);
+}
+
+body[dir='rtl'] .rtl\:-translate-50-x-reverse {
+    transform: translate(50%, -50%);
+}
+
+.-translate-x-50.translate-y-50 {
+    transform: translate(-50%, 50%);
+}
+
+.rtl\:translate-x-50.-translate-y-50,
+.translate-x-50.-translate-y-50 {
+    transform: translate(50%, -50%);
+}
+
+body[dir='rtl'] .rtl\:translate-x-50.-translate-y-50 {
+    transform: translate(-50%, -50%);
+}
+
+/* rotations */
+.rotate-45 {
+    transform: rotate(45deg);
+}
+
+.-rotate-45 {
+    transform: rotate(-45deg);
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.rotate-360 {
+    transform: rotate(360deg);
+}
+
+/* scales */
+body[dir='rtl'] .rtl\:-scale-x-1,
+.-scale-x-1 {
+    transform: scaleX(-1);
+}
+
+.-scale-y-1 {
+    transform: scaleY(-1);
+}
+
+.-scale-1 {
+    transform: scale(-1);
+}
+
+.focus\:scale-1025:focus,
+.hover\:scale-1025:hover,
+.scale-1025 {
+    transform: scale(1.025);
+}
+
+.focus\:scale-105:focus,
+.hover\:scale-105:hover,
+.scale-105 {
+    transform: scale(1.05);
+}

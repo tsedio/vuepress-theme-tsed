@@ -11,10 +11,16 @@
     "test": "exit 0"
   },
   "dependencies": {
+    "prismjs": "1.20.0",
+    "normalize.css": "8.0.1",
     "axios": "0.19.2",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "lucene-filter": "0.1.3",
+    "lucene-query-parser": "1.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "postcss-import": "12.0.1"
+  },
   "resolutions": {
     "watchpack": "1.6.1"
   },

@@ -1,0 +1,34 @@
+.list-disc,
+.list-hyphen {
+  position: relative;
+}
+
+html:not([dir="rtl"]) .list-disc,
+html:not([dir="rtl"]) .list-hyphen {
+  padding-left: 0.75rem;
+}
+
+[dir="rtl"] .list-disc,
+[dir="rtl"] .list-hyphen {
+  padding-right: 0.75rem;
+}
+
+.list-disc::before {
+  position: absolute;
+  content: '•';
+}
+
+.list-hyphen::before {
+  position: absolute;
+  content: "-";
+}
+
+html:not([dir="rtl"]) .list-disc::before,
+html:not([dir="rtl"]) .list-hyphen::before {
+  left: 0;
+}
+
+[dir="rtl"] .list-disc::before,
+[dir="rtl"] .list-hyphen::before {
+  right: 0;
+}

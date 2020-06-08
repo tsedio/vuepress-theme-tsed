@@ -1,0 +1,39 @@
+.transition-none {
+    transition: none;
+}
+
+.transition-all {
+    transition: all ease-in var(--Global-transition-duration);
+}
+
+.transition-bg-color {
+    transition: background-color ease-in var(--Global-transition-duration);
+}
+
+.transition-color {
+    transition: color ease-in var(--Global-transition-duration);
+}
+
+.transition-colors {
+    transition: background-color var(--Global-transition-duration) ease-in, border-color var(--Global-transition-duration) ease-in, color var(--Global-transition-duration) ease-in;
+}
+
+.transition-heights {
+    transition: height var(--Global-transition-duration) ease-in, max-height var(--Global-transition-duration) ease-in;
+}
+
+.transition-opacity {
+    transition: opacity ease-in var(--Global-transition-duration);
+}
+
+.transition-transform {
+    transition: transform ease-in var(--Global-transition-duration);
+}
+
+.transition-transform-opacity {
+    transition: transform var(--Global-transition-duration) ease-in, opacity var(--Global-transition-duration) ease-in;
+}
+
+.transition-width {
+    transition: width ease-in var(--Global-transition-duration);
+}
