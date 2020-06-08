@@ -1,0 +1,252 @@
+
+.fade-tab-enter-active, .fade-tab-leave-active {
+  transition: all .3s;
+}
+
+.fade-tab-enter, .fade-tab-leave-to /* .fade-tab-leave-active below version 2.1.8 */
+{
+  top: 0;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.fade-tab-leave-to /* .fade-tab-leave-active below version 2.1.8 */
+{
+  top: 0;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(100%, 0, 0);
+}
+
+// invert
+.fade-tab-invert-enter-active, .fade-tab-invert-leave-active {
+  transition: all .3s;
+}
+
+.fade-tab-invert-enter, .fade-tab-invert-leave-to /* .fade-tab-invert-leave-active below version 2.1.8 */
+{
+  top: 0;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(100%, 0, 0);
+}
+
+.fade-tab-invert-leave-to /* .fade-tab-invert-leave-active below version 2.1.8 */
+{
+  top: 0;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(-100%, 0, 0);
+}
+
+// position
+
+.fade-tab-vertical-enter-active, .fade-tab-vertical-leave-active {
+  transition: all .3s;
+}
+
+.fade-tab-vertical-enter /* .fade-tab-vertical-leave-active below version 2.1.8 */
+{
+  top: 0;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(0, 100%, 0);
+}
+
+.fade-tab-vertical-leave-to /* .fade-tab-vertical-leave-active below version 2.1.8 */
+{
+  top: 0;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(0, -100%, 0);
+}
+
+.fade-tab-vertical-invert-enter-active, .fade-tab-vertical-invert-leave-active {
+  transition: all .3s;
+}
+
+.fade-tab-vertical-invert-enter /* .fade-tab-vertical-invert-leave-active below version 2.1.8 */
+{
+  top: 0;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(0, -100%, 0);
+}
+
+.fade-tab-vertical-invert-leave-to /* .fade-tab-vertical-invert-leave-active below version 2.1.8 */
+{
+  top: 0;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(0, 100%, 0) !important;
+}
+
+.tabs {
+  @apply w-full overflow-hidden relative rounded-small;
+
+  .tab-body {
+    @apply relative w-full block;
+  }
+
+  &__body {
+    @apply relative block overflow-hidden;
+  }
+
+  &__header {
+    @apply relative text-sm;
+
+    &--ul {
+      @apply relative w-full m-0 justify-start;
+
+      li {
+        @apply relative;
+      }
+
+      &.-center {
+        @apply justify-center;
+      }
+
+      &.-right {
+        @apply justify-end;
+      }
+
+      &.-fixed {
+        @apply justify-between flex-no-wrap;
+
+        li {
+          @apply w-full;
+        }
+      }
+    }
+
+    &--li {
+      @apply block relative;
+    }
+
+    button {
+      color: inherit;
+      font-family: inherit;
+
+      &:disabled {
+        opacity: .5;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+
+    &--btn {
+      @apply block relative w-full bg-transparent p-3 m-0 border-0 cursor-pointer z-2;
+      transition: all ease-in var(--Global-transition-duration);
+
+      /* font-xs */
+      box-sizing: border-box;
+
+      &:hover:not(:disabled) {
+        color: inherit;
+      }
+    }
+
+    &--btn-icon + span {
+      padding-left: 9px;
+    }
+  }
+
+  &.-position-left {
+    @apply flex;
+
+    .tabs__header {
+      @apply block;
+
+      &--ul {
+        @apply py-2 w-auto block;
+      }
+
+      .tabs__header--btn-line {
+        @apply absolute;
+        transition: all ease-in var(--Global-transition-duration);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        left: 0;
+        height: 0;
+      }
+
+      li.active .tabs__header--btn-line {
+        @apply h-full;
+      }
+    }
+  }
+
+  &.-position-right {
+    @apply flex;
+
+    .tabs__header {
+      @apply block order-2;
+
+      &--ul {
+        @apply py-2 w-auto block;
+      }
+
+      .tabs__header--btn-line {
+        @apply absolute;
+        transition: all ease-in var(--Global-transition-duration);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        right: 0;
+        height: 0;
+      }
+
+      li.active .tabs__header--btn-line {
+        @apply h-full;
+      }
+    }
+  }
+
+  &.-position-top {
+    .tabs__header {
+      &--ul {
+        @apply px-2 flex flex-wrap;
+      }
+
+      .tabs__header--btn-line {
+        @apply absolute;
+        transition: all ease-in var(--Global-transition-duration);
+        left: 50%;
+        transform: translate(-50%);
+        height: 2px;
+        bottom: 0;
+        width: 0;
+      }
+
+      li.active .tabs__header--btn-line {
+        @apply w-full;
+      }
+    }
+  }
+
+  &.-position-bottom {
+    @apply flex flex-col;
+
+    .tabs__header {
+      @apply px-2 block order-2;
+
+      &--ul {
+        @apply flex flex-wrap;
+      }
+      li.active .tabs__header--btn-line {
+        @apply w-full;
+      }
+      .tabs__header--btn-line {
+        @apply absolute;
+        transition: all ease-in var(--Global-transition-duration);
+        left: 50%;
+        transform: translate(-50%);
+        height: 2px;
+        top: 0;
+        width: 0;
+      }
+    }
+  }
+}

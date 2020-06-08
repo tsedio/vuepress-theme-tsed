@@ -40,8 +40,6 @@ $contributorBadgePadding: sass-rem(10);
       left: 0;
       bottom: -5px;
       z-index: 50 !important;
-      -webkit-filter: blur(7px);
-      filter: blur(7px);
       opacity: .5;
     }
   }

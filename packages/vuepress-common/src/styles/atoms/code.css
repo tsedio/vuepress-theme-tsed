@@ -1,0 +1,129 @@
+code {
+  @apply m-0 text-sm bg-gray-lighter text-deepBlue rounded-small;
+  padding: 0.25rem 0.5rem;
+}
+
+
+pre, pre[class*="language-"] {
+  @apply px-5 py-5 my-5 bg-code rounded-small overflow-auto;
+
+  code {
+    @apply text-white p-0 bg-transparent rounded-none;
+  }
+}
+
+div[class*="language-"] {
+  @apply relative my-5 bg-code rounded-small overflow-auto;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  > pre {
+    @apply my-1;
+    line-height: 1.4;
+  }
+
+  .highlight-lines {
+    @apply w-full top-0 left-0 absolute pt-5;
+    user-select: none;
+    line-height: 1.4;
+
+    .highlighted {
+      background-color: rgba(0, 0, 0, 0.66);
+    }
+  }
+
+  pre, pre[class*="language-"] {
+    @apply relative z-1 bg-transparent;
+  }
+
+  &::before {
+    @apply absolute z-3;
+    top: 0.8em;
+    right: 1em;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &:not(.line-numbers-mode) {
+    .line-numbers-wrapper {
+      display: none;
+    }
+  }
+
+  &.line-numbers-mode {
+    pre {
+      @apply px-5 py-5 pl-10 m-0;
+    }
+
+    .highlight-lines .highlighted {
+      @apply relative;
+
+      &:before {
+        content: ' ';
+        @apply absolute z-3 left-0 top-0 block h-full;
+        width: var(--Global-code-line-numbers-with);
+        background-color: rgba(0, 0, 0, 0.66);
+      }
+    }
+
+    pre {
+      padding-left: calc(var(--Global-code-line-numbers-with) + 1rem);
+      vertical-align: middle;
+    }
+
+    .line-numbers-wrapper {
+      @apply py-5 absolute top-0 text-center;
+      width: var(--Global-code-line-numbers-with);
+      color: rgba(255, 255, 255, 0.3);
+      line-height: 1.4;
+      br {
+        user-select: none
+      }
+
+      .line-number {
+        @apply relative z-4;
+        user-select: none;
+        font-size: 0.86em;
+      }
+    }
+
+    &::after {
+      content: '';
+      @apply absolute z-2 top-0 left-0 h-full bg-code rounded-b-small;
+      width: var(--Global-code-line-numbers-with);
+      border-right: 1px solid rgba(0, 0, 0, 0.66);
+    }
+  }
+}
+
+div[class~="language-javascript"]:before {
+  content: "js";
+}
+
+div[class~="language-typescript"]:before {
+  content: "ts";
+}
+
+div[class~="language-markup"]:before {
+  content: "html";
+}
+
+div[class~="language-markdown"]:before {
+  content: "md"
+}
+
+div[class~="language-json"]:before {
+  content: "json";
+}
+
+div[class~="language-ruby"]:before {
+  content: "rb";
+}
+
+div[class~="language-python"]:before {
+  content: "py";
+}
+
+div[class~="language-bash"]:before {
+  content: "sh";
+}
+

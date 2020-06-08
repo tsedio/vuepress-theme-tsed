@@ -1,0 +1,31 @@
+@responsive {
+  .text-initial {
+    text-align: initial;
+  }
+}
+
+.text-shadow {
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+}
+
+.text-shadow-1 {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.text-lettrine p:first-child::first-letter {
+  margin-top: -0.05em;
+  margin-right: 0.1em;
+  float: left;
+  font-size: 4.7em;
+  line-height: 1;
+}
+
+.rtl .text-lettrine p:first-child::first-letter {
+  margin-right: 0;
+  margin-left: 0.1em;
+  float: right;
+}
+
+.text-small {
+  font-size: 70%;
+}

@@ -1,0 +1,68 @@
+@import "../../styles/mixins/index";
+
+.features {
+  $root: &;
+  padding: 1.2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: stretch;
+  justify-content: space-between;
+
+  &__icon-wrapper {
+    width: sass-rem(70);
+    height: sass-rem(75);
+    margin: 0 auto;
+    display: block;
+
+    img {
+
+    }
+  }
+
+  &__item {
+    flex-grow: 1;
+    flex-basis: 30%;
+    max-width: 30%;
+
+    &.-icon {
+      text-align: center;
+    }
+
+    h3 {
+      font-size: sass-rem(16);
+      font-weight: bold;
+      border-bottom: none;
+      padding-bottom: 0;
+      // text-align: center;
+      text-transform: uppercase;
+      color: $primaryColor;
+    }
+
+    p {
+      color: lighten($textColor, 25%);
+    }
+
+    &:after {
+
+    }
+  }
+}
+
+@media (max-width: $MQMobile) {
+  .features {
+    flex-direction: column;
+
+    &__item {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: $MQMobileNarrow) {
+  .feature {
+    h2 {
+      // font-size: 1.25rem;
+    }
+  }
+}

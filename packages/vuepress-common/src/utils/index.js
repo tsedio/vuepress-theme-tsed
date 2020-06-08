@@ -5,6 +5,7 @@ export * from './api'
 export * from './get-css'
 export * from './scroll-position'
 export * from './throttle'
+export * from './colors'
 
 export function resolveOtherTopicsItems (page, regularPath, site, localePath) {
   const { pages, themeConfig } = site

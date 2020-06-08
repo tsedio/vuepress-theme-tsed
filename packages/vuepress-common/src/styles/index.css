@@ -1,0 +1,7 @@
+@import "./fonts.css";
+@import "./config/config.css";
+@import "./config/colors.css";
+@import "./core/index.css";
+@import "./tailwind.css";
+@import "./atoms/index.css";
+@import "~prismjs/themes/prism-tomorrow.css";

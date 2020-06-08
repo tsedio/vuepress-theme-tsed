@@ -1,0 +1,35 @@
+/* ===========================
+   GLOBAL
+   =========================== */
+:root {
+    --Global-body-max-width: calc(1180rem / 16);
+    --Global-transition-duration: 0.25s;
+    --Global-animation-duration: 0.5s;
+    --Global-animation-long-duration: 0.75s;
+}
+
+:root {
+    --Breakpoints: XS, S, M, L, XL;
+}
+
+/**
+* FLEX GRID
+*/
+:root {
+    --Grid-container-max-width: var(--Global-body-max-width);
+    --Grid-gutter-size-small: calc(15rem / 16);
+    --Grid-gutter-size-large: calc(20rem / 16);
+    --Grid-columns: 12;
+    --Grid-columns-offsets: 11;
+}
+
+/**
+* BORDER RADIUS
+*/
+:root {
+    --Global-border-radius-default: theme('borderRadius.default');
+}
+
+:root {
+    --Global-code-line-numbers-with: 3.5rem;
+}

@@ -1,0 +1,74 @@
+:root {
+  /* ===================================
+     BRAND COLORS : do not add
+  =================================== */
+  --Color-amber: theme('colors.amber');
+  --Color-blue: theme('colors.blue');
+  --Color-deepBlue: theme('colors.deepBlue');
+  --Color-gold: theme('colors.gold');
+  --Color-gray: theme('colors.gray');
+  --Color-grenadine: theme('colors.grenadine');
+  --Color-kiwi: theme('colors.kiwi');
+  --Color-lilas: theme('colors.lilas');
+  --Color-mahogany: theme('colors.mahogany');
+  --Color-ocher: theme('colors.ocher');
+  --Color-pine: theme('colors.pine');
+  --Color-platinum: theme('colors.platinum');
+  --Color-prune: theme('colors.prune');
+  --Color-sand: theme('colors.sand');
+  --Color-sandPearl: theme('colors.sandPearl');
+  --Color-silver: theme('colors.silver');
+  --Color-skyBlue: theme('colors.skyBlue');
+  --Color-southSea: theme('colors.southSea');
+  --Color-turquoise: theme('colors.turquoise');
+  --Color-waterGreen: theme('colors.waterGreen');
+
+  /* ===============================
+     APP ADDITIONAL COLORS : do not add
+  =============================== */
+  --Color-app-black: theme('colors.black');
+  --Color-app-deepRed: theme('colors.deepRed');
+  --Color-app-emerald: theme('colors.emerald');
+  --Color-app-orange: theme('colors.orange');
+  --Color-app-red: theme('colors.red');
+  --Color-white: theme('colors.white');
+
+  /* ===========================
+     APP GRAYS COLORS : do not add
+  =========================== */
+  --Color-app-gray-lighter: theme('colors.gray-lighter');
+  --Color-app-gray-light: theme('colors.gray-light');
+  --Color-app-gray-medium: theme('colors.gray-medium');
+  --Color-app-gray-dark: theme('colors.gray-dark');
+  --Color-app-gray-darker: theme('colors.gray-darker');
+
+  /* ===========================
+     APP COLORS : do not add
+  =========================== */
+  --Color-danger: var(--Color-app-red);
+  --Color-info: var(--Color-app-gray-dark);
+  --Color-warning: var(--Color-app-orange);
+
+  /* ===========================
+     APP BUSINESS VARS
+  =========================== */
+  --Color-facebook: #4267b2;
+
+  /* ===========================
+     APP VARS
+  =========================== */
+  --Color-disabled: var(--Color-app-gray-light);
+  --Color-invalid: var(--Color-app-red);
+  --Color-text-current: var(--Color-app-gray-darker);
+  --Color-text-light: var(--Color-app-gray-medium);
+  --Color-background-decoration: var(--Color-app-gray-light);
+  --Color-valid: var(--Color-app-emerald);
+  --Color-overlay-default: color-mod(var(--Color-app-black) alpha(0.5));
+
+  /* ===========================
+     APP SEPARATORS & BORDERS
+  =========================== */
+  --Color-separator-light: var(--Color-app-gray-light);
+  --Color-separator-medium: var(--Color-app-gray-medium);
+  --Color-border-grey: #dedede;
+}

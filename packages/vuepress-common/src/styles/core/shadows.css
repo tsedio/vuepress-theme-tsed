@@ -1,0 +1,55 @@
+.shadow-bottom {
+  @apply relative;
+}
+
+.shadow-inner-bottom,
+.shadow-inner-top,
+.shadow-inner-left,
+.shadow-inner-right {
+  @apply overflow-hidden relative;
+}
+
+.shadow-bottom::after,
+.shadow-inner-bottom::after,
+.shadow-inner-top::before,
+.shadow-inner-left::before,
+.shadow-inner-right::after {
+  @apply absolute rounded-full;
+
+  content: '';
+}
+
+.shadow-inner-left::before,
+.shadow-inner-right::after {
+  @apply inset-y-0;
+
+  width: calc(20rem / 16);
+  box-shadow: 0 0 calc(20rem / 16) rgba(0, 0, 0, 0.5);
+}
+
+.shadow-inner-left::before {
+  right: auto;
+  left: calc(-20rem / 16);
+}
+
+.shadow-inner-right::after {
+  right: calc(-20rem / 16);
+  left: auto;
+}
+
+.shadow-bottom::after,
+.shadow-inner-bottom::after,
+.shadow-inner-top::before {
+  @apply max-w-site m-auto inset-x-0 w-9/10 z-0;
+
+  height: calc(20rem / 16);
+  box-shadow: 0 0 calc(20rem / 16) rgba(0, 0, 0, 0.15);
+}
+
+.shadow-inner-top::before {
+  top: calc(-20rem / 16);
+}
+
+.shadow-bottom::after {
+  @apply bottom-0 -z-1;
+}
