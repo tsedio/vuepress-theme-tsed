@@ -38,7 +38,7 @@
         ]
       },
       deprecated () {
-        return this.item.status.find(status => status.key === 'deprecated')
+        return this.item.status.find(status => status === 'deprecated')
       }
     }
   }
