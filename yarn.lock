@@ -2256,6 +2256,13 @@
   dependencies:
     nprogress "^0.2.0"
 
+"@vuepress/plugin-nprogress@1.5.4":
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-nprogress/-/plugin-nprogress-1.5.4.tgz#b818ebcac5addb6488bf50eb21585450f52ae40c"
+  integrity sha512-2bGKoO/o2e5mIfOU80q+AkxOK5wVijA/+8jGjSQVf2ccMpJw+Ly1mMi69r81Q0QkEihgfI9VN42a5+a6LUgPBw==
+  dependencies:
+    nprogress "^0.2.0"
+
 "@vuepress/plugin-register-components@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-1.5.0.tgz#0d83956d576e80db7d45e1404e9da9db075245f1"
