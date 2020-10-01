@@ -11,11 +11,9 @@ export async function getContributors (docsRepo) {
     ? docsRepo
     : `https://github.com/${docsRepo}`
 
-  const { data: contributors } = await axios.get(base.replace('/github.com', '/api.github.com/repos') + '/contributors', {
-    qs: {
-      per_page: 100
-    }
-  })
+  const endpoint = base.replace('/github.com', '/api.github.com/repos') + '/contributors'
+
+  const { data: contributors } = await axios.get(endpoint + '?per_page=100')
 
   CONTRIBUTORS = contributors
     .filter(contributor => !['semantic-release-bot', 'dependabot[bot]'].includes(contributor.login))
