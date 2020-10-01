@@ -88,9 +88,9 @@
         required: false
       },
       component: {
-        type: String,
+        type: Object,
         required: false,
-        default: HeroBannerContent
+        default: () => HeroBannerContent
       }
     },
     computed: {

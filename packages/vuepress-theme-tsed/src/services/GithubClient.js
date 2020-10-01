@@ -11,10 +11,14 @@ export async function getContributors (docsRepo) {
     ? docsRepo
     : `https://github.com/${docsRepo}`
 
-  const { data: contributors } = await axios.get(base.replace('/github.com', '/api.github.com/repos') + '/contributors')
+  const { data: contributors } = await axios.get(base.replace('/github.com', '/api.github.com/repos') + '/contributors', {
+    qs: {
+      per_page: 100
+    }
+  })
 
   CONTRIBUTORS = contributors
-    .filter(contributor => ['semantic-release-bot', 'dependabot[bot]'].includes(contributor.login) === -1)
+    .filter(contributor => !['semantic-release-bot', 'dependabot[bot]'].includes(contributor.login))
     .map((contributor) => {
       const { avatar_url, html_url, login } = contributor
       return {
@@ -38,14 +42,8 @@ export async function getGithubMetadata (docsRepo) {
     ? docsRepo
     : `https://github.com/${docsRepo}`
 
-  const { data } = await axios.get(base.replace('/github.com', '/api.github.com/repos'), {
-    headers: {
-      Accept: 'application/vnd.github.v3+json'
-    },
-    qs: {
-      per_page: 100
-    }
-  })
+  const { data } = await axios.get(base.replace('/github.com', '/api.github.com/repos'))
+
   METADATA = data
 
   return METADATA
