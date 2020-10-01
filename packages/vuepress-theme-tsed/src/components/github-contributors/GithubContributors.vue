@@ -7,12 +7,17 @@
 
   export default {
     name: 'GithubContributors',
+    props: {
+      users: {
+        type: Array,
+        default: () => []
+      }
+    },
     data: () => {
       return {
         contributors: []
       }
     },
-
 
     components: {
       Contributors
@@ -23,7 +28,15 @@
         repo,
         docsRepo = repo
       } = this.$site.themeConfig
-      this.contributors = await getContributors(docsRepo)
+      let contributors = await getContributors(docsRepo)
+
+      if (this.users.length) {
+        contributors = contributors.filter((contributor) => {
+          return this.users.includes(contributor.login)
+        })
+      }
+
+      this.contributors = contributors
     }
   }
 </script>
