@@ -1,6 +1,6 @@
 {
   "name": "@tsed/root",
-  "version": "2.10.0",
+  "version": "2.10.1",
   "description": "Vuepress theme for tsed.io",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
   "author": "Romain Lenzotti",
@@ -57,8 +57,7 @@
     "developBranch": "master",
     "npmAccess": "public",
     "npmDistTag": "latest",
-    "ignoreSyncDependencies": [
-    ],
+    "ignoreSyncDependencies": [],
     "ghpages": {
       "dir": "./packages/storybook/dist",
       "url": "https://github.com/TypedProject/vuepress-theme-tsed.git",
