@@ -1934,19 +1934,19 @@
     any-observable "^0.3.0"
 
 "@sass-collective/sass-rem@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@sass-collective/sass-rem/-/sass-rem-1.4.1.tgz#606c0b543f8705ae2df7b676acc2f8193ad40473"
-  integrity sha512-LfIlnCawbL2vf+W5C2in6xs6R+JQkTVb3ZwWnH5WGwvOXZbW8kCDvKazTQ40vx15vaYP81mVmYMqJ6yeZpciWg==
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@sass-collective/sass-rem/-/sass-rem-1.5.0.tgz#ad21e5a748f8f93fd272e9eb8b56dbbec5fee338"
+  integrity sha512-EPRpiIWNLe2ct/wcYlHBfGorCjIpo9VTxRp6HQPl3ds+UC20CKpcvy0h3Rd1hXPfYjRH/u0ly6pX1lOjh5/mWw==
   dependencies:
-    "@sass-collective/strip-unit" "^1.0.1"
-    sass "^1.26.8"
+    "@sass-collective/strip-unit" "^1.2.0"
+    sass "^1.26.10"
 
-"@sass-collective/strip-unit@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@sass-collective/strip-unit/-/strip-unit-1.0.1.tgz#5b2edb39b2a180d6aee452ce4838fdcc620d992e"
-  integrity sha512-BLkRFHmtI248ZqYkH69GlXTjbU/WNZH+gbuifzDhDi6Z8fZX75KQP5drV9Vu3m2JP1NDg8PtYnTi1+mBVmXxTA==
+"@sass-collective/strip-unit@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@sass-collective/strip-unit/-/strip-unit-1.2.0.tgz#64d77fb5017554f82c76e91ecd87a715ebe8d918"
+  integrity sha512-j51m0DOkuCRsy9OOkHwpq0FWwU9If001f4/LQM3BjIrUR1XwtArbBw3HWqLTlms/nRS8EpyMCS8vnCo1m7J3UA==
   dependencies:
-    sass "^1.26.3"
+    sass "^1.26.10"
 
 "@semantic-release/commit-analyzer@^6.1.0":
   version "6.3.3"
@@ -13713,7 +13713,7 @@ sass-loader@^8.0.2:
     schema-utils "^2.6.1"
     semver "^6.3.0"
 
-sass@^1.26.3, sass@^1.26.8:
+sass@^1.26.10, sass@^1.26.8:
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.27.0.tgz#0657ff674206b95ec20dc638a93e179c78f6ada2"
   integrity sha512-0gcrER56OkzotK/GGwgg4fPrKuiFlPNitO7eUJ18Bs+/NBlofJfMxmxqpqJxjae9vu0Wq8TZzrSyxZal00WDig==
