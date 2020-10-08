@@ -2551,10 +2551,10 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@tsed/monorepo-utils@^1.9.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@tsed/monorepo-utils/-/monorepo-utils-1.9.3.tgz#96eb5fb846186d3926fcecbbd0e50aecd75712c5"
-  integrity sha512-EG0SBvzMRqfXqavQpWtZ2CEiQvtfzOsYVvbpcP065MepL1CZ+3+jHzUAL4yluaCfDBUYPqt9U3lp6yfAegbTiA==
+"@tsed/monorepo-utils@^1.9.4":
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/@tsed/monorepo-utils/-/monorepo-utils-1.9.4.tgz#5a6087414db3209b263d80e8c63ae7f2e479cf5f"
+  integrity sha512-hEtAClzBo+Gpt8EPhMZQa1ZosyHyFUBznuHgjRHlAqDU8lp0V63QVvEvVTqLGQPHwWvN31zu2tPLP9DagN9e2A==
   dependencies:
     axios "0.19.2"
     chalk "3.0.0"
