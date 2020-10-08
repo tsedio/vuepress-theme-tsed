@@ -1,6 +1,6 @@
 {
   "name": "@tsed/root",
-  "version": "2.9.2",
+  "version": "2.10.0",
   "description": "Vuepress theme for tsed.io",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
   "author": "Romain Lenzotti",
