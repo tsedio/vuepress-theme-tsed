@@ -3,7 +3,29 @@ cache: yarn
 
 node_js:
   - 12
-script: yarn release
+
+jobs:
+  include:
+#    - stage: test
+#      name: 'Test v12'
+#      node_js: 12
+#      script: yarn test
+#
+#    - stage: deploy-npm
+#      name: 'Deploy packages'
+#      node_js: 12
+#      if: (NOT type IN (pull_request)) AND (branch = master || branch = alpha || branch = beta)
+#      script: yarn release
+
+    - stage: deploy-artifacts
+      name: 'Deploy storybook'
+      if: (NOT type IN (pull_request)) AND (branch = master || branch = alpha || branch = beta)
+      script: monorepo ci configure && git fetch --quiet && yarn publish:storybook
+
+stages:
+#  - test
+#  - deploy-npm
+  - deploy-artifacts
 
 branches:
   except:

@@ -9,7 +9,8 @@
     "@tsed/vuepress-tailwind-config": "2.8.4"
   },
   "scripts": {
-    "serve": "start-storybook --port 3008"
+    "serve": "start-storybook --port 3008",
+    "build:storybook": "build-storybook -c .storybook -o dist"
   },
   "devDependencies": {
     "@tsed/vuepress-common": "2.8.4",

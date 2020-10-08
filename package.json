@@ -10,8 +10,10 @@
     "build": "monorepo build",
     "publish": "monorepo publish --dry-run",
     "serve": "lerna run serve --stream",
-    "serve:storybook": "lerna run serve --stream --scope=@tsed/vuepress-storybook",
-    "serve:theme": "lerna run serve --stream --scope=vuepress-theme-tsed",
+    "serve:storybook": "lerna run serve --stream --scope @tsed/vuepress-storybook",
+    "serve:theme": "lerna run serve --stream --scope vuepress-theme-tsed",
+    "build:storybook": "lerna run build:storybook --stream --scope @tsed/vuepress-storybook",
+    "publish:storybook": "yarn build:storybook && monorepo publish ghpages",
     "test": "exit 0",
     "release": "semantic-release"
   },
@@ -36,7 +38,7 @@
     "vuepress-plugin-smooth-scroll": "^0.0.9"
   },
   "devDependencies": {
-    "@tsed/monorepo-utils": "1.8.5",
+    "@tsed/monorepo-utils": "^1.9.3",
     "lerna": "3.22.0",
     "lite-server": "2.5.4",
     "semantic-release": "15.13.30",
@@ -49,5 +51,19 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "monorepo": {
+    "productionBranch": "master",
+    "developBranch": "master",
+    "npmAccess": "public",
+    "npmDistTag": "latest",
+    "ignoreSyncDependencies": [
+    ],
+    "ghpages": {
+      "dir": "./packages/storybook/dist",
+      "url": "https://github.com/TypedProject/vuepress-theme-tsed.git",
+      "branch": "ghpages",
+      "cname": "storybook.tsed.io"
+    }
   }
 }
