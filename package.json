@@ -9,7 +9,9 @@
   "scripts": {
     "build": "monorepo build",
     "publish": "monorepo publish --dry-run",
-    "server": "lerna run serve --stream",
+    "serve": "lerna run serve --stream",
+    "serve:storybook": "lerna run serve --stream --scope=@tsed/vuepress-storybook",
+    "serve:theme": "lerna run serve --stream --scope=vuepress-theme-tsed",
     "test": "exit 0",
     "release": "semantic-release"
   },
