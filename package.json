@@ -32,6 +32,7 @@
     "sass-loader": "^8.0.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "tailwindcss": "^1.9.0",
     "tailwindcss-inset": "^1.0.0",
     "tailwindcss-transforms": "^2.2.0",
     "vuepress-plugin-container": "^2.0.2",
