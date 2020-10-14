@@ -1,7 +1,7 @@
 import { number, select } from '@storybook/addon-knobs'
 import Contributors from './Contributors'
 import { COLORS_LIST } from '../../../utils/colors'
-import contributors from './conrtributors.json'
+import contributors from './contributors.json'
 
 export default {
   title: 'Molecules/Contributors'

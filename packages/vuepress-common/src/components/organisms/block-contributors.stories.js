@@ -1,6 +1,6 @@
 import { COLORS_LIST, Contributors, Button } from '@tsed/vuepress-common'
 import { number, select } from '@storybook/addon-knobs'
-import contributors from '@tsed/vuepress-common/src/components/molecules/contributors/conrtributors.json'
+import contributors from '@tsed/vuepress-common/src/components/molecules/contributors/contributors.json'
 
 export default {
   title: 'Organisms/BlockContributors'

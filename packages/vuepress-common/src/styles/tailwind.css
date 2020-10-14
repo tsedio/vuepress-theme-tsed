@@ -71,7 +71,7 @@ p {
     @apply mt-2;
 }
 
-a {
+main a {
     @apply text-blue underline;
     transition: all ease-in var(--Global-transition-duration);
 
@@ -83,9 +83,10 @@ a {
 hr {
     @apply border-0 border-t-1 border-solid border-gray-light mt-5 mb-5;
 }
-
+input, input:focus,
 button, button:focus {
     outline: 0;
 }
+
 
 @tailwind utilities;

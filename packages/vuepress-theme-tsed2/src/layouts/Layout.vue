@@ -1,11 +1,19 @@
 <template>
-  <div class="theme-container"
-           :class="pageClasses"
-           @touchstart="onTouchStart"
-           @touchend="onTouchEnd">
-        <Navbar v-if="shouldShowNavbar"
-                :class="{'--fluid': shouldShowSidebar}"
-                @toggle-sidebar="toggleSidebar"/>
+  <div class="theme-container init"
+       :class="pageClasses"
+       @touchstart="onTouchStart"
+       @touchend="onTouchEnd">
+    <Navbar
+        v-if="shouldShowNavbar"
+        :site-title="siteTitle"
+        :html-title="htmlTitle"
+        :logo-src="logoSrc"
+        :href="$localePath"
+        :class="{'--fluid': shouldShowSidebar}"
+        :repo-url="repoUrl"
+        :social-urls="$site.themeConfig"
+        @toggle-sidebar="toggleSidebar"/>
+
     <p class="text-blue">Test</p>
     <main class="main-content">
       <!--      <div class="sidebar-mask" @click="toggleSidebar(false)"></div>-->
@@ -48,7 +56,7 @@
 </template>
 
 <script>
-import { Navbar, resolveOtherTopicsItems, resolveSidebarItems } from '@tsed/vuepress-common'
+import { resolveOtherTopicsItems, resolveSidebarItems } from '@tsed/vuepress-common'
 import Vue from 'vue'
 import VueTsed from '../install'
 
@@ -78,6 +86,21 @@ export default {
   },
 
   computed: {
+    repoUrl () {
+      const { repo } = this.$site
+      return /^https?:/.test(repo)
+          ? repo
+          : `https://github.com/${repo}`
+    },
+    siteTitle () {
+      return this.$site.themeConfig.shortTitle || this.$siteTitle
+    },
+    htmlTitle () {
+      return this.$site.themeConfig.htmlTitle || this.$siteTitle
+    },
+    logoSrc () {
+      return this.$site.themeConfig.logo && this.$withBase(this.$site.themeConfig.logo)
+    },
     isHome () {
       const { home, layout } = this.$page.frontmatter
 

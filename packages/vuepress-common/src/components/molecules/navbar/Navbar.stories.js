@@ -1,9 +1,8 @@
+import config from '../../organisms/config'
 import Navbar from './Navbar.vue'
-import { COLORS_LIST } from '../../../utils/colors'
-import { boolean, number, select } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Molecules/GithubStars'
+  title: 'Molecules/Navbar'
 }
 
 export const overview = () => ({
@@ -11,17 +10,12 @@ export const overview = () => ({
     Navbar
   },
   props: {
-
+    socialUrls: {
+      default: config.themeConfig
+    }
   },
   template: `
-    <Navbar :disabled="disabled"
-            :color="color"
-            :bg-color="bgColor"
-            :font-weight="fontWeight"
-            :padding-x="paddingX"
-            :padding-y="paddingY"
-            :rounded="rounded"
-            :shadow="shadow">
-      Button rounded
-    </Navbar>`
+    <div style="width: 100vw" class="init">
+      <Navbar site-title="Ts.ED" html-title="<span class='text-blue'>Ts</span>.ED" href="/" :social-urls="socialUrls" />
+    </div>`
 })

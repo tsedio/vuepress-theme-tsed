@@ -1,12 +1,14 @@
-import { Button, Contributors, GithubStars, WordsSlider, BxIcon, Feature } from '@tsed/vuepress-common'
-import contributors from '@tsed/vuepress-common/src/components/molecules/contributors/conrtributors.json'
-
+import { Button, Contributors, GithubStars, WordsSlider, BxIcon, Feature, Navbar } from '@tsed/vuepress-common'
+import contributors from '../molecules/contributors/contributors.json'
+import config from './config.js'
+console.log(config.themeConfig)
 export default {
   title: 'Organisms/HomePage'
 }
 
 export const overview = () => ({
   components: {
+    Navbar,
     Contributors,
     Button,
     GithubStars,
@@ -27,31 +29,14 @@ export const overview = () => ({
             ...contributor
           }
         })
+    },
+    socialUrls: {
+      default: config.themeConfig
     }
   },
   template: `
     <div style="width: 100vw" class="init">
-      <div class="px-5 flex items-center bg-white" style="box-shadow: 0 0 15px 0 rgba(0,0,0,.04)">
-        <div class="m-0 p-0 text-lg text-normal py-4"><span class="text-blue">Ts</span>.ED</div>
-        <div>
-          <ul class="flex items-center h-full">
-            <li class="py-4">
-              <a>Intro</a>
-              <ul class="hidden">
-                <li><a>Getting started</a></li>
-                <li><a>Configuration</a></li>
-                <li><a>Platform API</a></li>
-              </ul>
-            </li>
-            <li class="py-4">Documentation</li>
-            <li class="py-4">Guide</li>
-          </ul>
-        </div>
-
-        <div>
-          <input/>
-        </div>
-      </div>
+      <Navbar site-title="Ts.ED" html-title="<span class='text-blue'>Ts</span>.ED" href="/" :social-urls="socialUrls" />
 
       <div style="min-height: 60vh" class="flex pt-5 md:items-center">
         <div class="container flex flex-col w-full max-w-site mx-auto px-10 pb-10">
