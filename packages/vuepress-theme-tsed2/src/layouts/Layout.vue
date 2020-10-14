@@ -12,9 +12,9 @@
         :class="{'--fluid': shouldShowSidebar}"
         :repo-url="repoUrl"
         :social-urls="$site.themeConfig"
+        :links="links"
         @toggle-sidebar="toggleSidebar"/>
 
-    <p class="text-blue">Test</p>
     <main class="main-content">
       <!--      <div class="sidebar-mask" @click="toggleSidebar(false)"></div>-->
 
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { resolveOtherTopicsItems, resolveSidebarItems } from '@tsed/vuepress-common'
+import { resolveOtherTopicsItems, resolveSidebarItems, getUserNavLinks } from '@tsed/vuepress-common'
 import Vue from 'vue'
 import VueTsed from '../install'
 
@@ -86,6 +86,9 @@ export default {
   },
 
   computed: {
+    links () {
+      return getUserNavLinks(this)
+    },
     repoUrl () {
       const { repo } = this.$site
       return /^https?:/.test(repo)

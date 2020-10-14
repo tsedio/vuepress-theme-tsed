@@ -1,3 +1,4 @@
+import { getUserNavLinks } from '../../../utils'
 import config from '../../organisms/config'
 import Navbar from './Navbar.vue'
 
@@ -12,10 +13,24 @@ export const overview = () => ({
   props: {
     socialUrls: {
       default: config.themeConfig
+    },
+    links: {
+      default: getUserNavLinks({
+        $site: config.themeConfig,
+        $router: {},
+        $localeConfig: {
+          path: ''
+        },
+        $themeLocaleConfig: config.themeConfig.locales['/']
+      })
     }
   },
   template: `
-    <div style="width: 100vw" class="init">
-      <Navbar site-title="Ts.ED" html-title="<span class='text-blue'>Ts</span>.ED" href="/" :social-urls="socialUrls" />
+    <div style="width: 100vw; height: 100vh" class="init">
+      <Navbar
+          site-title="Ts.ED"
+          html-title="<span class='text-blue'>Ts</span>.ED" href="/"
+          :social-urls="socialUrls"
+          :links="links"/>
     </div>`
 })

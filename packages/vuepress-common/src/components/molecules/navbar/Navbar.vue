@@ -12,53 +12,61 @@
         </span>
       </router-link>
     </div>
-    <div class="flex-1">
-      <ul class="flex items-center h-full font-bold text-gray-dark">
-        <li class="py-4 mx-1">
-          <a class="px-3 p-1 hover:bg-blue hover:text-white transition-all rounded-small cursor-pointer">Getting started</a>
-        </li>
-        <li class="py-4 mx-1"><a class="px-3 p-1 hover:bg-blue hover:text-white transition-all rounded-small cursor-pointer">Configuration</a></li>
-        <li class="py-4 mx-1"><a class="px-3 p-1 hover:bg-blue hover:text-white transition-all rounded-small cursor-pointer">Documentation</a></li>
-      </ul>
+    <div class="flex-1 h-full">
+      <NavLinks :links="leftLinks" class="font-bold hidden md:flex"/>
     </div>
-    <div class="flex items-center h-full">
-      <ul class="flex items-center h-full text-gray-dark">
-        <li class="py-4 mx-1"><a class="px-3 p-1 hover:bg-blue hover:text-white transition-all rounded-small cursor-pointer">Versions</a></li>
-      </ul>
+    <!--      <ul class="flex items-center h-full font-bold text-gray-dark">-->
+    <!--        <li class="py-4 mx-1">-->
+    <!--          <a class="px-3 p-1 hover:bg-blue hover:text-white transition-all rounded-small cursor-pointer">Getting-->
+    <!--            started</a>-->
+    <!--        </li>-->
+    <!--        <li class="py-4 mx-1"><a-->
+    <!--            class="px-3 p-1 hover:bg-blue hover:text-white transition-all rounded-small cursor-pointer">Configuration</a>-->
+    <!--        </li>-->
+    <!--        <li class="py-4 mx-1"><a-->
+    <!--            class="px-3 p-1 hover:bg-blue hover:text-white transition-all rounded-small cursor-pointer">Documentation</a>-->
+    <!--        </li>-->
+    <!--      </ul>-->
+    <div class="flex h-full">
+      <NavLinks class="hidden md:flex" :links="rightLinks"/>
     </div>
-    <div class="flex items-center h-full">
+    <!--    <div class="flex items-center h-full">-->
+    <!--      <ul class="flex items-center h-full text-gray-dark">-->
+    <!--        <li class="py-4 mx-1"><a-->
+    <!--            class="px-3 p-1 hover:bg-blue hover:text-white transition-all rounded-small cursor-pointer">Versions</a>-->
+    <!--        </li>-->
+    <!--      </ul>-->
+    <!--    </div>-->
+    <div class="flex items-center h-full hidden md:flex">
       <IconLink
           v-for="item of socialItems"
-          class="flex align-center justify-center"
+          class="flex align-center justify-center md:text-lg"
+          :key="item.title"
           :title="item.title"
           :href="item.url"
-          :icon="item.icon" />
+          :icon="item.icon"/>
     </div>
-    <div class="flex items-center h-full">
-      <input class="py-1 px-3 border-2 border-gray-lighter bg-gray-lighter ml-5 rounded-small text-gray-darker focus:border-blue transition-all" placeholder="Search"/>
+    <div class="flex items-center h-full hidden md:flex">
+      <input
+          class="py-1 px-3 border-2 border-gray-lighter bg-gray-lighter ml-5 rounded-small text-gray-darker focus:border-blue transition-all"
+          placeholder="Search"/>
     </div>
   </header>
 </template>
 <script>
+import { getCss, scrollPosition, throttle } from '@tsed/vuepress-common'
+import { SOCIALS } from '../../../utils/socials/socials'
+import IconLink from '../link/IconLink.vue'
+import NavLinks from './NavLinks.vue'
 // import AlgoliaSearchBox from '../algolia-search/AlgoliaSearchBox'
-import { getCss, isExternal, isMailto, isTel, scrollPosition, throttle } from '@tsed/vuepress-common'
 // import SearchBox from '../search/SearchBox.vue'
 // import SidebarButton from '../sidebar/SidebarButton.vue'
-// import NavLinks from './NavLinks.vue'
-import IconLink from './IconLink.vue'
-
-const SOCIALS = [
-  { type: 'github', title: 'Github', icon: 'bxl-github' },
-  { type: 'gitter', title: 'Gitter', icon: 'bx-message-rounded-dots' },
-  { type: 'twitter', title: 'Twitter', icon: 'bxl-twitter' },
-  { type: 'stackoverflow', title: 'StackOverflow', icon: 'bxl-stack-overflow' },
-  { type: 'sponsor', title: 'Sponsor', icon: 'bxs-heart' }
-]
 
 export default {
   name: 'Navbar',
   components: {
-    IconLink,
+    NavLinks,
+    IconLink
     // SidebarButton,
     // NavLinks,
     // SearchBox,
@@ -89,6 +97,10 @@ export default {
     socialUrls: {
       type: Object,
       default: () => ({})
+    },
+    links: {
+      type: Array,
+      default: () => []
     }
   },
 
@@ -112,7 +124,12 @@ export default {
     // isAlgoliaSearch () {
     //   return this.algolia && this.algolia.apiKey && this.algolia.indexName
     // },
-
+    leftLinks () {
+      return this.links.filter((item) => item.position !== 'right')
+    },
+    rightLinks () {
+      return this.links.filter((item) => item.position === 'right')
+    },
     socialItems () {
       const { socialUrls = {}, repoUrl } = this
 
@@ -139,9 +156,6 @@ export default {
   },
 
   methods: {
-    isExternal,
-    isMailto,
-    isTel,
     init () {
       const oBody = document.querySelector('body')
       const navHeight = parseInt(getCss(this.$el, 'height'))

@@ -16,73 +16,76 @@
     z-index: 2;
 }
 
-h1 {
-    @apply text-3xl;
-    @apply mb-3;
-    @apply mt-3;
-    text-transform: uppercase;
-}
-
-h2 {
-    @apply text-2xl;
-    @apply mb-3;
-    @apply mt-3;
-    text-transform: uppercase;
-}
-
-h3 {
-    @apply text-xl;
-    @apply mb-2;
-    @apply mt-2;
-    text-transform: uppercase;
-}
-
-h4 {
-    @apply text-lg;
-    @apply mb-2;
-    @apply mt-2;
-    text-transform: uppercase;
-}
-
-h5 {
-    @apply text-md;
-    @apply mb-2;
-    @apply mt-2;
-}
-
-h6 {
-    @apply text-sm;
-    @apply mb-2;
-    @apply mt-2;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    &.heading {
-        @apply font-hairline;
+main {
+    h1 {
+        @apply text-3xl;
+        @apply mb-3;
+        @apply mt-3;
+        text-transform: uppercase;
     }
 
-    b {
-        @apply font-bold;
+    h2 {
+        @apply text-2xl;
+        @apply mb-3;
+        @apply mt-3;
+        text-transform: uppercase;
     }
-}
 
-p {
-    @apply mb-2;
-    @apply mt-2;
-}
+    h3 {
+        @apply text-xl;
+        @apply mb-2;
+        @apply mt-2;
+        text-transform: uppercase;
+    }
 
-main a {
-    @apply text-blue underline;
-    transition: all ease-in var(--Global-transition-duration);
+    h4 {
+        @apply text-lg;
+        @apply mb-2;
+        @apply mt-2;
+        text-transform: uppercase;
+    }
 
-    &:hover {
-        @apply text-blue-active;
+    h5 {
+        @apply text-md;
+        @apply mb-2;
+        @apply mt-2;
+    }
+
+    h6 {
+        @apply text-sm;
+        @apply mb-2;
+        @apply mt-2;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        &.heading {
+            @apply font-hairline;
+        }
+
+        b {
+            @apply font-bold;
+        }
+    }
+
+    p {
+        @apply mb-2;
+        @apply mt-2;
+    }
+
+    a {
+        @apply text-blue underline;
+        transition: all ease-in var(--Global-transition-duration);
+
+        &:hover {
+            @apply text-blue-active;
+        }
     }
 }
 
 hr {
     @apply border-0 border-t-1 border-solid border-gray-light mt-5 mb-5;
 }
+
 input, input:focus,
 button, button:focus {
     outline: 0;
