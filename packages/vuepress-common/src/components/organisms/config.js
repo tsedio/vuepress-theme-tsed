@@ -64,34 +64,35 @@ export default {
           }
         },
         nav: [
-          // {
-          //   text: "Getting started",
-          //   link: "/getting-started/",
-          //   title: `Getting started | ${title}`
-          // },
-          // {
-          //   text: "Configuration",
-          //   link: "/docs/configuration.html",
-          //   title: `Configuration | ${title}`
-          // },
-          // {
-          //   text: "Documentation",
-          //   link: "/docs/controllers.html",
-          //   title: `Documentation | ${title}`
-          // },
-          // {
-          //   text: "Versions",
-          //   items: [
-          //     {
-          //       text: "v4 (obsolete)",
-          //       link: "http://v4.tsed.io"
-          //     },
-          //     {
-          //       text: "v5 (current)",
-          //       link: "http://tsed.io"
-          //     }
-          //   ]
-          // }
+          {
+            text: "Getting started",
+            link: "/getting-started/",
+            title: `Getting started | ${title}`
+          },
+          {
+            text: "Configuration",
+            link: "/docs/configuration.html",
+            title: `Configuration | ${title}`
+          },
+          {
+            text: "Documentation",
+            link: "/docs/controllers.html",
+            title: `Documentation | ${title}`
+          },
+          {
+            text: "Versions",
+            position: 'right',
+            items: [
+              {
+                text: "v4 (obsolete)",
+                link: "http://v4.tsed.io"
+              },
+              {
+                text: "v5 (current)",
+                link: "http://tsed.io"
+              }
+            ]
+          }
         ],
         sidebar: [
           // {

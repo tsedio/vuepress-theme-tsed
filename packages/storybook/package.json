@@ -33,6 +33,7 @@
     "postcss-mixins": "6.2.3",
     "postcss-nested": "4.2.1",
     "postcss-omit-import-tilde": "1.0.1",
+    "storybook-vue-router": "1.0.7",
     "vue-loader": "^15.9.2",
     "vue-template-compiler": "^2.6.11"
   },

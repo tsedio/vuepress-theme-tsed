@@ -1,29 +1,31 @@
 <template>
-  <router-link class="nav-link"
-               :to="link"
-               v-if="!isExternal(link)"
-               :title="title"
-               :exact="exact">
+  <router-link
+      class="link internal"
+      :to="link"
+      v-if="!isExternal(link)"
+      :title="title"
+      :exact="exact">
+    <i v-if="icon" :class="icon"/>
     <slot></slot>
   </router-link>
 
   <a v-else
      :href="link"
-     class="nav-link external"
+     class="link external"
      :title="title"
      :target="isMailto(link) || isTel(link) ? null : '_blank'"
      :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'">
     <slot></slot>
     <OutboundLink/>
   </a>
-
 </template>
 
 <script>
 import { ensureExt, isExternal, isMailto, isTel } from '@tsed/vuepress-common'
+import OutboundLink from './OutboundLink'
 
 export default {
-  name: 'NavbarLink',
+  name: 'Link',
   props: {
     href: {
       type: String,
@@ -32,7 +34,14 @@ export default {
     title: {
       type: String,
       required: false
+    },
+    icon: {
+      type: String,
+      required: false
     }
+  },
+  components: {
+    OutboundLink
   },
 
   computed: {
@@ -49,9 +58,21 @@ export default {
   },
 
   methods: {
-    isExternal,
-    isMailto,
-    isTel
+    isExternal (path) {
+      return isExternal(path)
+    },
+    isMailto (path) {
+      return isMailto(path)
+    },
+    isTel (path) {
+      return isTel(path)
+    }
   }
 }
 </script>
+<style>
+.router-link-exact-active,
+.router-link-active {
+  @apply text-gray-darker;
+}
+</style>

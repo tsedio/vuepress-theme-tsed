@@ -3,13 +3,14 @@
      :href="href"
      :target="isMailto(href) || isTel(href) ? null : '_blank'"
      :rel="isMailto(href) || isTel(href) ? null : 'noopener noreferrer'"
-     class="text-lg p-1 hover:text-blue transition-all">
+     class="p-1 hover:text-blue transition-all">
     <i :class="`bx ${icon}`"/>
   </a>
 </template>
 
 <script>
 import { isMailto, isTel } from '@tsed/vuepress-common'
+import { isExternal } from '../../../index'
 
 export default {
   name: 'NavbarLink',
@@ -29,8 +30,15 @@ export default {
   },
 
   methods: {
-    isMailto,
-    isTel
+    isExternal (path) {
+      return isExternal(path)
+    },
+    isMailto (path) {
+      return isMailto(path)
+    },
+    isTel (path) {
+      return isTel(path)
+    }
   }
 }
 </script>

@@ -1039,7 +1039,7 @@ Object.assign(exports, {
     lineHeight: ['responsive'],
     listStylePosition: [],
     listStyleType: [],
-    margin: ['responsive', 'last'],
+    margin: ['responsive', 'last', 'first'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
