@@ -1,7 +1,8 @@
 <template>
-  <header class="px-5 flex items-center navbar-box-shadow fixed top-0 fixed top-0 inset-x-0 z-100 h-16" ref="navbar">
+  <header class="navbar px-5 flex items-center navbar-box-shadow fixed top-0 fixed top-0 inset-x-0 h-16 bg-white"
+          ref="navbar">
     <div class="flex h-full items-center justify-center lg:hidden">
-      <div class="flex cursor-pointer text-xl mr-4" @toggle-sidebar="$emit('toggle-sidebar')">
+      <div class="flex cursor-pointer text-xl mr-4" @click="$emit('toggle-sidebar')">
         <i class="bx bx-menu"/>
       </div>
     </div>
@@ -40,7 +41,6 @@
   </header>
 </template>
 <script>
-import { getCss, scrollPosition, throttle } from '@tsed/vuepress-common'
 import { SOCIALS } from '../../../utils/socials/socials'
 import IconLink from '../link/IconLink.vue'
 import NavLinks from './NavLinks.vue'
@@ -80,7 +80,7 @@ export default {
       type: Object,
       default: () => ({})
     },
-    links: {
+    items: {
       type: Array,
       default: () => []
     }
@@ -107,10 +107,10 @@ export default {
     //   return this.algolia && this.algolia.apiKey && this.algolia.indexName
     // },
     leftLinks () {
-      return this.links.filter((item) => item.position !== 'right')
+      return this.items.filter((item) => item.position !== 'right')
     },
     rightLinks () {
-      return this.links.filter((item) => item.position === 'right')
+      return this.items.filter((item) => item.position === 'right')
     },
     socialItems () {
       const { socialUrls = {}, repoUrl } = this
@@ -151,7 +151,7 @@ export default {
       //       this.onScroll(oBody, navHeight)
       //     }, 160)
       // )
-    },
+    }
 
     // onScroll (oBody, navHeight) {
     //   const nScrollTop = scrollPosition()
@@ -170,6 +170,10 @@ export default {
 }
 </script>
 <style>
+.navbar {
+  z-index: 1000;
+}
+
 .navbar-box-shadow {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, .04)
 }

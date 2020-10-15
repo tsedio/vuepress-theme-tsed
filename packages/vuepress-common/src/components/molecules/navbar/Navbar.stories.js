@@ -31,6 +31,6 @@ export const overview = () => ({
           site-title="Ts.ED"
           html-title="<span class='text-blue'>Ts</span>.ED" href="/"
           :social-urls="socialUrls"
-          :links="links"/>
+          :items="links"/>
     </div>`
 })

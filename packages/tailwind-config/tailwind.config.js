@@ -137,7 +137,7 @@ const colors = {
   'white-active': 'hsla(195, 22%, 96%, 1)',
 
   code: 'hsla(245, 17%, 29%, 1)',
-  "code-active": 'hsla(246, 17%, 25%, 1)',
+  'code-active': 'hsla(246, 17%, 25%, 1)',
 
 
   /* Gray colors */
@@ -364,8 +364,10 @@ Object.assign(exports, {
     },
     translate: {
       // defaults to {}
+      '0': '0%',
       '1/2': '50%',
       full: '100%',
+      '100': '100%',
       down: '-100%',
       'right-up': ['100%', '-100%'],
       '3d': ['40px', '-60px', '-130px']
@@ -471,7 +473,7 @@ Object.assign(exports, {
       semibold: 600,
       bold: 700,
       extrabold: 800,
-      black: 900,
+      black: 900
     },
 
     /*
@@ -877,7 +879,8 @@ Object.assign(exports, {
       inner: 'inset 0 0 20px rgba(0, 0, 0, 0.15)',
       outline: '0 0 0 3px rgba(52,144,220,0.5)',
       none: 'none',
-      'symbol': '0 1px 2px rgba(10, 16, 20, 0.24)'
+      'symbol': '0 1px 2px rgba(10, 16, 20, 0.24)',
+      'sidebar': '0 0 25px rgba(0, 0, 0, .1)'
     },
 
     /*
@@ -1053,7 +1056,7 @@ Object.assign(exports, {
     position: ['responsive'],
     inset: ['responsive'],
     resize: [],
-    boxShadow: ['hover'],
+    boxShadow: ['responsive', 'hover'],
     fill: [],
     stroke: [],
     tableLayout: [],

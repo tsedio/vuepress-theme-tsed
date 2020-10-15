@@ -153,27 +153,27 @@ module.exports = {
           }
         ],
         sidebar: [
-          // {
-          //   title: "Introduction",   // required
-          //   path: "/getting-started/",
-          //   collapsable: true // optional, defaults to true
-          // },
-          // {
-          //   title: "Getting started",
-          //   children: [
-          //     "/getting-started/start-with-cli",
-          //     "/getting-started/start-from-scratch",
-          //     "/getting-started/create-your-first-controller"
-          //   ]
-          // },
-          // {
-          //   title: "Migration",
-          //   collapsable: true,
-          //   children: [
-          //     "/getting-started/migration-from-v5",
-          //     "/getting-started/migrate-from-express"
-          //   ]
-          // },
+          {
+            title: "Introduction",   // required
+            path: "/getting-started/",
+            collapsable: true // optional, defaults to true
+          },
+          {
+            title: "Getting started",
+            children: [
+              "/getting-started/start-with-cli",
+              "/getting-started/start-from-scratch",
+              "/getting-started/create-your-first-controller"
+            ]
+          },
+          {
+            title: "Migration",
+            collapsable: true,
+            children: [
+              "/getting-started/migration-from-v5",
+              "/getting-started/migrate-from-express"
+            ]
+          },
           // {
           //   title: "Documentation",
           //   collapsable: true,

@@ -59,7 +59,7 @@ export const overview = () => ({
         site-title="Ts.ED"
         html-title="<span class='text-blue'>Ts</span>.ED" href="/"
         :social-urls="socialUrls"
-        :links="links"/>
+        :items="links"/>
     
     <div style="min-height: 60vh" class="flex pt-5 md:items-center">
       <div class="container flex flex-col w-full max-w-site mx-auto px-10 pb-10">

@@ -9,60 +9,60 @@
         :html-title="htmlTitle"
         :logo-src="logoSrc"
         :href="$localePath"
-        :class="{'--fluid': shouldShowSidebar}"
         :repo-url="repoUrl"
         :social-urls="$site.themeConfig"
-        :links="links"
+        :items="navLinks"
         @toggle-sidebar="toggleSidebar"/>
 
-    <main class="main-content">
-      <!--      <div class="sidebar-mask" @click="toggleSidebar(false)"></div>-->
+    <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
-      <!--      <Sidebar :items="sidebarItems"-->
-      <!--               @toggle-sidebar="toggleSidebar">-->
-      <!--        <template #top>-->
-      <!--          <slot name="sidebar-top" />-->
-      <!--        </template>-->
-      <!--        <template #bottom>-->
-      <!--          <slot name="sidebar-bottom"/>-->
-      <!--        </template>-->
-      <!--      </Sidebar>-->
-
-      <!--      <div class="custom-layout" v-if="isCustomLayout">-->
-      <!--        <component :is="$page.frontmatter.layout"/>-->
-      <!--      </div>-->
+    <main class="main-content relative z-2 pt-16">
+      <div class="custom-layout" v-if="isCustomLayout">
+        <component :is="$page.frontmatter.layout"/>
+      </div>
 
       <!--      <Home v-else-if="isHome"/>-->
       <!--      <Contributing v-else-if="isContributing"/>-->
 
-      <!--      <Page v-else :sidebar-items="sidebarItems">-->
-      <!--        <template #top>-->
-      <!--          <slot name="page-top"/>-->
-      <!--        </template>-->
-      <!--        <template #bottom>-->
-      <!--          <slot name="page-bottom"/>-->
-      <!--        </template>-->
-      <!--        <OtherTopics slot="page-bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">-->
-      <!--          <h3 class="heading" slot="top">-->
-      <!--            Other <br/><b>topics</b>-->
-      <!--          </h3>-->
-      <!--        </OtherTopics>-->
-      <!--      </Page>-->
+      <Page v-else>
+        <template #top>
+          <slot name="page-top"/>
+        </template>
+        <template #bottom>
+          <!--          <PageNav v-bind="{ sidebarItems }"/>-->
+          <slot name="page-bottom"/>
+        </template>
+        <!--        <OtherTopics slot="page-bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">-->
+        <!--          <h3 class="heading" slot="top">-->
+        <!--            Other <br/><b>topics</b>-->
+        <!--          </h3>-->
+        <!--        </OtherTopics>-->
+      </Page>
 
     </main>
+
+    <Sidebar :items="sidebarItems"
+             :class="{'-translate-x-100 md:shadow-sidebar md:translate-x-0': !isSidebarOpen, 'translate-0 shadow-sidebar': isSidebarOpen}"
+             @toggle-sidebar="toggleSidebar">
+      <template #top>
+        <slot name="sidebar-top"/>
+      </template>
+      <template #bottom>
+        <slot name="sidebar-bottom"/>
+      </template>
+    </Sidebar>
 
     <!--    <Footer :class="{'&#45;&#45;with-sidebar': shouldShowSidebar}"></Footer>-->
   </div>
 </template>
 
 <script>
-import { resolveOtherTopicsItems, resolveSidebarItems, getUserNavLinks } from '@tsed/vuepress-common'
+import { getUserNavLinks, resolveOtherTopicsItems, resolveSidebarItems } from '@tsed/vuepress-common'
 import Vue from 'vue'
 import VueTsed from '../install'
-
-// import Sidebar from '../components/sidebar/Sidebar'
+// import Sidebar from '../sidebar/Sidebar'
 // import Home from '../views/Home'
-// import Page from '../views/Page'
+import Page from '../views/Page'
 // import Contributing from '../views/Contributing'
 // import Footer from '../components/footer/Footer'
 // import OtherTopics from '../components/other-topics/OtherTopics'
@@ -71,8 +71,9 @@ Vue.use(VueTsed)
 
 export default {
   components: {
-    // Navbar
-    // Sidebar,
+    Page
+    // Navbar,
+    // Sidebar
     // Home,
     // Contributing,
     // Footer,
@@ -86,7 +87,7 @@ export default {
   },
 
   computed: {
-    links () {
+    navLinks () {
       return getUserNavLinks(this)
     },
     repoUrl () {
@@ -109,18 +110,15 @@ export default {
 
       return home || layout === 'home'
     },
-
     isContributing () {
       const { layout } = this.$page.frontmatter
 
       return layout === 'contributing'
     },
-
     isCustomLayout () {
       const { layout } = this.$page.frontmatter
       return layout && !this.isHome && ['contributing'].indexOf(layout)
     },
-
     shouldShowNavbar () {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
@@ -140,11 +138,8 @@ export default {
 
     shouldShowSidebar () {
       const { frontmatter } = this.$page
-      return (
-          !frontmatter.home
-          && frontmatter.sidebar !== false
-          && this.sidebarItems.length
-      )
+      console.log('frontmatter.sidebar', frontmatter.sidebar, this.sidebarItems)
+      return (frontmatter.sidebar !== false && this.sidebarItems.length)
     },
 
     shouldShowOtherTopics () {
@@ -222,3 +217,20 @@ export default {
   }
 }
 </script>
+<style>
+.sidebar-mask {
+  @apply fixed top-0 left-0 w-full h-full hidden;
+  z-index: 10;
+  background: rgba(0, 0, 0, .3);
+}
+
+.theme-container.sidebar-open .sidebar-mask {
+  display: block;
+}
+
+@screen md {
+  .main-content {
+    padding-left: 20rem;
+  }
+}
+</style>
