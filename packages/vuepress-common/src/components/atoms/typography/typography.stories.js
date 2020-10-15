@@ -3,7 +3,7 @@ export default {
 }
 
 export const overview = () => ({
-  template: `<div class="p-5 bg-white">
+  template: `<main class="p-5 bg-white">
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
@@ -34,5 +34,5 @@ export const overview = () => ({
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Server</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre>
-  </div>`
+  </main>`
 })

@@ -1,0 +1,180 @@
+<template>
+  <header class="navbar px-5 flex items-center navbar-box-shadow fixed top-0 fixed top-0 inset-x-0 h-16 bg-white"
+          ref="navbar">
+    <div class="flex h-full items-center justify-center lg:hidden">
+      <div class="flex cursor-pointer text-xl mr-4" @click="$emit('toggle-sidebar')">
+        <i class="bx bx-menu"/>
+      </div>
+    </div>
+    <div class="m-0 p-0 text-xl text-normal mr-8">
+      <router-link :to="href">
+        <img class="logo"
+             v-if="logoSrc"
+             :src="logoSrc"
+             :alt="siteTitle">
+        <span ref="siteName"
+              v-if="siteTitle && !logoSrc"
+              v-html="htmlTitle || siteTitle">
+        </span>
+      </router-link>
+    </div>
+    <div class="flex-1 h-full">
+      <NavLinks :links="leftLinks" class="font-bold hidden lg:flex h-full"/>
+    </div>
+    <div class="flex h-full">
+      <NavLinks class="hidden sm:flex" :links="rightLinks"/>
+    </div>
+    <div class="flex items-center h-full">
+      <IconLink
+          v-for="item of socialItems"
+          class="flex align-center justify-center lg:text-lg py-4"
+          :key="item.title"
+          :title="item.title"
+          :href="item.url"
+          :icon="item.icon"/>
+    </div>
+    <div class="flex items-center h-full hidden sm:flex">
+      <input
+          class="py-1 px-3 border-2 border-gray-lighter bg-gray-lighter ml-5 rounded-small text-gray-darker focus:border-blue transition-all"
+          placeholder="Search"/>
+    </div>
+  </header>
+</template>
+<script>
+import { SOCIALS } from '../../../utils/socials/socials'
+import IconLink from '../link/IconLink.vue'
+import NavLinks from './NavLinks.vue'
+// import AlgoliaSearchBox from '../algolia-search/AlgoliaSearchBox'
+// import SearchBox from '../search/SearchBox.vue'
+export default {
+  name: 'Navbar',
+  components: {
+    NavLinks,
+    IconLink
+    // SearchBox,
+    // AlgoliaSearchBox
+  },
+
+  props: {
+    logoSrc: {
+      type: String,
+      default: undefined
+    },
+    href: {
+      type: String,
+      default: undefined
+    },
+    siteTitle: {
+      type: String,
+      default: undefined
+    },
+    htmlTitle: {
+      type: String,
+      default: undefined
+    },
+    repoUrl: {
+      type: String,
+      default: undefined
+    },
+    socialUrls: {
+      type: Object,
+      default: () => ({})
+    },
+    items: {
+      type: Array,
+      default: () => []
+    }
+  },
+
+  data () {
+    return {
+      sticky: false,
+      stickyHidden: false,
+      linksWrapMaxWidth: null
+    }
+  },
+
+  mounted () {
+    // this.init()
+  },
+
+  computed: {
+    // algolia () {
+    //   return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+    // },
+    //
+    // isAlgoliaSearch () {
+    //   return this.algolia && this.algolia.apiKey && this.algolia.indexName
+    // },
+    leftLinks () {
+      return this.items.filter((item) => item.position !== 'right')
+    },
+    rightLinks () {
+      return this.items.filter((item) => item.position === 'right')
+    },
+    socialItems () {
+      const { socialUrls = {}, repoUrl } = this
+
+      return SOCIALS
+          .map((item) => {
+            if (item.type === 'github' && repoUrl) {
+              return {
+                ...item,
+                url: repoUrl
+              }
+            }
+
+            if (socialUrls[`${item.type}Url`]) {
+              return {
+                ...item,
+                url: socialUrls[`${item.type}Url`]
+              }
+            }
+            return false
+          })
+          .concat(socialUrls.additionalItems || [])
+          .filter(Boolean)
+    }
+  },
+
+  methods: {
+    init () {
+      // const oBody = document.querySelector('body')
+      // const navHeight = parseInt(getCss(this.$el, 'height'))
+      // // let nLastPos = scrollPosition();
+      //
+      // this.onScroll(oBody, navHeight)
+      //
+      // window.addEventListener(
+      //     'scroll',
+      //     throttle(() => {
+      //       this.onScroll(oBody, navHeight)
+      //     }, 160)
+      // )
+    }
+
+    // onScroll (oBody, navHeight) {
+    //   const nScrollTop = scrollPosition()
+    //
+    //   if (nScrollTop > navHeight) {
+    //     this.sticky = true
+    //     oBody.classList.add('sticky')
+    //   } else {
+    //     this.sticky = false
+    //     oBody.classList.remove('sticky')
+    //   }
+    //
+    //   return nScrollTop
+    // }
+  }
+}
+</script>
+<style>
+.navbar {
+  z-index: 1000;
+}
+
+.navbar-box-shadow {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, .04)
+}
+</style>
