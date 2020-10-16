@@ -230,7 +230,10 @@ export default {
 
 @screen md {
   .main-content {
-    padding-left: 20rem;
+    padding-left: 260px;
+  }
+  .page-header.-fixed > div {
+    left: 260px;
   }
 }
 </style>

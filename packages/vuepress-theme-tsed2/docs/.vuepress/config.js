@@ -45,6 +45,7 @@ module.exports = {
     editLinks: true,
     docsDir: 'docs',
     sidebar: 'auto',
+    docsBranch: 'production',
     // api: require("./public/api.json"),
     smoothScroll: true,
     algolia: {

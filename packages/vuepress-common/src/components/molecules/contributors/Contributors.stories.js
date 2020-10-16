@@ -1,5 +1,5 @@
 import { number, select } from '@storybook/addon-knobs'
-import Contributors from './Contributors'
+import Contributors from './Contributors.vue'
 import { COLORS_LIST } from '../../../utils/colors'
 import contributors from './contributors.json'
 

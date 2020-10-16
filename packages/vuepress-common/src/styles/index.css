@@ -4,4 +4,5 @@
 @import "./core/index.css";
 @import "./tailwind.css";
 @import "./atoms/index.css";
+@import "./molecules/custom-block.css";
 @import "~prismjs/themes/prism-tomorrow.css";

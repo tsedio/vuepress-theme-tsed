@@ -82,7 +82,7 @@ export default {
 .sidebar {
   @apply fixed m-0 left-0 bottom-0 bg-white z-10;
   overflow-y: auto;
-  width: 20rem;
+  width: 260px;
   max-width: 80vw;
   top: 4rem;
   transition: transform .2s ease;

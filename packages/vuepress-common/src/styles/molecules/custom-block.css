@@ -1,0 +1,39 @@
+
+.content__default .custom-block {
+  @apply border-l-1 px-5 py-1 pb-2 my-5;
+
+  .custom-block-title {
+    @apply px-0 font-bold;
+  }
+
+  p {
+    @apply px-0;
+  }
+
+  &.tip {
+    border-color: #42b983;
+    color: #2e825c;
+    background-color: rgba(70,201,58,.04);
+    a {
+      color: #2e825c;
+    }
+  }
+
+  &.warning {
+    border-color: #ffba00;
+    color: #cc9500;
+    background-color: rgba(255,186,0,.09);
+    a {
+      color: #cc9500;
+    }
+  }
+
+  &.danger {
+    border-color:#ff4757;
+    color: #ff061b;
+    background-color: rgba(255,71,87,.05);
+    a {
+      color: #ff061b;
+    }
+  }
+}
