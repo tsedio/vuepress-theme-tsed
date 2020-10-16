@@ -359,8 +359,8 @@ Object.assign(exports, {
       // xs: '22.51em', /* 360px */
       sm: '40.01em' /* 640px --r-minS (phablet) */,
       md: '50.01em' /* 800px --r-minM (tablet) */,
-      lg: '64.01em' /* 1024px --r-minL (desktop) */
-      // xl: '76.26em' /* 1220px */
+      lg: '64.01em' /* 1024px --r-minL (desktop) */,
+      xl: '76.26em' /* 1220px */
     },
     translate: {
       // defaults to {}
@@ -782,7 +782,7 @@ Object.assign(exports, {
       'site-mini': '17.5rem',
       'site-small': '31.25rem',
       'site-medium': '43.75rem',
-      'site-large': '51.45rem',
+      'site-large': '56.25rem',
       site: '73.75rem',
       full: '100%',
       screen: '100vw'
@@ -1051,7 +1051,7 @@ Object.assign(exports, {
     opacity: ['hover'],
     outline: [],
     overflow: [],
-    padding: ['responsive'],
+    padding: ['responsive', 'last', 'first'],
     pointerEvents: [],
     position: ['responsive'],
     inset: ['responsive'],
