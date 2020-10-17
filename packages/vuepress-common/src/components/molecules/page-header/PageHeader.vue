@@ -81,7 +81,7 @@ export default {
 </script>
 <style>
 .page-header-container {
-  @apply transition-all;
+  transition: all ease 0.5s;
   height: 100px;
 }
 

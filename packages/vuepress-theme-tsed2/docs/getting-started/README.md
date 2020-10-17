@@ -89,7 +89,7 @@ To achieve this, Ts.ED provides out-of-the-box an application architecture, high
 Here are the features list provided by Ts.ED and the compatibility with the different platforms:
 
 
-## Philosophy
+## Philosophy1
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -100,12 +100,7 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
-
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy3
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -116,12 +111,8 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
 
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy4
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -132,12 +123,8 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
 
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy5
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -148,12 +135,8 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
 
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy6
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -164,12 +147,8 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
 
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy7
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -180,12 +159,8 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
 
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy8
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -196,12 +171,8 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
 
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy9
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -212,12 +183,8 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
 
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy10
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -228,12 +195,7 @@ all the right tools to developers so that they are quickly productive.
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
 
-## Platform features support
-
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
+## Philosophy11
 
 Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
 
@@ -243,24 +205,4 @@ all the right tools to developers so that they are quickly productive.
 
 Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
 To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
-
-## Platform features support
-
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
-
-## Philosophy
-
-Node.js opened the possibility of making server applications with Javascript, allowing to pool front-end and back-end skills.
-
-With this we have seen the birth of extraordinary projects like [React.js](https://reactjs.org/), [Vue.js](https://vuejs.org/), [Angular](https://angular.io). 
-Each of these projects bring their vision of a web application, but we have the same wish, to make the developer's life easier by providing 
-all the right tools to developers so that they are quickly productive.
-
-Ts.ED tends towards the same objective which is to achieve better productivity while remaining easy to understand.
-To achieve this, Ts.ED provides out-of-the-box an application architecture, highly testable, scalable and maintainable.
-
-## Test
-
-Here are the features list provided by Ts.ED and the compatibility with the different platforms:
-
+~~~~

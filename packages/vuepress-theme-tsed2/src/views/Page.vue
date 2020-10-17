@@ -20,21 +20,20 @@
         </div>
       </div>
 
-      <div class="fixed top-0 right-0" :class="{fixed: headerFixed}">
-        test
-      </div>
+      <PageSidebar class="fixed" :class="{'-mini-header': headerFixed}" :page="$page"/>
+
     </article>
   </div>
 </template>
 
 <script>
 // import PageNav from '../components/page-nav/PageNav'
-import { createEditLink } from '@tsed/vuepress-common'
+import { createEditLink, PageSidebar } from '@tsed/vuepress-common'
 import { endingSlashRE, normalize, outboundRE } from '@vuepress/theme-default/util'
 
 export default {
   name: 'Page',
-  // components: { PageNav },
+  components: { PageSidebar },
   // props: ['sidebarItems'],
   data () {
     return {
@@ -107,9 +106,30 @@ export default {
   }
 }
 
+.page-sidebar {
+  display: none;
+}
+
 @screen xl {
+  .page-sidebar {
+    display: block;
+  }
+
+  .sidebar .sidebar-sub-headers {
+    display: none;
+  }
+
   .page-content {
     width: calc(100% - 220px)
   }
+}
+
+.page-sidebar {
+  top: 300px;
+  transition: all ease 0.5s;
+}
+
+.page-sidebar.-mini-header {
+  top: 150px;
 }
 </style>
