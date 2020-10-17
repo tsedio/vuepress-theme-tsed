@@ -46,38 +46,38 @@ module.exports = {
     docsDir: 'docs',
     sidebar: 'auto',
     docsBranch: 'production',
-    // api: require("./public/api.json"),
+    api: require("./public/api.json"),
     smoothScroll: true,
     algolia: {
       apiKey: 'f8a038207e461aaac0e2fd16403c2b01',
       indexName: 'ts_ed'
     },
     locales: {
-      '/': {
-        label: 'English',
-        selectText: 'Languages',
-        editLinkText: 'Edit this page on GitHub',
-        lastUpdated: 'Last Updated',
+      "/": {
+        label: "English",
+        selectText: "Languages",
+        editLinkText: "Edit this page on GitHub",
+        lastUpdated: "Last Updated",
         serviceWorker: {
           updatePopup: {
-            message: 'New content is available.',
-            buttonText: 'Refresh'
+            message: "New content is available.",
+            buttonText: "Refresh"
           }
         },
         nav: [
           {
-            text: 'Getting started',
-            link: '/getting-started/',
+            text: "Getting started",
+            link: "/getting-started/",
             title: `Getting started | ${title}`
           },
           {
-            text: 'Configuration',
-            link: '/docs/configuration.html',
+            text: "Configuration",
+            link: "/docs/configuration.html",
             title: `Configuration | ${title}`
           },
           {
-            text: 'Documentation',
-            link: '/docs/controllers.html',
+            text: "Documentation",
+            link: "/docs/controllers.html",
             title: `Documentation | ${title}`
           },
           {
@@ -175,107 +175,173 @@ module.exports = {
               "/getting-started/migrate-from-express"
             ]
           },
-          // {
-          //   title: "Documentation",
-          //   collapsable: true,
-          //   children: [
-          //     "/docs/configuration",
-          //     "/docs/controllers",
-          //     "/docs/providers",
-          //     "/docs/model",
-          //     "/docs/converters",
-          //     "/docs/middlewares",
-          //     "/docs/pipes",
-          //     "/docs/interceptors",
-          //     "/docs/authentication",
-          //     "/docs/hooks",
-          //     "/docs/exceptions",
-          //     { title: "Context", path: "/docs/request-context" },
-          //     "/docs/platform-api"
-          //   ]
-          // },
-          // {
-          //   title: "Advanced",
-          //   collapsable: true,
-          //   children: [
-          //     "/docs/validation",
-          //     { title: "Upload files", path: "/docs/upload-files" },
-          //     { title: "Serve files", path: "/docs/serve-files" },
-          //     { title: "Templating", path: "/docs/templating" },
-          //     "/docs/injection-scopes",
-          //     "/docs/custom-providers",
-          //     "/docs/custom-endpoint-decorators",
-          //     "/docs/testing",
-          //     "/api"
-          //   ]
-          // },
-          // {
-          //   title: "Plugins",
-          //   collapsable: true,
-          //   children: [
-          //     "/tutorials/passport",
-          //     "/tutorials/typeorm",
-          //     "/tutorials/mongoose",
-          //     "/tutorials/graphql",
-          //     "/tutorials/socket-io",
-          //     { title: "Seq logger", path: "/tutorials/seq" },
-          //     "/tutorials/swagger",
-          //     "/tutorials/ajv",
-          //     "/tutorials/aws"
-          //   ]
-          // },
-          // {
-          //   title: "Extras",
-          //   children: [
-          //     "/tutorials/",
-          //     "/tutorials/throw-http-exceptions",
-          //     "/tutorials/not-found-page",
-          //     "/contributing",
-          //     "/license"
-          //   ]
-          // }
+          {
+            title: "Documentation",
+            collapsable: true,
+            children: [
+              "/docs/configuration",
+              "/docs/controllers",
+              "/docs/providers",
+              "/docs/model",
+              "/docs/converters",
+              "/docs/middlewares",
+              "/docs/pipes",
+              "/docs/interceptors",
+              "/docs/authentication",
+              "/docs/hooks",
+              "/docs/exceptions",
+              { title: "Context", path: "/docs/request-context" },
+              "/docs/platform-api"
+            ]
+          },
+          {
+            title: "Advanced",
+            collapsable: true,
+            children: [
+              "/docs/validation",
+              { title: "Upload files", path: "/docs/upload-files" },
+              { title: "Serve files", path: "/docs/serve-files" },
+              { title: "Templating", path: "/docs/templating" },
+              "/docs/injection-scopes",
+              "/docs/custom-providers",
+              "/docs/custom-endpoint-decorators",
+              "/docs/testing",
+              "/api"
+            ]
+          },
+          {
+            title: "Plugins",
+            collapsable: true,
+            children: [
+              "/tutorials/passport",
+              "/tutorials/typeorm",
+              "/tutorials/mongoose",
+              "/tutorials/graphql",
+              "/tutorials/socket-io",
+              { title: "Seq logger", path: "/tutorials/seq" },
+              "/tutorials/swagger",
+              "/tutorials/ajv",
+              "/tutorials/aws"
+            ]
+          },
+          {
+            title: "Extras",
+            children: [
+              "/tutorials/",
+              "/tutorials/throw-http-exceptions",
+              "/tutorials/not-found-page",
+              "/contributing",
+              "/license"
+            ]
+          }
         ],
+        //
+        // {
+        // "/": [
+        //   {
+        //     title: "Getting started",
+        //     collapsable: true,
+        //     children: [
+        //       "getting-started",
+        //       "start-application-from-scratch",
+        //       "create-your-first-controller"
+        //     ]
+        //   },
+        //   {
+        //     title: "Migration",
+        //     collapsable: true,
+        //     children: [
+        //       "migration-from-v5",
+        //       "migrate-from-express",
+        //       "migrate-from-koa"
+        //     ]
+        //   },
+        //   {
+        //     title: "Documentation",
+        //     collapsable: true,
+        //     children: [
+        //       "configuration",
+        //       "controllers",
+        //       "providers",
+        //       "model",
+        //       "converters",
+        //       "middlewares",
+        //       "pipes",
+        //       "interceptors",
+        //       "authentication",
+        //       "hooks",
+        //       "exceptions",
+        //       "platform-api"
+        //     ]
+        //   },
+        //
+        //   {
+        //     title: "Plugins",
+        //     collapsable: false,
+        //     children: [
+        //       "passport",
+        //       "typeorm",
+        //       "mongoose",
+        //       "graphql",
+        //       "socket-io",
+        //       "seq",
+        //       "swagger",
+        //       "ajv",
+        //       "multer"
+        //     ]
+        //   },
+        //   {
+        //     title: "Extras",
+        //     collapsable: true,
+        //     children: [
+        //       "",
+        //       "throw-http-exceptions",
+        //       "aws"
+        //     ]
+        //   }
+        // ]
+        // },
         otherTopics: [
-          // "/tutorials/session",
-          // "/tutorials/passport",
-          // "/tutorials/typeorm",
-          // "/tutorials/mongoose",
-          // "/tutorials/graphql",
-          // "/tutorials/socket-io",
-          // "/tutorials/swagger",
-          // "/tutorials/ajv",
-          // "/tutorials/multer",
-          // "/tutorials/serve-static-files",
-          // "/tutorials/templating",
-          // "/tutorials/throw-http-exceptions",
-          // "/tutorials/not-found-page",
-          // "/tutorials/aws",
-          // "/tutorials/seq",
-          // "/docs/controllers",
-          // "/docs/providers",
-          // "/docs/model",
-          // "/docs/converters",
-          // "/docs/middlewares",
-          // "/docs/pipes",
-          // "/docs/interceptors",
-          // "/docs/authentication",
-          // "/docs/hooks",
-          // "/docs/injection-scopes",
-          // "/docs/custom-providers",
-          // "/docs/custom-endpoint-decorators",
-          // "/docs/testing"
+          "/tutorials/session",
+          "/tutorials/passport",
+          "/tutorials/typeorm",
+          "/tutorials/mongoose",
+          "/tutorials/graphql",
+          "/tutorials/socket-io",
+          "/tutorials/swagger",
+          "/tutorials/ajv",
+          "/tutorials/multer",
+          "/tutorials/serve-static-files",
+          "/tutorials/templating",
+          "/tutorials/throw-http-exceptions",
+          "/tutorials/not-found-page",
+          "/tutorials/aws",
+          "/tutorials/seq",
+          "/docs/controllers",
+          "/docs/providers",
+          "/docs/model",
+          "/docs/converters",
+          "/docs/middlewares",
+          "/docs/pipes",
+          "/docs/interceptors",
+          "/docs/authentication",
+          "/docs/hooks",
+          "/docs/injection-scopes",
+          "/docs/custom-providers",
+          "/docs/custom-endpoint-decorators",
+          "/docs/testing"
         ],
 
         footer: {
-          lastUpdated: 'Last update',
-          caughtMistake: 'Caught a mistake or want to contribute to the documentation?',
-          editPageOnGithub: 'Edit on Github',
-          contribute: 'Contribute',
-          helpToContribute: 'Help shape the future of Ts.Ed by joining our team and send us pull requests via our',
-          githubRepository: 'GitHub repository!',
-          license: 'License',
-          releaseUnder: 'Released under the',
-          documentationGeneratedWith: 'Documentation generated with'
+          lastUpdated: "Last update",
+          caughtMistake: "Caught a mistake or want to contribute to the documentation?",
+          editPageOnGithub: "Edit on Github",
+          contribute: "Contribute",
+          helpToContribute: "Help shape the future of Ts.Ed by joining our team and send us pull requests via our",
+          githubRepository: "GitHub repository!",
+          license: "License",
+          releaseUnder: "Released under the",
+          documentationGeneratedWith: "Documentation generated with"
         }
       }
     },
