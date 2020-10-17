@@ -1,0 +1,1610 @@
+[
+  {
+    "title": "Session & cookies",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Session configuration"
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript auth node.js javascript decorators"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/session.html",
+    "relativePath": "tutorials/session.md",
+    "key": "v-41584698",
+    "path": "/tutorials/session.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 2,
+        "title": "Configuration",
+        "slug": "configuration"
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage"
+      },
+      {
+        "level": 3,
+        "title": "Session",
+        "slug": "session"
+      },
+      {
+        "level": 3,
+        "title": "Cookies",
+        "slug": "cookies"
+      },
+      {
+        "level": 2,
+        "title": "Initialize session",
+        "slug": "initialize-session"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Passport.js",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use Passport.js with Express, TypeScript and Ts.ED. Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript passport.js node.js javascript decorators"
+        }
+      ],
+      "projects": [
+        {
+          "title": "Kit Passport.js",
+          "href": "https://github.com/TypedProject/tsed-example-passportjs",
+          "src": "/passportjs.png"
+        },
+        {
+          "title": "Kit TypeORM",
+          "href": "https://github.com/TypedProject/tsed-example-typeorm",
+          "src": "/typeorm.png"
+        },
+        {
+          "title": "Kit Azure AD",
+          "href": "https://github.com/TypedProject/tsed-example-passport-azure-ad",
+          "src": "/azure.png"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/passport.html",
+    "relativePath": "tutorials/passport.md",
+    "key": "v-63ca8108",
+    "path": "/tutorials/passport.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 2,
+        "title": "Configure your server",
+        "slug": "configure-your-server"
+      },
+      {
+        "level": 2,
+        "title": "Create a new Protocol",
+        "slug": "create-a-new-protocol"
+      },
+      {
+        "level": 2,
+        "title": "Create the Passport controller",
+        "slug": "create-the-passport-controller"
+      },
+      {
+        "level": 2,
+        "title": "Protect a route",
+        "slug": "protect-a-route"
+      },
+      {
+        "level": 2,
+        "title": "Basic Auth",
+        "slug": "basic-auth"
+      },
+      {
+        "level": 2,
+        "title": "Advanced Auth",
+        "slug": "advanced-auth"
+      },
+      {
+        "level": 3,
+        "title": "JWT",
+        "slug": "jwt"
+      },
+      {
+        "level": 3,
+        "title": "Azure Bearer Auth",
+        "slug": "azure-bearer-auth"
+      },
+      {
+        "level": 3,
+        "title": "Discord Auth",
+        "slug": "discord-auth"
+      },
+      {
+        "level": 3,
+        "title": "Facebook Auth",
+        "slug": "facebook-auth"
+      },
+      {
+        "level": 2,
+        "title": "Roles",
+        "slug": "roles"
+      },
+      {
+        "level": 2,
+        "title": "Decorators",
+        "slug": "decorators"
+      },
+      {
+        "level": 2,
+        "title": "Author",
+        "slug": "author"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "TypeORM",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use TypeORM with Express, TypeScript and Ts.ED. ORM for TypeScript and JavaScript (ES7, ES6, ES5). Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, WebSQL databases. Works in NodeJS, Browser, Ionic, Cordova and Electron platforms."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript typeorm node.js javascript decorators"
+        }
+      ],
+      "projects": [
+        {
+          "title": "Kit TypeORM",
+          "href": "https://github.com/TypedProject/tsed-example-typeorm",
+          "src": "/typeorm.png"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/typeorm.html",
+    "relativePath": "tutorials/typeorm.md",
+    "key": "v-07005874",
+    "path": "/tutorials/typeorm.html",
+    "headers": [
+      {
+        "level": 3,
+        "title": "Feature",
+        "slug": "feature"
+      },
+      {
+        "level": 3,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 3,
+        "title": "TypeORMService",
+        "slug": "typeormservice"
+      },
+      {
+        "level": 3,
+        "title": "Declare your connection as provider",
+        "slug": "declare-your-connection-as-provider"
+      },
+      {
+        "level": 2,
+        "title": "Use Entity TypeORM with Controller",
+        "slug": "use-entity-typeorm-with-controller"
+      },
+      {
+        "level": 2,
+        "title": "EntityRepository",
+        "slug": "entityrepository"
+      },
+      {
+        "level": 2,
+        "title": "Author",
+        "slug": "author"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Mongoose",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use Mongoose with Express, TypeScript and Ts.ED. Mongoose provides a straight-forward, schema-based solution to model your application data."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript mongoose node.js javascript decorators"
+        }
+      ],
+      "projects": [
+        {
+          "title": "Kit Mongoose",
+          "href": "https://github.com/TypedProject/tsed-example-mongoose",
+          "src": "/mongoose.png"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/mongoose.html",
+    "relativePath": "tutorials/mongoose.md",
+    "key": "v-72f94612",
+    "path": "/tutorials/mongoose.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Feature",
+        "slug": "feature"
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 2,
+        "title": "MongooseService",
+        "slug": "mongooseservice"
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api"
+      },
+      {
+        "level": 2,
+        "title": "Declaring a Mongoose object (schema or model)",
+        "slug": "declaring-a-mongoose-object-schema-or-model"
+      },
+      {
+        "level": 3,
+        "title": "Declaring a Model",
+        "slug": "declaring-a-model"
+      },
+      {
+        "level": 3,
+        "title": "Declaring a Model to a specific connection",
+        "slug": "declaring-a-model-to-a-specific-connection"
+      },
+      {
+        "level": 3,
+        "title": "Declaring a Schema",
+        "slug": "declaring-a-schema"
+      },
+      {
+        "level": 3,
+        "title": "Declaring Properties",
+        "slug": "declaring-properties"
+      },
+      {
+        "level": 3,
+        "title": "Collections",
+        "slug": "collections"
+      },
+      {
+        "level": 3,
+        "title": "Subdocuments",
+        "slug": "subdocuments"
+      },
+      {
+        "level": 3,
+        "title": "References",
+        "slug": "references"
+      },
+      {
+        "level": 3,
+        "title": "Virtual References",
+        "slug": "virtual-references"
+      },
+      {
+        "level": 3,
+        "title": "Dynamic References",
+        "slug": "dynamic-references"
+      },
+      {
+        "level": 2,
+        "title": "Register hook",
+        "slug": "register-hook"
+      },
+      {
+        "level": 3,
+        "title": "Pre hook",
+        "slug": "pre-hook"
+      },
+      {
+        "level": 3,
+        "title": "Post hook",
+        "slug": "post-hook"
+      },
+      {
+        "level": 2,
+        "title": "Plugin",
+        "slug": "plugin"
+      },
+      {
+        "level": 2,
+        "title": "Inject model",
+        "slug": "inject-model"
+      },
+      {
+        "level": 2,
+        "title": "Testing",
+        "slug": "testing"
+      },
+      {
+        "level": 3,
+        "title": "Testing API",
+        "slug": "testing-api"
+      },
+      {
+        "level": 3,
+        "title": "Testing Model",
+        "slug": "testing-model"
+      },
+      {
+        "level": 2,
+        "title": "Author",
+        "slug": "author"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "GraphQL",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use GraphQL, Apollo and Type-graphql with Ts.ED framework. GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript mongoose node.js javascript decorators"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/graphql.html",
+    "relativePath": "tutorials/graphql.md",
+    "key": "v-126c3258",
+    "path": "/tutorials/graphql.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Feature",
+        "slug": "feature"
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 2,
+        "title": "GraphQlService",
+        "slug": "graphqlservice"
+      },
+      {
+        "level": 2,
+        "title": "Type-graphql",
+        "slug": "type-graphql"
+      },
+      {
+        "level": 3,
+        "title": "Types",
+        "slug": "types"
+      },
+      {
+        "level": 3,
+        "title": "Resolvers",
+        "slug": "resolvers"
+      },
+      {
+        "level": 3,
+        "title": "Data Source",
+        "slug": "data-source"
+      },
+      {
+        "level": 3,
+        "title": "Testing",
+        "slug": "testing"
+      },
+      {
+        "level": 2,
+        "title": "Author",
+        "slug": "author"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Socket.io",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use Socket.io with Express, TypeScript and Ts.ED. Socket.io enable real-time bidirectional event-based communication. It works on every platform, browser or device, focusing equally on reliability and speed."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript socket.io websocket node.js javascript decorators"
+        }
+      ],
+      "projects": [
+        {
+          "title": "Kit Socket.io",
+          "href": "https://github.com/TypedProject/tsed-example-socketio",
+          "src": "/socketio.png"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/socket-io.html",
+    "relativePath": "tutorials/socket-io.md",
+    "key": "v-09b9c1f4",
+    "path": "/tutorials/socket-io.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 2,
+        "title": "Configuration",
+        "slug": "configuration"
+      },
+      {
+        "level": 2,
+        "title": "Socket Service",
+        "slug": "socket-service"
+      },
+      {
+        "level": 3,
+        "title": "Declaring an Input Event",
+        "slug": "declaring-an-input-event"
+      },
+      {
+        "level": 3,
+        "title": "Send a response",
+        "slug": "send-a-response"
+      },
+      {
+        "level": 3,
+        "title": "Socket Session",
+        "slug": "socket-session"
+      },
+      {
+        "level": 3,
+        "title": "Middlewares",
+        "slug": "middlewares"
+      },
+      {
+        "level": 2,
+        "title": "Decorators",
+        "slug": "decorators"
+      },
+      {
+        "level": 2,
+        "title": "Author",
+        "slug": "author"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Swagger",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use Swagger with Express, TypeScript and Ts.ED. Swagger open source and pro tools have helped millions of API developers, teams, and organizations deliver great APIs."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript swagger node.js javascript decorators"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/swagger.html",
+    "relativePath": "tutorials/swagger.md",
+    "key": "v-caf6e798",
+    "path": "/tutorials/swagger.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 3,
+        "title": "Swagger options",
+        "slug": "swagger-options"
+      },
+      {
+        "level": 3,
+        "title": "Multi documentations",
+        "slug": "multi-documentations"
+      },
+      {
+        "level": 2,
+        "title": "Model documentation",
+        "slug": "model-documentation"
+      },
+      {
+        "level": 2,
+        "title": "Endpoint documentation",
+        "slug": "endpoint-documentation"
+      },
+      {
+        "level": 2,
+        "title": "Extra parameters",
+        "slug": "extra-parameters"
+      },
+      {
+        "level": 2,
+        "title": "Import Javascript",
+        "slug": "import-javascript"
+      },
+      {
+        "level": 2,
+        "title": "Decorators",
+        "slug": "decorators"
+      },
+      {
+        "level": 2,
+        "title": "Authors",
+        "slug": "authors"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "AJV",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use AJV with Express, TypeScript and Ts.ED. AJV allows you to validate your data models from a JsonSchema."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript ajv node.js javascript decorators jsonschema class models"
+        }
+      ],
+      "projects": [
+        {
+          "title": "Kit basic",
+          "href": "https://github.com/TypedProject/tsed-getting-started",
+          "src": "/tsed.png"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/ajv.html",
+    "relativePath": "tutorials/ajv.md",
+    "key": "v-2a883858",
+    "path": "/tutorials/ajv.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 2,
+        "title": "Decorators",
+        "slug": "decorators"
+      },
+      {
+        "level": 2,
+        "title": "Examples",
+        "slug": "examples"
+      },
+      {
+        "level": 2,
+        "title": "Validation error",
+        "slug": "validation-error"
+      },
+      {
+        "level": 2,
+        "title": "Author",
+        "slug": "author"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Multer",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use Multer with Express, TypeScript and Ts.ED. Node.js middleware for handling `multipart/form-data`."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript multer node.js javascript decorators"
+        }
+      ],
+      "projects": [
+        {
+          "title": "Kit Multer",
+          "href": "https://github.com/TypedProject/tsed-example-multer",
+          "src": "/express.png"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/multer.html",
+    "relativePath": "tutorials/multer.md",
+    "key": "v-5402acb2",
+    "path": "/tutorials/multer.html",
+    "type": "page"
+  },
+  {
+    "title": "Serve static files",
+    "frontmatter": {},
+    "regularPath": "/tutorials/serve-static-files.html",
+    "relativePath": "tutorials/serve-static-files.md",
+    "key": "v-dcc0d100",
+    "path": "/tutorials/serve-static-files.html",
+    "type": "page"
+  },
+  {
+    "title": "Templating",
+    "frontmatter": {},
+    "regularPath": "/tutorials/templating.html",
+    "relativePath": "tutorials/templating.md",
+    "key": "v-d4edea04",
+    "path": "/tutorials/templating.html",
+    "type": "page"
+  },
+  {
+    "title": "Throw HTTP Exceptions",
+    "frontmatter": {},
+    "regularPath": "/tutorials/throw-http-exceptions.html",
+    "relativePath": "tutorials/throw-http-exceptions.md",
+    "key": "v-36e78634",
+    "path": "/tutorials/throw-http-exceptions.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Create custom exception",
+        "slug": "create-custom-exception"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Customize 404",
+    "frontmatter": {},
+    "regularPath": "/tutorials/not-found-page.html",
+    "relativePath": "tutorials/not-found-page.md",
+    "key": "v-3ab54378",
+    "path": "/tutorials/not-found-page.html",
+    "type": "page"
+  },
+  {
+    "title": "AWS",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Guide to deploy your Ts.ED application on AWS."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript aws node.js javascript decorators"
+        }
+      ],
+      "projects": [
+        {
+          "title": "Kit AWS",
+          "href": "https://github.com/TypedProject/tsed-example-aws",
+          "src": "/aws.png"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/aws.html",
+    "relativePath": "tutorials/aws.md",
+    "key": "v-fa645c58",
+    "path": "/tutorials/aws.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 2,
+        "title": "Configuration",
+        "slug": "configuration"
+      },
+      {
+        "level": 2,
+        "title": "Getting the API Gateway event object",
+        "slug": "getting-the-api-gateway-event-object"
+      },
+      {
+        "level": 2,
+        "title": "Author",
+        "slug": "author"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Seq",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Use Seq logger, TypeScript and Ts.ED. Seq is the centralized structured logs for NodeJS, .NET, Java etc."
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript seq node.js javascript decorators"
+        }
+      ]
+    },
+    "regularPath": "/tutorials/seq.html",
+    "relativePath": "tutorials/seq.md",
+    "key": "v-13ef4994",
+    "path": "/tutorials/seq.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 2,
+        "title": "Example",
+        "slug": "example"
+      },
+      {
+        "level": 2,
+        "title": "Author",
+        "slug": "author"
+      },
+      {
+        "level": 2,
+        "title": "Maintainers",
+        "slug": "maintainers"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Controllers",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Documentation over Controllers provided by Ts.ED framework. Use controllers to build your REST API."
+        },
+        {
+          "name": "keywords",
+          "content": "controllers ts.ed express typescript node.js javascript decorators jsonschema class models"
+        }
+      ]
+    },
+    "regularPath": "/docs/controllers.html",
+    "relativePath": "docs/controllers.md",
+    "key": "v-d1ebb54c",
+    "path": "/docs/controllers.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Routing",
+        "slug": "routing"
+      },
+      {
+        "level": 3,
+        "title": "Usage",
+        "slug": "usage"
+      },
+      {
+        "level": 3,
+        "title": "Decorators",
+        "slug": "decorators"
+      },
+      {
+        "level": 3,
+        "title": "Configuration",
+        "slug": "configuration"
+      },
+      {
+        "level": 3,
+        "title": "Create multiple versions of your API",
+        "slug": "create-multiple-versions-of-your-api"
+      },
+      {
+        "level": 3,
+        "title": "Async and Promise",
+        "slug": "async-and-promise"
+      },
+      {
+        "level": 3,
+        "title": "Observable/Stream/Buffer",
+        "slug": "observable-stream-buffer"
+      },
+      {
+        "level": 3,
+        "title": "Axios response",
+        "slug": "axios-response"
+      },
+      {
+        "level": 3,
+        "title": "Multiple endpoints, single method",
+        "slug": "multiple-endpoints-single-method"
+      },
+      {
+        "level": 3,
+        "title": "Routes order",
+        "slug": "routes-order"
+      },
+      {
+        "level": 2,
+        "title": "Request",
+        "slug": "request"
+      },
+      {
+        "level": 3,
+        "title": "Decorators",
+        "slug": "decorators-2"
+      },
+      {
+        "level": 3,
+        "title": "Input parameters",
+        "slug": "input-parameters"
+      },
+      {
+        "level": 3,
+        "title": "Headers",
+        "slug": "headers"
+      },
+      {
+        "level": 3,
+        "title": "Session/Cookies/Locals/Context",
+        "slug": "session-cookies-locals-context"
+      },
+      {
+        "level": 2,
+        "title": "Response",
+        "slug": "response"
+      },
+      {
+        "level": 3,
+        "title": "Decorators",
+        "slug": "decorators-3"
+      },
+      {
+        "level": 3,
+        "title": "Status",
+        "slug": "status"
+      },
+      {
+        "level": 3,
+        "title": "Content Type",
+        "slug": "content-type"
+      },
+      {
+        "level": 3,
+        "title": "Header",
+        "slug": "header"
+      },
+      {
+        "level": 3,
+        "title": "Generics",
+        "slug": "generics"
+      },
+      {
+        "level": 3,
+        "title": "Throw exceptions",
+        "slug": "throw-exceptions"
+      },
+      {
+        "level": 2,
+        "title": "Inject Request and Response",
+        "slug": "inject-request-and-response"
+      },
+      {
+        "level": 2,
+        "title": "Inject next",
+        "slug": "inject-next"
+      },
+      {
+        "level": 2,
+        "title": "Inject router",
+        "slug": "inject-router"
+      },
+      {
+        "level": 2,
+        "title": "Templating",
+        "slug": "templating"
+      },
+      {
+        "level": 2,
+        "title": "Middlewares",
+        "slug": "middlewares"
+      },
+      {
+        "level": 3,
+        "title": "Example",
+        "slug": "example"
+      },
+      {
+        "level": 3,
+        "title": "Middleware call sequence",
+        "slug": "middleware-call-sequence"
+      },
+      {
+        "level": 2,
+        "title": "Nested controllers",
+        "slug": "nested-controllers"
+      },
+      {
+        "level": 2,
+        "title": "Inheritance",
+        "slug": "inheritance"
+      },
+      {
+        "level": 2,
+        "title": "Decorators",
+        "slug": "decorators-4"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Providers",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Documentation over Providers / DI provided by Ts.ED framework. Use providers to build your backend services."
+        },
+        {
+          "name": "keywords",
+          "content": "providers di ioc ts.ed express typescript node.js javascript decorators jsonschema class models"
+        }
+      ]
+    },
+    "regularPath": "/docs/providers.html",
+    "relativePath": "docs/providers.md",
+    "key": "v-5340ea84",
+    "path": "/docs/providers.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Services",
+        "slug": "services"
+      },
+      {
+        "level": 2,
+        "title": "Dependency injection",
+        "slug": "dependency-injection"
+      },
+      {
+        "level": 2,
+        "title": "Scopes",
+        "slug": "scopes"
+      },
+      {
+        "level": 2,
+        "title": "Binding configuration",
+        "slug": "binding-configuration"
+      },
+      {
+        "level": 2,
+        "title": "Custom providers",
+        "slug": "custom-providers"
+      },
+      {
+        "level": 2,
+        "title": "Override provider",
+        "slug": "override-provider"
+      },
+      {
+        "level": 2,
+        "title": "Configurable provider",
+        "slug": "configurable-provider"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Model",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Documentation over Models and decorators provided by Ts.ED framework. Use decorator to build your model and JsonSchema."
+        },
+        {
+          "name": "keywords",
+          "content": "class model decorators ts.ed express typescript node.js javascript jsonschema"
+        }
+      ]
+    },
+    "regularPath": "/docs/model.html",
+    "relativePath": "docs/model.md",
+    "key": "v-e92f1114",
+    "path": "/docs/model.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Example",
+        "slug": "example"
+      },
+      {
+        "level": 2,
+        "title": "Primitives",
+        "slug": "primitives"
+      },
+      {
+        "level": 2,
+        "title": "Integer",
+        "slug": "integer"
+      },
+      {
+        "level": 2,
+        "title": "Any types",
+        "slug": "any-types"
+      },
+      {
+        "level": 2,
+        "title": "Regular expressions",
+        "slug": "regular-expressions"
+      },
+      {
+        "level": 2,
+        "title": "Format",
+        "slug": "format"
+      },
+      {
+        "level": 2,
+        "title": "MultipleOf",
+        "slug": "multipleof"
+      },
+      {
+        "level": 2,
+        "title": "Ranges",
+        "slug": "ranges"
+      },
+      {
+        "level": 2,
+        "title": "Enumerated values",
+        "slug": "enumerated-values"
+      },
+      {
+        "level": 2,
+        "title": "Constant values",
+        "slug": "constant-values"
+      },
+      {
+        "level": 2,
+        "title": "Collections",
+        "slug": "collections"
+      },
+      {
+        "level": 2,
+        "title": "Required properties",
+        "slug": "required-properties"
+      },
+      {
+        "level": 2,
+        "title": "Additional properties",
+        "slug": "additional-properties"
+      },
+      {
+        "level": 2,
+        "title": "Generics",
+        "slug": "generics"
+      },
+      {
+        "level": 3,
+        "title": "Declaring a generic model",
+        "slug": "declaring-a-generic-model"
+      },
+      {
+        "level": 3,
+        "title": "Declaring a nested generics models",
+        "slug": "declaring-a-nested-generics-models"
+      },
+      {
+        "level": 2,
+        "title": "Annotations",
+        "slug": "annotations"
+      },
+      {
+        "level": 2,
+        "title": "Set raw schema",
+        "slug": "set-raw-schema"
+      },
+      {
+        "level": 2,
+        "title": "Get Json schema",
+        "slug": "get-json-schema"
+      },
+      {
+        "level": 2,
+        "title": "Get OpenSpec",
+        "slug": "get-openspec"
+      },
+      {
+        "level": 2,
+        "title": "Decorators",
+        "slug": "decorators"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "JsonMapper",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Documentation over JsonMapper and decorators provided by Ts.ED framework. Use decorator to build your model and map data."
+        },
+        {
+          "name": "keywords",
+          "content": "class model decorators ts.ed express typescript node.js javascript jsonschema json mapper serialization deserialization"
+        }
+      ]
+    },
+    "regularPath": "/docs/converters.html",
+    "relativePath": "docs/converters.md",
+    "key": "v-1eb00494",
+    "path": "/docs/converters.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage"
+      },
+      {
+        "level": 2,
+        "title": "Ignore properties",
+        "slug": "ignore-properties"
+      },
+      {
+        "level": 2,
+        "title": "Additional properties",
+        "slug": "additional-properties"
+      },
+      {
+        "level": 2,
+        "title": "OnSerialize",
+        "slug": "onserialize"
+      },
+      {
+        "level": 2,
+        "title": "OnDeserialize",
+        "slug": "ondeserialize"
+      },
+      {
+        "level": 2,
+        "title": "Type mapper",
+        "slug": "type-mapper"
+      },
+      {
+        "level": 3,
+        "title": "Primitives",
+        "slug": "primitives"
+      },
+      {
+        "level": 3,
+        "title": "Symbol",
+        "slug": "symbol"
+      },
+      {
+        "level": 3,
+        "title": "Date",
+        "slug": "date"
+      },
+      {
+        "level": 3,
+        "title": "Array",
+        "slug": "array"
+      },
+      {
+        "level": 3,
+        "title": "Map",
+        "slug": "map"
+      },
+      {
+        "level": 3,
+        "title": "Set",
+        "slug": "set"
+      },
+      {
+        "level": 2,
+        "title": "Create your own type mapper",
+        "slug": "create-your-own-type-mapper"
+      },
+      {
+        "level": 3,
+        "title": "Moment",
+        "slug": "moment"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Middlewares",
+    "frontmatter": {},
+    "regularPath": "/docs/middlewares.html",
+    "relativePath": "docs/middlewares.md",
+    "key": "v-8cf0cd74",
+    "path": "/docs/middlewares.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Configuration",
+        "slug": "configuration"
+      },
+      {
+        "level": 2,
+        "title": "Global middleware",
+        "slug": "global-middleware"
+      },
+      {
+        "level": 2,
+        "title": "Endpoint middleware",
+        "slug": "endpoint-middleware"
+      },
+      {
+        "level": 2,
+        "title": "Error middleware",
+        "slug": "error-middleware"
+      },
+      {
+        "level": 2,
+        "title": "Specifics parameters decorators",
+        "slug": "specifics-parameters-decorators"
+      },
+      {
+        "level": 2,
+        "title": "Call sequences",
+        "slug": "call-sequences"
+      },
+      {
+        "level": 2,
+        "title": "Override existing middlewares",
+        "slug": "override-existing-middlewares"
+      },
+      {
+        "level": 2,
+        "title": "Provided middlewares",
+        "slug": "provided-middlewares"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Pipes",
+    "frontmatter": {},
+    "regularPath": "/docs/pipes.html",
+    "relativePath": "docs/pipes.md",
+    "key": "v-98922e84",
+    "path": "/docs/pipes.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Built-in pipes",
+        "slug": "built-in-pipes"
+      },
+      {
+        "level": 2,
+        "title": "Validation use case",
+        "slug": "validation-use-case"
+      },
+      {
+        "level": 2,
+        "title": "Transformation use case",
+        "slug": "transformation-use-case"
+      },
+      {
+        "level": 2,
+        "title": "Async transformation use case",
+        "slug": "async-transformation-use-case"
+      },
+      {
+        "level": 2,
+        "title": "Custom pipe decorator",
+        "slug": "custom-pipe-decorator"
+      },
+      {
+        "level": 2,
+        "title": "Get options from decorator",
+        "slug": "get-options-from-decorator"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Interceptors",
+    "frontmatter": {},
+    "regularPath": "/docs/interceptors.html",
+    "relativePath": "docs/interceptors.md",
+    "key": "v-22656e18",
+    "path": "/docs/interceptors.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Decorators",
+        "slug": "decorators"
+      },
+      {
+        "level": 2,
+        "title": "Interceptor class",
+        "slug": "interceptor-class"
+      },
+      {
+        "level": 2,
+        "title": "Use the interceptor",
+        "slug": "use-the-interceptor"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Authentication",
+    "frontmatter": {
+      "meta": [
+        {
+          "name": "description",
+          "content": "Authentication configuration"
+        },
+        {
+          "name": "keywords",
+          "content": "ts.ed express typescript auth node.js javascript decorators"
+        }
+      ]
+    },
+    "regularPath": "/docs/authentication.html",
+    "relativePath": "docs/authentication.md",
+    "key": "v-12abe8b4",
+    "path": "/docs/authentication.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage"
+      },
+      {
+        "level": 2,
+        "title": "Create your Auth decorator",
+        "slug": "create-your-auth-decorator"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Hooks",
+    "frontmatter": {
+      "prev": true,
+      "next": true
+    },
+    "regularPath": "/docs/hooks.html",
+    "relativePath": "docs/hooks.md",
+    "key": "v-02b75768",
+    "path": "/docs/hooks.html",
+    "headers": [
+      {
+        "level": 3,
+        "title": "Examples",
+        "slug": "examples"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Injection scopes",
+    "frontmatter": {},
+    "regularPath": "/docs/injection-scopes.html",
+    "relativePath": "docs/injection-scopes.md",
+    "key": "v-40603c14",
+    "path": "/docs/injection-scopes.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Singleton scope",
+        "slug": "singleton-scope"
+      },
+      {
+        "level": 2,
+        "title": "Request scope",
+        "slug": "request-scope"
+      },
+      {
+        "level": 3,
+        "title": "Chain with Service",
+        "slug": "chain-with-service"
+      },
+      {
+        "level": 3,
+        "title": "Performance",
+        "slug": "performance"
+      },
+      {
+        "level": 2,
+        "title": "Instance scope",
+        "slug": "instance-scope"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Custom providers",
+    "frontmatter": {},
+    "regularPath": "/docs/custom-providers.html",
+    "relativePath": "docs/custom-providers.md",
+    "key": "v-6e722218",
+    "path": "/docs/custom-providers.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Use Value",
+        "slug": "use-value"
+      },
+      {
+        "level": 2,
+        "title": "Use Factory",
+        "slug": "use-factory"
+      },
+      {
+        "level": 2,
+        "title": "Use Async Factory",
+        "slug": "use-async-factory"
+      },
+      {
+        "level": 3,
+        "title": "Built-in factory",
+        "slug": "built-in-factory"
+      },
+      {
+        "level": 2,
+        "title": "Use Class",
+        "slug": "use-class"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Custom endpoint decorator",
+    "frontmatter": {},
+    "regularPath": "/docs/custom-endpoint-decorators.html",
+    "relativePath": "docs/custom-endpoint-decorators.md",
+    "key": "v-a901b398",
+    "path": "/docs/custom-endpoint-decorators.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Built-in",
+        "slug": "built-in"
+      },
+      {
+        "level": 2,
+        "title": "Build your own decorator",
+        "slug": "build-your-own-decorator"
+      }
+    ],
+    "type": "page"
+  },
+  {
+    "title": "Testing",
+    "frontmatter": {},
+    "regularPath": "/docs/testing.html",
+    "relativePath": "docs/testing.md",
+    "key": "v-bc38fcb0",
+    "path": "/docs/testing.html",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Unit test",
+        "slug": "unit-test"
+      },
+      {
+        "level": 3,
+        "title": "Installation",
+        "slug": "installation"
+      },
+      {
+        "level": 3,
+        "title": "Usage",
+        "slug": "usage"
+      },
+      {
+        "level": 3,
+        "title": "Async / Await",
+        "slug": "async-await"
+      },
+      {
+        "level": 3,
+        "title": "Mock dependencies",
+        "slug": "mock-dependencies"
+      },
+      {
+        "level": 2,
+        "title": "Test your Rest API",
+        "slug": "test-your-rest-api"
+      },
+      {
+        "level": 3,
+        "title": "Installation",
+        "slug": "installation-2"
+      },
+      {
+        "level": 3,
+        "title": "Example",
+        "slug": "example"
+      },
+      {
+        "level": 3,
+        "title": "Testing session",
+        "slug": "testing-session"
+      }
+    ],
+    "type": "page"
+  }
+]

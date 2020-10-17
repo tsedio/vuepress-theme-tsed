@@ -1,5 +1,5 @@
 <template>
-  <div class="page-nav pt-5" v-if="prev || next">
+  <div class="page-nav pt-5 mb-10" v-if="prev || next">
     <div class="flex align-center justify-between overflow-hidden">
       <!-- v-show="prev" -->
       <span class="flex align-center justify-center"

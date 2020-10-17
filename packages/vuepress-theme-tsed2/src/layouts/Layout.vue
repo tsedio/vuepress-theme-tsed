@@ -21,22 +21,15 @@
         <component :is="$page.frontmatter.layout"/>
       </div>
 
-      <!--      <Home v-else-if="isHome"/>-->
-      <!--      <Contributing v-else-if="isContributing"/>-->
+      <!--  <Home v-else-if="isHome"/> -->
 
       <Page v-else :sidebar-items="sidebarItems">
         <template #top>
           <slot name="page-top"/>
         </template>
         <template #bottom>
-          <!--          <PageNav v-bind="{ sidebarItems }"/>-->
           <slot name="page-bottom"/>
         </template>
-        <!--        <OtherTopics slot="page-bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">-->
-        <!--          <h3 class="heading" slot="top">-->
-        <!--            Other <br/><b>topics</b>-->
-        <!--          </h3>-->
-        <!--        </OtherTopics>-->
       </Page>
 
     </main>
@@ -57,15 +50,12 @@
 </template>
 
 <script>
-import { Navbar, Sidebar, getUserNavLinks, resolveOtherTopicsItems, resolveSidebarItems } from '@tsed/vuepress-common'
+import { getUserNavLinks, Navbar, resolveSidebarItems, Sidebar } from '@tsed/vuepress-common'
 import Vue from 'vue'
 import VueTsed from '../install'
-// import Sidebar from '../sidebar/Sidebar'
 // import Home from '../views/Home'
 import Page from '../views/Page'
-// import Contributing from '../views/Contributing'
 // import Footer from '../components/footer/Footer'
-// import OtherTopics from '../components/other-topics/OtherTopics'
 
 Vue.use(VueTsed)
 
@@ -74,11 +64,6 @@ export default {
     Page,
     Navbar,
     Sidebar
-    // Home,
-    // Contributing,
-    // Footer,
-    // Page,
-    // OtherTopics
   },
   data () {
     return {
@@ -138,31 +123,12 @@ export default {
 
     shouldShowSidebar () {
       const { frontmatter } = this.$page
-      console.log('frontmatter.sidebar', frontmatter.sidebar, this.sidebarItems)
-      return (frontmatter.sidebar !== false && this.sidebarItems.length)
-    },
 
-    shouldShowOtherTopics () {
-      const { frontmatter } = this.$page
-      return (
-          !frontmatter.layout &&
-          !this.isHome &&
-          frontmatter.otherTopics !== false &&
-          this.otherTopicsItems.length
-      )
+      return (frontmatter.sidebar !== false && this.sidebarItems.length)
     },
 
     sidebarItems () {
       return resolveSidebarItems(
-          this.$page,
-          this.$page.regularPath,
-          this.$site,
-          this.$localePath
-      )
-    },
-
-    otherTopicsItems () {
-      return resolveOtherTopicsItems(
           this.$page,
           this.$page.regularPath,
           this.$site,
@@ -232,6 +198,7 @@ export default {
   .main-content {
     padding-left: 260px;
   }
+
   .page-header.-fixed > div {
     left: 260px;
   }

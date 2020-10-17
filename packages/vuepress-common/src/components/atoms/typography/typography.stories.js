@@ -22,6 +22,20 @@ export const overview = () => ({
       the 1960s with the <ApiSymbolName>release</ApiSymbolName> of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </p>
     
+    <ul>
+       <li><strong>Lorem Ipsum</strong> is <code>simply</code> dummy text of the <a>printing</a> and typesetting industry.</li>
+       <li><strong>Lorem Ipsum</strong> is <code>simply</code> dummy text of the <a>printing</a> and typesetting industry.</li>
+       <li><strong>Lorem Ipsum</strong> is <code>simply</code> dummy text of the <a>printing</a> and typesetting industry.</li>
+       <li><strong>Lorem Ipsum</strong> is <code>simply</code> dummy text of the <a>printing</a> and typesetting industry.</li>
+    </ul>
+    
+    <ol>
+       <li><strong>Lorem Ipsum</strong> is <code>simply</code> dummy text of the <a>printing</a> and typesetting industry.</li>
+       <li><strong>Lorem Ipsum</strong> is <code>simply</code> dummy text of the <a>printing</a> and typesetting industry.</li>
+       <li><strong>Lorem Ipsum</strong> is <code>simply</code> dummy text of the <a>printing</a> and typesetting industry.</li>
+       <li><strong>Lorem Ipsum</strong> is <code>simply</code> dummy text of the <a>printing</a> and typesetting industry.</li>
+    </ol>
+    
     <hr />
     
     <pre><code><span class="token keyword">import</span> <span class="token punctuation">{</span>Configuration<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@tsed/di"</span><span class="token punctuation">;</span>

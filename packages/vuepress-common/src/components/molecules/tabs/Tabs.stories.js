@@ -41,7 +41,7 @@ export const overview = () => ({
   },
   template: `
     <div class="container flex flex-col w-full max-w-site mx-auto px-3 pb-10">
-      <div>
+      <div class="content__default">
         <Tabs
           :alignment="alignment"
           :position="position"

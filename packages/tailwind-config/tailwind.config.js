@@ -152,7 +152,8 @@ const colors = {
   'gray-darker-active': 'hsla(190, 81%, 42%, 1)',
 
   // api
-  'api-default': '#507192'
+  'api-default': '#507192',
+  'gray-xxl': '#2c3e50'
 }
 
 const globalSpacing = {

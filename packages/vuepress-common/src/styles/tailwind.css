@@ -16,60 +16,6 @@
   z-index: 2;
 }
 
-.content__default {
-  h1 {
-    @apply text-3xl mb-3 mt-3 p-2 font-bold;
-  }
-
-  h2 {
-    @apply text-2xl mt-3 font-bold;
-  }
-
-  h3 {
-    @apply text-xl mb-2 mt-2;
-  }
-
-  h4 {
-    @apply text-lg mb-2 mt-2;
-  }
-
-  h5 {
-    @apply text-md mb-2 mt-2;
-  }
-
-  h6 {
-    @apply text-sm mb-2 mt-2;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    margin-top: -6.5rem;
-    padding-top: 7.0rem;
-    margin-bottom: 0.5rem !important;
-
-    &.heading {
-      @apply font-hairline;
-    }
-
-    b {
-      @apply font-bold;
-    }
-  }
-
-  p {
-    @apply mb-2;
-    @apply mt-2;
-  }
-
-  a {
-    @apply text-blue underline;
-    transition: all ease-in var(--Global-transition-duration);
-
-    &:hover {
-      @apply text-blue-active;
-    }
-  }
-}
-
 hr {
   @apply border-0 border-t-1 border-solid border-gray-light mt-5 mb-5;
 }
@@ -78,6 +24,5 @@ input, input:focus,
 button, button:focus {
   outline: 0;
 }
-
 
 @tailwind utilities;

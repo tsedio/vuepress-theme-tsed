@@ -26,6 +26,13 @@
           </div>
 
           <PageNav :sidebarItems="sidebarItems"/>
+
+          <OtherTopics class="px-3" slot="page-bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
+            <h3 class="text-xl mb-4 mt-2 " slot="top">
+              Other topics
+            </h3>
+          </OtherTopics>
+
         </div>
       </div>
 
@@ -36,7 +43,7 @@
 </template>
 
 <script>
-import { createEditLink, PageNav, PageHeader, PageSidebar } from '@tsed/vuepress-common'
+import { createEditLink, PageHeader, PageNav, PageSidebar, resolveOtherTopicsItems } from '@tsed/vuepress-common'
 import { endingSlashRE, normalize, outboundRE } from '@vuepress/theme-default/util'
 
 export default {
@@ -103,6 +110,23 @@ export default {
         return this.$site.themeConfig.lastUpdated
       }
       return 'Last Updated'
+    },
+    shouldShowOtherTopics () {
+      const { frontmatter } = this.$page
+      return (
+          !frontmatter.layout &&
+          !this.isHome &&
+          frontmatter.otherTopics !== false &&
+          this.otherTopicsItems.length
+      )
+    },
+    otherTopicsItems () {
+      return resolveOtherTopicsItems(
+          this.$page,
+          this.$page.regularPath,
+          this.$site,
+          this.$localePath
+      )
     }
   },
   mounted () {
@@ -120,10 +144,6 @@ export default {
 
 .page-content {
   @apply py-10;
-
-  h1, h2, h3, h4, h5, h6, p {
-    @apply px-3;
-  }
 }
 
 .page-sidebar {
