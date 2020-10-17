@@ -17,6 +17,15 @@
           <slot name="page-top"/>
           <Content/>
           <slot name="page-bottom"/>
+
+          <div class="py-5 flex justify-end text-sm" v-if="lastUpdated">
+            <p>
+              <span class="font-bold pr-1">{{ lastUpdatedText }}:</span>
+              <span class="time">{{ lastUpdated }}</span>
+            </p>
+          </div>
+
+          <PageNav :sidebarItems="sidebarItems"/>
         </div>
       </div>
 
@@ -27,14 +36,13 @@
 </template>
 
 <script>
-// import PageNav from '../components/page-nav/PageNav'
-import { createEditLink, PageSidebar } from '@tsed/vuepress-common'
+import { createEditLink, PageNav, PageHeader, PageSidebar } from '@tsed/vuepress-common'
 import { endingSlashRE, normalize, outboundRE } from '@vuepress/theme-default/util'
 
 export default {
   name: 'Page',
-  components: { PageSidebar },
-  // props: ['sidebarItems'],
+  components: { PageNav, PageHeader, PageSidebar },
+  props: ['sidebarItems'],
   data () {
     return {
       headerFixed: false
@@ -83,6 +91,18 @@ export default {
       if (docsRepo && editLinks) {
         return createEditLink(repo, docsRepo, docsDir, docsBranch, path)
       }
+    },
+    lastUpdated () {
+      return this.$page.lastUpdated
+    },
+    lastUpdatedText () {
+      if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
+        return this.$themeLocaleConfig.lastUpdated
+      }
+      if (typeof this.$site.themeConfig.lastUpdated === 'string') {
+        return this.$site.themeConfig.lastUpdated
+      }
+      return 'Last Updated'
     }
   },
   mounted () {

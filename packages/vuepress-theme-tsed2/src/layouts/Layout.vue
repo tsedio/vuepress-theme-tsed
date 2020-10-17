@@ -24,7 +24,7 @@
       <!--      <Home v-else-if="isHome"/>-->
       <!--      <Contributing v-else-if="isContributing"/>-->
 
-      <Page v-else>
+      <Page v-else :sidebar-items="sidebarItems">
         <template #top>
           <slot name="page-top"/>
         </template>
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { getUserNavLinks, resolveOtherTopicsItems, resolveSidebarItems } from '@tsed/vuepress-common'
+import { Navbar, Sidebar, getUserNavLinks, resolveOtherTopicsItems, resolveSidebarItems } from '@tsed/vuepress-common'
 import Vue from 'vue'
 import VueTsed from '../install'
 // import Sidebar from '../sidebar/Sidebar'
@@ -71,9 +71,9 @@ Vue.use(VueTsed)
 
 export default {
   components: {
-    Page
-    // Navbar,
-    // Sidebar
+    Page,
+    Navbar,
+    Sidebar
     // Home,
     // Contributing,
     // Footer,
