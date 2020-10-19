@@ -5,7 +5,7 @@
       <span class="flex align-center justify-center"
             v-if="prev">
           <router-link
-              class="p-2 hover:bg-white text-md font-medium flex items-center justify-between"
+              class="p-2 pr-3 transition duration-500 ease-in-out hover:bg-white-active rounded-small hover:text-white text-md font-medium flex items-center justify-between"
               :to="prev.path">
             <i class="bx bx-chevron-left"></i>
             <span>
@@ -18,7 +18,7 @@
           v-if="next"
           class="flex align-center justify-center">
           <router-link
-              class="p-2 hover:bg-white text-md font-medium flex items-center justify-between"
+              class="p-2 pl-3 transition duration-500 ease-in-out hover:bg-white-active rounded-small hover:text-white text-md font-medium flex items-center justify-between"
               v-if="next"
               :to="next.path">
             <span>

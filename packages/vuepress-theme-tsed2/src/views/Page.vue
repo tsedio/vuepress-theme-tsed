@@ -1,6 +1,6 @@
 <template>
-  <div class="page" ref="page">
-    <article class="container">
+  <div ref="page">
+    <article>
       <div class="relative">
         <PageHeader
             :fixed="headerFixed"
@@ -18,26 +18,27 @@
           <Content/>
           <slot name="page-bottom"/>
 
-          <div class="py-5 flex justify-end text-sm" v-if="lastUpdated">
-            <p>
-              <span class="font-bold pr-1">{{ lastUpdatedText }}:</span>
-              <span class="time">{{ lastUpdated }}</span>
-            </p>
+          <div class="pt-5">
+            <div class="py-5 flex justify-end text-sm" v-if="lastUpdated">
+              <p>
+                <span class="font-bold pr-1">{{ lastUpdatedText }}:</span>
+                <span class="time">{{ lastUpdated }}</span>
+              </p>
+            </div>
+
+            <PageNav :sidebarItems="sidebarItems"/>
           </div>
 
-          <PageNav :sidebarItems="sidebarItems"/>
-
           <OtherTopics class="px-3" slot="page-bottom" v-if="shouldShowOtherTopics" :items="otherTopicsItems">
-            <h3 class="text-xl mb-4 mt-2 " slot="top">
+            <h4 class="text-xl mb-4 mt-2 font-semibold" slot="top">
               Other topics
-            </h3>
+            </h4>
           </OtherTopics>
 
         </div>
       </div>
 
       <PageSidebar class="fixed" :class="{'-mini-header': headerFixed}" :page="$page"/>
-
     </article>
   </div>
 </template>
@@ -142,12 +143,12 @@ export default {
   display: none;
 }
 
-.page-content {
-  @apply py-10;
-}
-
 .page-sidebar {
   display: none;
+}
+
+.page-content {
+  @apply py-10;
 }
 
 @screen xl {

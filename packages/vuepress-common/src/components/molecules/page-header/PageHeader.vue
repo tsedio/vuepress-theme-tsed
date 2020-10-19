@@ -38,6 +38,8 @@
   </div>
 </template>
 <script>
+import Share from '../share/Share'
+
 export default {
   name: 'PageHeader',
   props: {
@@ -76,6 +78,9 @@ export default {
     fixed: {
       type: Boolean
     }
+  },
+  components: {
+    Share
   }
 }
 </script>

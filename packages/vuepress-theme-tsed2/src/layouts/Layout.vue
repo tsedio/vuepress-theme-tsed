@@ -31,7 +31,6 @@
           <slot name="page-bottom"/>
         </template>
       </Page>
-
     </main>
 
     <Sidebar :items="sidebarItems"
@@ -45,17 +44,30 @@
       </template>
     </Sidebar>
 
-    <!--    <Footer :class="{'&#45;&#45;with-sidebar': shouldShowSidebar}"></Footer>-->
+    <Footer :repo-url="repoUrl"
+            :author="$site.themeConfig.author"
+            :license-type="$site.themeConfig.licenseType"
+            :copyright-dates="$site.themeConfig.copyrightDates"
+            :social-urls="$site.themeConfig">
+      <template #top>
+<!--        <SupportUs v-if="!isHome"-->
+<!--                   :brand="$site.themeConfig.shortTitle"-->
+<!--                   :sponsor-url="$site.themeConfig.sponsorUrl"-->
+<!--                   :license-type="$site.themeConfig.licenseType"/>-->
+        <slot name="footer-top"/>
+      </template>
+      <template #bottom>
+        <slot name="footer-bottom"/>
+      </template>
+    </Footer>
   </div>
 </template>
 
 <script>
-import { getUserNavLinks, Navbar, resolveSidebarItems, Sidebar } from '@tsed/vuepress-common'
+import { Footer, getUserNavLinks, Navbar, resolveSidebarItems, Sidebar, SupportUs } from '@tsed/vuepress-common'
 import Vue from 'vue'
 import VueTsed from '../install'
-// import Home from '../views/Home'
 import Page from '../views/Page'
-// import Footer from '../components/footer/Footer'
 
 Vue.use(VueTsed)
 
@@ -63,7 +75,9 @@ export default {
   components: {
     Page,
     Navbar,
-    Sidebar
+    Sidebar,
+    Footer,
+    SupportUs
   },
   data () {
     return {
@@ -195,7 +209,7 @@ export default {
 }
 
 @screen md {
-  .main-content {
+  .main-content, footer {
     padding-left: 260px;
   }
 

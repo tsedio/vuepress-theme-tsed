@@ -37,6 +37,12 @@ module.exports = {
     shortTitle: 'Ts.ED',
     htmlTitle: '<span class=\'text-blue\'>Ts</span>.ED',
     version: require('../../../../package.json').version,
+    licenseType: 'MIT',
+    author: 'Lenzotti Romain',
+    copyrightDates: {
+      start: '2016',
+      end: new Date().getFullYear()
+    },
     repo: 'TypedProject/tsed',
     openCollective: 'tsed',
     gitterUrl: 'https://gitter.im/Tsed-io/community',
@@ -330,19 +336,7 @@ module.exports = {
           "/docs/custom-providers",
           "/docs/custom-endpoint-decorators",
           "/docs/testing"
-        ],
-
-        footer: {
-          lastUpdated: "Last update",
-          caughtMistake: "Caught a mistake or want to contribute to the documentation?",
-          editPageOnGithub: "Edit on Github",
-          contribute: "Contribute",
-          helpToContribute: "Help shape the future of Ts.Ed by joining our team and send us pull requests via our",
-          githubRepository: "GitHub repository!",
-          license: "License",
-          releaseUnder: "Released under the",
-          documentationGeneratedWith: "Documentation generated with"
-        }
+        ]
       }
     },
     plugins: [

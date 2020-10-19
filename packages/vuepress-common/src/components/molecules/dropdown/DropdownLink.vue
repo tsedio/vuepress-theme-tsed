@@ -11,16 +11,16 @@
             :class="{'mt-3': index}"
             v-for="(subItem, index) in item.items">
           <h4 v-if="subItem.type === 'links'"
-              class="p-0 px-3 m-1 text-md">{{ subItem.text }}</h4>
+              class="p-0 px-4 m-1 mb-2 text-md">{{ subItem.text }}</h4>
 
-          <ul class="dropdown-subitem-wrapper"
+          <ul class="dropdown-subitem-wrapper text-sm"
               v-if="subItem.type === 'links'">
             <li class="dropdown-subitem"
                 :key="childSubItem.link"
                 v-for="childSubItem in subItem.items">
               <Link :href="childSubItem.link"
                     :title="childSubItem.title"
-                    class="block opacity-50 hover:opacity-100 p-0 px-5 mb-2 cursor-pointer transition-all">
+                    class="block opacity-50 hover:opacity-100 p-0 px-6 mb-2 cursor-pointer transition-all">
                 {{ childSubItem.text }}
               </Link>
             </li>
@@ -29,7 +29,7 @@
           <Link v-else
                 :href="subItem.link"
                 :title="subItem.title"
-                class="flex items-center justify-center block opacity-75 hover:opacity-100 p-0 px-5 mt-1 mb-2 cursor-pointer transition-all">
+                class="flex items-center justify-center text-sm block opacity-75 hover:opacity-100 p-0 px-6 mt-1 mb-2 cursor-pointer transition-all">
             <span class="flex-1">{{ subItem.text }}</span>
           </Link>
         </li>
@@ -70,6 +70,10 @@ export default {
   display: block;
   transition: all .2s ease;
   transform-origin: center;
+}
+
+.dropdown-wrapper > a:hover {
+  @apply opacity-100 text-blue-active;
 }
 
 .dropdown-wrapper > a:hover .bx-chevron-down {

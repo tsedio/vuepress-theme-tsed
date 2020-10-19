@@ -1,6 +1,6 @@
 <template>
   <a :href="link"
-     :class="`symbol-container -${theme} ${deprecated ? 'opacity-50' : ''}`"
+     :class="`reset-link symbol-container -${theme} ${deprecated ? 'opacity-50' : ''}`"
      :title="name">
     <span><span :class="`symbol ${type}`"/></span>
     <span :class="`overflow-hidden truncate ${deprecated ? 'line-through' : ''}`">

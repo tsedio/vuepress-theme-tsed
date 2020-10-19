@@ -3,7 +3,7 @@
      :href="href"
      :target="isMailto(href) || isTel(href) ? null : '_blank'"
      :rel="isMailto(href) || isTel(href) ? null : 'noopener noreferrer'"
-     class="p-1 hover:text-blue transition-all">
+     class="p-1 hover:text-blue-active transition-all">
     <i :class="`bx ${icon}`"/>
   </a>
 </template>

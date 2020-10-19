@@ -29,7 +29,7 @@
     }
 
     tr:nth-child(2n) {
-      @apply bg-white-active;
+      @apply bg-line-even;
 
       code {
         @apply bg-white;

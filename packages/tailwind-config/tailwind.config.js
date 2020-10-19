@@ -134,11 +134,10 @@ const colors = {
   yellow: 'hsla(51, 93%, 58%, 1)', // #F7D831
 
   white: 'hsla(0, 100%, 100%, 1)', // #ffffff
-  'white-active': 'hsla(195, 22%, 96%, 1)',
+  'white-active': 'hsla(190, 81%, 42%, 1)',
 
   code: 'hsla(245, 17%, 29%, 1)',
   'code-active': 'hsla(246, 17%, 25%, 1)',
-
 
   /* Gray colors */
   'gray-lighter': '#f7f7f7',
@@ -153,7 +152,8 @@ const colors = {
 
   // api
   'api-default': '#507192',
-  'gray-xxl': '#2c3e50'
+  'gray-xxl': '#2c3e50',
+  'line-even': 'hsla(195, 22%, 96%, 1)',
 }
 
 const globalSpacing = {

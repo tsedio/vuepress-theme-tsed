@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-group" :class="{ first, collapsable }">
-    <p class="font-bold text-gray-darker flex items-center justify-center text-md pl-5 pr-2 py-1"
+    <p class="cursor-pointer font-bold text-gray-darker flex items-center justify-center text-md pl-5 pr-2 py-1"
        :class="{ open }"
        @click="$emit('toggle')">
       <span class="flex-1">{{ item.title }}</span>

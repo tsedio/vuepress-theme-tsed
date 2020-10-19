@@ -109,4 +109,7 @@ export default {
 .sidebar-sub-header a.active.sidebar-link:after {
   display: none
 }
+.sidebar a:hover {
+  @apply opacity-100 text-blue-active;
+}
 </style>

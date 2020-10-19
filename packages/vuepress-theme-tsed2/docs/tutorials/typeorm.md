@@ -106,8 +106,4 @@ Use @@UseConnection@@ decorator to select which database connection the injected
 
 <GithubContributors :users="['Romakita']"/>
 
-<div class="container--centered container--padded">
-<a href="/contributing.html" class="nav-link button">
- Become maintainer
-</a>
-</div>
+<ButtonContributor />

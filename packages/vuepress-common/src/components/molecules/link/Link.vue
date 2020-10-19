@@ -16,7 +16,7 @@
      :target="isMailto(link) || isTel(link) ? null : '_blank'"
      :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'">
     <slot></slot>
-    <OutboundLink/>
+    <OutboundLink v-if="outbound"/>
   </a>
 </template>
 
@@ -38,6 +38,10 @@ export default {
     icon: {
       type: String,
       required: false
+    },
+    outbound: {
+      type: Boolean,
+      default: true
     }
   },
   components: {
@@ -70,9 +74,3 @@ export default {
   }
 }
 </script>
-<style>
-.router-link-exact-active,
-.router-link-active {
-  @apply text-gray-darker;
-}
-</style>

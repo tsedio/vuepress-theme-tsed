@@ -1,9 +1,9 @@
 export default {
-  title: 'Molecules/Codes'
+  title: 'Molecules/Code'
 }
 
 export const overview = () => ({
-  template: `<div class="p-5 bg-white">
+  template: `<div class="p-5 bg-white content__default">
     <div class="language-typescript"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span>Configuration<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@tsed/di"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>resolve<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"path"</span><span class="token punctuation">;</span>
 
@@ -18,7 +18,7 @@ export const overview = () => ({
 })
 
 export const withLineNumbers = () => ({
-  template: `<div class="p-5 bg-white">
+  template: `<div class="p-5 bg-white content__default">
     <div class="language-typescript line-numbers-mode">
       <pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span>Configuration<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@tsed/di"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>resolve<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"path"</span><span class="token punctuation">;</span>

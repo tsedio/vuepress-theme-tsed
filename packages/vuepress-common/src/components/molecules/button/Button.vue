@@ -1,13 +1,17 @@
 <template>
   <component :disabled="disabled" :is="component" :class="classes">
-    <router-link
-        :to="href"
+    <Link
+        :outbound="false"
+        :href="href"
+        :title="title"
         :class="`reset-link flex justify-center items-center w-full font-${fontWeight} px-${paddingX} py-${paddingY}`">
       <span class="m-1 text-center flex justify-center items-center"><slot/></span>
-    </router-link>
+    </Link>
   </component>
 </template>
 <script>
+import Link from '../link/Link'
+
 export default {
   name: 'Button',
   props: {
@@ -36,11 +40,11 @@ export default {
       default: 'bold'
     },
     paddingX: {
-      type: Number,
+      type: [Number, String],
       default: 4
     },
     paddingY: {
-      type: Number,
+      type: [Number, String],
       default: 1
     },
     rounded: {
@@ -54,7 +58,14 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    title: {
+      type: String,
+      default: ''
     }
+  },
+  components:{
+    Link
   },
   computed: {
     classes () {
@@ -76,7 +87,7 @@ export default {
         borderColor = bgColor
       }
 
-      return `reset-button inline-flex flex-col items-stretch overflow-hidden text-base transition-colors
+      return `inline-flex flex-col items-stretch overflow-hidden text-base transition-colors
   bg-${bgColor} border-${borderColor} text-${color} focus:bg-${bgColor}-active focus:border-${borderColor}-active
   hover:bg-${bgColor}-active hover:border-${borderColor}-active focus:text-${color}-active hover:text-${color}-active
    cursor-pointer border-1 border-solid rounded-${rounded} shadow-${shadow}`

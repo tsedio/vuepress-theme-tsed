@@ -14,7 +14,7 @@
     border-color: #42b983;
     color: #2e825c;
     background-color: rgba(70,201,58,.04);
-    a {
+    a:not(.reset-link) {
       color: #2e825c;
     }
   }
@@ -23,7 +23,7 @@
     border-color: #ffba00;
     color: #cc9500;
     background-color: rgba(255,186,0,.09);
-    a {
+    a:not(.reset-link) {
       color: #cc9500;
     }
   }
@@ -32,7 +32,7 @@
     border-color:#ff4757;
     color: #ff061b;
     background-color: rgba(255,71,87,.05);
-    a {
+    a:not(.reset-link) {
       color: #ff061b;
     }
   }
