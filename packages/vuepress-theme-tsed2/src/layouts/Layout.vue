@@ -12,8 +12,15 @@
         :repo-url="repoUrl"
         :social-urls="$site.themeConfig"
         :items="navLinks"
-        :algolia="algolia"
-        @toggle-sidebar="toggleSidebar"/>
+        :algolia="algolia">
+      <template #sidebar-before>
+        <div v-if="shouldShowSidebar"
+             class="flex cursor-pointer text-xl mr-4"
+             @click="toggleSidebar">
+          <i class="bx bx-menu"/>
+        </div>
+      </template>
+    </Navbar>
 
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
@@ -156,7 +163,7 @@ export default {
           'no-navbar': !this.shouldShowNavbar,
           'sidebar-open': this.isSidebarOpen,
           'no-sidebar': !this.shouldShowSidebar,
-          'with-sidebar': this.shouldShowSidebar,
+          'with-sidebar': this.shouldShowSidebar
         },
         userPageClass
       ]
@@ -212,7 +219,7 @@ export default {
 }
 
 @screen md {
-  .with-sidebar{
+  .with-sidebar {
     .main-content, footer {
       padding-left: 260px;
     }

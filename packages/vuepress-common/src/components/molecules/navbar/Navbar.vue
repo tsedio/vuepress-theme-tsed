@@ -2,9 +2,7 @@
   <header class="navbar px-5 flex items-center navbar-box-shadow fixed top-0 fixed top-0 inset-x-0 h-16 bg-white"
           ref="navbar">
     <div class="flex h-full items-center justify-center lg:hidden">
-      <div class="flex cursor-pointer text-xl mr-4" @click="$emit('toggle-sidebar')">
-        <i class="bx bx-menu"/>
-      </div>
+      <slot name="sidebar-before"/>
     </div>
     <div class="m-0 p-0 text-xl text-normal mr-8">
       <router-link :to="href">
@@ -174,7 +172,7 @@ export default {
 </script>
 <style>
 .navbar {
-  z-index: 1000;
+  z-index: 100;
 }
 
 .navbar-box-shadow {
