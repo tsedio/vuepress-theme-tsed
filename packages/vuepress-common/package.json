@@ -1,6 +1,6 @@
 {
   "name": "@tsed/vuepress-common",
-  "version": "2.14.0",
+  "version": "2.15.0",
   "description": "Shared components and utils",
   "main": "./src/index.js",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
@@ -11,8 +11,8 @@
     "test": "exit 0"
   },
   "dependencies": {
-    "@docsearch/js": "1.0.0-alpha.28",
     "@docsearch/css": "1.0.0-alpha.28",
+    "@docsearch/js": "1.0.0-alpha.28",
     "axios": "0.19.2",
     "lodash": "^4.17.15",
     "lucene-filter": "0.1.3",

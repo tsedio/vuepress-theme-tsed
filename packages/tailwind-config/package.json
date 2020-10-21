@@ -1,6 +1,6 @@
 {
   "name": "@tsed/vuepress-tailwind-config",
-  "version": "2.14.0",
+  "version": "2.15.0",
   "main": "./tailwind.config.js",
   "license": "MIT",
   "scripts": {},
