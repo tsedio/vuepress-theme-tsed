@@ -11,6 +11,8 @@
     "test": "exit 0"
   },
   "dependencies": {
+    "@docsearch/js": "1.0.0-alpha.28",
+    "@docsearch/css": "1.0.0-alpha.28",
     "axios": "0.19.2",
     "lodash": "^4.17.15",
     "lucene-filter": "0.1.3",

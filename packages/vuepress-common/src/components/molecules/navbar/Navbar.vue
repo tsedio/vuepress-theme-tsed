@@ -34,7 +34,10 @@
           :icon="item.icon"/>
     </div>
     <div class="flex items-center h-full hidden sm:flex">
+      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
+      <!--      <SearchBox v-else-if="$site.themeConfig.search !== false"/>-->
       <input
+          v-else
           class="py-1 px-3 border-2 border-gray-lighter bg-gray-lighter ml-5 rounded-small text-gray-darker focus:border-blue transition-all"
           placeholder="Search"/>
     </div>
@@ -42,17 +45,17 @@
 </template>
 <script>
 import { SOCIALS } from '../../../utils/socials/socials'
+import AlgoliaSearchBox from '../algolia-search-box/AlgoliaSearchBox'
 import IconLink from '../link/IconLink.vue'
 import NavLinks from './NavLinks.vue'
-// import AlgoliaSearchBox from '../algolia-search/AlgoliaSearchBox'
-// import SearchBox from '../search/SearchBox.vue'
+
 export default {
   name: 'Navbar',
   components: {
     NavLinks,
-    IconLink
+    IconLink,
     // SearchBox,
-    // AlgoliaSearchBox
+    AlgoliaSearchBox
   },
 
   props: {
@@ -83,6 +86,10 @@ export default {
     items: {
       type: Array,
       default: () => []
+    },
+    algolia: {
+      type: Object,
+      default: () => ({})
     }
   },
 
@@ -99,13 +106,9 @@ export default {
   },
 
   computed: {
-    // algolia () {
-    //   return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
-    // },
-    //
-    // isAlgoliaSearch () {
-    //   return this.algolia && this.algolia.apiKey && this.algolia.indexName
-    // },
+    isAlgoliaSearch () {
+      return this.algolia && this.algolia.apiKey && this.algolia.indexName
+    },
     leftLinks () {
       return this.items.filter((item) => item.position !== 'right')
     },

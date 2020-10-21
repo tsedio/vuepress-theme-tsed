@@ -12,6 +12,7 @@
         :repo-url="repoUrl"
         :social-urls="$site.themeConfig"
         :items="navLinks"
+        :algolia="algolia"
         @toggle-sidebar="toggleSidebar"/>
 
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
@@ -159,6 +160,9 @@ export default {
         },
         userPageClass
       ]
+    },
+    algolia () {
+      return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
     }
   },
 

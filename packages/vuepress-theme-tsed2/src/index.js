@@ -18,7 +18,7 @@ module.exports = (options, ctx) => {
       ...(siteConfig.postcss || {}).plugins || [],
       require('postcss-omit-import-tilde'),
       require('postcss-import'),
-      require('tailwindcss'),
+      require('tailwindcss')(require('@tsed/vuepress-tailwind-config')),
       require('autoprefixer'),
       require('postcss-nested'),
       require('postcss-at-rules-variables'),

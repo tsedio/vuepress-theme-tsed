@@ -1,3 +1,4 @@
+export { default as AlgoliaSearchBox } from './algolia-search-box/AlgoliaSearchBox.vue'
 export { default as ApiList } from './api-list/ApiList'
 export { default as ApiSymbol } from './api-symbol/ApiSymbol'
 export { default as ApiSymbolQuery } from './api-symbol/ApiSymbolQuery'
