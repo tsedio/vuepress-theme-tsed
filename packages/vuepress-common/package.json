@@ -1,6 +1,6 @@
 {
   "name": "@tsed/vuepress-common",
-  "version": "2.13.0",
+  "version": "2.14.0",
   "description": "Shared components and utils",
   "main": "./src/index.js",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
