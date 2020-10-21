@@ -7,7 +7,7 @@
             :color="borderColor"
             :border-color="borderColor"
             bg-color="transparent"
-            class="border-2 relative"
+            class="border-2 relative flex items-center justify-center"
             padding-x="1"
             padding-y="1"
             rounded="medium">

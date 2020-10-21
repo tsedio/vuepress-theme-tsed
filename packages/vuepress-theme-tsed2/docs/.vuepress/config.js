@@ -133,6 +133,10 @@ module.exports = {
                 text: 'Extra',
                 items: [
                   {
+                    text: 'Api reference',
+                    link: '/api.html'
+                  },
+                  {
                     text: 'Contributes',
                     link: '/tutorials/contributing.md'
                   },

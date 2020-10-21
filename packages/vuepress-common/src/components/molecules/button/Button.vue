@@ -25,7 +25,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'white'
+      default: 'white-button'
     },
     bgColor: {
       type: String,

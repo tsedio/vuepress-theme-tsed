@@ -1,5 +1,12 @@
 <template>
-  <Contributors type="github-contributors" :contributors="contributors"></Contributors>
+  <Contributors type="github-contributors"
+                :blur="blur"
+                :text-size="textSize"
+                :bg-color="bgColor"
+                :color="color"
+                :width="width"
+                :padding="padding"
+                :contributors="contributors"></Contributors>
 </template>
 <script>
 import { getContributors } from '../../..'
@@ -11,6 +18,28 @@ export default {
     users: {
       type: Array,
       default: () => []
+    },
+    bgColor: {
+      type: String
+    },
+    width: {
+      type: [String, Number],
+      default: 60
+    },
+    color: {
+      type: String,
+      default: 'blue'
+    },
+    blur: {
+      type: [String, Number]
+    },
+    textSize: {
+      type: String,
+      default: 'xxs'
+    },
+    padding: {
+      type: [String, Number],
+      default: 3
     }
   },
   data: () => {

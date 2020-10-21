@@ -1,5 +1,5 @@
 import { getUserNavLinks } from '../../../utils'
-import config from '../../organisms/config'
+import config from '../../organisms/__mock__/config'
 import Navbar from './Navbar.vue'
 
 export default {

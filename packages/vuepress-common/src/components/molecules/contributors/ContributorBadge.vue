@@ -2,12 +2,12 @@
   <a :href="href"
      target="_blank"
      :title="login"
-     :class="`relative flex flex-col no-underline hover:scale-110 text-${textSize} text-${color} hover:text-${color}-active` ">
-    <span :class="`relative z-2 overflow-hidden rounded-medium mb-2 bg-${bgColor}`"
+     :class="`transition-all duration-500 ease-in-out relative flex flex-col no-underline hover:scale-110 text-${textSize} text-${color} hover:text-${color}-active` ">
+    <span :class="`flex items-center justify-center relative z-2 overflow-hidden rounded-medium mb-2 bg-${bgColor}`"
           :style="{width: `${width}px`, height: `${width}px`}">
         <img :src="src" v-if="src" class="w-full">
         <span v-else
-              class="flex items-center font-bold uppercase justify-center text-2xl h-full">{{login | initial}}</span>
+              class="flex items-center justify-center font-bold uppercase text-2xl h-full">{{login | initial}}</span>
     </span>
     <span
       v-if="blur > 0 && src"
@@ -15,7 +15,6 @@
       :style="{width: `${width}px`, top: `5px`, height: `${width}px`}">
         <img :src="src" class="w-full">
       </span>
-    <span class="text-center">{{login | overflow}}</span>
   </a>
 </template>
 <script>
@@ -33,7 +32,7 @@
         required: true
       },
       width: {
-        type: Number,
+        type: [String, Number],
         default: 60
       },
       bgColor: {

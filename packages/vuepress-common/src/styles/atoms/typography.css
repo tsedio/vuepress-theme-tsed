@@ -56,15 +56,15 @@
     }
   }
 
-  ul, ol {
+  ul:not(.reset-list), ol:not(.reset-list) {
     @apply ml-10 my-5 leading-6;
-
-    li {}
   }
-  ul {
+
+  ul:not(.reset-list) {
     @apply list-disc;
   }
-  ol {
+
+  ol:not(.reset-list) {
     @apply list-decimal;
   }
 }

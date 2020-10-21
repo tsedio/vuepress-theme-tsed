@@ -1,6 +1,6 @@
 import { text } from '@storybook/addon-knobs'
 import ApiList from './ApiList.vue'
-import items from './symbols.json'
+import items from './__mock__/symbols.json'
 
 export default {
   title: 'Molecules/ApiList'
@@ -15,8 +15,9 @@ export const overview = () => ({
       default: items
     }
   },
-  template: `<div style="min-width: 800px" class="p-5 container flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
+  template: `<div style="min-width: 800px" class="p-5 content__default flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
     <h2>@tsed/common</h2>
+    
     <ApiList :items="items"/>
   </div>`
 })
@@ -26,7 +27,7 @@ export const fromApiConfiguration = () => ({
     ApiList
   },
   props: {},
-  template: `<div style="min-width: 800px" class="p-5 container flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
+  template: `<div style="min-width: 800px" class="p-5 content__default flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
     <h2>@tsed/common</h2>
     <ApiList />
   </div>`
@@ -41,7 +42,7 @@ export const withQuery = () => ({
       default: text('Query', 'name: GraphQLModule')
     }
   },
-  template: `<div style="min-width: 800px" class="p-5 container flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
+  template: `<div style="min-width: 800px" class="p-5 content__default flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
     <h2>@tsed/common</h2>
     <ApiList :query="query">{{query}}</ApiList>
   </div>`

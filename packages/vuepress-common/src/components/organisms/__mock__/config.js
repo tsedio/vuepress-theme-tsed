@@ -45,7 +45,7 @@ export default {
     editLinks: true,
     docsDir: 'docs',
     sidebar: 'auto',
-    // api: require("./public/api.json"),
+    api: require("./symbols.json"),
     smoothScroll: true,
     algolia: {
       apiKey: 'f8a038207e461aaac0e2fd16403c2b01',

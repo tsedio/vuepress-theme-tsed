@@ -3,24 +3,39 @@ a.symbol-container {
   transition: all ease-in var(--Global-transition-duration);
 
   &.-list {
-    @apply text-sm px-1;
+    @apply text-sm;
 
     &:hover {
-      @apply text-blue bg-gray-lighter;
+      @apply text-blue bg-white;
     }
+  }
+
+  .symbol {
+    transform: translateY(-1px)
   }
 
   &.-bubble {
     @apply text-sm;
     background: rgba(27, 31, 35, 0.05);
+    padding-top: 1px;
+    padding-bottom: 1px;
 
     &:hover {
       @apply text-blue-active;
     }
-  }
 
-  .symbol {
-    transform: translateY(-1px);
+    .symbol {
+      transform: scale(0.9);
+    }
+  }
+}
+
+ul li a.symbol-container {
+  &.-bubble {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 1px;
+    margin-bottom: 1px;
   }
 }
 

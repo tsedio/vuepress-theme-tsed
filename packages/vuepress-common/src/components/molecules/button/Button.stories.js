@@ -1,3 +1,4 @@
+import { ICONS } from '../../atoms/icons/icons'
 import Button from './Button.vue'
 import { COLORS_LIST } from '../../../utils/colors'
 import { boolean, number, select, text } from '@storybook/addon-knobs'
@@ -122,6 +123,9 @@ export const withIcon = () => ({
         'outline',
         'none'
       ], 'none')
+    },
+    icons: {
+      default: Object.values(ICONS)
     }
   },
   template: `
@@ -134,7 +138,7 @@ export const withIcon = () => ({
             :rounded="rounded"
             :shadow="shadow"
             class="flex items-center">
-      <BxIcon name="github" class="mr-2 text-lg"/>
+      <BxIcon: name="icons" class="mr-2 -ml-2 text-lg"/>
       {{text}}
     </Button>`
 })

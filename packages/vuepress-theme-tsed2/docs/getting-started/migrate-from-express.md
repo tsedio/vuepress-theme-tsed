@@ -83,7 +83,7 @@ options in your `tsconfig.json` file.
 ::: tip
 You can use this example of `package.json` to add npm tasks and dependencies:
 
-<<< @/examples/getting-started/package.json
+<<< @/package.json
 :::
 
 ## Create server

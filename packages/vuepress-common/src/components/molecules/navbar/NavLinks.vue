@@ -1,7 +1,10 @@
 <template>
   <nav v-if="links.length">
     <ul class="flex items-center h-full text-gray-dark">
-      <li v-for="item in links" :key="item.link" class="mx-1 content-wrapper" :class="{'py-4': item.type !== 'links'}">
+      <li v-for="(item,index) in links"
+          :key="item.link + '-' + index"
+          class="mx-1 content-wrapper"
+          :class="{'py-4': item.type !== 'links'}">
         <DropdownLink
             class="px-3 py-4"
             v-if="item.type === 'links'"

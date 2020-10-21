@@ -21,7 +21,7 @@
         <component :is="$page.frontmatter.layout"/>
       </div>
 
-      <!--  <Home v-else-if="isHome"/> -->
+      <Home v-else-if="isLandingPage"/>
 
       <Page v-else :sidebar-items="sidebarItems">
         <template #top>
@@ -34,6 +34,7 @@
     </main>
 
     <Sidebar :items="sidebarItems"
+             v-if="shouldShowSidebar"
              :class="{'-translate-x-100 md:shadow-sidebar md:translate-x-0': !isSidebarOpen, 'translate-0 shadow-sidebar': isSidebarOpen}"
              @toggle-sidebar="toggleSidebar">
       <template #top>
@@ -50,10 +51,10 @@
             :copyright-dates="$site.themeConfig.copyrightDates"
             :social-urls="$site.themeConfig">
       <template #top>
-<!--        <SupportUs v-if="!isHome"-->
-<!--                   :brand="$site.themeConfig.shortTitle"-->
-<!--                   :sponsor-url="$site.themeConfig.sponsorUrl"-->
-<!--                   :license-type="$site.themeConfig.licenseType"/>-->
+        <!--                <SupportUs v-if="!isLandingPage"-->
+        <!--                           :brand="$site.themeConfig.shortTitle"-->
+        <!--                           :sponsor-url="$site.themeConfig.sponsorUrl"-->
+        <!--                           :license-type="$site.themeConfig.licenseType"/>-->
         <slot name="footer-top"/>
       </template>
       <template #bottom>
@@ -67,12 +68,14 @@
 import { Footer, getUserNavLinks, Navbar, resolveSidebarItems, Sidebar, SupportUs } from '@tsed/vuepress-common'
 import Vue from 'vue'
 import VueTsed from '../install'
+import Home from '../views/Home'
 import Page from '../views/Page'
 
 Vue.use(VueTsed)
 
 export default {
   components: {
+    Home,
     Page,
     Navbar,
     Sidebar,
@@ -104,19 +107,14 @@ export default {
     logoSrc () {
       return this.$site.themeConfig.logo && this.$withBase(this.$site.themeConfig.logo)
     },
-    isHome () {
-      const { home, layout } = this.$page.frontmatter
-
-      return home || layout === 'home'
-    },
-    isContributing () {
+    isLandingPage () {
       const { layout } = this.$page.frontmatter
 
-      return layout === 'contributing'
+      return layout === 'Home'
     },
     isCustomLayout () {
       const { layout } = this.$page.frontmatter
-      return layout && !this.isHome && ['contributing'].indexOf(layout)
+      return layout && !this.isLandingPage
     },
     shouldShowNavbar () {
       const { themeConfig } = this.$site
@@ -156,7 +154,8 @@ export default {
         {
           'no-navbar': !this.shouldShowNavbar,
           'sidebar-open': this.isSidebarOpen,
-          'no-sidebar': !this.shouldShowSidebar
+          'no-sidebar': !this.shouldShowSidebar,
+          'with-sidebar': this.shouldShowSidebar,
         },
         userPageClass
       ]
@@ -209,12 +208,14 @@ export default {
 }
 
 @screen md {
-  .main-content, footer {
-    padding-left: 260px;
-  }
+  .with-sidebar{
+    .main-content, footer {
+      padding-left: 260px;
+    }
 
-  .page-header.-fixed > div {
-    left: 260px;
+    .page-header.-fixed > div {
+      left: 260px;
+    }
   }
 }
 </style>

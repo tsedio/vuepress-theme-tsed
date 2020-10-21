@@ -8,8 +8,10 @@ import {
   Navbar,
   WordsSlider
 } from '@tsed/vuepress-common'
+import { text } from '@storybook/addon-knobs'
 import contributors from '../molecules/contributors/contributors.json'
-import config from './config.js'
+import HeroBanner from '../molecules/hero-banner/HeroBanner'
+import config from './__mock__/config.js'
 
 export default {
   title: 'Organisms/HomePage'
@@ -23,9 +25,13 @@ export const overview = () => ({
     GithubStars,
     BxIcon,
     WordsSlider,
-    Feature
+    Feature,
+    HeroBanner
   },
   props: {
+    keywords: {
+      default: text('keywords', '#Decorators, #Rest API, #DI, #Controller')
+    },
     contributors: {
       default: contributors
         .map((contributor) => {
@@ -60,46 +66,21 @@ export const overview = () => ({
         html-title="<span class='text-blue'>Ts</span>.ED" href="/"
         :social-urls="socialUrls"
         :items="links"/>
-    
-    <div style="min-height: 60vh" class="flex pt-5 md:items-center">
-      <div class="container flex flex-col w-full max-w-site mx-auto px-10 pb-10">
-        <div class="mb-5 text-center md:text-left">
-          <h1 class="text-2xl normal-case mb-4 leading-8 md:font-light md:text-5xl md:leading-10">
-            <strong>Ts.ED</strong> Framework<br/>
-            <small>for <a class="text-darker-gray">Node.js</a> and <a class="text-darker-gray">TypeScript</a></small>
-          </h1>
-          <p class="mt-0 text-gray-dark md:text-lg">
-            Build your awesome server-size <strong>application.</strong>
-            <WordsSlider>#Decorators, #Rest API, #DI, #Controller</WordsSlider>
-          </p>
-        </div>
 
-        <div class="flex flex-wrap">
-          <div class="pb-5 md:pb-0 md:pr-3 w-full md:w-auto">
-            <Button component="a"
-                    color="white"
-                    bg-color="blue"
-                    rounded="medium"
-                    class="border-2 w-full">
-              Getting started
-            </Button>
-          </div>
-          <div class="pr-3 w-2/3 md:w-auto">
-            <Button component="a"
-                    color="gray-darker"
-                    bg-color="transparent"
-                    border-color="gray-darker"
-                    rounded="medium"
-                    class="border-2 mr-2 w-full">
-              <BxIcon name="bx-message-rounded-dots" class="mr-2 text-lg"></BxIcon>
-              Gitter
-            </Button>
-          </div>
+    <HeroBanner :keywords="keywords">
+      <template #hero-brand>
+        <strong>Ts.ED</strong> Framework<br/>
+        <small>for <a class="text-darker-gray">Node.js</a> and <a class="text-darker-gray">TypeScript</a></small>
+      </template>
 
-          <GithubStars class="md:w-auto"></GithubStars>
-        </div>
-      </div>
-    </div>
+      <template #hero-slogan>
+        Build your awesome server-size <strong>application.</strong>
+      </template>
+
+      <template #hero-cta>
+        <HeroBannerCta/>
+      </template>
+    </HeroBanner>
 
     <div class="bg-gray-lighter py-10">
       <div class="container flex flex-col w-full max-w-md mx-auto px-3 pb-10  text-center">

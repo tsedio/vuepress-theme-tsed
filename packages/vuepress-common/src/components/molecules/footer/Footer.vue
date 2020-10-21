@@ -13,7 +13,7 @@
                 :href="item.url"
                 :icon="item.icon"/>
           </div>
-          <div class="absolute top-0 right-0 p-10 pr-13">
+          <div class="absolute top-0 right-0 pt-5 pr-8 sm:p-10">
             <GithubStars border-color="white" color="blue"/>
           </div>
         </div>

@@ -11,7 +11,7 @@
 <script>
 
   export default {
-    name: 'SliderWords',
+    name: 'WordsSlider',
     props: {
       height: {
         type: String,

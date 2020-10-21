@@ -1,0 +1,142 @@
+<template>
+  <div class="api">
+    <template v-if="api">
+      <div class="mb-10 p-5 bg-gray-lighter rounded-small">
+        <div class="flex items-center">
+          <div class="w-full md:w-1/3 pr-2">
+            <Select bg-color="white"
+                    :symbol="true"
+                    class="w-full"
+                    label="Type"
+                    @change="onTypeChange"
+                    :items="api.symbolTypes"/>
+          </div>
+          <div class="w-full md:w-1/3 px-2">
+            <Select bg-color="white"
+                    class="w-full"
+                    label="Status"
+                    @change="onStatusChange"
+                    :items="api.symbolStatus"/>
+          </div>
+          <div class="w-full md:w-1/3 pl-2">
+            <InputText bg-color="white" class="w-full" placeholder="Filter" v-model="keyword"
+                       @change="onKeywordsChange">
+              <template #input-left>
+                <BxIcon name="bx-search-alt" class="text-md pr-1 -ml-1"></BxIcon>
+              </template>
+            </InputText>
+          </div>
+        </div>
+      </div>
+
+      <div v-for="module in modules" v-if="module.symbols.length">
+        <h2>{{ module.name }}</h2>
+
+        <ApiList :items="module.symbols"></ApiList>
+      </div>
+    </template>
+
+  </div>
+</template>
+<script>
+import BxIcon from '../../atoms/icons/BxIcon'
+import ApiList from '../../molecules/api-list/ApiList'
+import InputText from '../../molecules/input-text/InputText'
+import Select from '../../molecules/select/Select'
+
+export default {
+  name: 'Api',
+  components: {
+    BxIcon,
+    ApiList,
+    InputText,
+    Select
+  },
+
+  data () {
+    return {
+      currentStatus: '',
+      currentType: '',
+      keyword: ''
+    }
+  },
+
+  computed: {
+    api () {
+      return this.$site.themeConfig.api
+    },
+    modules () {
+      const { modules } = this.$site.themeConfig.api
+
+      if (!modules) {
+        return {}
+      }
+
+      return Object.keys(modules).reduce((acc, key) => {
+
+        const symbols = modules[key]
+            .symbols
+            .filter((symbol) => {
+
+              if (!!(this.currentType && symbol.symbolType !== this.currentType)) {
+                return false
+              }
+
+              if (!!(this.currentStatus && symbol.status.indexOf(this.currentStatus))) {
+                return false
+              }
+
+              if (!!this.keyword) {
+                return symbol.symbolName.toLowerCase().indexOf(this.keyword.toLocaleLowerCase()) > -1
+              }
+
+              return true
+            })
+
+        acc[key] = { ...modules[key], symbols }
+
+        return acc
+      }, {})
+    }
+  },
+
+  methods: {
+    onTypeChange (item) {
+      this.currentType = item.value
+
+      if (this.$ga) {
+        this.$ga.event({
+          eventCategory: 'api',
+          eventAction: 'search',
+          eventLabel: 'type',
+          eventValue: this.currentType
+        })
+      }
+    },
+
+    onStatusChange (item) {
+      this.currentStatus = item.value
+
+      if (this.$ga) {
+        this.$ga.event({
+          eventCategory: 'api',
+          eventAction: 'search',
+          eventLabel: 'status',
+          eventValue: this.currentStatus
+        })
+      }
+    },
+
+    onKeywordsChange (evt) {
+      if (this.$ga) {
+        this.$ga.event({
+          eventCategory: 'api',
+          eventAction: 'search',
+          eventLabel: 'keywords',
+          eventValue: evt.target.value
+        })
+      }
+    }
+  }
+}
+</script>

@@ -135,6 +135,8 @@ const colors = {
 
   white: 'hsla(0, 100%, 100%, 1)', // #ffffff
   'white-active': 'hsla(190, 81%, 42%, 1)',
+  'white-button': 'hsla(0, 100%, 100%, 1)', // #ffffff
+  'white-button-active': 'hsla(0, 100%, 100%, 1)',
 
   code: 'hsla(245, 17%, 29%, 1)',
   'code-active': 'hsla(246, 17%, 25%, 1)',
@@ -153,7 +155,7 @@ const colors = {
   // api
   'api-default': '#507192',
   'gray-xxl': '#2c3e50',
-  'line-even': 'hsla(195, 22%, 96%, 1)',
+  'line-even': 'hsla(195, 22%, 96%, 1)'
 }
 
 const globalSpacing = {
@@ -1020,7 +1022,7 @@ Object.assign(exports, {
     backgroundPosition: [],
     backgroundRepeat: [],
     backgroundSize: [],
-    borderColor: ['hover', 'focus'],
+    borderColor: ['hover', 'focus', 'focus-within'],
     borderRadius: ['first', 'last'],
     borderStyle: [],
     borderWidth: ['responsive', 'last'],
@@ -1062,7 +1064,7 @@ Object.assign(exports, {
     stroke: [],
     tableLayout: [],
     textAlign: ['responsive'],
-    textColor: ['hover', 'focus', 'active'],
+    textColor: ['hover', 'focus', 'active', 'focus-within'],
     fontSize: ['responsive'],
     fontStyle: ['focus', 'hover'],
     fontSmoothing: ['focus', 'hover'],

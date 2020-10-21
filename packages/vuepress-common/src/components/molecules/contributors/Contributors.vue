@@ -31,7 +31,7 @@ export default {
       default: 'github'
     },
     width: {
-      type: Number,
+      type: [String, Number],
       default: 60
     },
     bgColor: {
@@ -50,7 +50,7 @@ export default {
       type: [String, Number]
     },
     padding: {
-      type: Number,
+      type: [String, Number],
       default: 3
     }
   },

@@ -1,5 +1,5 @@
 import { text } from '@storybook/addon-knobs'
-import config from '../../organisms/config'
+import config from '../../organisms/__mock__/config'
 import Footer from './Footer'
 
 export default {

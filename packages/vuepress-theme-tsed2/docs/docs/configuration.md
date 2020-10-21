@@ -256,7 +256,6 @@ The global configuration for the Express.Router. See express [documentation](htt
 
 Object to mount all directories under an endpoint.
 
-<<< @/packages/platform-express/src/interfaces/PlatformExpressStaticsOptions.ts
 
   </Tab>
   <Tab label="Koa.js">

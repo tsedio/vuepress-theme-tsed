@@ -116,7 +116,7 @@ export default {
       const { frontmatter } = this.$page
       return (
           !frontmatter.layout &&
-          !this.isHome &&
+          !this.isLandingPage &&
           frontmatter.otherTopics !== false &&
           this.otherTopicsItems.length
       )

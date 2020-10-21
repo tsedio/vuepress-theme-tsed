@@ -2,7 +2,7 @@
   <button class="share border-0 relative flex items-center justify-center transition-all p-1">
     <i class="bx bx-share-alt" role="img"></i>
 
-    <ul class="absolute rounded-small opacity-0 invisible transition-all bg-white text-gray-darker">
+    <ul class="absolute rounded-small opacity-0 invisible transition-all duration-500 ease-in-out bg-white text-gray-darker">
       <li>
         <a target="_blank"
            class="text-gray-darker hover:text-blue-active no-underline"
