@@ -12,7 +12,7 @@
               you'd like to join them, please read more <a href="/support.html">here</a>.
             </p>
             <div class="flex items-center justify-center pt-5 mt-5 mb-5">
-              <Button :href="sponsorUrl" bg-color="white" color="blue" rounded="medium">
+              <Button :href="sponsorUrl" bg-color="white-button" color="blue" rounded="medium">
                 Become sponsor
               </Button>
             </div>

@@ -9,6 +9,10 @@
         <Content slot-key="hero-slogan"/>
       </template>
 
+      <template slot="hero-content">
+        <Content slot-key="hero-content"/>
+      </template>
+
       <template slot="hero-cta">
         <HeroBannerCta :getting-started-text="gettingStartedText"
                        :getting-started-url="gettingStartedUrl"

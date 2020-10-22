@@ -59,10 +59,10 @@
             :copyright-dates="$site.themeConfig.copyrightDates"
             :social-urls="$site.themeConfig">
       <template #top>
-        <!--                <SupportUs v-if="!isLandingPage"-->
-        <!--                           :brand="$site.themeConfig.shortTitle"-->
-        <!--                           :sponsor-url="$site.themeConfig.sponsorUrl"-->
-        <!--                           :license-type="$site.themeConfig.licenseType"/>-->
+        <SupportUs v-if="!isLandingPage"
+                   :brand="$site.themeConfig.shortTitle"
+                   :sponsor-url="$site.themeConfig.sponsorUrl"
+                   :license-type="$site.themeConfig.licenseType"/>
         <slot name="footer-top"/>
       </template>
       <template #bottom>

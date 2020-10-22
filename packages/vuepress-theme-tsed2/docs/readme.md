@@ -59,12 +59,16 @@ showContent: false
 ---
 
 ::: slot hero-brand
-<span class="block sm:inline mb-10 sm:mb-0 sm:text-bold text-7xl sm:text-5xl"><span class="text-blue">Ts</span>.ED</span> Framework<br/>
+<span class="block sm:inline mb-10 sm:mb-0 sm:text-bold text-7xl sm:text-5xl font-medium"><span class="text-blue">Ts</span>.ED</span> Framework<br/>
 <small>for <a class="text-darker-gray">Node.js</a> and <a class="text-darker-gray">TypeScript</a></small>
 :::        
 
 ::: slot hero-slogan
 Build your awesome server-size **application.** <WordsSlider>#Decorators, #Rest API, #DI, #Controller</WordsSlider>
+:::
+
+::: slot hero-content
+test
 :::
 
 ::: slot testimonial-title
