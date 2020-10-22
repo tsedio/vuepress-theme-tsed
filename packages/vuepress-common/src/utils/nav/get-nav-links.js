@@ -1,7 +1,12 @@
-import { resolveNavLinkItem } from 'vuepress-theme-tsed/src/utils'
 
 function getUserNav ({ $themeLocaleConfig, $site }) {
   return $themeLocaleConfig.nav || $site.themeConfig.nav || []
+}
+
+export function resolveNavLinkItem (linkItem) {
+  return Object.assign(linkItem, {
+    type: linkItem.items && linkItem.items.length ? 'links' : 'link'
+  })
 }
 
 export function getNavLinks ({ $site, $router, $localeConfig, $themeLocaleConfig }) {
