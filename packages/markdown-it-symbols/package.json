@@ -1,6 +1,6 @@
 {
   "name": "@tsed/markdown-it-symbols",
-  "version": "2.15.1",
+  "version": "2.15.2",
   "description": "Markdown it plugin",
   "main": "./src/index.js",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
