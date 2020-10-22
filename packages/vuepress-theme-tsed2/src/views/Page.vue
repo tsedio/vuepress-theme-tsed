@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     url () {
-      return window.location.origin
+      return this.$withBase('/')
     },
     repoUrl () {
       return this.editUrl.replace('/edit', '/blob')
