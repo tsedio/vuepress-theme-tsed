@@ -3,7 +3,7 @@
     <div v-if="gettingStartedUrl" class="pb-5 md:pb-0 md:pr-3 w-full md:w-auto">
       <Button component="a"
               :href="gettingStartedUrl"
-              color="white"
+              color="white-button"
               bg-color="blue"
               rounded="medium"
               class="border-2 w-full">
