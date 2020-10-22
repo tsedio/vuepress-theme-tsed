@@ -195,6 +195,7 @@ const globalSpacing = {
 // NOTE: We use module.exports here because it is actually a config file u_u.
 // eslint-disable-next-line import/no-commonjs,node/exports-style
 Object.assign(exports, {
+  purge: false,
   plugins: [
     require('tailwindcss-transforms')({
       '3d': false // defaults to false

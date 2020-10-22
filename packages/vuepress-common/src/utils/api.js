@@ -1,5 +1,5 @@
-import luceneQueryParser from 'lucene-query-parser'
 import luceneFilter from 'lucene-filter'
+import luceneQueryParser from 'lucene-query-parser'
 
 const lucene = luceneFilter(luceneQueryParser)
 
@@ -10,7 +10,10 @@ function getLucene (keyword) {
   try {
     return lucene(decodeURIComponent(keyword))
   } catch (er) {
-    return lucene(`name: ${keyword}`)
+    try {
+      return lucene(`name: ${keyword}`)
+    } catch (er) {
+    }
   }
 }
 
@@ -35,6 +38,6 @@ export function filterSymbols (api) {
     }
 
     const filter = getLucene(query)
-    return symbols.filter(filter)
+    return filter ? symbols.filter(filter) : [];
   }
 }
