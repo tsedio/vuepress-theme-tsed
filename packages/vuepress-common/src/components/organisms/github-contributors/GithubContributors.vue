@@ -9,8 +9,8 @@
                 :contributors="contributors"></Contributors>
 </template>
 <script>
-import { getContributors } from '../../..'
-import Contributors from '../contributors/Contributors.vue'
+import { getContributors } from '../../../index'
+import Contributors from '../../molecules/contributors/Contributors.vue'
 
 export default {
   name: 'GithubContributors',

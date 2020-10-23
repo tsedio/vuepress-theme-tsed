@@ -2,7 +2,7 @@ import { array, boolean } from '@storybook/addon-knobs'
 import GithubContributors from './GithubContributors'
 
 export default {
-  title: 'Molecules/GithubContributors'
+  title: 'Organisms/GithubContributors'
 }
 
 export const overview = () => ({
