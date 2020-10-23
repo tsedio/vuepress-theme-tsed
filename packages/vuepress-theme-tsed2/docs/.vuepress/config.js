@@ -96,34 +96,6 @@ module.exports = {
                 link: '/plugins',
                 items: [
                   {
-                    text: 'AJV',
-                    link: '/tutorials/ajv.md'
-                  },
-                  {
-                    text: 'AWS',
-                    link: '/tutorials/aws.md'
-                  },
-                  {
-                    text: 'Passport.js',
-                    link: '/tutorials/passport.md'
-                  },
-                  {
-                    text: 'TypeORM',
-                    link: '/tutorials/typeorm.md'
-                  },
-                  {
-                    text: 'Mongoose',
-                    link: '/tutorials/mongoose.md'
-                  },
-                  {
-                    text: 'GraphQL',
-                    link: '/tutorials/graphql.md'
-                  },
-                  {
-                    text: 'Socket.io',
-                    link: '/tutorials/socket-io.md'
-                  },
-                  {
                     text: 'Swagger',
                     link: '/tutorials/swagger.md'
                   }
@@ -135,14 +107,6 @@ module.exports = {
                   {
                     text: 'Api reference',
                     link: '/api.html'
-                  },
-                  {
-                    text: 'Contributes',
-                    link: '/tutorials/contributing.md'
-                  },
-                  {
-                    text: 'License',
-                    link: '/tutorials/licence.md'
                   }
                 ]
               }
@@ -223,123 +187,26 @@ module.exports = {
             title: "Plugins",
             collapsable: true,
             children: [
-              "/tutorials/passport",
-              "/tutorials/typeorm",
-              "/tutorials/mongoose",
-              "/tutorials/graphql",
-              "/tutorials/socket-io",
-              { title: "Seq logger", path: "/tutorials/seq" },
-              "/tutorials/swagger",
-              "/tutorials/ajv",
-              "/tutorials/aws"
+              "/tutorials/swagger"
             ]
           },
           {
             title: "Extras",
             children: [
-              "/tutorials/",
-              "/tutorials/throw-http-exceptions",
-              "/tutorials/not-found-page",
               "/contributing",
               "/license"
             ]
           }
         ],
-        //
-        // {
-        // "/": [
-        //   {
-        //     title: "Getting started",
-        //     collapsable: true,
-        //     children: [
-        //       "getting-started",
-        //       "start-application-from-scratch",
-        //       "create-your-first-controller"
-        //     ]
-        //   },
-        //   {
-        //     title: "Migration",
-        //     collapsable: true,
-        //     children: [
-        //       "migration-from-v5",
-        //       "migrate-from-express",
-        //       "migrate-from-koa"
-        //     ]
-        //   },
-        //   {
-        //     title: "Documentation",
-        //     collapsable: true,
-        //     children: [
-        //       "configuration",
-        //       "controllers",
-        //       "providers",
-        //       "model",
-        //       "converters",
-        //       "middlewares",
-        //       "pipes",
-        //       "interceptors",
-        //       "authentication",
-        //       "hooks",
-        //       "exceptions",
-        //       "platform-api"
-        //     ]
-        //   },
-        //
-        //   {
-        //     title: "Plugins",
-        //     collapsable: false,
-        //     children: [
-        //       "passport",
-        //       "typeorm",
-        //       "mongoose",
-        //       "graphql",
-        //       "socket-io",
-        //       "seq",
-        //       "swagger",
-        //       "ajv",
-        //       "multer"
-        //     ]
-        //   },
-        //   {
-        //     title: "Extras",
-        //     collapsable: true,
-        //     children: [
-        //       "",
-        //       "throw-http-exceptions",
-        //       "aws"
-        //     ]
-        //   }
-        // ]
-        // },
         otherTopics: [
-          "/tutorials/session",
-          "/tutorials/passport",
-          "/tutorials/typeorm",
-          "/tutorials/mongoose",
-          "/tutorials/graphql",
-          "/tutorials/socket-io",
           "/tutorials/swagger",
-          "/tutorials/ajv",
-          "/tutorials/multer",
-          "/tutorials/serve-static-files",
-          "/tutorials/templating",
-          "/tutorials/throw-http-exceptions",
-          "/tutorials/not-found-page",
-          "/tutorials/aws",
-          "/tutorials/seq",
           "/docs/controllers",
           "/docs/providers",
           "/docs/model",
           "/docs/converters",
           "/docs/middlewares",
           "/docs/pipes",
-          "/docs/interceptors",
-          "/docs/authentication",
-          "/docs/hooks",
-          "/docs/injection-scopes",
-          "/docs/custom-providers",
-          "/docs/custom-endpoint-decorators",
-          "/docs/testing"
+          "/docs/interceptors"
         ]
       }
     },
