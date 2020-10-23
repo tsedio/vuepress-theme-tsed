@@ -101,7 +101,8 @@ export default {
       return getUserNavLinks(this)
     },
     repoUrl () {
-      const { repo } = this.$site
+      const { repo } = this.$site.themeConfig
+
       return /^https?:/.test(repo)
           ? repo
           : `https://github.com/${repo}`
