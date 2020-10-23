@@ -74,7 +74,7 @@ jobs:
           CI: true
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: monorepo ci configure && git fetch --quiet && yarn publish:storybook
+        run: yarn configure && git fetch --quiet && yarn publish:storybook
 
 
 

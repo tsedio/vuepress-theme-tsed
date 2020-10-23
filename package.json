@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "configure": "monorepo ci configure",
     "build": "monorepo build",
     "publish": "monorepo publish --dry-run",
     "serve": "lerna run serve --stream",
