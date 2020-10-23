@@ -7,8 +7,10 @@
         </div>
         <ul class="flex items-center justify-center text-md -ml-2">
           <li title="Share">
-            <Share class="p-2" :title="title" :brand="brand" :url="url" :text="shareText"
-                   :hash-tags="hashTags"/>
+            <ClientOnly>
+              <Share class="p-2" :title="title" :brand="brand" :text="shareText"
+                     :hash-tags="hashTags"/>
+            </ClientOnly>
           </li>
           <li class="px-2" title="Package NPM" v-if="npmPackageUrl">
             <a class="hover:text-blue-active" target="_blank" :href="npmPackageUrl">
@@ -48,10 +50,6 @@ export default {
       required: true
     },
     brand: {
-      type: String,
-      default: ''
-    },
-    url: {
       type: String,
       default: ''
     },

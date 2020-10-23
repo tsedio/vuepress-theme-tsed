@@ -1,305 +1,375 @@
-# Converters
+---
+meta:
+ - name: description
+   content: Documentation over JsonMapper and decorators provided by Ts.ED framework. Use decorator to build your model and map data.
+ - name: keywords
+   content: class model decorators ts.ed express typescript node.js javascript jsonschema json mapper serialization deserialization
+---
+# JsonMapper
 
-The @@ConverterService@@ service is responsible for serializing and deserializing objects.
+The `@tsed/json-mapper` package is responsible to map a plain object to a model and a model to a plain object.
 
-It has two operation's modes:
+It provides two functions @@serialize@@ and @@deserialize@@ to transform object depending on which operation you want to perform.
+It uses all decorators from `@tsed/schema` package and TypeScript metadata to work.
 
-- The first case use the [class models](/packages/vuepress-theme-tsed/docs/model.md) to convert an object into a class (and vice versa).
-- The second case is based on the JSON object itself to provide an object with the right types. For example the deserialization of dates.
+Ts.ED use this package to transform any input parameters sent by your consumer to a class and transform returned value by your endpoint
+to a plain javascript object to your consumer.
 
+::: warning Breaking change
+For v5 developer, `@tsed/json-mapper` package is the new API under the @@ConverterService@@. There are some breaking changes between the previous service implementation:
 
-The ConverterService is used by the following decorators:
-
-<ApiList query="['BodyParams', 'Cookies', 'CookiesParams', 'PathParams', 'QueryParams', 'Session'].indexOf(symbolName) > -1" />
+- The `@Converter` decorator have been removed in favor of @@JsonMapper@@ decorator.
+- Classes like `ArrayConverter`, `SetConverter`, etc... replaced by his equivalents Types mapper: @@ArrayMapper@@, @@SetMapper@@, etc... 
+- Type mapper classes are no longer injectable services. 
+- ConverterService is always available and can be injected to another provider, but now, ConverterService doesn't perform data validation. Validation is performed by [`@tsed/ajv`](/tutorials/ajv.md) package or any other validation library.
+- `PropertyDeserialize` and `PropertySerialize` have been removed and replaced by @@OnDeserialize@@ and @@OnSerialize@@.
+- Methods Signatures of Type mapper (like ArrayConverter) have changed.
+:::
 
 ## Usage
 
-Models can be used at the controller level.
-Here is our model:
+JsonMapper works with a class and decorators. Use decorators on properties to describe a model and use this model as an input parameter or return value by your endpoint. Here is a model example:
 
-```typescript
-import  {Property, Minimum, PropertyType} from "@tsed/common";
-import  {Description} from "@tsed/swagger";
+<Tabs class="-code">
+  <Tab label="Person.ts">
 
-class Person {
-    @Property()
-    firstName: string;
-    
-    @Property()
-    lastName: string;
-    
-    @Description("Age in years")
-    @Minimum(0)
-    age: number;
-    
-    @PropertyType(String)
-    skills: Array<string>;
-}
-```
+<<< @/docs/docs/snippets/converters/model-usage.ts
 
-> Note: @@PropertyType@@ allow to specify the type of a collection.
+  </Tab>
+  <Tab label="Jest">
+  
+<<< @/docs/docs/snippets/converters/model-usage.jest.ts
+  
+  </Tab>
+  <Tab label="Mocha">
 
-And its uses on a controller:
+<<< @/docs/docs/snippets/converters/model-usage.mocha.ts
 
-```typescript
-import {Post, Controller, BodyParams} from "@tsed/common";
-import {Person} from "../models/Person";
-
-@Controller("/")
-export class PersonsCtrl {
-
-     @Post("/")
-     save(@BodyParams() person: Person): Person {
-          console.log(person instanceof Person); // true
-          return person; // will be serialized according to your annotation on Person class.
-     } 
-
-     //OR
-     @Post("/")
-     save(@BodyParams('person') person: Person): Person {
-          console.log(person instanceof Person); // true
-          return person; // will be serialized according to your annotation on Person class.
-     }
-}
-```
-> In this example, Person model is used both as input and output types.
-
-## Serialisation
-
-When you use a class model as a return parameter, the Converters service will use the JSON Schema
-of the class to serialize the JSON object.
-
-Here is an example of a model whose fields are not voluntarily annotated:
-
-```typescript
-import {Property} from "tsed/common";
-
-class User {
-    _id: string;
-    
-    @Property()
-    firstName: string;
-    
-    @Property()
-    lastName: string;
-    
-    password: string;
-}
-```
-
-And our controller:
-
-```typescript
-import {Get, Controller} from "@tsed/common";
-import {User} from "../models/User";
-
-@Controller("/")
-export class UsersCtrl {
-
-    @Get("/")
-    get(): User {
-        const user = new User();
-        user._id = "12345";
-        user.firstName = "John";
-        user.lastName = "Doe";
-        user.password = "secretpassword";
-        return 
-    }
-}
-```
-
-Our serialized `User` object will be:
-
-```json
-{
-  "firstName": "John",
-  "lastName": "Doe"
-}
-```
-> Non-annotated fields will not be copied into the final object.
-
-You can also explicitly tell the Converters service that the field should not be serialized with the decorator `@IgnoreProperty`.
-
-```typescript
-import {NotSerialize, Property,IgnoreProperty} from "@tsed/common"
-
-class User {
-    @NotSerialize()
-    _id: string;
-    
-    @Property()
-    firstName: string;
-    
-    @Property()
-    lastName: string;
-    
-    @IgnoreProperty()
-    password: string;
-}
-```
-
-## Type converters
-
-The Converters service relies on a subservice set to convert the following types:
-
-- Basics: [String, Number et Boolean](https://github.com/TypedProject/ts-express-decorators/blob/master/packages/common/src/converters/components/PrimitiveConverter.ts),
-- Objects: [Date](https://github.com/TypedProject/ts-express-decorators/blob/master/packages/common/src/converters/components/DateConverter.ts) et [Symbol](https://github.com/TypedProject/ts-express-decorators/blob/master/packages/common/src/converters/components/SymbolConverter.ts),
-- Collections: [Array](https://github.com/TypedProject/ts-express-decorators/blob/master/packages/common/src/converters/components/ArrayConverter.ts), [Map](https://github.com/TypedProject/ts-express-decorators/blob/master/packages/common/src/converters/components/MapConverter.ts) et [Set](https://github.com/TypedProject/ts-express-decorators/blob/master/packages/common/src/converters/components/SetConverter.ts).
-
-> Set and Map types will be converted into an JSON object (instead of Array).
-
-
-Any of theses converters can be overrided with @@OverrideProvider@@ decorators:
-
-<ApiList query="symbolType === 'class' && status.indexOf('converters') > -1" />
-
-### Example
-
-Here an example of a type converter:
-
-
-### Create a custom converter
-
-Ts.ED creates its own converter in the same way as the previous example.
-
-To begin, you must add to your configuration the directory where are stored
-your classes dedicated to converting types.
-
- 
-```typescript
-import {ServerLoader, ServerSettings} from "@tsed/common";
-import Path = require("path");
-const rootDir = Path.resolve(__dirname);
-
-@ServerSettings({
-   componentsScan: [
-       `${rootDir}/converters/**/**.js`
-   ]
-})
-export class Server extends ServerLoader {
-   
-}       
-```
-
-Then you will need to declare your class with the @@Converter@@ annotation:
-
+  </Tab>
+</Tabs>
 
 ::: tip Note
-This example will replace the default Ts.ED converter.
+Take a look on Jest/Mocha tabs to see @@serialize@@ and @@deserialize@@ functions usage.
 :::
 
-It is therefore quite possible to replace all converters with your own classes (especially the Date).
+Now we can use the `Person` model on a controller:
 
-## Validation
+<<< @/docs/docs/snippets/converters/controller-usage.ts
 
-The Converter service provides some of the validation of a class model.
-It will check the consistency of the JSON object with the data model. For example :
+::: tip Note
+In the previous example, we can see @@Returns@@ decorator usage.
+In all case, Ts.ED infer the returned value and apply the correct transformation on your response.
 
-- If the JSON object contains one more field than expected in the model (`validationModelStrict` or `@ModelStrict`).
-- If the field is mandatory @@Required@@,
-- If the field is mandatory but can be `null` (`@Allow(null)`).
-
-Here is a complete example of a model:
-
-```typescript
-import  {Required, PropertyName, Property, PropertyType, Allow} from "@tsed/common";
-
-class EventModel {
-    @Required()
-    name: string;
-     
-    @PropertyName('startDate')
-    startDate: Date;
-
-    @Property({name: 'end-date'})
-    endDate: Date;
-
-    @PropertyType(TaskModel)
-    @Required()
-    @Allow(null)
-    tasks: TaskModel[];
-}
-
-class TaskModel {
-    @Required()
-    subject: string;
-    
-    @Property()
-    rate: number;
-}
-```
-
-### validationModelStrict
-
-The `strict` validation of an object can be modified either globally or for a specific model.
-
-Here is an example of `strict` validation:
-
-
-```typescript
-import {InjectorService, ConvertersService, Required, Property} from "@tsed/common";
-
-InjectorService.load();
-
-class TaskModel {
-    @Required()
-    subject: string;
-    
-    @Property()
-    rate: number;
-}
-
-const convertersService = InjectorService.get(ConvertersService);
-convertersService.validationModelStrict = true;
-
-convertersService.deserialize({unknowProperty: "test"}, TaskModel); // BadRequest
-```
-
-#### Global
-
-```typescript
-import {ServerLoader, ServerSettings} from "@tsed/common";
-
-@ServerSettings({
-   validationModelStrict: true | false
-})
-export class Server extends ServerLoader {
-   
-}      
-```
-> By default, the Converters service is configured on the `strict` mode.
-
-#### ModelStrict
-
-```typescript
-import {ModelStrict, Required, Property} from "@tsed/common";
-
-@ModelStrict(false)
-class TaskModel {
-   @Required()
-   subject: string;
-   
-   @Property()
-   rate: number;
-   [key: string]: any; // recommended
-}
-````
-
-In this case, the service will not raise more exception:
-
-```typescript
-import {InjectorService, ConvertersService} from "@tsed/common";
-
-InjectorService.load();
-
-const convertersService = InjectorService.get(ConvertersService);
-convertersService.validationModelStrict = true;
-
-const result = convertersService.deserialize({unknowProperty: "test"}, TaskModel);
-console.log(result) // TaskModel {unknowProperty: "test"}
-```
-
-::: tip
-If you have disabled `strict` validation at the global level, you can use the `@ModelStrict(true)` decorator
-to enable validation for a specific model.
+@@Returns@@ decorator is used to generate the correct swagger documentation only.
 :::
+
+::: warning
+When a model is provided, JsonMapper will follow exactly the JsonSchema generated by `@tsed/schema` package.
+
+It means, if you missed decorating one or more properties on your model, these properties won't be appear after the transformation.
+
+<Tabs class="-code">
+  <Tab label="User.ts">
+
+<<< @/docs/docs/snippets/converters/model-missing-properties.ts
+  </Tab>
+  <Tab label="Jest">
+  
+<<< @/docs/docs/snippets/converters/model-missing-properties.jest.ts
+  
+  </Tab>
+  <Tab label="Mocha">
+
+<<< @/docs/docs/snippets/converters/model-missing-properties.mocha.ts
+
+  </Tab>
+</Tabs>
+
+> Note: Result is displayed in Jest/Mocha tabs.
+
+:::
+
+## Ignore properties
+
+@@Ignore@@ decorator is provided to ignore explicitly a property when a transformation is performed.
+
+For example, you have a base model to create a User named `UserCreation` where the `password` is required but
+you don't want to expose this field in other cases. One of the solution is to use class inheritance to solve this problem.
+
+<Tabs class="-code">
+  <Tab label="User.ts">
+
+<<< @/docs/docs/snippets/converters/model-ignore-props.ts
+  
+  </Tab>
+  <Tab label="Jest">
+  
+<<< @/docs/docs/snippets/converters/model-ignore-props.jest.ts
+  
+  </Tab>
+  <Tab label="Mocha">
+
+<<< @/docs/docs/snippets/converters/model-ignore-props.mocha.ts
+
+  </Tab>
+</Tabs>
+
+## Additional properties
+
+@@AdditionalProperties@@ decorator is provided to accept any additional properties on a specific model.
+
+<Tabs class="-code">
+  <Tab label="Person.ts">
+
+<<< @/docs/docs/snippets/converters/model-additional-props.ts
+  
+  </Tab>
+  <Tab label="Jest">
+  
+<<< @/docs/docs/snippets/converters/model-additional-props.jest.ts
+  
+  </Tab>
+  <Tab label="Mocha">
+
+<<< @/docs/docs/snippets/converters/model-additional-props.mocha.ts
+
+  </Tab>
+</Tabs>
+
+## OnSerialize
+
+@@OnSerialize@@ decorator can be used to intercept and change the property value when a serialization is performed on class.
+
+```typescript
+import {OnSerialize} from "@tsed/schema";
+
+export class Person {
+  @OnSerialize(v => v + "Test")
+  property: string;
+}
+```
+
+## OnDeserialize
+
+@@OnDeserialize@@ decorator can be used to intercept and change the property value when a deserialization is performed on class.
+
+```typescript
+import {OnDeserialize} from "@tsed/schema";
+
+export class Person {
+  @OnDeserialize(v => v + "Test")
+  property: string;
+}
+```
+
+## Type mapper
+
+`@tsed/json-mapper` use classes to transform an input value to the expected value:
+
+Type | Mapper
+---|---
+Primitives | @@PrimitiveMapper@@, 
+Symbol | @@SymbolMapper@@,
+Objects | @@DateMapper@@,
+Collections | @@ArrayMapper@@, @@MapMapper@@ and @@SetMapper@@.
+
+It's possible to add your own type mapper by using the @@JsonMapper@@ decorator on a class. Just copy a mapper implementation 
+and import the mapper in your application.
+
+### Primitives
+
+@@PrimitiveMapper@@ is responsible to map the primitive value like `Boolean`, `Number` or `String`.
+
+<Tabs class="-code">
+  <Tab label="PrimitiveMapper">
+  
+  
+  </Tab>
+  <Tab label="Cheat sheet">
+    <div style="background: white; padding: 5px 0">
+    
+Input | Type | Output
+---|---|---
+`1` | String | `"1"`
+`"1"` | String | `"1"`
+`null` | Number | `null`
+`"null"` | Number | `null`
+`"1"` | Number | `1`
+`1` | Number | `1`
+`"to1"` | Number | Throw Bad Request. This is the only case where JsonMapper throw a cast type error.
+`true` | Boolean | `true`
+`"true"` | Boolean | `true`
+`"1"` | Boolean | `true`
+`1` | Boolean | `true`
+`false` | Boolean | `false`
+`"false"` | Boolean | `false`
+`"0"` | Boolean | `false`
+`0` | Boolean | `false`
+`""` | Boolean | `false`
+`"null"` | Boolean | `null`
+`undefined` | Boolean | `undefined`
+
+   </div>
+  </Tab>
+  <Tab label="Spec">
+ 
+  
+  </Tab>
+</Tabs>
+
+### Symbol
+
+@@SymbolMapper@@ is responsible to map a `String` to `Symbol` or a `Symbol` to a `String`.
+
+<Tabs class="-code">
+  <Tab label="SymbolMapper">
+  
+
+  </Tab>
+  <Tab label="Spec">
+ 
+  
+  </Tab>
+</Tabs>
+
+### Date
+
+@@DateMapper@@ is responsible to map a `String` to a `Date` or a `Date` to a `String`.
+
+<Tabs class="-code">
+  <Tab label="DateMapper">
+  
+
+  </Tab>
+  <Tab label="Spec">
+ 
+  
+  </Tab>
+</Tabs>
+
+### Array
+
+@@ArrayMapper@@ is responsible to map any data to an `Array`. 
+
+<Tabs class="-code">
+  <Tab label="ArrayMapper">
+  
+
+  </Tab>
+  <Tab label="Spec">
+ 
+  
+  </Tab>
+</Tabs>
+
+### Map
+
+@@MapMapper@@ is responsible to map an `Object` to a `Map`. 
+
+<Tabs class="-code">
+  <Tab label="SetMapper">
+  
+
+  </Tab>
+  <Tab label="Example">
+  
+```typescript
+import {CollectionOf} from "@tsed/schema";
+import {Skill} from "./Skill";
+ 
+export class Person {
+  @CollectionOf(Skill)
+  skills: Map<string, Skill>;
+}
+```
+  
+  </Tab>
+  <Tab label="Spec">
+ 
+  
+  </Tab>
+</Tabs>
+
+### Set
+
+@@SetMapper@@ is responsible to map an `Array` to a `Set`. 
+
+<Tabs class="-code">
+  <Tab label="SetMapper">
+  
+
+  </Tab>
+  <Tab label="Example">
+  
+```typescript
+import {CollectionOf} from "@tsed/schema";
+ 
+export class Person {
+  @CollectionOf(String)
+  skills: Set<string>;
+}
+```
+  
+  </Tab>
+  <Tab label="Spec">
+ 
+  
+  </Tab>
+</Tabs>
+
+## Create your own type mapper
+
+It's possible de to change add your own type mapper by using the @@JsonMapper@@ decorator on a class. Just copy a mapper implementation 
+and import the mapper in your application.
+
+A mapper must declare the type it must work on and implement two methods: serialize and deserialize.
+
+```typescript
+import {JsonMapper, JsonMapperMethods, JsonMapperCtx} from "@tsed/json-mapper";
+
+@JsonMapper(String)
+export class TheTypeMapper implements JsonMapperMethods {
+  deserialize(data: any, ctx: JsonMapperCtx): String {
+    return JSON.stringify(data) + ":deserialize";
+  }
+
+  serialize(data: any, ctx: JsonMapperCtx): String {
+    return JSON.stringify(data) + ":serialize";
+  }
+
+}
+```
+
+Then import your new mapper in your Server.ts
+
+### Moment
+
+[Moment.js](https://momentjs.com) is a powerful library to transform any formatted date string to a Moment instance.
+
+You can change the Date converter behavior to transform string to a Moment instance.
+
+<Tabs class="-code">
+  <Tab label="MomentMapper">
+  
+<<< @/docs/docs/snippets/converters/moment-mapper.ts
+
+  </Tab>
+  <Tab label="Configuration">
+
+<<< @/docs/docs/snippets/converters/server-moment-mapper-import.ts
+
+  </Tab>
+  <Tab label="Example">
+  
+```typescript
+import {Moment} from "moment";
+import {Property} from "@tsed/schema";
+
+export class Person {
+ @Property(Date)
+ birthdate: Moment;
+}
+```
+  
+  </Tab>
+</Tabs>

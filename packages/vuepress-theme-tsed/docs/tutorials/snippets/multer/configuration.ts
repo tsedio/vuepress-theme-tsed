@@ -1,23 +1,14 @@
-import {ServerLoader, ServerSettings} from "@tsed/common";
-import "@tsed/multipartfiles";
-import * as Path from "path";
+import {Configuration} from "@tsed/common";
+import "@tsed/platform-express";
 
-const rootDir = Path.resolve(__dirname);
+const rootDir = __dirname;
 
-@ServerSettings({
-  rootDir,
-  mount: {
-    "/rest": `${rootDir}/controllers/**/**.js`
-  },
-  uploadDir: `${rootDir}/custom-dir`,
-  componentsScan: [
-    `${rootDir}/services/**/**.js`
-  ],
-
+@Configuration({
   multer: {
+    dest: `${rootDir}/../uploads`
     // see multer options
   }
 })
-export class Server extends ServerLoader {
+export class Server {
 
 }

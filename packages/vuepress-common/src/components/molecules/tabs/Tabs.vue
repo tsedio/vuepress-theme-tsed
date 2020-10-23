@@ -8,7 +8,7 @@
       <ul
           ref="ul"
           :class="[`-${alignment}`]"
-          class="tabs__header--ul">
+          class="reset-list tabs__header--ul">
         <li
             v-for="(child,index) in children"
             ref="li"

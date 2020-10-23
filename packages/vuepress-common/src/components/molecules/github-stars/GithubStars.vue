@@ -1,25 +1,27 @@
 <template>
-  <span class="relative inline-flex w-auto">
-    <Button :href="url"
-            component="a"
-            title="Github"
-            border
-            :color="borderColor"
-            :border-color="borderColor"
-            bg-color="transparent"
-            class="border-2 relative flex items-center justify-center"
-            padding-x="1"
-            padding-y="1"
-            rounded="medium">
-      <BxIcon name="bxl-github" class="text-lg"></BxIcon>
-    </Button>
+  <div class="relative inline-flex w-auto">
+    <ClientOnly>
+      <Button :href="url"
+              component="a"
+              title="Github"
+              border
+              :color="borderColor"
+              :border-color="borderColor"
+              bg-color="transparent"
+              class="border-2 relative flex items-center justify-center"
+              padding-x="1"
+              padding-y="1"
+              rounded="medium">
+        <BxIcon name="bxl-github" class="text-lg"></BxIcon>
+      </Button>
+    </ClientOnly>
     <span
         :style="{top: '-12px', right:'-28px'}"
-        :class="{[`bg-${borderColor}`]: true, [`text-${color}`]: true}"
+        :class="[`bg-${borderColor} text-${color}`]"
         class="text-xs py-1 px-2 absolute right-0 rounded-medium rounded-bl-small">{{
         stargazersCount
       }}</span>
-  </span>
+  </div>
 </template>
 <script>
 import { getGithubMetadata } from '@tsed/vuepress-common'

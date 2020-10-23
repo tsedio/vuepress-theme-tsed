@@ -1,7 +1,6 @@
-import {Controller, Get, PathParams, MergeParams} from "@tsed/common";
+import {Controller, Get, PathParams} from "@tsed/common";
 
 @Controller("/:calendarId/events")
-@MergeParams()
 class EventCtrl {
   @Get("/:eventId")
   async get(
