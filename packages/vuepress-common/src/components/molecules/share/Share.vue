@@ -45,10 +45,6 @@ export default {
       type: String,
       default: ''
     },
-    url: {
-      type: String,
-      default: ''
-    },
     text: {
       type: String,
       default: ''
@@ -56,9 +52,16 @@ export default {
     hashTags: {
       type: Array,
       default: []
+    },
+    source: {
+      type: String,
+      default: ''
     }
   },
   computed: {
+    url () {
+      return typeof window !== 'undefined' ? window.location.origin : '/'
+    },
     twitterUrl () {
       const params = mapParams([
         ['url', encodeURIComponent(this.url)],

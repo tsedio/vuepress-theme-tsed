@@ -6,7 +6,6 @@
             :fixed="headerFixed"
             :title="$page.title"
             :repo-url="repoUrl"
-            :url="url"
             :hashTags="hashTags"
             :create-issue-url="createIssueUrl"
             :edit-url="editUrl"/>
@@ -57,9 +56,6 @@ export default {
     }
   },
   computed: {
-    url () {
-      return this.$withBase('/')
-    },
     repoUrl () {
       return this.editUrl.replace('/edit', '/blob')
     },
