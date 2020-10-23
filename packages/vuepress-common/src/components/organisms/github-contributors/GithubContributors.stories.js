@@ -1,5 +1,5 @@
 import { array, boolean } from '@storybook/addon-knobs'
-import GithubContributors from './GithubContributors'
+import GithubContributors from './GithubContributors.vue'
 
 export default {
   title: 'Organisms/GithubContributors'

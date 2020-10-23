@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import ButtonBadge from '../button-badge/ButtonBadge'
+import ButtonBadge from '../button-badge/ButtonBadge.vue'
 
 export default {
   name: 'Contributors',

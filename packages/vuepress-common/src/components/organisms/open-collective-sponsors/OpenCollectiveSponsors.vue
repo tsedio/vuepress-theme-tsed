@@ -9,7 +9,7 @@
 </template>
 <script>
 import { getSponsors } from '../../..'
-import Contributors from '../../molecules/contributors/Contributors'
+import Contributors from '../../molecules/contributors/Contributors.vue'
 
 export default {
   name: 'OpenCollectiveSponsors',

@@ -10,7 +10,7 @@
 </template>
 <script>
 import { getBackers } from '../../..'
-import Contributors from '../../molecules/contributors/Contributors'
+import Contributors from '../../molecules/contributors/Contributors.vue'
 
 export default {
   name: 'OpenCollectiveBackers',

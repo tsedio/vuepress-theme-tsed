@@ -72,7 +72,7 @@ jobs:
       - name: Release packages
         env:
           CI: true
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn configure && git fetch --quiet && yarn publish:storybook
 

@@ -232,7 +232,7 @@ export default {
   markdown: {
     lineNumbers: true,
     extendMarkdown: md => {
-      md.use(require('vuepress-theme-tsed/plugins/markdown-it-symbol'))
+      md.use(require('@tsed/markdown-it-symbols'))
     }
   }
 }
