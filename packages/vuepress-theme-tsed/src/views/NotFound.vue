@@ -4,7 +4,7 @@
       <div class="relative">
         <PageHeader
             :fixed="headerFixed"
-            :title="$page.title || 'Not found'"
+            title="Page not found"
             :repo-url="repoUrl"
             :hashTags="hashTags"
             :create-issue-url="createIssueUrl"
@@ -13,9 +13,17 @@
 
       <div class="px-5 md:px-10 max-w-site m-auto">
         <div class="page-content">
-          <slot name="page-top"/>
-          <Content/>
-          <slot name="page-bottom"/>
+
+          <div class="content__default pb-10">
+            <h2>
+              That's a Four-Oh-Four.
+            </h2>
+            <p>
+              <Button href="/">
+                Go home
+              </Button>
+            </p>
+          </div>
 
           <div class="pt-5">
             <div class="py-5 flex justify-end text-sm" v-if="lastUpdated">
@@ -47,7 +55,7 @@ import { createEditLink, PageHeader, PageNav, PageSidebar, resolveOtherTopicsIte
 import { endingSlashRE, normalize, outboundRE } from '@vuepress/theme-default/util'
 
 export default {
-  name: 'Page',
+  name: 'NotFound',
   components: { PageNav, PageHeader, PageSidebar },
   props: ['sidebarItems'],
   data () {
