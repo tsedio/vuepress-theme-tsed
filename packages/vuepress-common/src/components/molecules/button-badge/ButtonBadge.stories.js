@@ -1,18 +1,18 @@
 import { number, select, text } from '@storybook/addon-knobs'
-import ContributorBadge from './ContributorBadge.vue'
 
 import { COLORS_LIST } from '../../../utils/colors'
+import ButtonBadge from './ButtonBadge'
 
 export default {
-  title: 'Molecules/ContributorBadge'
+  title: 'Molecules/ButtonBadge'
 }
 
 export const overview = () => ({
   components: {
-    ContributorBadge
+    ButtonBadge
   },
   props: {
-    login: {
+    title: {
       default: text('Login', 'romakita')
     },
     src: {
@@ -38,9 +38,9 @@ export const overview = () => ({
     }
   },
   template: `
-    <ContributorBadge :bg-color="bgColor"
+    <ButtonBadge :bg-color="bgColor"
                       :color="color"
-                      :login="login"
+                      :title="title"
                       :src="src"
                       :href="href"
                       :width="width"

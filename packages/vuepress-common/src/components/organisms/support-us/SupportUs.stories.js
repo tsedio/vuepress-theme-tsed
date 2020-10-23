@@ -2,7 +2,7 @@ import { text } from '@storybook/addon-knobs'
 import SupportUs from './SupportUs'
 
 export default {
-  title: 'Molecules/SupportUs'
+  title: 'Organisms/SupportUs'
 }
 
 export const overview = () => ({

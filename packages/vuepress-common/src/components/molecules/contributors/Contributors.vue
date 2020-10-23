@@ -1,34 +1,32 @@
 <template>
   <div :class="`-m-${padding} mb-5`">
-    <ul class="contributors reset-list flex flex-wrap items-center">
+    <ul class="reset-list flex flex-wrap items-center">
       <li :class="`p-${padding}`"
           v-for="contributor in contributors"
           :key="contributor.login">
-        <ContributorBadge @click="onClick"
-                          v-bind="contributor"
-                          :bgColor="bgColor"
-                          :color="color"
-                          :text-size="textSize"
-                          :blur="blur"
-                          :width="width"/>
+        <ButtonBadge
+            :title="contributor.login"
+            :src="contributor.src"
+            :href="contributor.href"
+            :bgColor="bgColor"
+            :color="color"
+            :text-size="textSize"
+            :blur="blur"
+            :width="width"/>
       </li>
     </ul>
   </div>
 </template>
 <script>
-import ContributorBadge from './ContributorBadge'
+import ButtonBadge from '../button-badge/ButtonBadge'
 
 export default {
   name: 'Contributors',
-  components: { ContributorBadge },
+  components: { ButtonBadge },
   props: {
     contributors: {
       type: Array,
       default: () => []
-    },
-    type: {
-      type: String,
-      default: 'github'
     },
     width: {
       type: [String, Number],
@@ -53,25 +51,6 @@ export default {
       type: [String, Number],
       default: 3
     }
-  },
-  methods: {
-    onClick (contributor) {
-      if (this.$ga) {
-        this.$ga.event({
-          eventCategory: `${this.type}-contributors`,
-          eventAction: 'click',
-          eventLabel: 'name',
-          eventValue: contributor.login
-        })
-      }
-    }
   }
 }
 </script>
-
-<style>
-.content__default ul.contributors {
-  list-style: none;
-  margin: 0;
-}
-</style>

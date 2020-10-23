@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import Button from '../button/Button'
+import Button from '../../molecules/button/Button'
 
 export default {
   name: 'SupportUs',

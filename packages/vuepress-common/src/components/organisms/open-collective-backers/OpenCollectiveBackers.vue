@@ -1,19 +1,18 @@
 <template>
-  <Contributors type="opencollective-sponsors"
-                :blur="blur"
+  <Contributors :blur="blur"
                 :text-size="textSize"
                 :bg-color="bgColor"
                 :color="color"
                 :width="width"
                 :padding="padding"
-                :contributors="sponsors"></Contributors>
+                :contributors="backers"></Contributors>
 </template>
 <script>
-import { getSponsors } from '../../..'
-import Contributors from '../contributors/Contributors.vue'
+import { getBackers } from '../../..'
+import Contributors from '../../molecules/contributors/Contributors'
 
 export default {
-  name: 'OpenCollectiveSponsors',
+  name: 'OpenCollectiveBackers',
   props: {
     bgColor: {
       type: String
@@ -40,7 +39,7 @@ export default {
   },
   data: () => {
     return {
-      sponsors: []
+      backers: []
     }
   },
   components: {
@@ -51,7 +50,7 @@ export default {
       openCollective
     } = this.$site.themeConfig
 
-    this.sponsors = await getSponsors(openCollective)
+    this.backers = await getBackers(openCollective)
   }
 }
 </script>

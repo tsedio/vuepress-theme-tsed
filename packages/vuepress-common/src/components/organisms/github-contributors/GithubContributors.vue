@@ -1,6 +1,5 @@
 <template>
-  <Contributors type="github-contributors"
-                :blur="blur"
+  <Contributors :blur="blur"
                 :text-size="textSize"
                 :bg-color="bgColor"
                 :color="color"
@@ -60,7 +59,6 @@ export default {
     let contributors = await getContributors(docsRepo)
 
     if (this.users.length) {
-      console.log('this.users', this.users)
       contributors = contributors.filter((contributor) => {
         return this.users.includes(contributor.login)
       })
