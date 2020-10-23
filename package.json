@@ -29,7 +29,7 @@
     "include-media": "1.4.9",
     "lodash": "^4.17.15",
     "sass": "^1.26.8",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "^10.0.4",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "tailwindcss-inset": "^1.0.0",
