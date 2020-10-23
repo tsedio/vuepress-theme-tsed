@@ -5,6 +5,7 @@
           v-for="contributor in contributors"
           :key="contributor.login">
         <ButtonBadge
+            :show-title="showTitle"
             :title="contributor.login"
             :src="contributor.src"
             :href="contributor.href"
@@ -50,6 +51,10 @@ export default {
     padding: {
       type: [String, Number],
       default: 3
+    },
+    showTitle: {
+      type: Boolean,
+      default: false
     }
   }
 }

@@ -5,7 +5,8 @@
                 :color="color"
                 :width="width"
                 :padding="padding"
-                :contributors="backers"></Contributors>
+                :contributors="backers"
+                :showTitle="true"></Contributors>
 </template>
 <script>
 import { getBackers } from '../../..'
