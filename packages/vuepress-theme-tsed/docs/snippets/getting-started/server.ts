@@ -1,23 +1,28 @@
-import {GlobalAcceptMimesMiddleware, ServerLoader, ServerSettings} from "@tsed/common";
+import {Configuration, Inject, PlatformApplication} from "@tsed/common";
+import * as bodyParser from "body-parser";
+import * as compress from "compression";
+import * as cookieParser from "cookie-parser";
+import * as methodOverride from "method-override";
 
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const compress = require("compression");
-const methodOverride = require("method-override");
 const rootDir = __dirname;
 
-@ServerSettings({
+@Configuration({
   rootDir,
   acceptMimes: ["application/json"]
 })
-export class Server extends ServerLoader {
+export class Server {
+  @Inject()
+  app: PlatformApplication;
+
+  @Configuration()
+  settings: Configuration;
+
   /**
    * This method let you configure the express middleware required by your application to works.
    * @returns {Server}
    */
   public $beforeRoutesInit(): void | Promise<any> {
-    this
-      .use(GlobalAcceptMimesMiddleware)
+    this.app
       .use(cookieParser())
       .use(compress({}))
       .use(methodOverride())

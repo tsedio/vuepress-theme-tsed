@@ -1,14 +1,19 @@
-import {ServerLoader, ServerSettings} from "@tsed/common";
+import {Configuration} from "@tsed/common";
+import "@tsed/platform-express";
 import "@tsed/swagger"; // import swagger Ts.ED module
 
-@ServerSettings({
+@Configuration({
   rootDir: __dirname,
   swagger: [
     {
-      path: "/api-docs"
+      path: "/v2/docs",
+      specVersion: "2.0.0" // by default
+    },
+    {
+      path: "/v3/docs",
+      specVersion: "3.0.1"
     }
   ]
 })
-export class Server extends ServerLoader {
-
+export class Server {
 }

@@ -1,14 +1,17 @@
-import {ServerLoader} from "@tsed/common";
+import {PlatformAws} from "@tsed/platform-aws";
+import "@tsed/platform-express";
 import {Server} from "./Server";
 
-const awsServerlessExpress = require("aws-serverless-express");
+// or import "@tsed/platform-koa";
 
-// The function handler to setup on AWS Lambda console -- the name of this function must match the one configured on AWS
-export const handler = async (event: any, context: any, done: any) => {
-  const server = await ServerLoader.bootstrap(Server);
-  const lambdaServer = awsServerlessExpress.createServer(server.expressApp);
+PlatformAws.bootstrap(Server, {
+  aws: {
+    binaryMimeTypes: [ // optional
+      // mime types list
+    ]
+  },
+  // additional Ts.ED options. See https://tsed.io/tutorials/aws.html
+});
 
-  awsServerlessExpress.proxy(lambdaServer, event, context);
-
-  done();
-};
+// Handler used by AWS
+export const handler = PlatformAws.callback();

@@ -1,6 +1,6 @@
 import {Err, Middleware, Req, Res} from "@tsed/common";
-import {Exception} from "ts-httpexceptions";
-import {$log} from "ts-log-debug";
+import {Exception} from "@tsed/exceptions";
+import {$log} from "@tsed/logger";
 
 @Middleware()
 export class GlobalErrorHandlerMiddleware {
