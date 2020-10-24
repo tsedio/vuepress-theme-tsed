@@ -1,5 +1,5 @@
 ---
-name: Feature request
+name: Component request
 about: Suggest an idea for this project
 title: "[FEAT] Title"
 labels: enhancement
