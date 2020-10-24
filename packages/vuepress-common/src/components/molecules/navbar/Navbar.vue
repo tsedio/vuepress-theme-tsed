@@ -31,13 +31,9 @@
           :href="item.url"
           :icon="item.icon"/>
     </div>
-    <div class="flex items-center h-full hidden sm:flex">
+    <div class="flex items-center h-full">
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
       <!--      <SearchBox v-else-if="$site.themeConfig.search !== false"/>-->
-      <input
-          v-else
-          class="py-1 px-3 border-2 border-gray-lighter bg-gray-lighter ml-5 rounded-small text-gray-darker focus:border-blue transition-all"
-          placeholder="Search"/>
     </div>
   </header>
 </template>

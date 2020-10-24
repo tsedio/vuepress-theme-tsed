@@ -67,4 +67,8 @@
   ol:not(.reset-list) {
     @apply list-decimal;
   }
+
+  hr {
+    @apply border-0 border-t-1 border-solid border-gray-light mt-5 mb-5;
+  }
 }

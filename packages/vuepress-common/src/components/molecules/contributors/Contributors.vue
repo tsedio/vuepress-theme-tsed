@@ -14,12 +14,11 @@
   />
 </template>
 <script>
-import ButtonBadge from '../button-badge/ButtonBadge.vue'
-import ButtonBadges from '../button-badge/ButtonBadges'
+import ButtonBadges from '../button-badge/ButtonBadges.vue'
 
 export default {
   name: 'Contributors',
-  components: { ButtonBadges, ButtonBadge },
+  components: { ButtonBadges },
   props: {
     contributors: {
       type: Array,
