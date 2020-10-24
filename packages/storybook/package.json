@@ -1,11 +1,11 @@
 {
   "name": "@tsed/vuepress-storybook",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@tsed/vuepress-tailwind-config": "3.1.1",
+    "@tsed/vuepress-tailwind-config": "3.1.2",
     "vue": "2.6.12"
   },
   "scripts": {
@@ -22,7 +22,7 @@
     "@storybook/addon-notes": "5.3.19",
     "@storybook/addon-viewport": "5.3.19",
     "@storybook/vue": "5.3.19",
-    "@tsed/vuepress-common": "3.1.1",
+    "@tsed/vuepress-common": "3.1.2",
     "autoprefixer": "9.8.0",
     "babel-loader": "^8.1.0",
     "babel-preset-vue": "^2.0.2",
