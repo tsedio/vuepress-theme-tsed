@@ -34,7 +34,8 @@ export default {
         return this.items
       }
 
-      const query = this.query || this.$slots.default && this.$slots.default.map(({ text }) => text).join(' ').trim() || ''
+      const query = this.query
+      // || this.$slots.default && this.$slots.default.map(({ text }) => text).join(' ').trim() || ''
       return this.$filterSymbols(query)
     }
   }

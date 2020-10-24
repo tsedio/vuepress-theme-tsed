@@ -123,11 +123,11 @@ document.addEventListener('swagger.init', (evt) => {
 
 These decorators already add a documentation on Swagger:
 
-<ApiList query="['Header', 'Status'].indexOf(symbolName) > -1 || (status.includes('decorator') && status.includes('schema'))" />
+<ApiList query="((symbolName: Header OR Status) OR (tags: schema)) AND tags: decorator" />
 
 In addition, the Ts.ED Swagger plugin gives some decorators to manage documentation:
 
-<ApiList query="module === '@tsed/swagger' && symbolType === 'decorator'" />
+<ApiList query="module: swagger" />
 
 
 ## Authors

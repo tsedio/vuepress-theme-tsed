@@ -13,6 +13,7 @@ function getLucene (keyword) {
     try {
       return lucene(`name: ${keyword}`)
     } catch (er) {
+      console.error('Lucene query error:', keyword)
     }
   }
 }
@@ -26,7 +27,7 @@ export function filterSymbols (api) {
           ...symbol,
           name: symbol.symbolName,
           type: symbol.symbolType,
-          labels: symbol.status
+          tags: symbol.status.join(',')
         }
       })
     ]
@@ -38,6 +39,6 @@ export function filterSymbols (api) {
     }
 
     const filter = getLucene(query)
-    return filter ? symbols.filter(filter) : [];
+    return filter ? symbols.filter(filter) : []
   }
 }
