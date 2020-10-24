@@ -13,37 +13,82 @@ export const overview = () => ({
   },
   props: {
     title: {
-      default: text('Login', 'romakita')
+      default: text('title', 'romakita')
     },
     src: {
-      default: text('Image', 'https://avatars3.githubusercontent.com/u/1763311?v=4')
+      default: text('src', 'https://avatars3.githubusercontent.com/u/1763311?v=4')
     },
     href: {
-      default: text('Href', 'https://github.com/romakita')
+      default: text('href', 'https://github.com/romakita')
     },
     bgColor: {
-      default: select('Background color', COLORS_LIST, 'gray-lighter')
+      default: select('bg-color', COLORS_LIST, 'gray-lighter')
     },
     color: {
-      default: select('Color', COLORS_LIST, 'blue')
+      default: select('color', COLORS_LIST, 'blue')
     },
     width: {
-      default: number('Width', 60)
+      default: number('width', 60)
     },
     textSize: {
-      default: text('Text size', 'xxs')
+      default: select('text-size', [
+        'micro',
+        'xxs',
+        'xs',
+        'sm',
+        'base',
+        'md',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        '7xl',
+        '11xl'
+      ], 'xxs')
     },
     blur: {
-      default: number('Blur', 0)
+      default: number('blur', 0)
+    },
+    fontWeight: {
+      default: select('font-weight', [
+        'hairline',
+        'thin',
+        'light',
+        'normal',
+        'medium',
+        'semibold',
+        'bold',
+        'extrabold',
+        'black'
+      ], 'normal')
+    },
+    padding: {
+      default: number('padding', 0, 0)
+    },
+    shadow: {
+      default: select('shadow', [
+        'default',
+        'sm',
+        'strong',
+        'md',
+        'lg',
+        'top',
+        'inner',
+        'outline',
+        'none'
+      ], 'normal')
     }
   },
   template: `
     <ButtonBadge :bg-color="bgColor"
-                      :color="color"
-                      :title="title"
-                      :src="src"
-                      :href="href"
-                      :width="width"
-                      :text-size="textSize"
-                      :blur="blur"/>`
+                 :color="color"
+                 :title="title"
+                 :src="src"
+                 :href="href"
+                 :width="width"
+                 :text-size="textSize"
+                 :font-weight="fontWeight"
+                 :blur="blur"/>`
 })

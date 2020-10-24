@@ -1,23 +1,21 @@
 @tailwind base;
 
-.init:after {
-  content: "";
-  background-image: radial-gradient(#eef2f5 0, #f4f7f8 40%, transparent 75%);
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 100%;
-  z-index: 1;
-}
+@screen md {
+  .init:after {
+    content: "";
+    background-image: radial-gradient(#eef2f5 0, #f4f7f8 40%, transparent 75%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    z-index: 1;
+  }
 
-.init > * {
-  position: relative;
-  z-index: 2;
-}
-
-hr {
-  @apply border-0 border-t-1 border-solid border-gray-light mt-5 mb-5;
+  .init > * {
+    position: relative;
+    z-index: 2;
+  }
 }
 
 input, input:focus,

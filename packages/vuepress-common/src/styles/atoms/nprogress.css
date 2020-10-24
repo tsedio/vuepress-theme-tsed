@@ -1,7 +1,7 @@
-#nprogress .bar {
+#nprogress .bar.bar {
   @apply bg-blue;
 }
 
-#nprogress .peg {
+#nprogress .peg.peg {
   box-shadow: 0 0 10px theme('colors.blue'), 0 0 5px theme('colors.blue');
 }

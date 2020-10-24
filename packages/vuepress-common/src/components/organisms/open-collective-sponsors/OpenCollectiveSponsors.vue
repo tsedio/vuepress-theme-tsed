@@ -1,25 +1,34 @@
 <template>
-  <Contributors :blur="blur"
+  <ButtonBadges :blur="blur"
                 :text-size="textSize"
                 :bg-color="bgColor"
                 :color="color"
                 :width="width"
                 :padding="padding"
-                :contributors="sponsors"></Contributors>
+                :innerPadding="innerPadding"
+                :font-weight="fontWeight"
+                :shadow="shadow"
+                :show-title="true"
+                :items="sponsors"></ButtonBadges>
 </template>
 <script>
 import { getSponsors } from '../../..'
-import Contributors from '../../molecules/contributors/Contributors.vue'
+import ButtonBadges from '../../molecules/button-badge/ButtonBadges'
 
 export default {
   name: 'OpenCollectiveSponsors',
   props: {
-    bgColor: {
-      type: String
+    showTitle: {
+      type: Boolean,
+      default: true
     },
     width: {
-      type: Number,
+      type: [String, Number],
       default: 60
+    },
+    bgColor: {
+      type: String,
+      default: 'gray-lighter'
     },
     color: {
       type: String,
@@ -32,9 +41,17 @@ export default {
       type: String,
       default: 'xxs'
     },
+    shadow: {
+      type: String
+    },
     padding: {
-      type: Number,
-      default: 3
+      type: [String, Number]
+    },
+    innerPadding: {
+      type: [String, Number]
+    },
+    fontWeight: {
+      type: String
     }
   },
   data: () => {
@@ -43,7 +60,7 @@ export default {
     }
   },
   components: {
-    Contributors
+    ButtonBadges
   },
   async mounted () {
     const {

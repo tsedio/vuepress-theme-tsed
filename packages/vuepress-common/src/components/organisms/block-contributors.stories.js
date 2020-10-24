@@ -1,6 +1,8 @@
-import { COLORS_LIST, Contributors, Button } from '@tsed/vuepress-common'
-import { number, select } from '@storybook/addon-knobs'
+import { boolean, number, select } from '@storybook/addon-knobs'
+import { Button, COLORS_LIST } from '@tsed/vuepress-common'
 import contributors from '@tsed/vuepress-common/src/components/molecules/contributors/contributors.json'
+import Showcase from '../molecules/showcase/Showcase'
+import GithubContributors from './github-contributors/GithubContributors'
 
 export default {
   title: 'Organisms/BlockContributors'
@@ -8,27 +10,78 @@ export default {
 
 export const overview = () => ({
   components: {
-    Contributors,
+    Showcase,
+    GithubContributors,
     Button
   },
   props: {
     bgContainer: {
       default: select('Background container', COLORS_LIST, 'white')
     },
-    color: {
-      default: select('Text color', COLORS_LIST, 'gray')
-    },
     bgColor: {
-      default: select('Background color', COLORS_LIST, 'gray-lighter')
+      default: select('bg-color', COLORS_LIST, 'gray-lighter')
+    },
+    color: {
+      default: select('color', COLORS_LIST, 'blue')
     },
     width: {
-      default: number('Width', 60)
+      default: number('width', 45)
     },
-    padding: {
-      default: number('Padding', 3)
+    showTitle: {
+      default: boolean('show-title', false)
+    },
+    textSize: {
+      default: select('text-size', [
+        'micro',
+        'xxs',
+        'xs',
+        'sm',
+        'base',
+        'md',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        '7xl',
+        '11xl'
+      ], 'xxs')
     },
     blur: {
-      default: number('Blur', 0)
+      default: number('blur', 0)
+    },
+    fontWeight: {
+      default: select('font-weight', [
+        'hairline',
+        'thin',
+        'light',
+        'normal',
+        'medium',
+        'semibold',
+        'bold',
+        'extrabold',
+        'black'
+      ], 'normal')
+    },
+    padding: {
+      default: number('padding', 3)
+    },
+    innerPadding: {
+      default: number('padding', 5)
+    },
+    shadow: {
+      default: select('shadow', [
+        'default',
+        'sm',
+        'strong',
+        'md',
+        'lg',
+        'top',
+        'inner',
+        'outline',
+        'none'
+      ], 'none')
     },
     contributors: {
       default: contributors
@@ -46,19 +99,27 @@ export const overview = () => ({
   },
   template: `
     <div :class="'bg-' + bgContainer + ' text-' + color" style="width: 100vw">
-      <div class="container flex flex-col w-full max-w-site mx-auto px-3 pb-10">
-        <div>
-          <h2 class="mb-5">Our<br><b>Contributors</b></h2>
+    <Showcase title="Our <b>contributors</b>">
+      <GithubContributors
+          :users="users"
+          :bg-color="bgColor"
+          :color="color"
+          :title="title"
+          :src="src"
+          :href="href"
+          :width="width"
+          :text-size="textSize"
+          :font-weight="fontWeight"
+          :blur="blur"
+          :show-title="showTitle"/>
 
-          <Contributors :color="color" :bg-color="bgColor" :blur="blur" :width="width" :padding="padding" :contributors="contributors"/>
-
-          <div class="flex items-center justify-center">
-            <Button>
-              Become contributor
-            </Button>
-          </div>
-          
-        </div>
-      </div>
+      <template #showcase-cta>
+        <Button
+            rounded="medium"
+            :href="backers.cta.url">
+          Become contributor
+        </Button>
+      </template>
+    </Showcase>
     </div>`
 })

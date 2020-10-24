@@ -14,23 +14,23 @@
   />
 </template>
 <script>
-import ButtonBadges from '../button-badge/ButtonBadges.vue'
+import ButtonBadge from '../../molecules/button-badge/ButtonBadge'
+import ButtonBadges from '../../molecules/button-badge/ButtonBadges'
 
 export default {
-  name: 'Contributors',
-  components: { ButtonBadges },
+  name: 'Frameworks',
+  components: {
+    ButtonBadges,
+    ButtonBadge
+  },
   props: {
-    contributors: {
-      type: Array,
-      default: () => []
-    },
     showTitle: {
       type: Boolean,
-      default: false
+      default: true
     },
     width: {
       type: [String, Number],
-      default: 60
+      default: 80
     },
     bgColor: {
       type: String,
@@ -38,34 +38,36 @@ export default {
     },
     color: {
       type: String,
-      default: 'blue'
+      default: 'platinium'
     },
     blur: {
       type: [String, Number]
     },
     textSize: {
       type: String,
-      default: 'xxs'
+      default: 'normal'
     },
     shadow: {
-      type: String
+      type: String,
+      default: 'md'
     },
     padding: {
       type: [String, Number]
     },
     innerPadding: {
-      type: [String, Number]
+      type: [String, Number],
+      default: 4
     },
     fontWeight: {
-      type: String
+      type: String,
+      default: 'bold'
     }
   },
   computed: {
     items () {
-      return this.contributors.map((item) => ({
-        ...item,
-        title: item.login
-      }))
+      const { frameworks = [] } = this.$frontmatter
+
+      return frameworks
     }
   }
 }

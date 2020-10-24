@@ -5,6 +5,10 @@
                 :color="color"
                 :width="width"
                 :padding="padding"
+                :innerPadding="innerPadding"
+                :font-weight="fontWeight"
+                :shadow="shadow"
+                :show-title="showTitle"
                 :contributors="contributors"></Contributors>
 </template>
 <script>
@@ -18,12 +22,17 @@ export default {
       type: Array,
       default: () => []
     },
-    bgColor: {
-      type: String
+    showTitle: {
+      type: Boolean,
+      default: false
     },
     width: {
       type: [String, Number],
-      default: 60
+      default: 45
+    },
+    bgColor: {
+      type: String,
+      default: 'gray-lighter'
     },
     color: {
       type: String,
@@ -36,9 +45,18 @@ export default {
       type: String,
       default: 'xxs'
     },
+    shadow: {
+      type: String
+    },
     padding: {
       type: [String, Number],
-      default: 3
+      default: 2
+    },
+    innerPadding: {
+      type: [String, Number]
+    },
+    fontWeight: {
+      type: String
     }
   },
   data: () => {
