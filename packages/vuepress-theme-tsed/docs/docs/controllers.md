@@ -412,4 +412,6 @@ Then, on your child controller:
 
 ## Decorators
 
+<ApiList query="tags: decorator AND operation OR controller"/>
+
 <ApiList query="status.includes('decorator') && (status.includes('operation') || status.includes('controller'))" />
