@@ -1,31 +1,28 @@
 import { number, select } from '@storybook/addon-knobs'
 import { COLORS_LIST } from '../../../utils/colors'
-import contributors from './contributors.json'
-import Contributors from './Contributors.vue'
+import frameworks from './__mock__/frameworks.json'
+import ButtonBadges from './ButtonBadges'
 
 export default {
-  title: 'Molecules/Contributors'
+  title: 'Molecules/ButtonBadges'
 }
 
 export const overview = () => ({
   components: {
-    Contributors
+    ButtonBadges
   },
   props: {
+    items: {
+      default: frameworks
+    },
     bgColor: {
-      default: select('Background color', COLORS_LIST, 'gray-lighter')
+      default: select('bg-color', COLORS_LIST, 'gray-lighter')
     },
     color: {
-      default: select('Text color', COLORS_LIST, 'blue')
+      default: select('color', COLORS_LIST, 'platinium')
     },
     width: {
-      default: number('Width', 60)
-    },
-    padding: {
-      default: number('Padding', 3)
-    },
-    blur: {
-      default: number('Blur', 0)
+      default: number('width', 80)
     },
     textSize: {
       default: select('text-size', [
@@ -43,7 +40,10 @@ export const overview = () => ({
         '5xl',
         '7xl',
         '11xl'
-      ], 'xxs')
+      ], 'sm')
+    },
+    blur: {
+      default: number('blur', 0)
     },
     fontWeight: {
       default: select('font-weight', [
@@ -56,10 +56,13 @@ export const overview = () => ({
         'bold',
         'extrabold',
         'black'
-      ], 'normal')
+      ], 'bold')
+    },
+    padding: {
+      default: number('padding', 3)
     },
     innerPadding: {
-      default: number('padding', 0)
+      default: number('padding', 5)
     },
     shadow: {
       default: select('shadow', [
@@ -72,25 +75,21 @@ export const overview = () => ({
         'inner',
         'outline',
         'none'
-      ], 'none')
-    },
-    contributors: {
-      default: contributors
-        .map((contributor) => {
-          const { avatar_url, html_url, login } = contributor
-          return {
-            src: avatar_url,
-            href: html_url,
-            login,
-
-            ...contributor
-          }
-        })
+      ], 'lg')
     }
   },
   template: `
     <div style="min-width: 800px" class="p-5 container flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
-    <Contributors :color="color" :bg-color="bgColor" :blur="blur" :width="width" :padding="padding"
-                  :contributors="contributors"/>
+    <ButtonBadges
+        :items="items"
+        :bg-color="bgColor"
+        :color="color"
+        :width="width"
+        :text-size="textSize"
+        :font-weight="fontWeight"
+        :shadow="shadow"
+        :padding="padding"
+        :inner-padding="innerPadding"
+        :blur="blur"/>
     </div>`
 })
