@@ -11,6 +11,7 @@
       :text-size="textSize"
       :blur="blur"
       :width="width"
+      li-class="w-1/3 sm:w-auto"
   />
 </template>
 <script>

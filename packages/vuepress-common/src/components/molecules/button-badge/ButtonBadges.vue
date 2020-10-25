@@ -1,7 +1,7 @@
 <template>
   <div :class="`-m-${padding} mb-5`">
     <ul class="reset-list flex flex-wrap items-center">
-      <li :class="`p-${padding}`"
+      <li :class="`p-${padding} ${liClass}`"
           v-for="item in items"
           :key="item.title">
         <ButtonBadge
@@ -67,6 +67,10 @@ export default {
     },
     fontWeight: {
       type: String
+    },
+    liClass: {
+      type: String,
+      default: ''
     }
   }
 }

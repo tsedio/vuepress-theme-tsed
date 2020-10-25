@@ -75,10 +75,10 @@ export default {
   },
 
   filters: {
-    initial (text) {
+    initial (text = '') {
       return text.split(' ').map(text => text.slice(0, 1)).join('')
     },
-    overflow (text) {
+    overflow (text = '') {
       return text.slice(0, 12) + (text.length > 12 ? '...' : '')
     }
   }

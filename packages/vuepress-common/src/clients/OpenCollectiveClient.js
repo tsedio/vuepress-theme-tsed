@@ -31,7 +31,7 @@ export async function getMembers (repo) {
         src: image,
         href: profile,
         login: name,
-
+        title: name,
         ...member
       }
     })

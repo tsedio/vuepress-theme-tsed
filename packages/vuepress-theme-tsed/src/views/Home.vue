@@ -23,7 +23,7 @@
 
     <div class="bg-gray-lighter py-10">
       <div class="container flex flex-col w-full max-w-md mx-auto px-3 pb-5 text-center">
-        <h2 class="text-xl mb-5 normal-case">
+        <h2 class="text-2xl mb-5 normal-case">
           <Content slot-key="testimonial-title"/>
         </h2>
         <Content slot-key="testimonial-content"/>
@@ -106,10 +106,19 @@
     </Showcase>
 
     <Showcase :class="sponsors.classes"
-              v-bind="sponsors"
-              v-if="sponsors">
+              v-bind="sponsors">
 
-      <OpenCollectiveSponsors v-bind="backers.badge"/>
+      <OpenCollectiveSponsors v-bind="sponsors.badge"/>
+
+      <div v-if="sponsors.partners" class="flex flex-wrap mb-8 -mx-5">
+        <PartnerLogo
+            class="w-1/5 p-5 flex items-center justify-center"
+            v-for="partner in sponsors.partners"
+            :key="partner.href"
+            :src="partner.src"
+            :href="partner.href"
+            :title="partner.title"/>
+      </div>
 
       <template #showcase-cta>
         <Button
