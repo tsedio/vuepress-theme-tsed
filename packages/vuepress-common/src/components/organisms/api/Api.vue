@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div v-for="module in modules" v-if="module.symbols.length">
+      <div v-for="module in modules" v-if="module.symbols.length" :key="module.index">
         <h2>{{ module.name }}</h2>
 
         <ApiList :items="module.symbols"></ApiList>
