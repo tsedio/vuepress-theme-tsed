@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {},
   "dependencies": {
-    "tailwindcss": "1.4.6"
+    "tailwindcss": "1.9.6"
   },
   "devDependencies": {},
   "peerDependencies": {}
