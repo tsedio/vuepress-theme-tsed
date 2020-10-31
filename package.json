@@ -38,7 +38,7 @@
     "@tsed/monorepo-utils": "1.11.0",
     "lerna": "3.22.0",
     "lite-server": "2.5.4",
-    "semantic-release": "15.13.30",
+    "semantic-release": "17.2.2",
     "vuepress": "1.7.1"
   },
   "resolutions": {

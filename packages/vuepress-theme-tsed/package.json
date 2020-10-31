@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "lite-server": "2.5.4",
-    "semantic-release": "17.0.8",
+    "semantic-release": "17.2.2",
     "vuepress": "1.7.1"
   },
   "peerDependencies": {}
