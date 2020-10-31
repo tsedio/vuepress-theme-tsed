@@ -197,6 +197,7 @@ export default {
 @screen sm {
   .search-box,
   .search-box.focused {
+    @apply ml-1;
     position: relative;
     background: transparent;
     top: auto;
@@ -204,6 +205,10 @@ export default {
     width: auto;
     height: auto;
     z-index: 0;
+
+    > label {
+      @apply px-0
+    }
 
     .search-dropdown {
       @apply absolute;
