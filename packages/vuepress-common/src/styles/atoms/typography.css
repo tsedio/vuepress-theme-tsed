@@ -56,16 +56,27 @@
     }
   }
 
-  ul:not(.reset-list), ol:not(.reset-list) {
+  ul:not(.reset-list),
+  ol:not(.reset-list) {
     @apply ml-10 my-5 leading-6;
+
+    ul {
+      @apply ml-5 my-1;
+    }
   }
 
   ul:not(.reset-list) {
     @apply list-disc;
+    ul li {
+      list-style: circle;
+    }
   }
 
   ol:not(.reset-list) {
     @apply list-decimal;
+    ol li {
+      list-style: lower-alpha;
+    }
   }
 
   hr {
