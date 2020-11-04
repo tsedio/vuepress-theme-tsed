@@ -63,6 +63,9 @@
               </Button>
             </div>
           </div>
+
+          <Content slot-key="features-footer"/>
+
         </div>
       </div>
     </div>
