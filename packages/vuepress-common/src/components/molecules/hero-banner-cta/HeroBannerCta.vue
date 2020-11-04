@@ -1,8 +1,7 @@
 <template>
   <div class="flex flex-wrap">
     <div v-if="gettingStartedUrl" class="pb-5 md:pb-0 md:pr-3 w-full md:w-auto">
-      <Button component="a"
-              :href="gettingStartedUrl"
+      <Button :href="gettingStartedUrl"
               color="white-button"
               bg-color="blue"
               rounded="medium"
@@ -11,8 +10,7 @@
       </Button>
     </div>
     <div v-if="messengerUrl" class="pr-3 w-2/3 md:w-auto">
-      <Button component="a"
-              :href="messengerUrl"
+      <Button :href="messengerUrl"
               color="gray-darker"
               bg-color="transparent"
               border-color="gray-darker"
