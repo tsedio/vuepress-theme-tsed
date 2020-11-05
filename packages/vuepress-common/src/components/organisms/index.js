@@ -5,3 +5,4 @@ export { default as OpenCollectiveSponsors } from './open-collective-sponsors/Op
 export { default as GithubContributors } from './github-contributors/GithubContributors'
 export { default as Projects } from './projects/Projects'
 export { default as SupportUs } from './support-us/SupportUs.vue'
+export { default as SupportUsBlock } from './support-us/SupportUsBlock.vue'
