@@ -1,15 +1,9 @@
 import axios from 'axios'
 
-export async function getBackers (repo) {
+export async function getBackers (repo, type) {
   const members = await getMembers(repo)
 
-  return members.filter((member) => member.role === 'BACKER' && member.tier !== 'Sponsor')
-}
-
-export async function getSponsors (repo) {
-  const members = await getMembers(repo)
-
-  return members.filter((member) => member.role === 'BACKER' && member.tier === 'Sponsor')
+  return members.filter((member) => member.role === type)
 }
 
 let MEMBERS

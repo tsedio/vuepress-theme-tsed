@@ -104,7 +104,6 @@ import {
   HeroBanner,
   HeroBannerCta,
   OpenCollectiveBackers,
-  OpenCollectiveSponsors,
   Showcase,
   WordsSlider
 } from '@tsed/vuepress-common'
@@ -118,7 +117,6 @@ export default {
     Feature,
     GithubContributors,
     OpenCollectiveBackers,
-    OpenCollectiveSponsors,
     Button,
     Showcase
   },

@@ -52,6 +52,14 @@ export default {
     },
     fontWeight: {
       type: String
+    },
+    ignore: {
+      type: Array,
+      default: []
+    },
+    type: {
+      type: String,
+      default: 'BACKER'
     }
   },
   data: () => {
@@ -67,7 +75,12 @@ export default {
       openCollective
     } = this.$site.themeConfig
 
-    this.backers = await getBackers(openCollective)
+    const backers = await getBackers(openCollective, this.type)
+    .reduce((map, backer) => {
+      return map.set(map.name, backer)
+    }, new Map())
+
+    this.backers = [...backers.values()]
   }
 }
 </script>

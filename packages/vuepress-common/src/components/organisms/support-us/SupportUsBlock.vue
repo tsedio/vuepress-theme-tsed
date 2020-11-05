@@ -19,9 +19,6 @@
 
     <Showcase :class="sponsors.classes"
               v-bind="sponsors">
-
-      <OpenCollectiveSponsors v-bind="sponsors.badge"/>
-
       <div v-if="sponsors.partners" class="flex flex-wrap mb-8 -mx-3 sm:-mx-5">
         <PartnerLogo
             class="w-1/3 sm:w-1/5 p-3 sm:p-5 flex items-center justify-center"
@@ -46,13 +43,12 @@
 </template>
 <script>
 import { Button, Showcase } from '../../molecules'
-import { OpenCollectiveBackers, OpenCollectiveSponsors } from '../index'
+import { OpenCollectiveBackers } from '../index'
 
 export default {
   name: 'SupportUsBlock',
   components: {
     OpenCollectiveBackers,
-    OpenCollectiveSponsors,
     Button,
     Showcase
   },
