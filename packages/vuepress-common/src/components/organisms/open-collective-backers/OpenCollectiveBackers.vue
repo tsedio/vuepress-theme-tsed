@@ -76,11 +76,12 @@ export default {
     } = this.$site.themeConfig
 
     const backers = await getBackers(openCollective, this.type)
-    .reduce((map, backer) => {
-      return map.set(map.name, backer)
+
+    const backersMap = backers.reduce((map, backer) => {
+      return map.set(backer.name, backer)
     }, new Map())
 
-    this.backers = [...backers.values()]
+    this.backers = [...backersMap.values()]
   }
 }
 </script>

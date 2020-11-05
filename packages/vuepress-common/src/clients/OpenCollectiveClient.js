@@ -12,6 +12,7 @@ export async function getMembers (repo) {
   if (MEMBERS) {
     return MEMBERS
   }
+
   const { data: members } = await axios.get(`https://cors-anywhere.herokuapp.com/https://opencollective.com/${repo}/members/all.json`, {
     headers: {
       'x-requested-with': 'https://opencollective.com'
