@@ -1,6 +1,13 @@
 <template>
-    <div class="iframe-sandbox">
-    </div>
+  <div class="my-0 my-auto w-full">
+      <iframe class="iframe-sandbox w-full border-0"
+      :src="`${src}?fontsize=${fontSize}&hidenavigation=${hideNavigation}&theme=${theme}`"
+      :sandboxId="sandboxId"
+      :title="title"
+      :sandbox="sandbox"
+      :allow="allow" 
+      :style="{height: '500px'}" />
+  </div>    
 </template>
 
 <script>
@@ -21,9 +28,9 @@ export default {
       default: 14
     },
     hideNavigation: {
-      type: String,
+      type: Number,
       required: false,
-      default: false
+      default: 1
     },
     theme: {
       type: String,
@@ -45,28 +52,5 @@ export default {
       default: 'allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
     },
   },
-  data() {
-    return {
-      iframe: null
-    };
-  },
-  computed: {},
-  methods: {
-    initIframe() {
-      this.iframe = document.createElement('iframe');
-      this.iframe.setAttribute('style', `width:80%; height:500px; margin: 0 auto; border:0; border-radius: 4px; overflow:hidden; font-size: ${this.fontSize}px`);
-      if (this.src) this.iframe.setAttribute('src', this.src);
-      if (this.sandboxId) this.iframe.setAttribute('sandbox-id', this.sandboxId);
-      if (this.hideNavigation) this.iframe.setAttribute('hide-navigation', this.hideNavigation);
-      if (this.theme) this.iframe.setAttribute('theme', this.theme);
-      if (this.title) this.iframe.setAttribute('title', this.title);
-      if (this.sandbox) this.iframe.setAttribute('sandbox', this.sandbox);
-      if (this.allow) this.iframe.setAttribute('allow', this.allow);
-      this.$el.appendChild(this.iframe);
-    },
-  },
-  mounted() {
-    this.initIframe();
-  }
 };
 </script>

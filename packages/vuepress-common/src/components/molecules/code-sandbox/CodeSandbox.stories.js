@@ -2,8 +2,8 @@ import { text, number, select } from '@storybook/addon-knobs'
 import CodeSandbox  from './CodeSandbox'
 
 const NAVIGATION_LIST = {
-  show: true,
-  hide: false
+  true: 1,
+  false: 0
 }
 
 const THEME_LIST = {
@@ -21,7 +21,7 @@ export const overview = () => ({
   },
   props: {
     src: {
-      default: text('src', 'https://codesandbox.io/embed/laughing-kepler-ripfl?fontsize=14&hidenavigation=1&theme=dark')
+      default: text('src', 'https://codesandbox.io/embed/laughing-kepler-ripfl')
     },
     sandboxId: {
       default: text('sandboxId', 'laughing-kepler-ripfl')
@@ -30,7 +30,7 @@ export const overview = () => ({
       default: number('fontSize', 15)
     },
     hideNavigation: {
-      default: select('hideNavigation', NAVIGATION_LIST, false)
+      default: select('hideNavigation', NAVIGATION_LIST, 1)
     },
     theme: {
       default: select('theme', THEME_LIST, 'dark')
@@ -50,9 +50,6 @@ export const overview = () => ({
       <CodeSandbox  
         :src="src" 
         :sandboxId="sandboxId"
-        :fontSize="fontSize"
-        :hideNavigation="hideNavigation"
-        :theme="theme"
         :title="title"
         :allow="allow"
         :sandbox="sandbox">
