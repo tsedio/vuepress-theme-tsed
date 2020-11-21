@@ -22,7 +22,7 @@
     "@tsed/vuepress-common": "3.5.2",
     "@tsed/vuepress-tailwind-config": "3.5.2",
     "@vuepress/plugin-active-header-links": "1.7.1",
-    "@vuepress/plugin-nprogress": "1.6.0",
+    "@vuepress/plugin-nprogress": "1.7.1",
     "@vuepress/plugin-search": "1.2.0",
     "@vuepress/theme-default": "1.7.1",
     "axios": "0.20.0",
