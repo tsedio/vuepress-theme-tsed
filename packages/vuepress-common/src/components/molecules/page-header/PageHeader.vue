@@ -3,7 +3,7 @@
     <div class="bg-gray-lighter z-5" :class="{relative: !fixed, fixed}">
       <div class="page-header-container px-5 md:px-10 max-w-site m-auto flex items-center">
         <div class="flex-1">
-          <div ref="title" class="page-header-title transition-all"
+          <div class="transition-all"
                :class="{'text-xl font-bold md:font-normal md:text-4xl': !fixed, 'font-bold': fixed}">
             {{ title }}
           </div>
@@ -82,21 +82,10 @@ export default {
   },
   components: {
     Share
-  },
-  mounted () {
-    setTimeout(() => {
-      const el = document.querySelector('.content__default > h1')
-
-      if (el) {
-        this.$refs.title.innerHTML = ''
-        this.$refs.title.appendChild(el)
-      }
-    }, 100)
   }
 }
 </script>
 <style>
-.
 .page-header-container {
   transition: all ease 0.5s;
   height: 100px;
@@ -111,10 +100,6 @@ export default {
   .page-header-container {
     height: 200px;
   }
-}
-
-.page-header-title h1 a {
-  display: none;
 }
 
 .page-header.-fixed:after {
