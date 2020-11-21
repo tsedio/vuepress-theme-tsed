@@ -3,7 +3,7 @@
     <div class="bg-gray-lighter z-5" :class="{relative: !fixed, fixed}">
       <div class="page-header-container px-5 md:px-10 max-w-site m-auto flex items-center">
         <div class="flex-1">
-          <div ref="title" id="page-header" class="transition-all"
+          <div ref="title" class="page-header-title transition-all"
                :class="{'text-xl font-bold md:font-normal md:text-4xl': !fixed, 'font-bold': fixed}">
             {{ title }}
           </div>
@@ -96,6 +96,7 @@ export default {
 }
 </script>
 <style>
+.
 .page-header-container {
   transition: all ease 0.5s;
   height: 100px;
@@ -110,6 +111,10 @@ export default {
   .page-header-container {
     height: 200px;
   }
+}
+
+.page-header-title h1 a {
+  display: none;
 }
 
 .page-header.-fixed:after {
