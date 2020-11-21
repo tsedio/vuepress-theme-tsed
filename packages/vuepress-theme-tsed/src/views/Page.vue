@@ -136,7 +136,11 @@ export default {
 </script>
 <style>
 .content__default h1 {
-  display: none;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .page-sidebar {
