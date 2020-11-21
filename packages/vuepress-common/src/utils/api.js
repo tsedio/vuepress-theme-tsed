@@ -4,7 +4,7 @@ import luceneQueryParser from 'lucene-query-parser'
 const lucene = luceneFilter(luceneQueryParser)
 
 function isJS (query) {
-  return query.includes('.includes(')
+  return query.includes('.includes(') || query.includes(' == ') || query.includes(' === ')
 }
 
 function createRegExp (item) {

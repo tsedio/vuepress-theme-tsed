@@ -1,23 +1,18 @@
 <template>
-  <div class="my-0 my-auto w-full">
-      <iframe class="iframe-sandbox w-full border-0"
-      :src="`${src}?fontsize=${fontSize}&hidenavigation=${hideNavigation}&theme=${theme}`"
+  <iframe
+      class="iframe-sandbox w-full border-0"
+      :src="href"
       :sandboxId="sandboxId"
       :title="title"
       :sandbox="sandbox"
-      :allow="allow" 
-      :style="{height: '500px'}" />
-  </div>    
+      :allow="allow"
+      :style="{height}"/>
 </template>
 
 <script>
 export default {
   name: 'iframe-sandbox',
   props: {
-    src: {
-      type: String,
-      required: true
-    },
     sandboxId: {
       type: String,
       required: false
@@ -51,6 +46,17 @@ export default {
       required: false,
       default: 'allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
     },
+    height: {
+      type: String,
+      required: false,
+      default: '500px'
+    }
   },
-};
+  computed: {
+    href () {
+      const { sandboxId, fontSize, hideNavigation, theme } = this
+      return `$https://codesandbox.io/embed/${sandboxId}?fontsize=${fontSize}&hidenavigation=${hideNavigation}&theme=${theme}`
+    }
+  }
+}
 </script>

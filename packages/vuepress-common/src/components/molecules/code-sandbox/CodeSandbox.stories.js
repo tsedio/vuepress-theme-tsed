@@ -20,9 +20,6 @@ export const overview = () => ({
     CodeSandbox,
   },
   props: {
-    src: {
-      default: text('src', 'https://codesandbox.io/embed/laughing-kepler-ripfl')
-    },
     sandboxId: {
       default: text('sandboxId', 'laughing-kepler-ripfl')
     },
@@ -47,8 +44,7 @@ export const overview = () => ({
   },
   template: `
     <div style="width: 100vw; height: 100vh" class="init">
-      <CodeSandbox  
-        :src="src" 
+      <CodeSandbox
         :sandboxId="sandboxId"
         :title="title"
         :allow="allow"
