@@ -74,7 +74,7 @@ jobs:
           CI: true
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn configure && git fetch --quiet && yarn publish:storybook
+        run: yarn publish:storybook
 
 
 

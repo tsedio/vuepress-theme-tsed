@@ -1,7 +1,7 @@
 import { number, select } from '@storybook/addon-knobs'
-import Contributors from './Contributors.vue'
 import { COLORS_LIST } from '../../../utils/colors'
 import contributors from './contributors.json'
+import Contributors from './Contributors.vue'
 
 export default {
   title: 'Molecules/Contributors'
@@ -27,6 +27,53 @@ export const overview = () => ({
     blur: {
       default: number('Blur', 0)
     },
+    textSize: {
+      default: select('text-size', [
+        'micro',
+        'xxs',
+        'xs',
+        'sm',
+        'base',
+        'md',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        '7xl',
+        '11xl'
+      ], 'xxs')
+    },
+    fontWeight: {
+      default: select('font-weight', [
+        'hairline',
+        'thin',
+        'light',
+        'normal',
+        'medium',
+        'semibold',
+        'bold',
+        'extrabold',
+        'black'
+      ], 'normal')
+    },
+    innerPadding: {
+      default: number('padding', 0)
+    },
+    shadow: {
+      default: select('shadow', [
+        'default',
+        'sm',
+        'strong',
+        'md',
+        'lg',
+        'top',
+        'inner',
+        'outline',
+        'none'
+      ], 'none')
+    },
     contributors: {
       default: contributors
         .map((contributor) => {
@@ -43,6 +90,7 @@ export const overview = () => ({
   },
   template: `
     <div style="min-width: 800px" class="p-5 container flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
-      <Contributors :color="color" :bg-color="bgColor" :blur="blur" :width="width" :padding="padding" :contributors="contributors"/>
+    <Contributors :color="color" :bg-color="bgColor" :blur="blur" :width="width" :padding="padding"
+                  :contributors="contributors"/>
     </div>`
 })

@@ -1,11 +1,11 @@
 {
   "name": "@tsed/vuepress-tailwind-config",
-  "version": "3.0.2",
+  "version": "3.5.5",
   "main": "./tailwind.config.js",
   "license": "MIT",
   "scripts": {},
   "dependencies": {
-    "tailwindcss": "1.4.6"
+    "tailwindcss": "1.9.6"
   },
   "devDependencies": {},
   "peerDependencies": {}

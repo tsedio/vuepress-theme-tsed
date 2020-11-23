@@ -1,6 +1,7 @@
 export { default as Api } from './api/Api'
+export { default as Frameworks } from './frameworks/Frameworks'
 export { default as OpenCollectiveBackers } from './open-collective-backers/OpenCollectiveBackers'
-export { default as OpenCollectiveSponsors } from './open-collective-sponsors/OpenCollectiveSponsors'
 export { default as GithubContributors } from './github-contributors/GithubContributors'
 export { default as Projects } from './projects/Projects'
 export { default as SupportUs } from './support-us/SupportUs.vue'
+export { default as SupportUsBlock } from './support-us/SupportUsBlock.vue'

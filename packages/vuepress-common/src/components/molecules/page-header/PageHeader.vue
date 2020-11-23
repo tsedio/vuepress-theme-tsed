@@ -3,7 +3,10 @@
     <div class="bg-gray-lighter z-5" :class="{relative: !fixed, fixed}">
       <div class="page-header-container px-5 md:px-10 max-w-site m-auto flex items-center">
         <div class="flex-1">
-          <h1 class="transition-all" :class="{'text-xl font-bold md:font-normal md:text-4xl': !fixed, 'font-bold': fixed}">{{ title }}</h1>
+          <div class="transition-all"
+               :class="{'text-xl font-bold md:font-normal md:text-4xl': !fixed, 'font-bold': fixed}">
+            {{ title }}
+          </div>
         </div>
         <ul class="flex items-center justify-center text-md -ml-2">
           <li title="Share">

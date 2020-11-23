@@ -56,15 +56,44 @@
     }
   }
 
-  ul:not(.reset-list), ol:not(.reset-list) {
+  ul:not(.reset-list),
+  ol:not(.reset-list) {
     @apply ml-10 my-5 leading-6;
+
+    ul {
+      @apply ml-5 my-1;
+    }
   }
 
   ul:not(.reset-list) {
     @apply list-disc;
+    ul li {
+      list-style: circle;
+    }
   }
 
   ol:not(.reset-list) {
     @apply list-decimal;
+    ol li {
+      list-style: lower-alpha;
+    }
+  }
+
+  hr {
+    @apply border-0 border-t-1 border-solid border-gray-light mt-5 mb-5;
+  }
+
+  figure {
+    @apply flex justify-center items-center py-5;
+    @apply mb-3;
+    @apply mt-3;
+
+    img {
+      @apply shadow-sm;
+    }
+  }
+
+  .tabs {
+    @apply mb-5 mt-5;
   }
 }

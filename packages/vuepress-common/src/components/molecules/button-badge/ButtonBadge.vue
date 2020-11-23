@@ -3,8 +3,9 @@
         :outbound="false"
         :title="title"
         :class="`reset-link transition-all duration-500 ease-in-out relative flex flex-col no-underline hover:scale-110 text-${textSize} text-${color} hover:text-${color}-active` ">
-    <span :class="`flex items-center justify-center relative z-2 overflow-hidden rounded-medium mb-2 bg-${bgColor}`"
-          :style="{width: `${width}px`, height: `${width}px`}">
+    <span
+        :class="`flex items-center justify-center relative z-2 overflow-hidden rounded-medium mb-2 bg-${bgColor} shadow-${shadow} p-${padding}`"
+        :style="{width: `${width}px`, height: `${width}px`}">
         <img :src="src" v-if="src" class="w-full">
         <span v-else
               class="flex items-center justify-center font-bold uppercase text-2xl h-full">{{ title | initial }}</span>
@@ -15,7 +16,11 @@
         :style="{width: `${width}px`, top: `5px`, height: `${width}px`}">
       <img :src="src" class="w-full">
     </span>
-    <span v-show="showTitle" class="text-center">{{ title | overflow }}</span>
+    <span
+        v-show="showTitle"
+        class="flex items-center justify-center whitespace-pre"
+        :class="`font-${fontWeight}`"
+        :style="{width: `${width}px`}">{{ title | overflow }}</span>
   </Link>
 </template>
 <script>
@@ -57,14 +62,23 @@ export default {
     textSize: {
       type: String,
       default: 'xxs'
+    },
+    shadow: {
+      type: String
+    },
+    padding: {
+      type: [String, Number]
+    },
+    fontWeight: {
+      type: String
     }
   },
 
   filters: {
-    initial (text) {
+    initial (text = '') {
       return text.split(' ').map(text => text.slice(0, 1)).join('')
     },
-    overflow (text) {
+    overflow (text = '') {
       return text.slice(0, 12) + (text.length > 12 ? '...' : '')
     }
   }

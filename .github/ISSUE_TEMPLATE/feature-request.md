@@ -7,14 +7,26 @@ assignees: Romakita
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## Information
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+As developer I want ...
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Example
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+<!--
+<img width="894" alt="Capture d’écran 2020-10-24 à 09 25 46" src="https://user-images.githubusercontent.com/1763311/97070738-0ae91280-15db-11eb-9693-9134a4ff47d0.png"> -->
+
+## Component declaration
+
+```html
+<CodeSandbox sandbox-id="laughing-kepler-ripfl" ... />
+```
+
+Props | Type | Description
+---|---|---
+prop1 | String | Description
+
+
+## Acceptance criteria
+
+- [ ] Acceptance

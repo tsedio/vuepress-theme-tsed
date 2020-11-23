@@ -23,7 +23,7 @@
 
     <div class="bg-gray-lighter py-10">
       <div class="container flex flex-col w-full max-w-md mx-auto px-3 pb-5 text-center">
-        <h2 class="text-xl mb-5 normal-case">
+        <h2 class="text-2xl mb-5 normal-case">
           <Content slot-key="testimonial-title"/>
         </h2>
         <Content slot-key="testimonial-content"/>
@@ -63,6 +63,9 @@
               </Button>
             </div>
           </div>
+
+          <Content slot-key="features-footer"/>
+
         </div>
       </div>
     </div>
@@ -88,39 +91,7 @@
       </template>
     </Showcase>
 
-    <Showcase :class="backers.classes"
-              v-bind="backers"
-              v-if="backers">
-
-      <OpenCollectiveBackers v-bind="backers.badge"/>
-
-      <template #showcase-cta>
-        <Button
-            :bg-color="backers.cta.bgColor"
-            :color="backers.cta.color"
-            rounded="medium"
-            :href="backers.cta.url">
-          {{ backers.cta.label }}
-        </Button>
-      </template>
-    </Showcase>
-
-    <Showcase :class="sponsors.classes"
-              v-bind="sponsors"
-              v-if="sponsors">
-
-      <OpenCollectiveSponsors v-bind="backers.badge"/>
-
-      <template #showcase-cta>
-        <Button
-            :bg-color="sponsors.cta.bgColor"
-            :color="sponsors.cta.color"
-            rounded="medium"
-            :href="sponsors.cta.url">
-          {{ sponsors.cta.label }}
-        </Button>
-      </template>
-    </Showcase>
+    <SupportUsBlock />
 
     <slot name="page-bottom"/>
   </div>
@@ -133,7 +104,6 @@ import {
   HeroBanner,
   HeroBannerCta,
   OpenCollectiveBackers,
-  OpenCollectiveSponsors,
   Showcase,
   WordsSlider
 } from '@tsed/vuepress-common'
@@ -147,12 +117,10 @@ export default {
     Feature,
     GithubContributors,
     OpenCollectiveBackers,
-    OpenCollectiveSponsors,
     Button,
     Showcase
   },
   computed: {
-
     gettingStartedUrl () {
       const { gettingStartedUrl } = this.$page.frontmatter
       return gettingStartedUrl
@@ -176,14 +144,6 @@ export default {
     contributors () {
       const { contributors } = this.$page.frontmatter
       return contributors
-    },
-    backers () {
-      const { backers } = this.$page.frontmatter
-      return backers
-    },
-    sponsors () {
-      const { sponsors } = this.$page.frontmatter
-      return sponsors
     },
     liveDemoUrl () {
       const { liveDemoUrl } = this.$page.frontmatter

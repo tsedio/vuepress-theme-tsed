@@ -1,6 +1,6 @@
 <template>
   <div ref="page">
-    <article>
+    <div>
       <div class="relative">
         <PageHeader
             :fixed="headerFixed"
@@ -13,9 +13,11 @@
 
       <div class="px-5 md:px-10 max-w-site m-auto">
         <div class="page-content">
-          <slot name="page-top"/>
-          <Content/>
-          <slot name="page-bottom"/>
+          <article>
+            <slot name="page-top"/>
+            <Content/>
+            <slot name="page-bottom"/>
+          </article>
 
           <div class="pt-5">
             <div class="py-5 flex justify-end text-sm" v-if="lastUpdated">
@@ -38,7 +40,7 @@
       </div>
 
       <PageSidebar class="fixed" :class="{'-mini-header': headerFixed}" :page="$page"/>
-    </article>
+    </div>
   </div>
 </template>
 
@@ -136,7 +138,11 @@ export default {
 </script>
 <style>
 .content__default h1 {
-  display: none;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .page-sidebar {

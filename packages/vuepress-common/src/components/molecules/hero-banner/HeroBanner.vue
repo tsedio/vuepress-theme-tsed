@@ -1,7 +1,7 @@
 <template>
   <div class="hero-banner flex pt-5 md:items-center">
-    <div class="container flex w-full max-w-site mx-auto px-10 pb-10">
-      <div class="flex flex-col sm:w-1/2 justify-center">
+    <div class="container flex w-full max-w-site mx-auto px-5 sm:px-10 pb-10">
+      <div class="flex flex-col w-full sm:w-1/2 justify-center">
         <div class="mb-5 text-center md:text-left">
           <h1 class="text-2xl normal-case mb-4 leading-8 md:font-light md:text-5xl md:leading-10">
             <slot name="hero-brand"/>

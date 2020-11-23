@@ -1,11 +1,11 @@
 {
   "name": "@tsed/vuepress-storybook",
-  "version": "3.0.2",
+  "version": "3.5.5",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@tsed/vuepress-tailwind-config": "3.0.2",
+    "@tsed/vuepress-tailwind-config": "3.5.5",
     "vue": "2.6.12"
   },
   "scripts": {

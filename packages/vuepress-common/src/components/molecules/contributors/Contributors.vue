@@ -1,33 +1,32 @@
 <template>
-  <div :class="`-m-${padding} mb-5`">
-    <ul class="reset-list flex flex-wrap items-center">
-      <li :class="`p-${padding}`"
-          v-for="contributor in contributors"
-          :key="contributor.login">
-        <ButtonBadge
-            :show-title="showTitle"
-            :title="contributor.login"
-            :src="contributor.src"
-            :href="contributor.href"
-            :bgColor="bgColor"
-            :color="color"
-            :text-size="textSize"
-            :blur="blur"
-            :width="width"/>
-      </li>
-    </ul>
-  </div>
+  <ButtonBadges
+      :items="items"
+      :show-title="showTitle"
+      :font-weight="fontWeight"
+      :shadow="shadow"
+      :padding="padding"
+      :inner-padding="innerPadding"
+      :bgColor="bgColor"
+      :color="color"
+      :text-size="textSize"
+      :blur="blur"
+      :width="width"
+  />
 </template>
 <script>
-import ButtonBadge from '../button-badge/ButtonBadge.vue'
+import ButtonBadges from '../button-badge/ButtonBadges.vue'
 
 export default {
   name: 'Contributors',
-  components: { ButtonBadge },
+  components: { ButtonBadges },
   props: {
     contributors: {
       type: Array,
       default: () => []
+    },
+    showTitle: {
+      type: Boolean,
+      default: false
     },
     width: {
       type: [String, Number],
@@ -41,20 +40,32 @@ export default {
       type: String,
       default: 'blue'
     },
+    blur: {
+      type: [String, Number]
+    },
     textSize: {
       type: String,
       default: 'xxs'
     },
-    blur: {
-      type: [String, Number]
+    shadow: {
+      type: String
     },
     padding: {
-      type: [String, Number],
-      default: 3
+      type: [String, Number]
     },
-    showTitle: {
-      type: Boolean,
-      default: false
+    innerPadding: {
+      type: [String, Number]
+    },
+    fontWeight: {
+      type: String
+    }
+  },
+  computed: {
+    items () {
+      return this.contributors.map((item) => ({
+        ...item,
+        title: item.login
+      }))
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <header class="navbar px-5 flex items-center navbar-box-shadow fixed top-0 fixed top-0 inset-x-0 h-16 bg-white"
           ref="navbar">
-    <div class="flex h-full items-center justify-center lg:hidden">
+    <div class="flex h-full items-center justify-center md:hidden">
       <slot name="sidebar-before"/>
     </div>
     <div class="m-0 p-0 text-xl text-normal mr-8">
@@ -31,13 +31,9 @@
           :href="item.url"
           :icon="item.icon"/>
     </div>
-    <div class="flex items-center h-full hidden sm:flex">
+    <div class="flex items-center h-full">
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
-      <!--      <SearchBox v-else-if="$site.themeConfig.search !== false"/>-->
-      <input
-          v-else
-          class="py-1 px-3 border-2 border-gray-lighter bg-gray-lighter ml-5 rounded-small text-gray-darker focus:border-blue transition-all"
-          placeholder="Search"/>
+      <SearchBox class="py-4" v-else-if="isSearchBox"/>
     </div>
   </header>
 </template>
@@ -45,6 +41,7 @@
 import { SOCIALS } from '../../../utils/socials/socials'
 import AlgoliaSearchBox from '../algolia-search-box/AlgoliaSearchBox'
 import IconLink from '../link/IconLink.vue'
+import SearchBox from '../search-box/SearchBox'
 import NavLinks from './NavLinks.vue'
 
 export default {
@@ -52,7 +49,7 @@ export default {
   components: {
     NavLinks,
     IconLink,
-    // SearchBox,
+    SearchBox,
     AlgoliaSearchBox
   },
 
@@ -106,6 +103,9 @@ export default {
   computed: {
     isAlgoliaSearch () {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName
+    },
+    isSearchBox(){
+      return this.$site.themeConfig.search !== false
     },
     leftLinks () {
       return this.items.filter((item) => item.position !== 'right')

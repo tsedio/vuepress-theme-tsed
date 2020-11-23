@@ -1,26 +1,34 @@
 <template>
-  <Contributors :blur="blur"
+  <ButtonBadges :blur="blur"
                 :text-size="textSize"
                 :bg-color="bgColor"
                 :color="color"
                 :width="width"
                 :padding="padding"
-                :contributors="backers"
-                :showTitle="true"></Contributors>
+                :innerPadding="innerPadding"
+                :font-weight="fontWeight"
+                :shadow="shadow"
+                :show-title="true"
+                :items="backers"></ButtonBadges>
 </template>
 <script>
 import { getBackers } from '../../..'
-import Contributors from '../../molecules/contributors/Contributors.vue'
+import ButtonBadges from '../../molecules/button-badge/ButtonBadges'
 
 export default {
   name: 'OpenCollectiveBackers',
   props: {
-    bgColor: {
-      type: String
+    showTitle: {
+      type: Boolean,
+      default: true
     },
     width: {
-      type: Number,
+      type: [String, Number],
       default: 60
+    },
+    bgColor: {
+      type: String,
+      default: 'gray-lighter'
     },
     color: {
       type: String,
@@ -33,9 +41,25 @@ export default {
       type: String,
       default: 'xxs'
     },
+    shadow: {
+      type: String
+    },
     padding: {
-      type: Number,
-      default: 3
+      type: [String, Number]
+    },
+    innerPadding: {
+      type: [String, Number]
+    },
+    fontWeight: {
+      type: String
+    },
+    ignore: {
+      type: Array,
+      default: []
+    },
+    type: {
+      type: String,
+      default: 'BACKER'
     }
   },
   data: () => {
@@ -44,14 +68,20 @@ export default {
     }
   },
   components: {
-    Contributors
+    ButtonBadges
   },
   async mounted () {
     const {
       openCollective
     } = this.$site.themeConfig
 
-    this.backers = await getBackers(openCollective)
+    const backers = await getBackers(openCollective, this.type)
+
+    const backersMap = backers.reduce((map, backer) => {
+      return map.set(backer.name, backer)
+    }, new Map())
+
+    this.backers = [...backersMap.values()]
   }
 }
 </script>
