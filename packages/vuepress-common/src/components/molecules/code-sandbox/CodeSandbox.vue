@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'iframe-sandbox',
+  name: 'CodeSandbox',
   props: {
     sandboxId: {
       type: String,
@@ -55,7 +55,7 @@ export default {
   computed: {
     href () {
       const { sandboxId, fontSize, hideNavigation, theme } = this
-      return `$https://codesandbox.io/embed/${sandboxId}?fontsize=${fontSize}&hidenavigation=${hideNavigation}&theme=${theme}`
+      return `https://codesandbox.io/embed/${sandboxId}?fontsize=${fontSize}&hidenavigation=${hideNavigation}&theme=${theme}`
     }
   }
 }

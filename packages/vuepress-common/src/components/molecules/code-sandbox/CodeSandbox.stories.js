@@ -21,7 +21,7 @@ export const overview = () => ({
   },
   props: {
     sandboxId: {
-      default: text('sandboxId', 'laughing-kepler-ripfl')
+      default: text('sandboxId', 'rough-frost-6bi81')
     },
     fontSize: {
       default: number('fontSize', 15)
