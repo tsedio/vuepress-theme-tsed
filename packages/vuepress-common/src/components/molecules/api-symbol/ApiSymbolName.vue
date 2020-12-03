@@ -17,7 +17,7 @@
     },
     computed: {
       query () {
-        return `name: "${this.name || this.$slots.default[0].text.trim()}"`
+        return `symbolName === "${this.name || this.$slots.default[0].text.trim()}"`
       }
     }
   }
