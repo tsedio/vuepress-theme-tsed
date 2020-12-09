@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "exit 0"
+    "test": "jest"
   },
   "dependencies": {
     "@docsearch/css": "1.0.0-alpha.28",
@@ -21,10 +21,29 @@
     "prismjs": "1.22.0"
   },
   "devDependencies": {
-    "postcss-import": "12.0.1"
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@vue/test-utils": "^1.1.1",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "postcss-import": "12.0.1",
+    "vue-jest": "^3.0.7"
   },
   "resolutions": {
     "watchpack": "1.6.1"
   },
-  "peerDependencies": {}
+  "peerDependencies": {},
+  "jest": {
+    "moduleNameMapper": {
+      "^vue$": "vue/dist/vue.common.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      ".*\\.(vue)$": "vue-jest"
+    }
+  }
 }
