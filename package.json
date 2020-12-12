@@ -15,7 +15,7 @@
     "serve:theme": "lerna run serve --stream --scope vuepress-theme-tsed",
     "build:storybook": "lerna run build:storybook --stream --scope @tsed/vuepress-storybook",
     "publish:storybook": "yarn build:storybook && monorepo publish ghpages",
-    "test": "exit 0",
+    "test": "lerna run test --stream",
     "release": "semantic-release"
   },
   "dependencies": {
