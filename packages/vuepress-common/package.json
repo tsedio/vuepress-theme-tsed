@@ -1,6 +1,6 @@
 {
   "name": "@tsed/vuepress-common",
-  "version": "3.5.8",
+  "version": "3.5.9",
   "description": "Shared components and utils",
   "main": "./src/index.js",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
@@ -32,7 +32,6 @@
   "resolutions": {
     "watchpack": "1.6.1"
   },
-  "peerDependencies": {},
   "jest": {
     "moduleNameMapper": {
       "^vue$": "vue/dist/vue.common.js"
@@ -45,5 +44,6 @@
       "^.+\\.js$": "babel-jest",
       ".*\\.(vue)$": "vue-jest"
     }
-  }
+  },
+  "peerDependencies": {}
 }
