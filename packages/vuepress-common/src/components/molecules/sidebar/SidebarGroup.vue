@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-group" :class="{ first, collapsable }">
+  <section class="sidebar-group" :class="{ first, collapsable, [`depth-${depth}`]: true }">
     <p class="cursor-pointer font-bold text-gray-darker flex items-center justify-center text-md pl-5 pr-2 py-1"
        :class="{ open }"
        @click="$emit('toggle')">
@@ -15,7 +15,7 @@
         </li>
       </ul>
     </DropdownTransition>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ import SidebarLink from './SidebarLink.vue'
 
 export default {
   name: 'SidebarGroup',
-  props: ['item', 'first', 'open', 'collapsable'],
+  props: ['item', 'first', 'open', 'collapsable', 'depth'],
   components: { SidebarLink, DropdownTransition }
 }
 </script>

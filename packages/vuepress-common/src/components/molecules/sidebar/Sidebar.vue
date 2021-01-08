@@ -9,6 +9,7 @@
                       :first="i === 0"
                       :open="i === openGroupIndex"
                       :collapsable="item.collapsable || item.collapsible"
+                      :depth="0"
                       class="mb-2"
                       @toggle="toggleGroup(i)"/>
 
