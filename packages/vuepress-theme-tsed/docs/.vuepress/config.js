@@ -44,7 +44,8 @@ module.exports = {
       end: new Date().getFullYear()
     },
     repo: 'TypedProject/tsed',
-    openCollective: 'tsed',
+    docsRepo: 'https://api.tsed.io/rest/github/TypedProject/tsed',
+    openCollective: 'https://api.tsed.io/rest/opencollective',
     gitterUrl: 'https://gitter.im/Tsed-io/community',
     stackoverflowUrl: 'https://stackoverflow.com/search?q=tsed',
     sponsorUrl: 'https://opencollective.com/tsed',
@@ -52,6 +53,7 @@ module.exports = {
     docsDir: 'docs',
     sidebar: 'auto',
     docsBranch: 'production',
+
     api: require('./public/api.json'),
     smoothScroll: true,
     lastUpdated: 'Last updated',

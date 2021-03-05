@@ -1,4 +1,7 @@
 import axios from 'axios'
+import { outboundRE } from '../utils'
+
+export let openCollectiveHost = 'https://cors-anywhere.herokuapp.com/https://opencollective.com/'
 
 export async function getBackers (repo, type) {
   const members = await getMembers(repo)
@@ -13,7 +16,11 @@ export async function getMembers (repo) {
     return MEMBERS
   }
 
-  const { data: members } = await axios.get(`https://cors-anywhere.herokuapp.com/https://opencollective.com/${repo}/members/all.json`, {
+  const base = outboundRE.test(repo)
+    ? repo
+    : `https://opencollective.com/${repo}/members/all.json`
+
+  const { data: members } = await axios.get(base, {
     headers: {
       'x-requested-with': 'https://opencollective.com'
     }
