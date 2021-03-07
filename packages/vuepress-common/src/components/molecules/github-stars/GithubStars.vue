@@ -54,10 +54,11 @@ export default {
   async mounted () {
     const {
       repo,
+      githubProxyUrl,
       docsRepo = repo
     } = this.$site.themeConfig
 
-    const { stargazers_count, html_url } = await getGithubMetadata(docsRepo)
+    const { stargazers_count, html_url } = await getGithubMetadata(githubProxyUrl)
 
     this.url = html_url
     this.stargazersCount = stargazers_count

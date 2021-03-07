@@ -72,9 +72,10 @@ export default {
   async mounted () {
     const {
       repo,
-      docsRepo = repo
+      githubProxyUrl,
+      docsRepo = repo,
     } = this.$site.themeConfig
-    let contributors = await getContributors(docsRepo)
+    let contributors = await getContributors(githubProxyUrl || docsRepo)
 
     if (this.users.length) {
       contributors = contributors.filter((contributor) => {
