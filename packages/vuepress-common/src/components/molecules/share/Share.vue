@@ -51,7 +51,7 @@ export default {
     },
     hashTags: {
       type: Array,
-      default: []
+      default: () => []
     },
     source: {
       type: String,

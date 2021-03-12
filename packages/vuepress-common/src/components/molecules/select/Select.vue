@@ -44,7 +44,7 @@ export default {
     },
     items: {
       type: Array,
-      default: []
+      default: () => []
     },
     bgColor: {
       type: String

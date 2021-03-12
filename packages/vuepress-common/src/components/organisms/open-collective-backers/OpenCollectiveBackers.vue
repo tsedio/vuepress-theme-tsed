@@ -55,7 +55,7 @@ export default {
     },
     ignore: {
       type: Array,
-      default: []
+      default: () => []
     },
     type: {
       type: String,
