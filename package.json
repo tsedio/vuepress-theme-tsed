@@ -39,7 +39,7 @@
     "lerna": "3.22.0",
     "lite-server": "2.5.4",
     "semantic-release": "17.2.2",
-    "vuepress": "1.7.1"
+    "vuepress": "1.8.2"
   },
   "resolutions": {
     "watchpack": "1.6.1"
