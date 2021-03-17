@@ -20,7 +20,8 @@ const BRAND_COLORS = {
   SOUTH_SEA: 'southSea',
   TURQUOISE: 'turquoise',
   WATER_GREEN: 'waterGreen',
-  CODE: 'code'
+  CODE: 'code',
+  WHITE_BUTTON: 'white-button'
 }
 
 const APP_ADDITIONAL_COLORS = {

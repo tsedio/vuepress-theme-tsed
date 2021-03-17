@@ -1,4 +1,4 @@
-import Teams from './Teams.vue'
+import Teams from './Team.vue'
 
 export default {
   title: 'Organisms/Teams',

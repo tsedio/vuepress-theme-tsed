@@ -17,7 +17,7 @@
 import UserCard from '../../molecules/user/UserCard'
 
 export default {
-  name: 'Teams',
+  name: 'Team',
   components: {
     UserCard
   },
@@ -36,9 +36,9 @@ export default {
         return this.items
       }
 
-      const { frontmatter: { teams } } = this.$page
+      const { teams, team } = this.$site.themeConfig
 
-      return teams
+      return team || teams
     }
   }
 }

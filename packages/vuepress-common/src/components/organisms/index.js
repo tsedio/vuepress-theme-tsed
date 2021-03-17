@@ -5,3 +5,4 @@ export { default as GithubContributors } from './github-contributors/GithubContr
 export { default as Projects } from './projects/Projects'
 export { default as SupportUs } from './support-us/SupportUs.vue'
 export { default as SupportUsBlock } from './support-us/SupportUsBlock.vue'
+export { default as ReleaseNote } from './release-note/ReleaseNote.vue'

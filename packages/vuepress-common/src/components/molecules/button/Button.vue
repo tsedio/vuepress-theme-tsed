@@ -1,12 +1,16 @@
 <template>
-  <component :disabled="disabled" :is="component" :class="classes">
-    <Link
-        :outbound="false"
-        :href="href"
-        :title="title"
+  <component
+      @click="onClick"
+      :disabled="disabled"
+      :is="component"
+      :class="classes"
+      :outbound="false"
+      :href="href"
+      :title="title">
+    <span
         :class="`reset-link flex justify-center items-center w-full font-${fontWeight} px-${paddingX} py-${paddingY}`">
       <span class="m-1 text-center flex justify-center items-center"><slot/></span>
-    </Link>
+    </span>
   </component>
 </template>
 <script>
@@ -16,8 +20,8 @@ export default {
   name: 'Button',
   props: {
     component: {
-      type: String,
-      default: 'div'
+      type: [Object, String],
+      default: () => Link
     },
     disabled: {
       type: Boolean,
@@ -64,7 +68,7 @@ export default {
       default: ''
     }
   },
-  components:{
+  components: {
     Link
   },
   computed: {
@@ -91,6 +95,11 @@ export default {
   bg-${bgColor} border-${borderColor} text-${color} focus:bg-${bgColor}-active focus:border-${borderColor}-active
   hover:bg-${bgColor}-active hover:border-${borderColor}-active focus:text-${color}-active hover:text-${color}-active
    cursor-pointer border-1 border-solid rounded-${rounded} shadow-${shadow}`
+    }
+  },
+  methods: {
+    onClick (evt) {
+      this.$emit('click', evt)
     }
   }
 }

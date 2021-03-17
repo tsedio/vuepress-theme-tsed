@@ -58,7 +58,7 @@ export default {
       docsRepo = repo
     } = this.$site.themeConfig
 
-    const { stargazers_count, html_url } = await getGithubMetadata(githubProxyUrl)
+    const { stargazers_count, html_url } = await getGithubMetadata(githubProxyUrl || docsRepo)
 
     this.url = html_url
     this.stargazersCount = stargazers_count
