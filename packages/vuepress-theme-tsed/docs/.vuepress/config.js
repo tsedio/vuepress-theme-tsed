@@ -53,7 +53,6 @@ module.exports = {
     docsDir: 'docs',
     sidebar: 'auto',
     docsBranch: 'production',
-
     api: require('./public/api.json'),
     smoothScroll: true,
     lastUpdated: 'Last updated',

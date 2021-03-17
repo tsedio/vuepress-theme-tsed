@@ -75,6 +75,7 @@ export default {
       githubProxyUrl,
       docsRepo = repo,
     } = this.$site.themeConfig
+
     let contributors = await getContributors(githubProxyUrl || docsRepo)
 
     if (this.users.length) {

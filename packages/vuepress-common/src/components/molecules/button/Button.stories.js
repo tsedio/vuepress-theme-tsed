@@ -1,144 +1,84 @@
-import { ICONS } from '../../atoms/icons/icons'
-import Button from './Button.vue'
 import { COLORS_LIST } from '../../../utils/colors'
-import { boolean, number, select, text } from '@storybook/addon-knobs'
 import BxIcon from '../../atoms/icons/BxIcon'
+import Button from './Button.vue'
 
 export default {
-  title: 'Molecules/Button'
+  title: 'Molecules/Button',
+  component: Button,
+  argTypes: {
+    color: {
+      control: {
+        type: 'select',
+        options: COLORS_LIST
+      }
+    },
+    bgColor: {
+      control: {
+        type: 'select',
+        options: COLORS_LIST
+      }
+    },
+    borderColor: {
+      control: {
+        type: 'select',
+        options: COLORS_LIST
+      }
+    },
+    rounded: {
+      control: {
+        type: 'select',
+        options: [
+          'none',
+          'xs',
+          'small',
+          'default',
+          'medium',
+          'large',
+          'full'
+        ]
+      }
+    },
+    shadow: {
+      control: {
+        type: 'select',
+        options: [
+          'default',
+          'sm',
+          'strong',
+          'md',
+          'lg',
+          'top',
+          'inner',
+          'outline',
+          'none'
+        ]
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  }
 }
 
-export const overview = () => ({
+const Template = (args, { argTypes }) => ({
   components: {
     Button,
     BxIcon
   },
-  props: {
-    text: {
-      default: text('Text', 'Button')
-    },
-    disabled: {
-      default: boolean('Disabled', false)
-    },
-    color: {
-      default: select('Color', COLORS_LIST, 'white')
-    },
-    bgColor: {
-      default: select('Background color', COLORS_LIST, 'blue')
-    },
-    fontWeight: {
-      default: select('Font weight', ['bold', 'normal'], 'bold')
-    },
-    paddingX: {
-      default: number('PaddingX', 4)
-    },
-    paddingY: {
-      default: number('PaddingY', 1)
-    },
-    rounded: {
-      default: select('Rounded', [
-        'none',
-        'xs',
-        'small',
-        'default',
-        'medium',
-        'large',
-        'full'
-      ], 'small')
-    },
-    shadow: {
-      default: select('Shadow', [
-        'default',
-        'sm',
-        'strong',
-        'md',
-        'lg',
-        'top',
-        'inner',
-        'outline',
-        'none'
-      ], 'none')
-    }
-  },
-  template: `
-    <Button :disabled="disabled"
-            :color="color"
-            :bg-color="bgColor"
-            :font-weight="fontWeight"
-            :padding-x="paddingX"
-            :padding-y="paddingY"
-            :rounded="rounded"
-            :shadow="shadow">
-      {{text}}
-    </Button>`
+  props: Object.keys(argTypes),
+  template: '<Button v-bind="$props">{{$props.text}}</Button>'
 })
 
-export const withIcon = () => ({
-  components: {
-    Button,
-    BxIcon
-  },
-  props: {
-    text: {
-      default: text('Text', 'Button')
-    },
-    disabled: {
-      default: boolean('Disabled', false)
-    },
-    color: {
-      default: select('Color', COLORS_LIST, 'white')
-    },
-    bgColor: {
-      default: select('Background color', COLORS_LIST, 'blue')
-    },
-    fontWeight: {
-      default: select('Font weight', ['bold', 'normal'], 'bold')
-    },
-    paddingX: {
-      default: number('PaddingX', 4)
-    },
-    paddingY: {
-      default: number('PaddingY', 1)
-    },
-    rounded: {
-      default: select('Rounded', [
-        'none',
-        'xs',
-        'small',
-        'default',
-        'medium',
-        'large',
-        'full'
-      ], 'small')
-    },
-    shadow: {
-      default: select('Shadow', [
-        'default',
-        'sm',
-        'strong',
-        'md',
-        'lg',
-        'top',
-        'inner',
-        'outline',
-        'none'
-      ], 'none')
-    },
-    icons: {
-      default: Object.values(ICONS)
-    }
-  },
-  template: `
-    <Button :disabled="disabled"
-            :color="color"
-            :bg-color="bgColor"
-            :font-weight="fontWeight"
-            :padding-x="paddingX"
-            :padding-y="paddingY"
-            :rounded="rounded"
-            :shadow="shadow"
-            class="flex items-center">
-      <BxIcon: name="icons" class="mr-2 -ml-2 text-lg"/>
-      {{text}}
-    </Button>`
-})
+export const Overview = Template.bind({})
+
+Overview.args = {
+  text: 'Text',
+  color: 'white-button',
+  bgColor: 'blue',
+  borderColor: 'blue',
+  disabled: false
+}

@@ -12,7 +12,9 @@ Vue.use({
         this.$site = {
           themeConfig: {
             api,
-            repo: 'TypedProject/tsed'
+            repo: 'TypedProject/tsed',
+            githubProxyUrl: 'https://api.tsed.io/rest/github/TypedProject/tsed',
+            openCollective: 'https://api.tsed.io/rest/opencollective',
           }
         }
       }
