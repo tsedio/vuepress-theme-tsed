@@ -1,7 +1,7 @@
 import Teams from './Team.vue'
 
 export default {
-  title: 'Organisms/Teams',
+  title: 'Organisms/Team',
   component: Teams
 }
 

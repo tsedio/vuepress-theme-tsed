@@ -15,6 +15,51 @@ Vue.use({
             repo: 'TypedProject/tsed',
             githubProxyUrl: 'https://api.tsed.io/rest/github/TypedProject/tsed',
             openCollective: 'https://api.tsed.io/rest/opencollective',
+            footerSections: [
+              {
+                title: 'Discover',
+                items: [
+                  {
+                    label: 'Our team',
+                    url: '/'
+                  },
+                  {
+                    label: 'Contact us',
+                    url: '/'
+                  }
+                ]
+              },
+              {
+                title: 'Help',
+                items: [
+                  {
+                    label: 'Resources',
+                    url: '/'
+                  },
+                  {
+                    label: 'Chat with us',
+                    url: '/'
+                  },
+                  {
+                    label: 'Contribution guide',
+                    url: '/'
+                  }
+                ]
+              },
+              {
+                title: 'Support',
+                items: [
+                  {
+                    label: 'Issues',
+                    url: '/'
+                  },
+                  {
+                    label: 'Sponsoring & donations',
+                    url: '/'
+                  }
+                ]
+              }
+            ]
           }
         }
       }

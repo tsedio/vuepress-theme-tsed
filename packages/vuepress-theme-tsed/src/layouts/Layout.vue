@@ -57,6 +57,7 @@
             :author="$site.themeConfig.author"
             :license-type="$site.themeConfig.licenseType"
             :copyright-dates="$site.themeConfig.copyrightDates"
+            :sections="$site.themeConfig.footerSections"
             :social-urls="$site.themeConfig">
       <template #top>
         <SupportUs v-if="!isLandingPage"
