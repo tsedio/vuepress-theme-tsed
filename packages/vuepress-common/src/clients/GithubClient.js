@@ -1,10 +1,8 @@
 import axios from 'axios'
 import { outboundRE } from '../utils'
 
-let CONTRIBUTORS
 
 function getHost (docsRepo) {
-
   const base = outboundRE.test(docsRepo)
     ? docsRepo
     : `https://github.com/${docsRepo}`
@@ -13,15 +11,11 @@ function getHost (docsRepo) {
 }
 
 export async function getContributors (docsRepo, { page= 1, per_page= 100 } = {}) {
-  if (CONTRIBUTORS) {
-    return CONTRIBUTORS
-  }
-
   const endpoint = `${getHost(docsRepo)}/contributors`
 
   const { data: contributors } = await axios.get(`${endpoint}?page=${page}&per_page=${per_page}`)
 
-  CONTRIBUTORS = contributors
+  return contributors
     .filter(contributor => !['semantic-release-bot', 'dependabot[bot]'].includes(contributor.login))
     .map((contributor) => {
       const { avatar_url, html_url, login } = contributor
@@ -32,22 +26,12 @@ export async function getContributors (docsRepo, { page= 1, per_page= 100 } = {}
         ...contributor
       }
     })
-
-  return CONTRIBUTORS
 }
 
-let METADATA
-
 export async function getGithubMetadata (docsRepo) {
-  if (METADATA) {
-    return METADATA
-  }
-
   const { data } = await axios.get(getHost(docsRepo))
 
-  METADATA = data
-
-  return METADATA
+  return data
 }
 
 export async function getGithubReleases (docsRepo, { page= 1, per_page= 30 } = {}) {
