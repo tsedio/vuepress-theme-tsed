@@ -13,10 +13,19 @@
                 :href="item.url"
                 :icon="item.icon"/>
           </div>
-          <div class="absolute top-0 right-0 pt-5 pr-8 sm:p-10">
+          <div class="absolute top-0 right-0 pt-5 pr-8 pr-10">
             <GithubStars border-color="white" color="blue"/>
           </div>
         </div>
+
+        <div
+            v-if="sections.length"
+            class="flex flex-col sm:flex-row text-center sm:text-left items-start content-center justify-between pt-5 sm:mb-5 sm:py-5">
+          <FooterSection v-if="sections.length >= 1" :title="sections[0].title" :items="sections[0].items" />
+          <FooterSection v-if="sections.length >= 2" class="sm:text-center" :title="sections[1].title" :items="sections[1].items" />
+          <FooterSection v-if="sections.length === 3" class="sm:text-right" :title="sections[2].title" :items="sections[2].items" />
+        </div>
+
         <div class="text-sm">
           Copyright © {{ copyrightDates.start }}-{{ copyrightDates.end }} <a
             class="text-blue font-bold hover:text-blue-active"
@@ -34,10 +43,15 @@ import { SOCIALS } from '../../../utils/socials/socials'
 import Button from '../button/Button'
 import GithubStars from '../github-stars/GithubStars'
 import IconLink from '../link/IconLink'
+import FooterSection from './FooterSection'
 
 export default {
-  components: { GithubStars, Button, IconLink },
+  components: { FooterSection, GithubStars, Button, IconLink },
   props: {
+    sections: {
+      type: Array,
+      default: () => []
+    },
     author: {
       type: String
     },
