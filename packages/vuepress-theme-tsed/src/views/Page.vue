@@ -12,7 +12,7 @@
       </div>
 
       <div class="px-5 md:px-10 max-w-site m-auto">
-        <div class="page-content">
+        <div class="page-content" :class="{['--full']: shouldShowPageSidebar}">
           <article>
             <slot name="page-top"/>
             <Content/>
@@ -35,11 +35,14 @@
               Other topics
             </h4>
           </OtherTopics>
-
         </div>
       </div>
 
-      <PageSidebar class="fixed overflow-auto" :class="{'-mini-header': headerFixed}" :page="$page"/>
+      <PageSidebar
+          v-if="shouldShowPageSidebar"
+          class="fixed overflow-auto"
+          :class="{'-mini-header': headerFixed}"
+          :page="$page"/>
     </div>
   </div>
 </template>
@@ -119,6 +122,11 @@ export default {
           this.otherTopicsItems.length
       )
     },
+    shouldShowPageSidebar () {
+      const { frontmatter } = this.$page
+
+      return frontmatter.pageSidebar !== false
+    },
     otherTopicsItems () {
       return resolveOtherTopicsItems(
           this.$page,
@@ -164,6 +172,10 @@ export default {
 
   .page-content {
     width: calc(100% - 220px)
+  }
+
+  .page-content.--full {
+    width: 100%;
   }
 }
 
