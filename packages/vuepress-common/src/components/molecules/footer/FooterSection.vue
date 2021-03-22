@@ -6,7 +6,7 @@
 
     <ul class="transition-colors duration-300 ease-linear">
       <li class="py-2" v-for="item of items" :key="item.url">
-        <Link :href="item.url" class="text-gray-light font-bold hover:text-blue-active"
+        <Link :outbound="false" :href="item.url" class="text-gray-light font-bold hover:text-blue-active"
               aria-current="page">
           {{ item.label }}
         </Link>
