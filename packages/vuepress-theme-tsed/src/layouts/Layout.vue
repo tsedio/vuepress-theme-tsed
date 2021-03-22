@@ -57,7 +57,7 @@
             :author="$site.themeConfig.author"
             :license-type="$site.themeConfig.licenseType"
             :copyright-dates="$site.themeConfig.copyrightDates"
-            :sections="$site.themeConfig.footerSections"
+            :sections="footer.sections"
             :social-urls="$site.themeConfig">
       <template #top>
         <SupportUs v-if="!isLandingPage"
@@ -156,6 +156,10 @@ export default {
           this.$site,
           this.$localePath
       )
+    },
+
+    footer () {
+      return this.$themeLocaleConfig.footer || this.$site.themeConfig.footer || {}
     },
 
     pageClasses () {
