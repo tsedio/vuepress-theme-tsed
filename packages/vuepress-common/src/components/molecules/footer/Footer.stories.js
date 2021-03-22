@@ -76,21 +76,3 @@ Overview.args = {
     }
   ]
 }
-
-//
-// export const overview = () => ({
-//   components: {
-//     Footer
-//   },
-//   props: {
-//
-//   },
-//   template: `
-//     <div style="min-width: 800px" class="p-5 container flex flex-col w-full max-w-site-large mx-auto px-3 pb-10">
-//     <Footer :license-type="licenseType"
-//             :social-urls="socialUrls"
-//             :copyright-dates="{start: '2016', end: '2020'}"
-//             :author="author"
-//             :repo-url="repoUrl"/>
-//     </div>`
-// })

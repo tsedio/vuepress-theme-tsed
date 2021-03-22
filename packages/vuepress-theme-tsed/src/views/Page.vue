@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <PageSidebar class="fixed" :class="{'-mini-header': headerFixed}" :page="$page"/>
+      <PageSidebar class="fixed overflow-auto" :class="{'-mini-header': headerFixed}" :page="$page"/>
     </div>
   </div>
 </template>
@@ -169,6 +169,7 @@ export default {
 
 .page-sidebar {
   top: 300px;
+  bottom: 0;
   transition: all ease 0.5s;
 }
 

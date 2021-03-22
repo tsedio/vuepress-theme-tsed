@@ -30,7 +30,6 @@ export default {
   @apply pl-10;
   right: 20px;
   width: 250px;
-  max-height: calc(100vh - 350px);
 
   a:hover:not(.active) {
     @apply text-blue-active;
