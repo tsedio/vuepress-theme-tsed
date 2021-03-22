@@ -12,7 +12,7 @@
       </div>
 
       <div class="px-5 md:px-10 max-w-site m-auto">
-        <div class="page-content" :class="{['--full']: shouldShowPageSidebar}">
+        <div class="page-content" :class="{['--full']: !shouldShowPageSidebar}">
           <article>
             <slot name="page-top"/>
             <Content/>
