@@ -1,7 +1,7 @@
 <template>
   <div class="rounded p-6 flex flex-col">
       <span
-          :class="`flex items-center justify-center relative z-2 overflow-hidden rounded-medium mb-2 bg-white h-32 w-32 rounded-full mx-auto`">
+          :class="`flex items-center justify-center relative z-2 overflow-hidden mb-2 bg-white h-32 w-32 rounded-full mx-auto`">
           <img :src="src" v-if="src" class="w-full">
           <span v-else
                 class="flex items-center justify-center font-bold uppercase text-2xl h-full">{{
