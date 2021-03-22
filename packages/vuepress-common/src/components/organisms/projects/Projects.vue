@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+import get from "lodash/get"
 import ButtonBadge from '../../molecules/button-badge/ButtonBadge'
 
 export default {
@@ -50,13 +51,14 @@ export default {
     padding: {
       type: [String, Number],
       default: 3
+    },
+    type: {
+      type: String
     }
   },
   computed: {
     projects () {
-      const { frontmatter: { projects } } = this.$page
-
-      return projects
+      return get(this.$page, `frontmatter.${this.type || 'projects'}`)
     }
   }
 }
