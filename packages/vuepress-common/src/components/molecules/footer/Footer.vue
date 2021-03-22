@@ -18,7 +18,7 @@
           </div>
         </div>
 
-        <div  v-if="sections.length" class="w-full max-w-site margin-auto">
+        <div  v-if="sections.length" class="w-full max-w-site m-auto">
           <div class="flex flex-col sm:flex-row text-center sm:text-left items-start content-center justify-between pt-5 sm:mb-5 sm:py-5">
             <FooterSection v-if="sections.length >= 1" :title="sections[0].title" :items="sections[0].items" />
             <FooterSection v-if="sections.length >= 2" class="sm:text-center" :title="sections[1].title" :items="sections[1].items" />
