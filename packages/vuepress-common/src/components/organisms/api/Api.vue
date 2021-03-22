@@ -31,8 +31,9 @@
 
       <div v-for="module in modules" v-if="module.symbols.length" :key="module.index">
         <h2>{{ module.name }}</h2>
-
-        <ApiList :items="module.symbols"></ApiList>
+        <ClientOnly>
+          <ApiList :items="module.symbols"></ApiList>
+        </ClientOnly>
       </div>
     </template>
 
@@ -72,12 +73,13 @@ export default {
         return {}
       }
 
-      return Object.keys(modules).reduce((acc, key) => {
+      return Object.keys(modules)
+          .sort((a, b) => a < b ? -1 : 1)
+          .reduce((acc, key) => {
 
         const symbols = modules[key]
             .symbols
             .filter((symbol) => {
-
               if (!!(this.currentType && symbol.symbolType !== this.currentType)) {
                 return false
               }
