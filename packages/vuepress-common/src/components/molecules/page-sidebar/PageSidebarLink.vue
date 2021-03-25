@@ -89,10 +89,10 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
   }
 
   &.active {
-    @apply text-blue font-bold;
+    @apply text-blue-600 font-bold;
   }
   &.active:before {
-    @apply bg-blue border-blue;
+    @apply bg-blue-600 border-blue-600;
   }
 }
 </style>

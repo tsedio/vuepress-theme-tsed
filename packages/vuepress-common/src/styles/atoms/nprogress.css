@@ -1,5 +1,5 @@
 #nprogress .bar.bar {
-  @apply bg-blue;
+  @apply bg-blue-600;
 }
 
 #nprogress .peg.peg {

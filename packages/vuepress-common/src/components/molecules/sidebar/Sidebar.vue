@@ -104,7 +104,7 @@ export default {
 }
 
 .sidebar-sub-header a.active.sidebar-link {
-  @apply text-blue;
+  @apply text-blue-600;
 }
 
 .sidebar-sub-header a.active.sidebar-link:after {

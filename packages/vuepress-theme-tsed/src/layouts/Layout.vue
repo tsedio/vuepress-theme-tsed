@@ -1,76 +1,79 @@
 <template>
-  <div class="theme-container init"
-       :class="pageClasses"
-       @touchstart="onTouchStart"
-       @touchend="onTouchEnd">
-    <Navbar
-        v-if="shouldShowNavbar"
-        :site-title="siteTitle"
-        :html-title="htmlTitle"
-        :logo-src="logoSrc"
-        :href="$localePath"
-        :repo-url="repoUrl"
-        :social-urls="$site.themeConfig"
-        :items="navLinks"
-        :algolia="algolia">
-      <template #sidebar-before>
-        <div v-if="shouldShowSidebar"
-             class="flex cursor-pointer text-xl mr-4"
-             @click="toggleSidebar">
-          <i class="bx bx-menu"/>
+  <div class="init" :class="{'full-page': !shouldShowPageSidebar}">
+    <div class="theme-container"
+         :class="pageClasses"
+         @touchstart="onTouchStart"
+         @touchend="onTouchEnd">
+      <Navbar
+          v-if="shouldShowNavbar"
+          :site-title="siteTitle"
+          :html-title="htmlTitle"
+          :logo-src="logoSrc"
+          :href="$localePath"
+          :repo-url="repoUrl"
+          :social-urls="$site.themeConfig"
+          :items="navLinks"
+          :algolia="algolia">
+        <template #sidebar-before>
+          <div v-if="shouldShowSidebar"
+               class="flex cursor-pointer text-xl mr-4"
+               @click="toggleSidebar">
+            <i class="bx bx-menu"/>
+          </div>
+        </template>
+      </Navbar>
+
+      <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
+
+      <main class="main-content relative z-2 pt-16">
+        <div class="custom-layout" v-if="isCustomLayout">
+          <component :is="$page.frontmatter.layout"/>
         </div>
-      </template>
-    </Navbar>
 
-    <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
+        <Home v-else-if="isLandingPage"/>
 
-    <main class="main-content relative z-2 pt-16">
-      <div class="custom-layout" v-if="isCustomLayout">
-        <component :is="$page.frontmatter.layout"/>
-      </div>
+        <Page v-else :sidebar-items="sidebarItems">
+          <template #top>
+            <slot name="page-top"/>
+          </template>
+          <template #bottom>
+            <slot name="page-bottom"/>
+          </template>
+        </Page>
+      </main>
 
-      <Home v-else-if="isLandingPage"/>
-
-      <Page v-else :sidebar-items="sidebarItems">
+      <Sidebar :items="sidebarItems"
+               v-if="shouldShowSidebar"
+               :class="{'-translate-x-100 md:shadow-sidebar md:translate-x-0': !isSidebarOpen, 'translate-0 shadow-sidebar': isSidebarOpen}"
+               @toggle-sidebar="toggleSidebar">
         <template #top>
-          <slot name="page-top"/>
+          <slot name="sidebar-top"/>
         </template>
         <template #bottom>
-          <slot name="page-bottom"/>
+          <slot name="sidebar-bottom"/>
         </template>
-      </Page>
-    </main>
+      </Sidebar>
 
-    <Sidebar :items="sidebarItems"
-             v-if="shouldShowSidebar"
-             :class="{'-translate-x-100 md:shadow-sidebar md:translate-x-0': !isSidebarOpen, 'translate-0 shadow-sidebar': isSidebarOpen}"
-             @toggle-sidebar="toggleSidebar">
-      <template #top>
-        <slot name="sidebar-top"/>
-      </template>
-      <template #bottom>
-        <slot name="sidebar-bottom"/>
-      </template>
-    </Sidebar>
-
-    <Footer :repo-url="repoUrl"
-            :author="$site.themeConfig.author"
-            :license-type="$site.themeConfig.licenseType"
-            :copyright-dates="$site.themeConfig.copyrightDates"
-            :sections="footer.sections"
-            :social-urls="$site.themeConfig">
-      <template #top>
-        <SupportUs v-if="!isLandingPage"
-                   :brand="$site.themeConfig.shortTitle"
-                   :sponsor-url="$site.themeConfig.sponsorUrl"
-                   :license-type="$site.themeConfig.licenseType"/>
-        <slot name="footer-top"/>
-      </template>
-      <template #bottom>
-        <slot name="footer-bottom"/>
-      </template>
-    </Footer>
+      <Footer :repo-url="repoUrl"
+              :author="$site.themeConfig.author"
+              :license-type="$site.themeConfig.licenseType"
+              :copyright-dates="$site.themeConfig.copyrightDates"
+              :sections="footer.sections"
+              :social-urls="$site.themeConfig">
+        <template #top>
+          <SupportUs v-if="!isLandingPage"
+                     :brand="$site.themeConfig.shortTitle"
+                     :sponsor-url="$site.themeConfig.sponsorUrl"
+                     :license-type="$site.themeConfig.licenseType"/>
+          <slot name="footer-top"/>
+        </template>
+        <template #bottom>
+          <slot name="footer-bottom"/>
+        </template>
+      </Footer>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -79,6 +82,7 @@ import Vue from 'vue'
 import VueTsed from '../install'
 import Home from '../views/Home'
 import Page from '../views/Page'
+import WarehousePage from '../views/WarehousePage'
 
 Vue.use(VueTsed)
 
@@ -86,6 +90,7 @@ export default {
   components: {
     Home,
     Page,
+    WarehousePage,
     Navbar,
     Sidebar,
     Footer,
@@ -147,6 +152,12 @@ export default {
       const { frontmatter } = this.$page
 
       return (frontmatter.sidebar !== false && this.sidebarItems.length)
+    },
+
+    shouldShowPageSidebar () {
+      const { frontmatter } = this.$page
+
+      return frontmatter.pageSidebar !== false
     },
 
     sidebarItems () {

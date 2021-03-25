@@ -97,7 +97,7 @@ export default {
   }
 
   &.selected {
-    @apply text-blue;
+    @apply text-blue-600;
 
     &:hover {
       @apply text-blue-active bg-gray-lighter;

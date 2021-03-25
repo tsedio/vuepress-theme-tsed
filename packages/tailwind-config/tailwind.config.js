@@ -1,19 +1,19 @@
-const { theme: defaultTheme, variants, corePlugins } = require('tailwindcss/defaultConfig')
+const { variants, corePlugins } = require('tailwindcss/defaultConfig')
+const defaultTheme = require('tailwindcss/defaultTheme')
+
+const primary = 'hsla(208, 100%, 43%, 1)'
+const secondary = 'hsla(190, 81%, 42%, 1)'
 
 // eslint-disable-next-line import/no-commonjs,node/exports-style
 Object.assign(exports, {
-  plugins: [
-    require('tailwindcss-transforms')({
-      '3d': false // defaults to false
-    })
-  ],
   theme: {
     colors: {
       ...Object.entries(defaultTheme.colors).reduce((colors, [key, obj]) => {
         if (typeof obj === 'object') {
           obj = {
             ...obj,
-            DEFAULT: obj[600]
+            DEFAULT: obj[600],
+            default: obj[600]
           }
         }
         return {
@@ -32,7 +32,21 @@ Object.assign(exports, {
       ardoise: 'hsla(215, 19%, 43%, 1)', // #596A82
       'ardoise-active': 'hsla(215, 35%, 43%, 1)',
 
-      blue: 'hsla(208, 100%, 43%, 1)', // #0074d9
+      blue: {
+        DEFAULT: primary,
+        default: primary,
+        50: 'hsla(208, 100%, 91%, 1)',
+        100: 'hsla(208, 100%, 83%, 1)',
+        200: 'hsla(208, 100%, 75%, 1)',
+        300: 'hsla(208, 100%, 67%, 1)',
+        400: 'hsla(208, 100%, 59%, 1)',
+        500: 'hsla(208, 100%, 51%, 1)',
+        600: primary,
+        700: 'hsla(208, 100%, 35%, 1)',
+        800: 'hsla(208, 100%, 27%, 1)',
+        900: 'hsla(208, 100%, 19%, 1)'
+      },
+
       'blue-active': 'hsla(190, 81%, 42%, 1)',
 
       lightBlue: 'hsla(203, 100%, 27%, 0.1)',
@@ -43,9 +57,6 @@ Object.assign(exports, {
 
       gold: 'hsla(42, 44%, 54%, 1)', // #bd9e55
       'gold-active': 'hsla(42, 54%, 54%, 1)',
-
-      gray: 'hsla(0, 0%, 27%, 1)', // #444444
-      'gray-active': 'hsla(0, 0%, 37%, 1)',
 
       grenadine: 'hsla(339, 49%, 54%, 1)', // #c35078
       'grenadine-active': 'hsla(339, 59%, 54%, 1)',
@@ -127,7 +138,7 @@ Object.assign(exports, {
 
       'gray-light': '#d4d1d1',
       'gray-medium': '#a8a0a0',
-      'gray-dark': '#998e8e',
+      //'gray-dark': '#998e8e',
 
       'gray-darker': '#504747',
       'gray-darker-active': 'hsla(190, 81%, 42%, 1)',
@@ -179,16 +190,6 @@ Object.assign(exports, {
       lg: '64.01em' /* 1024px --r-minL (desktop) */,
       xl: '76.26em' /* 1220px */
     },
-    translate: {
-      ...defaultTheme.translate,
-      '0': '0%',
-      '1/2': '50%',
-      full: '100%',
-      '100': '100%',
-      down: '-100%',
-      'right-up': ['100%', '-100%'],
-      '3d': ['40px', '-60px', '-130px']
-    },
     fontFamily: {
       brand: [
         'Source Sans Pro',
@@ -238,6 +239,7 @@ Object.assign(exports, {
     borderWidth: {
       ...defaultTheme.borderWidth,
       DEFAULT: '1px',
+      default: '1px',
       0: '0',
       1: '1px',
       2: '2px',
@@ -245,7 +247,8 @@ Object.assign(exports, {
     },
     borderColor: theme => ({
       ...theme('colors'),
-      DEFAULT: theme('colors.gray-light', 'current')
+      DEFAULT: theme('colors.gray-light', 'current'),
+      default: theme('colors.gray-light', 'current')
     }),
     borderRadius: {
       ...defaultTheme.borderRadius,
@@ -258,7 +261,6 @@ Object.assign(exports, {
       half: '50%',
       full: '100%'
     },
-
     width: (theme) => ({
       ...defaultTheme.width(theme),
       auto: 'auto',
@@ -269,13 +271,11 @@ Object.assign(exports, {
       '9/10': '90%',
       '12/25': '48%'
     }),
-
     height: (theme) => ({
       ...defaultTheme.height(theme),
       auto: 'auto',
       px: '1px'
     }),
-
     minWidth: {
       0: '0px',
       full: '100%',
@@ -291,7 +291,6 @@ Object.assign(exports, {
       'button-medium': '9.875rem',
       'button-large': '10rem'
     },
-
     maxWidth: (theme, { breakpoints }) => ({
       ...defaultTheme.maxWidth(theme, { breakpoints }),
       xs: '20rem',
@@ -312,22 +311,20 @@ Object.assign(exports, {
       'site-small': '31.25rem',
       'site-medium': '43.75rem',
       'site-large': '56.25rem',
+      'site-xxl': '90rem',
       site: '73.75rem',
       full: '100%',
       screen: '100vw'
     }),
-
     maxHeight: (theme) => ({
       ...theme('spacing'),
       full: '100%',
       screen: '100vh'
     }),
-
     padding: (theme) => ({
       ...theme('spacing'),
       px: '1px'
     }),
-
     margin: (theme, { negative }) => ({
       px: '1px',
       '-px': '-1px',
@@ -336,14 +333,8 @@ Object.assign(exports, {
       ...theme('spacing'),
       ...negative(theme('spacing'))
     }),
-
-    inset:  (theme) => ({
-      ...theme('spacing'),
-      '0': '0',
-      auto: 'auto',
-    }),
-
     boxShadow: {
+      ...defaultTheme.boxShadow,
       default: '0 10px 20px 0 rgba(0,0,0,0.05)',
       sm: '0 1px 5px 0 rgba(0, 0, 0, .15)',
       strong: '0 2px 5px 0 rgba(0, 0, 0, 0.26)',
@@ -356,7 +347,6 @@ Object.assign(exports, {
       'symbol': '0 1px 2px rgba(10, 16, 20, 0.24)',
       'sidebar': '0 0 25px rgba(0, 0, 0, .1)'
     },
-
     zIndex: {
       auto: 'auto',
       0: 0,
@@ -372,16 +362,13 @@ Object.assign(exports, {
       40: 40,
       50: 50
     },
-
     fill: {
       current: 'currentColor',
       transparent: 'transparent'
     },
-
     stroke: {
       current: 'currentColor'
     },
-
     flex: {
       '1': '1 1 0%',
       auto: '1 1 auto',
@@ -390,7 +377,6 @@ Object.assign(exports, {
       '2': '2 2 0%',
       '3': '3 3 0%'
     },
-
     rotate: {
       '-180': '-180deg',
       '-135': '-135deg',
@@ -399,16 +385,27 @@ Object.assign(exports, {
       '90': '90deg',
       '135': '135deg',
       '180': '180deg'
-    }
+    },
+    inset: (theme) =>({
+      '0': '0',
+      auto: 'auto',
+      ...theme('spacing')
+    }),
   },
-
   variants: {
-    ...variants
-  },
-  corePlugins: {
-    ...corePlugins,
-    backgroundAttachment: false,
-    borderCollapse: true
+    ...variants,
+    opacity: [
+      ...variants.opacity,
+      'group-hover'
+    ],
+    divideColor: [
+      'responsive',
+      'group-hover'
+    ],
+    divideOpacity: [
+      'responsive',
+      'group-hover'
+    ]
   },
   purge: {
     enabled: false

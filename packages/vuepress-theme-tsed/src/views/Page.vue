@@ -12,7 +12,7 @@
       </div>
 
       <div class="px-5 md:px-10 max-w-site m-auto">
-        <div class="page-content" :class="{['--full']: !shouldShowPageSidebar}">
+        <div class="page-content">
           <article>
             <slot name="page-top"/>
             <Content/>
@@ -173,10 +173,10 @@ export default {
   .page-content {
     width: calc(100% - 220px)
   }
+}
 
-  .page-content.--full {
-    width: 100%;
-  }
+.full-page .page-content {
+  width: 100%;
 }
 
 .page-sidebar {

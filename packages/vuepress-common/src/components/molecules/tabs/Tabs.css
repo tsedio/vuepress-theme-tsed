@@ -93,7 +93,7 @@
 
     .tabs__body {
       &.bg-gray-lighter {
-        @apply bg-gray;
+        @apply bg-gray-800;
       }
     }
 

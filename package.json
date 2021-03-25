@@ -29,8 +29,6 @@
     "lodash": "^4.17.15",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "tailwindcss-inset": "^1.0.0",
-    "tailwindcss-transforms": "^2.2.0",
     "vuepress-plugin-container": "^2.0.2",
     "vuepress-plugin-smooth-scroll": "^0.0.10"
   },

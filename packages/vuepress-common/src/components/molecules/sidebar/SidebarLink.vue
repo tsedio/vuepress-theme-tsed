@@ -62,7 +62,7 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
 </script>
 <style>
 a.sidebar-link:after {
-  @apply bg-blue absolute left-0;
+  @apply bg-blue-600 absolute left-0;
   content: "";
   top: 50%;
   transform: translateY(-50%);

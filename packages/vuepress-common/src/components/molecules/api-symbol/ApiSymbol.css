@@ -6,7 +6,7 @@ a.symbol-container {
     @apply text-sm;
 
     &:hover {
-      @apply text-blue bg-white;
+      @apply text-blue-600 bg-white;
     }
   }
 
@@ -62,7 +62,7 @@ ul li a.symbol-container {
   }
 
   &.decorator {
-    @apply bg-blue inline-block;
+    @apply bg-blue-600 inline-block;
     line-height: 1rem;
 
     &:before {
