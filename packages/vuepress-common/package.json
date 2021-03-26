@@ -1,6 +1,6 @@
 {
   "name": "@tsed/vuepress-common",
-  "version": "3.10.9",
+  "version": "3.11.0",
   "description": "Shared components and utils",
   "main": "./src/index.js",
   "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
@@ -15,8 +15,8 @@
     "@docsearch/js": "1.0.0-alpha.28",
     "@vuepress/markdown": "^1.8.2",
     "axios": "0.20.0",
-    "lodash": "^4.17.15",
     "fuse.js": "^6.4.6",
+    "lodash": "^4.17.15",
     "lucene-filter": "0.1.3",
     "lucene-query-parser": "1.2.0",
     "markdown-it": "^8.4.1",
@@ -25,10 +25,10 @@
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-table-of-contents": "^0.4.0",
     "millify": "^3.5.0",
-    "v-tooltip": "^2.1.2",
     "moment": "^2.29.1",
     "normalize.css": "8.0.1",
     "prismjs": "^1.22.0",
+    "v-tooltip": "^2.1.2",
     "vue-lazy-hydration": "^2.0.0-beta.4"
   },
   "devDependencies": {
