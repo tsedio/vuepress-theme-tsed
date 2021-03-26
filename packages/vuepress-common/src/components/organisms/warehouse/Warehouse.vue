@@ -6,8 +6,7 @@
           Explore plugins
         </h1>
         <p class="max-w-xl mx-auto mt-5 text-lg leading-7 sm:text-xl text-gray-100">
-          Discover our list of plugins to extends your Ts.ED project.
-          <br/>Created by the Ts.ED team and community.
+          <slot />
         </p>
       </div>
     </div>
