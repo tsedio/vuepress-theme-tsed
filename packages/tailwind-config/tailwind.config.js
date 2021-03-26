@@ -6,6 +6,11 @@ const secondary = 'hsla(190, 81%, 42%, 1)'
 
 // eslint-disable-next-line import/no-commonjs,node/exports-style
 Object.assign(exports, {
+  plugins: [
+    require('tailwindcss-transforms')({
+      '3d': false // defaults to false
+    })
+  ],
   theme: {
     colors: {
       ...Object.entries(defaultTheme.colors).reduce((colors, [key, obj]) => {
