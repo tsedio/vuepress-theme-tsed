@@ -8,16 +8,14 @@
         <BxIcon name='link-external'/>
       </div>
 
-      <img
+      <span
           v-if="icon"
-          :src="icon"
-          :alt="name"
-          class="w-10 h-10"
-          width="40px"
-          height="40px"
-      />
+          :class="`flex items-center justify-center relative overflow-hidden p-1`"
+          :style="{width: `45px`, height: `45px`}">
+        <img :src="icon" v-if="icon" :alt="name" class="w-full">
+      </span>
 
-      <BxIcon v-else name="package" class="w-10 h-10 text-5xl text-blue-300" style="width: 40px;height:40px"/>
+      <BxIcon v-else name="package" class="text-5xl text-blue-300" style="width: 40px;height:40px"/>
 
       <div class="flex text-lg font-bold items-center pt-2">
         <span>{{ name }}</span>

@@ -323,7 +323,7 @@ export default {
         }
 
         if (Array.isArray(plugin.tags)) {
-          (plugin.tags).forEach((tag) => {
+          plugin.tags.forEach((tag) => {
             meta.categories.add(tag)
           })
         }
