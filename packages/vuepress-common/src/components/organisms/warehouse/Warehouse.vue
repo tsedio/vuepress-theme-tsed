@@ -63,7 +63,7 @@
         <div class="flex flex-col items-center justify-between sm:flex-row">
           <!-- Clear filters -->
           <div class="mb-4 text-blue-900">
-            {{ filteredPlugins.length }} module{{ filteredPlugins.length !== 1 ? 's' : '' }} found
+            {{ filteredPlugins.length }} plugin{{ filteredPlugins.length !== 1 ? 's' : '' }} found
             <template v-if="selectedCategory || q">
               <div>
                 Filter{{ selectedCategory && q ? 's' : '' }}:
@@ -183,7 +183,7 @@ export default {
     },
     session: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data () {
@@ -212,7 +212,7 @@ export default {
       }
 
       if (this.selectedCategory) {
-        plugins = plugins.filter(module => module.category === this.selectedCategory)
+        plugins = plugins.filter(plugin => plugin.category === this.selectedCategory || (plugin.tags || []).includes(this.selectedCategory))
       }
 
       return plugins
@@ -322,9 +322,11 @@ export default {
           })
         }
 
-        (plugin.tags || []).forEach((tag) => {
-          meta.categories.add(tag)
-        })
+        if (Array.isArray(plugin.tags)) {
+          (plugin.tags).forEach((tag) => {
+            meta.categories.add(tag)
+          })
+        }
 
         meta.categories.add(plugin.category)
         meta.downloads += (plugin.downloads || 0)
