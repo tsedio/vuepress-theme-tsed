@@ -15,8 +15,7 @@
           :items="navLinks"
           :algolia="algolia">
         <template #sidebar-before>
-          <div v-if="shouldShowSidebar"
-               class="flex cursor-pointer text-xl mr-4"
+          <div class="flex cursor-pointer text-xl mr-4"
                @click="toggleSidebar">
             <i class="bx bx-menu"/>
           </div>
@@ -151,7 +150,7 @@ export default {
     shouldShowSidebar () {
       const { frontmatter } = this.$page
 
-      return (frontmatter.sidebar !== false && this.sidebarItems.length)
+      return this.isSidebarOpen || (frontmatter.sidebar !== false && this.sidebarItems.length)
     },
 
     shouldShowPageSidebar () {
