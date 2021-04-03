@@ -18,7 +18,7 @@ const Template = (args, { argTypes }) => ({
     Warehouse
   },
   props: Object.keys(argTypes),
-  template: '<Warehouse v-bind="$props" />'
+  template: '<Warehouse v-bind="$props">Discover our list of plugins to extend your Ts.ED project.<br/>Created by the Ts.ED team and community.</Warehouse>'
 })
 
 export const Overview = Template.bind({})
