@@ -21,7 +21,7 @@
 
     <div class="max-w-site-xxl m-auto px-5">
       <div v-if="isActive" class="text-center text-4xl text-gray-darker p-5">
-        Loading...
+        <BxIcon name="bx-radio-circle" class="bx-burst"/> Loading...
       </div>
       <div v-else>
         <div class="container px-4 pt-12 pb-8 mx-auto sm:px-0">
