@@ -135,7 +135,7 @@ export default {
 </script>
 <style>
 .DocSearch {
-  --docsearch-primary-color: theme('colors.blue');
+  --docsearch-primary-color: theme('colors.blue.600');
   --docsearch-highlight-color: var(--docsearch-primary-color);
   --docsearch-searchbox-shadow: inset 0 0 0 2px var(--docsearch-primary-color);
 }
