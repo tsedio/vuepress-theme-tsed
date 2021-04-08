@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="relative z-2">
     <slot name="top"/>
     <div class="px-5 md:px-10  m-auto bg-code-active relative">
       <div class="pt-5 pb-8 text-center text-white">
