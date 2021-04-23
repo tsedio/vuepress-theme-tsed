@@ -31,7 +31,7 @@
           :show-title="item.showTitle"
           :href="item.url"
           :icon="item.icon">
-        <span v-if="item.showTitle" class="hidden sm:block text-base ml-1 mr-1">{{ item.title }}</span>
+        <span v-if="item.showTitle" class="hidden sm:block text-sm font-bold ml-1 mr-1">{{ item.title }}</span>
       </IconLink>
     </div>
     <div class="flex items-center h-full">
