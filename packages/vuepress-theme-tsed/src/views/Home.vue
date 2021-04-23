@@ -17,6 +17,7 @@
         <HeroBannerCta :getting-started-text="gettingStartedText"
                        :getting-started-url="gettingStartedUrl"
                        :messenger-text="messengerText"
+                       :messenger-icon="messengerIcon"
                        :messenger-url="messengerUrl"/>
       </template>
     </HeroBanner>
@@ -136,6 +137,10 @@ export default {
     messengerText () {
       const { messengerText } = this.$page.frontmatter
       return messengerText
+    },
+    messengerIcon () {
+      const { messengerIcon } = this.$page.frontmatter
+      return messengerIcon
     },
     features () {
       const { features = [] } = this.$page.frontmatter

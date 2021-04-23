@@ -26,6 +26,9 @@ export const overview = () => ({
     },
     messengerUrl: {
       default: text('messengerUrl', 'https://gitter.im/Tsed-io/community')
+    },
+    messengerIcon: {
+      default: text('messengerIcon', 'bx-message-rounded-dots')
     }
   },
   template: `
@@ -44,6 +47,7 @@ export const overview = () => ({
         <HeroBannerCta :getting-started-text="gettingStartedText"
                        :getting-started-url="gettingStartedUrl"
                        :messenger-text="messengerText"
+                       :messenger-icon="messengerIcon"
                        :messenger-url="messengerUrl"/>
       </template>
     </HeroBanner>

@@ -16,7 +16,7 @@
               border-color="gray-darker"
               rounded="medium"
               class="border-2 mr-2 w-full">
-        <BxIcon name="bx-message-rounded-dots" class="mr-2 -ml-1 text-lg"></BxIcon>
+        <BxIcon :name="messengerIcon" class="mr-2 -ml-1 text-lg"></BxIcon>
         {{ messengerText }}
       </Button>
     </div>
@@ -50,6 +50,10 @@ export default {
     },
     messengerUrl: {
       type: String
+    },
+    messengerIcon: {
+      type: String,
+      default: 'bx-message-rounded-dots'
     }
   }
 }
