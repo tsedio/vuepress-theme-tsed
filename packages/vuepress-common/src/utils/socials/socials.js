@@ -6,5 +6,5 @@ export const SOCIALS = [
   { type: 'microsoftTeams', title: 'Microsoft Teams', icon: 'bxl-microsoft-teams' },
   { type: 'twitter', title: 'Twitter', icon: 'bxl-twitter' },
   { type: 'stackoverflow', title: 'StackOverflow', icon: 'bxl-stack-overflow' },
-  { type: 'sponsor', title: 'Sponsor', icon: 'bxs-heart' }
+  { type: 'sponsor', title: 'Support us', icon: 'bxs-heart', showTitle: true }
 ]
