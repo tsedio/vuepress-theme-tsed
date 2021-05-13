@@ -3,7 +3,7 @@
   "version": "3.14.1",
   "description": "Vuepress theme for tsed.io",
   "main": "./src/index.js",
-  "repository": "https://github.com/TypedProject/vuepress-theme-tsed",
+  "repository": "https://github.com/tsedio/vuepress-theme-tsed",
   "author": "Romain Lenzotti",
   "license": "MIT",
   "private": false,

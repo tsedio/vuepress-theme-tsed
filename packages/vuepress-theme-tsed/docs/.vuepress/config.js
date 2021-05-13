@@ -43,8 +43,8 @@ module.exports = {
       start: '2016',
       end: new Date().getFullYear()
     },
-    repo: 'TypedProject/tsed',
-    githubProxyUrl: 'https://api.tsed.io/rest/github/TypedProject/tsed',
+    repo: 'tsedio/tsed',
+    githubProxyUrl: 'https://api.tsed.io/rest/github/tsedio/tsed',
     openCollective: 'https://api.tsed.io/rest/opencollective',
     gitterUrl: 'https://gitter.im/Tsed-io/community',
     stackoverflowUrl: 'https://stackoverflow.com/search?q=tsed',

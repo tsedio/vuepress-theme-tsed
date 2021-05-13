@@ -29,13 +29,13 @@ export const overview = () => ({
       default: text('NpmPackageUrl', 'https://npmjs.com/@tsed/common')
     },
     repoUrl: {
-      default: text('RepoUrl', 'https://github.com/TypedProject/tsed')
+      default: text('RepoUrl', 'https://github.com/tsedio/tsed')
     },
     editUrl: {
-      default: text('EditUrl', 'https://github.com/TypedProject/tsed')
+      default: text('EditUrl', 'https://github.com/tsedio/tsed')
     },
     createIssueUrl: {
-      default: text('CreateIssueUrl', 'https://github.com/TypedProject/tsed')
+      default: text('CreateIssueUrl', 'https://github.com/tsedio/tsed')
     }
   },
   template: `

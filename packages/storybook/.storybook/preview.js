@@ -12,8 +12,8 @@ Vue.use({
         this.$site = {
           themeConfig: {
             api,
-            repo: 'TypedProject/tsed',
-            githubProxyUrl: 'https://api.tsed.io/rest/github/TypedProject/tsed',
+            repo: 'tsedio/tsed',
+            githubProxyUrl: 'https://api.tsed.io/rest/github/tsedio/tsed',
             openCollective: 'https://api.tsed.io/rest/opencollective',
             footerSections: [
               {
