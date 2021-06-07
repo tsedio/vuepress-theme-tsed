@@ -72,7 +72,7 @@
         >
           <img
               class="w-6 h-6 relative rounded-full text-white shadow-solid transition-opacity duration-200 opacity-75 group-hover:opacity-100"
-              :src="`${maintainer.avatar}?s=24&d=mp`"
+              :src="`${maintainer.avatar}?s=48&d=mp`"
               :alt="maintainer.username"
               width="24"
               height="24"

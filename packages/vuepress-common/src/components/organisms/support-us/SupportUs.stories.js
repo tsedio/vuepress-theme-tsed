@@ -17,7 +17,7 @@ export const overview = () => ({
       default: text('licenseType', 'MIT')
     },
     sponsorUrl: {
-      default: text('sponsorUrl', 'https://github.com/TypedProject/tsed')
+      default: text('sponsorUrl', 'https://github.com/tsedio/tsed')
     }
   },
   template: `

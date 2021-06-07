@@ -29,7 +29,7 @@ Overview.args = {
   author: 'Ts.Ed',
   licenseType: 'MIT',
   socialUrls: config.themeConfig,
-  repoUrl: 'https://github.com/TypedProject/tsed',
+  repoUrl: 'https://github.com/tsedio/tsed',
   sections: [
     {
       title: 'Discover',

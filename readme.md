@@ -2,7 +2,7 @@
  <a href="https://tsed.io" target="_blank"><img src="https://tsed.io/tsed-og.png" width="200" alt="Ts.ED logo"/></a>
 </p>
 
-[![Build & Release](https://github.com/TypedProject/vuepress-theme-tsed/workflows/Build%20&%20Release/badge.svg?branch=master)](https://github.com/TypedProject/vuepress-theme-tsed/actions?query=workflow%3A%22Build+%26+Release%22)
+[![Build & Release](https://github.com/tsedio/vuepress-theme-tsed/workflows/Build%20&%20Release/badge.svg?branch=master)](https://github.com/tsedio/vuepress-theme-tsed/actions?query=workflow%3A%22Build+%26+Release%22)
 
 A template for the Tsed website based on vuepress.
 
@@ -36,7 +36,7 @@ yarn serve:theme
 ## Contributors
 Please read [contributing guidelines here](./CONTRIBUTING.md).
 
-<a href="https://github.com/TypedProject/tsed/graphs/contributors"><img src="https://opencollective.com/tsed/contributors.svg?width=890" /></a>
+<a href="https://github.com/tsedio/tsed/graphs/contributors"><img src="https://opencollective.com/tsed/contributors.svg?width=890" /></a>
 
 
 ## Backers

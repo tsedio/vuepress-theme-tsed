@@ -37,7 +37,7 @@ export default {
     shortTitle: 'Ts.ED',
     htmlTitle: '<span class=\'text-blue\'>Ts</span>.ED',
     version: '1.0.0',
-    repo: 'TypedProject/tsed',
+    repo: 'tsedio/tsed',
     openCollective: 'tsed',
     gitterUrl: 'https://gitter.im/Tsed-io/community',
     stackoverflowUrl: 'https://stackoverflow.com/search?q=tsed',
