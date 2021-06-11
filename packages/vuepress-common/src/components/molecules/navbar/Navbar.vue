@@ -4,13 +4,13 @@
     <div class="flex h-full items-center justify-center md:hidden">
       <slot name="sidebar-before"/>
     </div>
-    <div class="m-0 p-0 text-xl text-normal mr-8">
+    <div class="flex h-full items-center justify-center m-0 p-0  mr-8">
       <router-link :to="href">
         <img class="logo"
              v-if="logoSrc"
              :src="logoSrc"
              :alt="siteTitle">
-        <span ref="siteName"
+        <span class="text-xl text-normal" ref="siteName"
               v-if="siteTitle && !logoSrc"
               v-html="htmlTitle || siteTitle">
         </span>
