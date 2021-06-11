@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-tsed",
-  "version": "3.14.2",
+  "version": "3.14.3",
   "description": "Vuepress theme for tsed.io",
   "main": "./src/index.js",
   "repository": "https://github.com/tsedio/vuepress-theme-tsed",
@@ -19,8 +19,8 @@
     "@sass-collective/sass-rem": "^1.4.1",
     "@silvanite/vuepress-plugin-tailwind": "^1.3.0",
     "@tsed/markdown-it-symbols": "2.15.0",
-    "@tsed/vuepress-common": "3.14.2",
-    "@tsed/vuepress-tailwind-config": "3.14.2",
+    "@tsed/vuepress-common": "3.14.3",
+    "@tsed/vuepress-tailwind-config": "3.14.3",
     "@vuepress/plugin-active-header-links": "1.7.1",
     "@vuepress/plugin-medium-zoom": "^1.8.0",
     "@vuepress/plugin-nprogress": "1.7.1",
