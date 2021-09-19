@@ -20,13 +20,14 @@
       <div class="flex text-lg font-bold items-center pt-2">
         <span>{{ name }}</span>
         <img
-            v-if="type === 'official'"
+            v-if="type === 'official' || type === 'premium'"
             alt="official"
             src="./icons/official.svg"
             width="20"
             height="20"
             class="ml-1 mt-1"
         >
+        <small class="text-xs ml-1 text-gold" v-if="type === 'premium'">PREMIUM</small>
       </div>
       <div class="text-gray-500 group-hover:text-gray-800">
         {{ description }}

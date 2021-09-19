@@ -24,5 +24,5 @@ const Template = (args, { argTypes }) => ({
 export const Overview = Template.bind({})
 
 Overview.args = {
-  url: 'http://api.tsed.io/rest/warehouse'
+  url: 'https://api.tsed.io/rest/warehouse'
 }
