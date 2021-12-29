@@ -12,6 +12,7 @@ import { text } from '@storybook/addon-knobs'
 import contributors from '../molecules/contributors/contributors.json'
 import HeroBanner from '../molecules/hero-banner/HeroBanner'
 import config from './__mock__/config.js'
+import HeroBannerCta from '../molecules/hero-banner-cta/HeroBannerCta'
 
 export default {
   title: 'Organisms/HomePage'
@@ -26,9 +27,31 @@ export const overview = () => ({
     BxIcon,
     WordsSlider,
     Feature,
-    HeroBanner
+    HeroBanner,
+    HeroBannerCta
   },
   props: {
+    gettingStartedText: {
+      default: text('gettingStartedText', 'Getting started')
+    },
+    gettingStartedUrl: {
+      default: text('gettingStartedUrl', '/getting-started/')
+    },
+    messengerText: {
+      default: text('messengerText', 'Discussions')
+    },
+    messengerUrl: {
+      default: text('messengerUrl', 'https://gitter.im/Tsed-io/community')
+    },
+    messengerIcon: {
+      default: text('messengerIcon', 'bx-message-rounded-dots')
+    },
+    sponsorUrl: {
+      default: text('sponsorUrl', 'https://github.com/sponsors/Romakita')
+    },
+    sponsorText: {
+      default: text('sponsorText', 'Sponsor @romakita')
+    },
     keywords: {
       default: text('keywords', '#Decorators, #Rest API, #DI, #Controller')
     },
@@ -40,7 +63,6 @@ export const overview = () => ({
             src: avatar_url,
             href: html_url,
             login,
-
             ...contributor
           }
         })
@@ -60,7 +82,7 @@ export const overview = () => ({
     }
   },
   template: `
-    <div style="width: 100vw" class="init">
+    <div style="width: 100%" class="init">
     <Navbar
         site-title="Ts.ED"
         html-title="<span class='text-blue'>Ts</span>.ED" href="/"
@@ -76,9 +98,19 @@ export const overview = () => ({
       <template #hero-slogan>
         Build your awesome server-size <strong>application.</strong>
       </template>
+      
+      <template #hero-content>
+        <img src="https://tsed.io/hero-bg.svg" class="animate-hero" />
+      </template>
 
       <template #hero-cta>
-        <HeroBannerCta/>
+        <HeroBannerCta :getting-started-text="gettingStartedText"
+                       :getting-started-url="gettingStartedUrl"
+                       :messenger-text="messengerText"
+                       :messenger-icon="messengerIcon"
+                       :messenger-url="messengerUrl"
+                       :sponsor-text="sponsorText"
+                       :sponsor-url="messengerUrl"/>
       </template>
     </HeroBanner>
 
