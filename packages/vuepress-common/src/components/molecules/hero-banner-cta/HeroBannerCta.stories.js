@@ -17,10 +17,16 @@ export const overview = () => ({
       default: text('gettingStartedUrl', '/getting-started/')
     },
     messengerText: {
-      default: text('messengerText', 'Gitter')
+      default: text('messengerText', 'Discussions')
     },
     messengerUrl: {
       default: text('messengerUrl', 'https://gitter.im/Tsed-io/community')
+    },
+    sponsorUrl: {
+      default: text('sponsorUrl', 'https://github.com/sponsors/Romakita')
+    },
+    sponsorText: {
+      default: text('sponsorText', 'Sponsor @romakita')
     }
   },
   template: `
@@ -28,6 +34,8 @@ export const overview = () => ({
     <HeroBannerCta :getting-started-text="gettingStartedText"
                    :getting-started-url="gettingStartedUrl"
                    :messenger-text="messengerText"
-                   :messenger-url="messengerUrl"/>
+                   :messenger-url="messengerUrl"
+                   :sponsor-text="sponsorText"
+                   :sponsor-url="messengerUrl"/>
     </div>`
 })
