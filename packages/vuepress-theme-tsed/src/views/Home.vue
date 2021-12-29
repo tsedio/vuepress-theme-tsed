@@ -18,7 +18,10 @@
                        :getting-started-url="gettingStartedUrl"
                        :messenger-text="messengerText"
                        :messenger-icon="messengerIcon"
-                       :messenger-url="messengerUrl"/>
+                       :messenger-url="messengerUrl"
+                       :sponsor-text="sponsorText"
+                       :sponsor-icon="sponsorIcon"
+                       :sponsor-url="sponsorUrl"/>
       </template>
     </HeroBanner>
 
@@ -141,6 +144,18 @@ export default {
     messengerIcon () {
       const { messengerIcon } = this.$page.frontmatter
       return messengerIcon
+    },
+    sponsorUrl () {
+      const { sponsorUrl } = this.$page.frontmatter
+      return sponsorUrl
+    },
+    sponsorText () {
+      const { sponsorText } = this.$page.frontmatter
+      return sponsorText
+    },
+    sponsorIcon () {
+      const { sponsorIcon } = this.$page.frontmatter
+      return sponsorIcon
     },
     features () {
       const { features = [] } = this.$page.frontmatter
