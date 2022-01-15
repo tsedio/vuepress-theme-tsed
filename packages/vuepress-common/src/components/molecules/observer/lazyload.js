@@ -1,6 +1,6 @@
 export default {
   inserted: el => {
-    function loadImage() {
+    function display() {
       const imgEl = el.querySelector('img')
 
       if (imgEl) {
@@ -11,13 +11,19 @@ export default {
         })
         imgEl.addEventListener('error', () => console.log('error'))
         imgEl.src = imgEl.dataset.url
+      } else {
+        const iframe = el.querySelector('iframe')
+
+        if (iframe) {
+          iframe.src = iframe.dataset.url
+        }
       }
     }
 
     function handleIntersect(entries, observer) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          loadImage()
+          display()
           observer.unobserve(el)
         }
       })
@@ -35,7 +41,7 @@ export default {
     if (window['IntersectionObserver']) {
       createObserver()
     } else {
-      loadImage()
+      display()
     }
   }
 }

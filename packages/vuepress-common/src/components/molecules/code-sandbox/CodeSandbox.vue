@@ -1,17 +1,24 @@
 <template>
-  <iframe
-      class="iframe-sandbox w-full border-0"
-      :src="href"
-      :sandboxId="sandboxId"
-      :title="title"
-      :sandbox="sandbox"
-      :allow="allow"
-      :style="{height}"/>
+  <div v-lazyload>
+    <iframe
+        class="iframe-sandbox w-full border-0"
+        :data-url="href"
+        :sandboxId="sandboxId"
+        :title="title"
+        :sandbox="sandbox"
+        :allow="allow"
+        :style="{height}"/>
+  </div>
 </template>
 
 <script>
+import Lazyload from '../observer/lazyload'
+
 export default {
   name: 'CodeSandbox',
+  directives:{
+    lazyload: Lazyload
+  },
   props: {
     sandboxId: {
       type: String,
