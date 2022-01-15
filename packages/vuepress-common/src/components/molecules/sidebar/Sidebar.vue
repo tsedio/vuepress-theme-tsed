@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import { isActive } from '@tsed/vuepress-common'
-import { resolveOpenGroupIndex } from '../../../utils/sidebar/resolve-group-index'
+import {isActive} from '../../../utils'
+import {resolveOpenGroupIndex} from '../../../utils/sidebar/resolve-group-index'
 import NavLinks from '../navbar/NavLinks.vue'
 import SidebarGroup from './SidebarGroup.vue'
 import SidebarLink from './SidebarLink.vue'
@@ -42,24 +42,24 @@ export default {
 
   props: ['items', 'nav-items'],
 
-  data () {
+  data() {
     return {
       openGroupIndex: 0
     }
   },
 
-  created () {
+  created() {
     this.refreshIndex()
   },
 
   watch: {
-    '$route' () {
+    '$route'() {
       this.refreshIndex()
     }
   },
 
   methods: {
-    refreshIndex () {
+    refreshIndex() {
       const index = resolveOpenGroupIndex(
           this.$route,
           this.items
@@ -69,11 +69,11 @@ export default {
       }
     },
 
-    toggleGroup (index) {
+    toggleGroup(index) {
       this.openGroupIndex = index === this.openGroupIndex ? -1 : index
     },
 
-    isActive (page) {
+    isActive(page) {
       return isActive(this.$route, page.path)
     }
   }
@@ -110,6 +110,7 @@ export default {
 .sidebar-sub-header a.active.sidebar-link:after {
   display: none
 }
+
 .sidebar a:hover {
   @apply opacity-100 text-blue-active;
 }
