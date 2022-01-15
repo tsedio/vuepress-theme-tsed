@@ -79,16 +79,7 @@ export default {
 .content__default h2.preview-title {
   @apply text-center text-4xl normal-case p-0 m-0 text-blue;
 }
-.bg-gradient:after {
-  content: "";
-  background-image: radial-gradient(#eef2f5 0, #f4f7f8 40%, transparent 75%);
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 100%;
-  z-index: 0;
-}
+
 .sandbox-logo {
   @apply absolute flex items-center justify-center left-0 top-0 h-full w-full;
 
