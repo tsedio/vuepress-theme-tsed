@@ -1,9 +1,6 @@
 import {filterSymbols} from '../utils'
 
 export const ApiMixin = {
-  created() {
-
-  },
   methods: {
     getApi() {
       return this.$themeConfig.api || {}

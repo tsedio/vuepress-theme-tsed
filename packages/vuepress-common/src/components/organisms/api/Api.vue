@@ -40,7 +40,6 @@
   </div>
 </template>
 <script>
-import LazyHydrate from 'vue-lazy-hydration'
 import BxIcon from '../../atoms/icons/BxIcon'
 import ApiList from '../../molecules/api-list/ApiList'
 import InputText from '../../molecules/input-text/InputText'
@@ -60,11 +59,13 @@ export default {
       currentStatus: '',
       currentType: '',
       keyword: '',
-      modules: []
+      modules: [],
+      api: false
     }
   },
   mounted() {
-    // this.modules = this.getApiModules()
+    this.api = this.getApi()
+    this.modules = this.getApiModules()
   },
   methods: {
     onTypeChange(item) {
