@@ -10,8 +10,11 @@
 </template>
 
 <script>
+import {ApiMixin} from '../../../mixins/ApiMixin'
+
 export default {
   name: 'ApiSymbol',
+  mixins: [ApiMixin],
   props: {
     item: {
       type: Object,
@@ -36,7 +39,7 @@ export default {
       return this.getApiLink(this.item)
     },
     deprecated() {
-      return this.item.status.find(status => status.key === 'deprecated' || status === 'deprecated')
+      return this.item.status?.find(status => status.key === 'deprecated' || status === 'deprecated')
     }
   }
 }

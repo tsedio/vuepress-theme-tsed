@@ -1,8 +1,8 @@
 <template>
   <div class="rounded p-6 flex flex-col">
-      <span
+      <span v-lazyload
           :class="`flex items-center justify-center relative z-2 overflow-hidden mb-2 bg-white h-32 w-32 rounded-full mx-auto`">
-          <img :src="src" v-if="src" class="w-full">
+          <img :data-url="src" v-if="src" class="w-full opacity-0 transition-all">
           <span v-else
                 class="flex items-center justify-center font-bold uppercase text-2xl h-full">{{
               title | initial
@@ -54,9 +54,13 @@
 </template>
 <script>
 import BxIcon from '../../atoms/icons/BxIcon'
+import Lazyload from '../observer/lazyload'
 
 export default {
   name: 'UserCard',
+  directives:{
+    lazyload: Lazyload
+  },
   components: {
     BxIcon
   },

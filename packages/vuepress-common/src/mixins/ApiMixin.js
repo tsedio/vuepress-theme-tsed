@@ -1,10 +1,26 @@
 import {filterSymbols} from '../utils'
+import axios from 'axios'
 
 export const ApiMixin = {
   methods: {
+    async loadApi() {
+      if (!this.$themeConfig?.api && this.$themeConfig?.apiUrl) {
+        const result = await axios.get(this.$themeConfig?.apiUrl)
+
+        this.$themeConfig.api = result.data
+      }
+
+      if (this.$themeConfig.api && !this.$themeConfig.$$findSymbols) {
+        this.$themeConfig.$$findSymbols = filterSymbols(this.$themeConfig?.api || {})
+      }
+
+      return true
+    },
+
     getApi() {
       return this.$themeConfig?.api || {}
     },
+
     getApiModules() {
       const modules = this.getApi()
 
@@ -43,17 +59,21 @@ export const ApiMixin = {
       return this.$themeConfig?.apiRedirectUrl || ''
     },
     filterSymbols(query) {
-      const items = filterSymbols(this.getApi())(query)
+      if (this.$themeConfig?.$$findSymbols) {
+        const items = this.$themeConfig.$$findSymbols(query)
 
-      return items.map((item) => {
-        return {
-          ...item,
-          link: this.getApiLink(item)
-        }
-      })
+        return items.map((item) => {
+          return {
+            ...item,
+            link: this.getApiLink(item)
+          }
+        })
+      }
+
+      return []
     },
     getApiLink(item) {
-      return `${this.getApiRedirectUrl()}${item.path.replace(/\/\//gi, '/')}.html`
+      return item.path ? `${this.getApiRedirectUrl()}${item.path.replace(/\/\//gi, '/')}.html` : ''
     }
   }
 }

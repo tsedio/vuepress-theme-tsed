@@ -1,12 +1,13 @@
 <template>
-  <ApiSymbol v-if="item.length" :item="item[0]"/>
-  <span v-else-if="query">Unable to find something: <code>{{ this.query }}</code></span>
+  <ApiSymbol :item="loaded && item.length ? item[0] : {symbolName: placeholder}"/>
 </template>
 <script>
 import ApiSymbol from './ApiSymbol'
+import {ApiMixin} from '../../../mixins/ApiMixin'
 
 export default {
   name: 'ApiSymbolQuery',
+  mixins: [ApiMixin],
   components: {
     ApiSymbol
   },
@@ -14,12 +15,24 @@ export default {
     query: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      loaded: false
     }
   },
   computed: {
     item() {
       return this.filterSymbols(this.query)
     }
+  },
+  async mounted() {
+    this.loaded = await this.loadApi();
   }
 }
 </script>

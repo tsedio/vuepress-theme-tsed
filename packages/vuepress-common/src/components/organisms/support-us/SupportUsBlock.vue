@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="showcase relative">
-      <div class="hidden lg:block absolute right-0  top-0 opacity-10 z-0 w-1/4 p-5 m-10">
-        <img src="/sponsors.svg" alt="https://www.freepik.com/" title="https://www.freepik.com/" />
+      <div v-lazyload class="hidden lg:block absolute right-0  top-0 opacity-10 z-0 w-1/4 p-5 m-10">
+        <img data-url="/sponsors.svg" alt="https://www.freepik.com/" title="https://www.freepik.com/" />
       </div>
       <div class="w-full max-w-site mx-auto px-5 py-5 relative z-1">
         <div>
@@ -66,6 +66,7 @@ import Button from '../../molecules/button/Button'
 import Showcase from '../../molecules/showcase/Showcase'
 import OpenCollectiveBackers from '../open-collective-backers/OpenCollectiveBackers'
 import SponsorsBlock from "./SponsorsBlock";
+import Lazyload from '../../molecules/observer/lazyload'
 
 export default {
   name: "SupportUsBlock",
@@ -74,6 +75,9 @@ export default {
     OpenCollectiveBackers,
     Button,
     Showcase
+  },
+  directives:{
+    lazyload: Lazyload
   },
   computed: {
     backers() {

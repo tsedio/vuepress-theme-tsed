@@ -2,6 +2,10 @@ a.symbol-container {
   @apply text-api-default relative no-underline overflow-hidden truncate whitespace-no-wrap cursor-pointer px-2 rounded-xs mr-1 inline-flex items-center;
   transition: all ease-in var(--Global-transition-duration);
 
+  > span {
+    @apply flex;
+  }
+
   &.-list {
     @apply text-sm;
 

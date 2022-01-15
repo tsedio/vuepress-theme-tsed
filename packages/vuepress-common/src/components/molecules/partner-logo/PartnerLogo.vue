@@ -1,13 +1,17 @@
 <template>
-  <Link class="partner-logo" :outbound="false" :href="href" :title="title">
-    <img :src="src" class="opacity-0 transition-all"/>
+  <Link class="partner-logo" :outbound="false" :href="href" :title="title" v-lazyload>
+    <img :data-url="src" :alt="title" class="opacity-0 transition-all"/>
   </Link>
 </template>
 <script>
 import Link from '../link/Link'
+import Lazyload from '../observer/lazyload'
 
 export default {
   name: 'PartnerLogo',
+  directives:{
+    lazyload: Lazyload
+  },
   components: {Link},
   props: {
     src: {

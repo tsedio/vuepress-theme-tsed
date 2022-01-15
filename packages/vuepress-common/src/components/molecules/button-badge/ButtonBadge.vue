@@ -7,7 +7,7 @@
         v-lazyload
         :class="`flex items-center justify-center relative z-2 overflow-hidden rounded-medium mb-2 bg-${bgColor} shadow-${shadow} p-${padding}`"
         :style="{width: `${width}px`, height: `${width}px`}">
-      <img :data-url="src" v-if="src" class="w-full opacity-0 transition-all">
+      <img :data-url="src" v-if="src" class="w-full opacity-0 transition-all no-shadow">
       <span v-else
             class="flex items-center justify-center font-bold uppercase text-2xl h-full">{{ title | initial }}</span>
     </figure>

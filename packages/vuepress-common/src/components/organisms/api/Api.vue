@@ -1,6 +1,6 @@
 <template>
   <div class="api">
-    <template v-if="api">
+    <template v-if="loaded">
       <div class="mb-10 p-5 bg-gray-lighter rounded-small">
         <div class="flex items-center">
           <div class="w-full md:w-1/3 pr-2">
@@ -36,7 +36,6 @@
         </ClientOnly>
       </div>
     </template>
-
   </div>
 </template>
 <script>
@@ -44,9 +43,11 @@ import BxIcon from '../../atoms/icons/BxIcon'
 import ApiList from '../../molecules/api-list/ApiList'
 import InputText from '../../molecules/input-text/InputText'
 import Select from '../../molecules/select/Select'
+import {ApiMixin} from '../../../mixins/ApiMixin'
 
 export default {
   name: 'Api',
+  mixins: [ApiMixin],
   components: {
     BxIcon,
     ApiList,
@@ -59,11 +60,13 @@ export default {
       currentStatus: '',
       currentType: '',
       keyword: '',
-      modules: [],
-      api: false
+      loaded: false,
+      api: {},
+      modules: []
     }
   },
-  mounted() {
+  async mounted() {
+    this.loaded = await this.loadApi()
     this.api = this.getApi()
     this.modules = this.getApiModules()
   },
