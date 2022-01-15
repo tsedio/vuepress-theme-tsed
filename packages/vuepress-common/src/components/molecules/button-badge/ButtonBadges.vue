@@ -5,6 +5,7 @@
           v-for="item in items"
           :key="item.title">
         <ButtonBadge
+            class="flex flex-col"
             :show-title="showTitle"
             :title="item.title"
             :src="item.src"

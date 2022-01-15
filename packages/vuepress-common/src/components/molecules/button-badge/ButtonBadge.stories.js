@@ -81,7 +81,7 @@ export const overview = () => ({
       ], 'normal')
     }
   },
-  template: `
+  template: `<div>
     <ButtonBadge :bg-color="bgColor"
                  :color="color"
                  :title="title"
@@ -90,5 +90,5 @@ export const overview = () => ({
                  :width="width"
                  :text-size="textSize"
                  :font-weight="fontWeight"
-                 :blur="blur"/>`
+                 :blur="blur"/></div>`
 })

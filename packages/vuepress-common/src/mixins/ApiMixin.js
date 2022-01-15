@@ -3,7 +3,7 @@ import {filterSymbols} from '../utils'
 export const ApiMixin = {
   methods: {
     getApi() {
-      return this.$themeConfig.api || {}
+      return this.$themeConfig?.api || {}
     },
     getApiModules() {
       const modules = this.getApi()
@@ -40,7 +40,7 @@ export const ApiMixin = {
         }, {})
     },
     getApiRedirectUrl() {
-      return this.$themeConfig.apiRedirectUrl || ''
+      return this.$themeConfig?.apiRedirectUrl || ''
     },
     filterSymbols(query) {
       const items = filterSymbols(this.getApi())(query)

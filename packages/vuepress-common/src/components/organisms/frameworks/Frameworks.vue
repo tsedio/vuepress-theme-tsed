@@ -1,5 +1,6 @@
 <template>
   <ButtonBadges
+      class="flex flex-col"
       :items="items"
       :show-title="showTitle"
       :font-weight="fontWeight"

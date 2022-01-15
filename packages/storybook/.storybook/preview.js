@@ -1,14 +1,13 @@
 import Vue from 'vue'
-import { configure } from '@storybook/vue'
-import { filterSymbols } from '@tsed/vuepress-common'
+import {configure} from '@storybook/vue'
+import * as common from '@tsed/vuepress-common'
 import './stories.decorators'
 import api from './api.json'
 
 Vue.use({
-  install (Vue) {
+  install(Vue) {
     Vue.mixin({
-      created () {
-        this.$filterSymbols = filterSymbols(api)
+      created() {
         this.$site = {
           themeConfig: {
             api,
@@ -62,7 +61,8 @@ Vue.use({
             ]
           }
         }
-      }
+      },
+      ...common.ApiMixin
     })
   }
 })

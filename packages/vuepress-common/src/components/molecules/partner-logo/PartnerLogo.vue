@@ -1,6 +1,6 @@
 <template>
   <Link class="partner-logo" :outbound="false" :href="href" :title="title">
-    <img :src="src"/>
+    <img :src="src" class="opacity-0 transition-all"/>
   </Link>
 </template>
 <script>
@@ -8,7 +8,7 @@ import Link from '../link/Link'
 
 export default {
   name: 'PartnerLogo',
-  components: { Link },
+  components: {Link},
   props: {
     src: {
       type: String,

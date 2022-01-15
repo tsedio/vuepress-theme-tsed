@@ -13,7 +13,7 @@ export const overview = () => ({
   },
   props: {
     items: {
-      default: frameworks
+      default: [...frameworks, ...frameworks, ...frameworks, ...frameworks, ...frameworks]
     },
     bgColor: {
       default: select('bg-color', COLORS_LIST, 'gray-lighter')
