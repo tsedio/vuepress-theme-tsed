@@ -26,16 +26,16 @@ export default {
   },
 
   computed: {
-    name () {
+    name() {
       return this.item.symbolName
     },
-    type () {
+    type() {
       return this.item.symbolType
     },
-    link () {
-      return `${this.item.path.replace(/\/\//gi, '/')}.html`
+    link() {
+      return this.getApiLink(this.item)
     },
-    deprecated () {
+    deprecated() {
       return this.item.status.find(status => status.key === 'deprecated' || status === 'deprecated')
     }
   }

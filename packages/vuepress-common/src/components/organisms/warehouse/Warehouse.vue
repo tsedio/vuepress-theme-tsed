@@ -159,8 +159,8 @@ export default {
   components: {
     BxIcon,
     WarehouseStats,
-    LazyHydrate,
     CardPlugin,
+    LazyHydrate,
     Observer
   },
   directives: {

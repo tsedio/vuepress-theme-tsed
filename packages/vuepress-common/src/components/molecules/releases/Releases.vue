@@ -1,5 +1,5 @@
 <template>
-   <div class="max-w-xl mx-auto p-8">
+   <div class="max-w-xl mx-auto py-5">
       <div class="flow-root">
         <ul class="-mb-8 reset-list">
           <li v-for="item of items" :key="item.id">

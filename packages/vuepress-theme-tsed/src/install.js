@@ -1,18 +1,11 @@
 import * as common from '@tsed/vuepress-common'
-import { filterSymbols } from '@tsed/vuepress-common'
 
-function isVueComponent (component) {
+function isVueComponent(component) {
   return component.name && typeof component !== 'function'
 }
 
-export default function install (Vue) {
-  Vue.mixin({
-    created () {
-      if (this.$themeConfig.api) {
-        this.$filterSymbols = filterSymbols(this.$themeConfig.api)
-      }
-    }
-  })
+export default function install(Vue) {
+  Vue.mixin(common.ApiMixin)
 
   try {
     Object.keys(common).forEach((key) => {

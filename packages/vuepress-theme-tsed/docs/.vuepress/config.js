@@ -54,6 +54,7 @@ module.exports = {
     sidebar: 'auto',
     docsBranch: 'production',
     api: require('./public/api.json'),
+    apiRedirectUrl: 'https://api-doc.tsed.io',
     smoothScroll: true,
     lastUpdated: 'Last updated',
     // algolia: {

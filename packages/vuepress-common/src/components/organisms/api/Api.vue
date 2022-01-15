@@ -40,6 +40,7 @@
   </div>
 </template>
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 import BxIcon from '../../atoms/icons/BxIcon'
 import ApiList from '../../molecules/api-list/ApiList'
 import InputText from '../../molecules/input-text/InputText'
@@ -54,56 +55,19 @@ export default {
     Select
   },
 
-  data () {
+  data() {
     return {
       currentStatus: '',
       currentType: '',
-      keyword: ''
+      keyword: '',
+      modules: []
     }
   },
-
-  computed: {
-    api () {
-      return this.$site.themeConfig.api
-    },
-    modules () {
-      const { modules } = this.$site.themeConfig.api
-
-      if (!modules) {
-        return {}
-      }
-
-      return Object.keys(modules)
-          .sort((a, b) => a < b ? -1 : 1)
-          .reduce((acc, key) => {
-
-        const symbols = modules[key]
-            .symbols
-            .filter((symbol) => {
-              if (!!(this.currentType && symbol.symbolType !== this.currentType)) {
-                return false
-              }
-
-              if (!!(this.currentStatus && symbol.status.indexOf(this.currentStatus))) {
-                return false
-              }
-
-              if (!!this.keyword) {
-                return symbol.symbolName.toLowerCase().indexOf(this.keyword.toLocaleLowerCase()) > -1
-              }
-
-              return true
-            })
-
-        acc[key] = { ...modules[key], symbols }
-
-        return acc
-      }, {})
-    }
+  mounted() {
+    // this.modules = this.getApiModules()
   },
-
   methods: {
-    onTypeChange (item) {
+    onTypeChange(item) {
       this.currentType = item.value
 
       if (this.$ga) {
@@ -116,7 +80,7 @@ export default {
       }
     },
 
-    onStatusChange (item) {
+    onStatusChange(item) {
       this.currentStatus = item.value
 
       if (this.$ga) {
@@ -129,7 +93,7 @@ export default {
       }
     },
 
-    onKeywordsChange (evt) {
+    onKeywordsChange(evt) {
       if (this.$ga) {
         this.$ga.event({
           eventCategory: 'api',

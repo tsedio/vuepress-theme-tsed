@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :style="styles" class="overflow-auto">
+    <div :style="styles">
       <Releases :items="items"/>
     </div>
 
