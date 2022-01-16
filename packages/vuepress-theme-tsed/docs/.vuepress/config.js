@@ -53,7 +53,7 @@ module.exports = {
     docsDir: 'docs',
     sidebar: 'auto',
     docsBranch: 'production',
-    api: require('./public/api.json'),
+    apiUrl: 'https://tsed.io/api.json',
     apiRedirectUrl: 'https://api-doc.tsed.io',
     smoothScroll: true,
     lastUpdated: 'Last updated',
@@ -124,7 +124,7 @@ module.exports = {
         sidebar: [
           {
             title: 'Introduction',   // required
-            path: '/getting-started/',
+            path: 'https://tsed.io/getting-started/',
             collapsable: true // optional, defaults to true
           },
           {

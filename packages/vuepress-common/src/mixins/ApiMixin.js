@@ -22,7 +22,7 @@ export const ApiMixin = {
     },
 
     getApiModules() {
-      const modules = this.getApi()
+      const modules = this.$themeConfig?.api?.modules
 
       if (!modules) {
         return {}

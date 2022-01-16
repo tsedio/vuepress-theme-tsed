@@ -1,13 +1,13 @@
 <script>
-import { groupHeaders, hashRE, isActive } from '@tsed/vuepress-common'
+import {groupHeaders, hashRE, isActive} from '@tsed/vuepress-common'
 
 export default {
   functional: true,
 
   props: ['item', 'class'],
 
-  render (h, input) {
-    const { parent: { $page, $site, $route }, props: { item }, data: { staticClass } } = input
+  render(h, input) {
+    const {parent: {$page, $site, $route}, props: {item}, data: {staticClass}} = input
 
     // use custom active class matching logic
     // due to edge case of paths ending with / + hash
@@ -18,6 +18,7 @@ export default {
         ? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
         : selfActive
     const link = renderLink(h, item.path, item.title || item.path, active, staticClass)
+
     const configDepth = $page.frontmatter.sidebarDepth != null
         ? $page.frontmatter.sidebarDepth
         : $site.themeConfig.sidebarDepth
@@ -34,7 +35,23 @@ export default {
   }
 }
 
-function renderLink (h, to, text, active, className = '') {
+function renderLink(h, to, text, active, className = '') {
+  if (to.startsWith('https://')) {
+    return h('a', {
+      attrs: {
+        href: to,
+      },
+      props: {
+        activeClass: '',
+        exactActiveClass: ''
+      },
+      class: {
+        active,
+        'sidebar-link relative block py-2': true,
+        [className]: true
+      }
+    }, text)
+  }
   return h('router-link', {
     props: {
       to,
@@ -49,11 +66,11 @@ function renderLink (h, to, text, active, className = '') {
   }, text)
 }
 
-function renderChildren (h, children, path, route, maxDepth, depth = 1) {
+function renderChildren(h, children, path, route, maxDepth, depth = 1) {
   if (!children || depth > maxDepth) return null
-  return h('ul', { class: 'sidebar-sub-headers' }, children.map(c => {
+  return h('ul', {class: 'sidebar-sub-headers'}, children.map(c => {
     const active = isActive(route, path + '#' + c.slug)
-    return h('li', { class: 'sidebar-sub-header' }, [
+    return h('li', {class: 'sidebar-sub-header'}, [
       renderLink(h, path + '#' + c.slug, c.title, active),
       renderChildren(h, c.children, path, route, maxDepth, depth + 1)
     ])

@@ -1,5 +1,8 @@
 <template>
   <div class="api">
+    <div v-if="!loaded" class="text-center text-4xl text-gray-darker p-5">
+      <BxIcon name="bx-radio-circle" class="bx-burst"/> Loading...
+    </div>
     <template v-if="loaded">
       <div class="mb-10 p-5 bg-gray-lighter rounded-small">
         <div class="flex items-center">
