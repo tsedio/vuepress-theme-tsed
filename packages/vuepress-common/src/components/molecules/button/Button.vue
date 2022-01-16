@@ -99,6 +99,7 @@ export default {
   },
   methods: {
     onClick (evt) {
+      console.log('===>')
       this.$emit('click', evt)
     }
   }

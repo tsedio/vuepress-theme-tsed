@@ -43,8 +43,9 @@ export const overview = () => ({
     },
   },
   template: `
-    <div style="width: 100vw; height: 100vh" class="init">
+    <div class="init">
       <CodeSandbox
+          class="rounded-medium border-2 border-gray-darker bg-white"
         :sandboxId="sandboxId"
         :title="title"
         :allow="allow"
