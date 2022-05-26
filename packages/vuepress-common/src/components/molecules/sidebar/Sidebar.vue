@@ -79,39 +79,3 @@ export default {
   }
 }
 </script>
-<style>
-.sidebar {
-  @apply fixed m-0 left-0 bottom-0 bg-white z-10;
-  overflow-y: auto;
-  width: 260px;
-  max-width: 80vw;
-  top: 4rem;
-  transition: transform .2s ease;
-}
-
-.sidebar-sub-header a.sidebar-link,
-.sidebar-group a.sidebar-link {
-  @apply font-normal opacity-75 transition-all;
-}
-
-.sidebar-sub-header a.sidebar-link {
-  @apply pl-7
-}
-
-.sidebar-sub-header a.active.sidebar-link,
-.sidebar-group a.active.sidebar-link {
-  @apply opacity-100;
-}
-
-.sidebar-sub-header a.active.sidebar-link {
-  @apply text-blue-600;
-}
-
-.sidebar-sub-header a.active.sidebar-link:after {
-  display: none
-}
-
-.sidebar a:hover {
-  @apply opacity-100 text-blue-active;
-}
-</style>

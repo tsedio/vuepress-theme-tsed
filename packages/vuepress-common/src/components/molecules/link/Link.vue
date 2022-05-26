@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { ensureExt, isExternal, isMailto, isTel } from '@tsed/vuepress-common'
+import { ensureExt, isExternal, isMailto, isTel } from '@vuepress/theme-default/util'
 import OutboundLink from './OutboundLink'
 
 export default {
