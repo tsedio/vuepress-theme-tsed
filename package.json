@@ -37,7 +37,8 @@
     "lerna": "4.0.0",
     "lite-server": "2.5.4",
     "semantic-release": "19.0.2",
-    "vuepress": "^1.9.7"
+    "vuepress": "^1.9.7",
+    "typescript": "^4.7.2"
   },
   "resolutions": {
     "watchpack": "1.6.1"
@@ -53,11 +54,13 @@
     "npmAccess": "public",
     "npmDistTag": "latest",
     "ignoreSyncDependencies": [],
-    "ghpages": {
-      "dir": "./packages/storybook/dist",
-      "url": "https://github.com/tsedio/vuepress-theme-tsed.git",
-      "branch": "ghpages",
-      "cname": "storybook.tsed.io"
-    }
+    "ghpages": [
+      {
+        "dir": "./packages/storybook/dist",
+        "url": "https://github.com/tsedio/vuepress-theme-tsed.git",
+        "branch": "ghpages",
+        "cname": "storybook.tsed.io"
+      }
+    ]
   }
 }
