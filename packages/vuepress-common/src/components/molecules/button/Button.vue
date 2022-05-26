@@ -39,6 +39,10 @@ export default {
       type: String,
       default: 'blue'
     },
+    hover: {
+      type: String,
+      default: 'active'
+    },
     fontWeight: {
       type: String,
       default: 'bold'
@@ -79,7 +83,8 @@ export default {
         color,
         disabled,
         rounded,
-        shadow
+        shadow,
+        hover = 'active'
       } = this
 
       if (disabled) {
@@ -92,14 +97,13 @@ export default {
       }
 
       return `reset-link inline-flex flex-col items-stretch overflow-hidden text-base transition-colors
-  bg-${bgColor} border-${borderColor} text-${color} focus:bg-${bgColor}-active focus:border-${borderColor}-active
-  hover:bg-${bgColor}-active hover:border-${borderColor}-active focus:text-${color}-active hover:text-${color}-active
+  bg-${bgColor} border-${borderColor} text-${color} focus:bg-${bgColor}-active focus:border-${borderColor}-${hover}
+  hover:bg-${bgColor}-${hover} hover:border-${borderColor}-${hover} focus:text-${color}-${hover} hover:text-${color}-${hover}
    cursor-pointer border-1 border-solid rounded-${rounded} shadow-${shadow}`
     }
   },
   methods: {
     onClick (evt) {
-      console.log('===>')
       this.$emit('click', evt)
     }
   }
