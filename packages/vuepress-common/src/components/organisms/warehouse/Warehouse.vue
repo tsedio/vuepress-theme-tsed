@@ -207,7 +207,7 @@ export default {
         plugins = this.fuse.search(this.q).map(r => r.item)
       } else {
         // Sort only if no search
-        plugins.sort((a, b) => sort(a[this.sortBy], b[this.sortBy], this.orderBy === ORDERS.ASC))
+        plugins.sort((a, b) => sort(a[this.sortBy] || 0, b[this.sortBy] || 0, this.orderBy === ORDERS.ASC))
       }
 
       if (this.selectedCategory) {

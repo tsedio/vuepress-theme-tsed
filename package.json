@@ -25,19 +25,19 @@
     "@vuepress/plugin-nprogress": "1.7.1",
     "@vuepress/plugin-search": "1.2.0",
     "@vuepress/theme-default": "1.7.1",
-    "axios": "0.20.0",
-    "lodash": "^4.17.15",
-    "stylus": "^0.54.5",
+    "axios": "0.27.2",
+    "lodash": "4.17.21",
+    "stylus": "0.57.0",
     "stylus-loader": "^3.0.2",
-    "vuepress-plugin-container": "^2.0.2",
-    "vuepress-plugin-smooth-scroll": "^0.0.10"
+    "vuepress-plugin-container": "^2.1.5",
+    "vuepress-plugin-smooth-scroll": "0.0.10"
   },
   "devDependencies": {
-    "@tsed/monorepo-utils": "1.11.0",
-    "lerna": "3.22.0",
+    "@tsed/monorepo-utils": "^1.21.0",
+    "lerna": "4.0.0",
     "lite-server": "2.5.4",
-    "semantic-release": "17.2.2",
-    "vuepress": "1.9.5"
+    "semantic-release": "19.0.2",
+    "vuepress": "^1.9.7"
   },
   "resolutions": {
     "watchpack": "1.6.1"
