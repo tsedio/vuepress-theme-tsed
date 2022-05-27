@@ -1,14 +1,16 @@
 <template>
   <div>
-    <Offers
-        :title="title"
-        :description="description"
-        :legal-info="legalInfo"
-        :items="items"/>
+    <Offers class="bg-gray-200" v-bind="getConfig()"/>
+    <div>
+      <Content slot-key="header-raw-content"/>
+    </div>
     <div class="px-5 md:px-10 max-w-site m-auto">
       <div class="page-content">
         <Content/>
       </div>
+    </div>
+    <div>
+      <Content slot-key="footer-raw-content"/>
     </div>
   </div>
 </template>
@@ -20,18 +22,19 @@ export default {
   components: {
     Offers
   },
-  computed: {
-    title () {
-      return this.$frontmatter.title || ''
-    },
-    description () {
-      return this.$frontmatter.description || ''
-    },
-    legalInfo () {
-      return this.$frontmatter.legalInfo || ''
-    },
-    items () {
-      return this.$frontmatter.items || []
+  methods: {
+    getConfig () {
+      const key = this.$frontmatter.config
+
+      if (key) {
+        const config = this.$site.themeConfig.offers[key]
+
+        if (config) {
+          return config
+        }
+      }
+
+      return this.$frontmatter
     }
   }
 }

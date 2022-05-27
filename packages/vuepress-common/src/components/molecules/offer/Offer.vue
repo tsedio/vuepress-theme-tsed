@@ -51,6 +51,7 @@ import Button from '../button/Button'
 import BxIcon from '../../atoms/icons/BxIcon'
 
 export default {
+  name: 'Offer',
   components: {BxIcon, Button},
   props: {
     title: {

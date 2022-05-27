@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-200 pb-5">
-    <div class="pt-16 pb-16 bg-blue-900 sm:pb-24">
+  <div class="pb-5">
+    <div v-if="title" class="pt-16 pb-16 bg-blue-900 sm:pb-24">
       <div class="px-4 pb-10 text-center sm:px-6 lg:px-8">
         <h1 class="mt-4 text-4xl font-extrabold leading-10 text-white sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
           {{ title }}
@@ -26,6 +26,7 @@
 import Offer from '../../molecules/offer/Offer'
 
 export default {
+  name: "Offers",
   props: {
     title: {
       type: String,
