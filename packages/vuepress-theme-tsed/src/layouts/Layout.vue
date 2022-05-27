@@ -82,6 +82,7 @@ import VueTsed from '../install'
 import Home from '../views/Home'
 import Page from '../views/Page'
 import WarehousePage from '../views/WarehousePage'
+import PricingPage from '../views/PricingPage'
 
 Vue.use(VueTsed)
 
@@ -90,6 +91,7 @@ export default {
     Home,
     Page,
     WarehousePage,
+    PricingPage,
     Navbar,
     Sidebar,
     Footer,
