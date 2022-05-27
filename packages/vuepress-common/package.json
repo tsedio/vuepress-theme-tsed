@@ -1,6 +1,6 @@
 {
   "name": "@tsed/vuepress-common",
-  "version": "3.20.1",
+  "version": "3.20.2",
   "description": "Shared components and utils",
   "main": "./src/index.js",
   "repository": "https://github.com/tsedio/vuepress-theme-tsed",
@@ -10,8 +10,6 @@
   "scripts": {
     "test": "jest"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "resolutions": {
     "watchpack": "1.6.1"
   },
@@ -28,5 +26,7 @@
       ".*\\.(vue)$": "vue-jest"
     }
   },
+  "dependencies": {},
+  "devDependencies": {},
   "peerDependencies": {}
 }
