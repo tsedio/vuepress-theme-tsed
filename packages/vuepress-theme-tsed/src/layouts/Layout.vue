@@ -60,7 +60,7 @@
               :sections="footer.sections"
               :social-urls="$site.themeConfig">
         <template #top>
-          <SupportUs v-if="!isLandingPage"
+          <SupportUs v-if="shouldShowSupportUs"
                      :brand="$site.themeConfig.shortTitle"
                      :sponsor-url="$site.themeConfig.sponsorUrl"
                      :license-type="$site.themeConfig.licenseType"/>
@@ -123,6 +123,15 @@ export default {
     logoSrc () {
       return this.$site.themeConfig.logo && this.$withBase(this.$site.themeConfig.logo)
     },
+
+    shouldShowSupportUs(){
+      if (this.$page.frontmatter.supportUs === false) {
+        return false
+      }
+
+      return !this.isLandingPage
+    },
+
     isLandingPage () {
       const { layout } = this.$page.frontmatter
 

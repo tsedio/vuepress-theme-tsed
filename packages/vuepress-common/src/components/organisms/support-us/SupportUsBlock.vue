@@ -2,28 +2,28 @@
   <div>
     <div class="showcase relative">
       <div v-lazyload class="hidden lg:block absolute right-0  top-0 opacity-10 z-0 w-1/4 p-5 m-10">
-        <img data-url="/sponsors.svg" alt="https://www.freepik.com/" title="https://www.freepik.com/" />
+        <img data-url="/sponsors.svg" alt="https://www.freepik.com/" title="https://www.freepik.com/"/>
       </div>
       <div class="w-full max-w-site mx-auto px-5 py-5 relative z-1">
         <div>
           <div class="flex flex-col items-center">
-            <h2 class="text-center text-4xl normal-case mb-5 text-blue font-bold"
-                v-html="sponsors.title" />
+            <h2 v-if="sponsors.title" class="text-center text-4xl normal-case mb-5 text-blue font-bold"
+                v-html="sponsors.title"/>
 
-            <p class="text-center font-normal text-normal m-auto max-w-md mb-10" v-html="sponsors.description" />
+            <p v-if="sponsors.description" class="text-center font-normal text-normal m-auto max-w-md mb-10" v-html="sponsors.description"/>
 
             <template v-for="(item, index) in sponsorsBeforeBacker">
-              <SponsorsBlock :item="item" :key="index" />
+              <SponsorsBlock :item="item" :key="index"/>
             </template>
 
             <h3 class="text-xl font-bold mb-10">Our backers</h3>
 
             <div class="flex flex-wrap justify-center items-stretch w-full">
-              <OpenCollectiveBackers v-bind="backers.badge" />
+              <OpenCollectiveBackers v-bind="backers.badge"/>
             </div>
 
             <template v-for="(item, index) in sponsorsAfterBacker">
-              <SponsorsBlock :item="item" :key="index" />
+              <SponsorsBlock :item="item" :key="index"/>
             </template>
 
             <div class="mt-10 mb-5 text-center w-full">
@@ -65,65 +65,74 @@
 import Button from '../../molecules/button/Button'
 import Showcase from '../../molecules/showcase/Showcase'
 import OpenCollectiveBackers from '../open-collective-backers/OpenCollectiveBackers'
-import SponsorsBlock from "./SponsorsBlock";
+import SponsorsBlock from './SponsorsBlock'
 import Lazyload from '../../molecules/observer/lazyload'
 
 export default {
-  name: "SupportUsBlock",
+  name: 'SupportUsBlock',
   components: {
     SponsorsBlock,
     OpenCollectiveBackers,
     Button,
     Showcase
   },
-  directives:{
+  directives: {
     lazyload: Lazyload
   },
   computed: {
-    backers() {
-      const { backers } = this.$page.frontmatter;
-      return backers;
+    backers () {
+      if (this.$site.themeConfig.backers) {
+        return this.$site.themeConfig.backers
+      }
+
+      const {backers} = this.$page.frontmatter
+      return backers
     },
-    sponsors() {
-      const { sponsors } = this.$page.frontmatter;
-      return sponsors;
+    sponsors () {
+      if (this.$site.themeConfig.sponsors) {
+        return this.$site.themeConfig.sponsors
+      }
+
+      const {sponsors} = this.$page.frontmatter
+      return sponsors
     },
 
-    sponsorsBeforeBacker() {
-      const { sponsors } = this.$page.frontmatter;
+    sponsorsBeforeBacker () {
+      const sponsors = this.sponsors
+
       return sponsors.items.filter((item) => {
-        return item.position !== "after-backers";
-      });
+        return item.position !== 'after-backers'
+      })
     },
 
-    sponsorsAfterBacker() {
-      const { sponsors } = this.$page.frontmatter;
-      const now = Date.now();
-      let hasItems = false;
+    sponsorsAfterBacker () {
+      const sponsors = this.sponsors
+      const now = Date.now()
+      let hasItems = false
 
       const list = sponsors.items.filter((item) => {
-        return item.position === "after-backers";
+        return item.position === 'after-backers'
       })
           .map((item) => {
             const items = item.items.filter((item) => {
-              return item.expireAt ? new Date(item.expireAt).getTime() > now : true;
-            });
+              return item.expireAt ? new Date(item.expireAt).getTime() > now : true
+            })
 
             if (items.length) {
-              hasItems = true;
+              hasItems = true
             }
 
             return {
               ...item,
               items
-            };
-          });
+            }
+          })
 
       if (!hasItems) {
-        return [];
+        return []
       }
-      return list;
+      return list
     }
   }
-};
+}
 </script>
