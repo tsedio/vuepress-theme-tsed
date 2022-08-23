@@ -9,7 +9,8 @@
 
 .sidebar-sub-header a.sidebar-link,
 .sidebar-group a.sidebar-link {
-  @apply font-normal opacity-75 transition-all;
+  @apply font-normal opacity-75;
+  transition: all ease-in-out 300ms;
 }
 
 .sidebar-sub-header a.sidebar-link {
