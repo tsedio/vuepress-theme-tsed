@@ -14440,10 +14440,10 @@ lru-cache@^7.4.4, lru-cache@^7.5.1, lru-cache@^7.7.1:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.14.1.tgz#8da8d2f5f59827edb388e63e459ac23d6d408fea"
   integrity sha512-ysxwsnTKdAx96aTRdhDOCQfDgbHnt8SK0KY8SEjO0wHinhWOFTESbjVCMPbU1uGXg/ch4lifqx0wfjOawU2+WA==
 
-lucene-filter@0.2.4:
-  version "0.2.4"
-  resolved "https://registry.npmjs.org/lucene-filter/-/lucene-filter-0.2.4.tgz"
-  integrity sha512-8+o/N9utq1y5Vk7yv2C1Sc0bshrIrWPPP8cdpVJvbFxcFFZDnHI5YPK67av0nkAIwv6HWe92TqRDhtWWUBE7bQ==
+lucene-filter@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/lucene-filter/-/lucene-filter-1.4.0.tgz#73291e0a60dd3462b9776e176d2f1096f0214936"
+  integrity sha512-yL0rmUPtXEAve+l7hnLTKTeIEi5MwJ0vopzDtl+w607NA7PTO0o5olgIrH4INHjFwNgfwJ66mUmzOq/HDI+vuQ==
 
 lucene-query-parser@1.2.0:
   version "1.2.0"
