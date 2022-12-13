@@ -3,6 +3,9 @@
 </template>
 
 <script>
+import docsearch from '@docsearch/js'
+import '@docsearch/css/dist/style.css'
+
 function isSpecialClick (event) {
   return (
       event.button === 1 ||
@@ -32,98 +35,71 @@ export default {
 
   methods: {
     getRelativePath (absoluteUrl) {
-      const { pathname, hash } = new URL(absoluteUrl)
+      const {pathname, hash} = new URL(absoluteUrl)
       return pathname.replace(this.$site.base, '/') + hash
     },
     initialize (userOptions, lang) {
-      Promise.all([
-        import(/* webpackChunkName: "docsearch" */ '@docsearch/js'),
-        import(/* webpackChunkName: "docsearch" */ '@docsearch/css')
-      ]).then(([docsearch]) => {
-        docsearch = docsearch.default
-
-        docsearch(
-            Object.assign(
-                {
-                  placeholder: this.$site.themeConfig.searchPlaceholder
+      const router = this.$router
+      docsearch(
+          {
+            placeholder: this.$site.themeConfig.searchPlaceholder,
+            ...userOptions,
+            container: '#docsearch',
+            // #697 Make DocSearch work well in i18n mode.
+            searchParameters: Object.assign(
+                {},
+                lang && {
+                  facetFilters: [`lang:${lang}`].concat(
+                      userOptions.facetFilters || []
+                  )
                 },
-                userOptions,
-                {
-                  container: '#docsearch',
-                  // #697 Make DocSearch work well in i18n mode.
-                  searchParameters: Object.assign(
-                      {},
-                      // lang && {
-                      //   facetFilters: [`lang:${lang}`].concat(
-                      //     userOptions.facetFilters || []
-                      //   )
-                      // },
-                      userOptions.searchParameters
-                  ),
-                  navigator: {
-                    navigate: ({ suggestionUrl }) => {
-                      const { pathname: hitPathname } = new URL(
-                          window.location.origin + suggestionUrl
-                      )
+                userOptions.searchParameters
+            ),
+            navigator: {
+              navigate: ({suggestionUrl}) => {
+                const {pathname: hitPathname} = new URL(
+                    window.location.origin + suggestionUrl
+                )
 
-                      // Vue Router doesn't handle same-page navigation so we use
-                      // the native browser location API for anchor navigation.
-                      if (this.$router.history.current.path === hitPathname) {
-                        window.location.assign(
-                            window.location.origin + suggestionUrl
-                        )
-                      } else {
-                        this.$router.push(suggestionUrl)
-                      }
-                    }
-                  },
-                  transformItems: items => {
-                    return items.map(item => {
-                      return Object.assign({}, item, {
-                        url: this.getRelativePath(item.url)
-                      })
-                    })
-                  },
-                  hitComponent: ({ hit, children }) => {
-                    return {
-                      type: 'a',
-                      ref: undefined,
-                      constructor: undefined,
-                      key: undefined,
-                      props: {
-                        href: hit.url,
-                        onClick: event => {
-                          if (isSpecialClick(event)) {
-                            return
-                          }
-
-                          // We rely on the native link scrolling when user is
-                          // already on the right anchor because Vue Router doesn't
-                          // support duplicated history entries.
-                          if (this.$router.history.current.fullPath === hit.url) {
-                            return
-                          }
-
-                          const { pathname: hitPathname } = new URL(
-                              window.location.origin + hit.url
-                          )
-
-                          // If the hits goes to another page, we prevent the native link behavior
-                          // to leverage the Vue Router loading feature.
-                          if (this.$router.history.current.path !== hitPathname) {
-                            event.preventDefault()
-                          }
-
-                          this.$router.push(hit.url)
-                        },
-                        children
-                      }
-                    }
-                  }
+                // Vue Router doesn't handle same-page navigation so we use
+                // the native browser location API for anchor navigation.
+                if (router.history.current.path === hitPathname) {
+                  window.location.assign(
+                      window.location.origin + suggestionUrl
+                  )
+                } else {
+                  router.push(suggestionUrl)
                 }
-            )
-        )
-      })
+              }
+            },
+            transformItems: items => {
+              return items.map(item => {
+                return Object.assign({}, item, {
+                  url: this.getRelativePath(item.url)
+                })
+              })
+            },
+            hitComponent:  ({ hit, children }) =>
+                ({
+                  type: 'a',
+                  ref: undefined,
+                  constructor: undefined,
+                  key: undefined,
+                  props: {
+                    href: hit.url,
+                    // handle `onClick` by `router.push`
+                    onClick: (event) => {
+                      if (isSpecialClick(event)) {
+                        return
+                      }
+                      event.preventDefault()
+                      router.push(hit.url)
+                    },
+                    children,
+                  },
+                  __v: null,
+                })
+          })
     },
 
     update (options, lang) {
