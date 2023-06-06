@@ -10,7 +10,8 @@
             <h2 v-if="sponsors.title" class="text-center text-4xl normal-case mb-5 text-blue font-bold"
                 v-html="sponsors.title"/>
 
-            <p v-if="sponsors.description" class="text-center font-normal text-normal m-auto max-w-md mb-10" v-html="sponsors.description"/>
+            <p v-if="sponsors.description" class="text-center font-normal text-normal m-auto max-w-md mb-10"
+               v-html="sponsors.description"/>
 
             <template v-for="(item, index) in sponsorsBeforeBacker">
               <SponsorsBlock :item="item" :key="index"/>
@@ -28,30 +29,31 @@
 
             <div class="mt-10 mb-5 text-center w-full">
               <Button
-                  class="w-full sm:w-1/4 md:w-1/6 mb-5 sm:mx-2"
-                  :bg-color="sponsors.cta.bgColor"
-                  :color="sponsors.cta.color"
-                  rounded="medium"
-                  :href="sponsors.cta.url">
+                class="w-full sm:w-1/4 md:w-1/6 mb-5 sm:mx-2"
+                :bg-color="sponsors.cta.bgColor"
+                :color="sponsors.cta.color"
+                rounded="medium"
+                :href="sponsors.cta.url">
                 {{ sponsors.cta.label }}
               </Button>
 
               <Button
-                  class="w-full sm:w-1/3 md:w-1/6 mb-5 sm:mx-2"
-                  :bg-color="backers.cta.bgColor"
-                  :color="backers.cta.color"
-                  rounded="medium"
-                  :href="backers.cta.url">
+                class="w-full sm:w-1/3 md:w-1/6 mb-5 sm:mx-2"
+                :bg-color="backers.cta.bgColor"
+                :color="backers.cta.color"
+                rounded="medium"
+                :href="backers.cta.url">
                 {{ backers.cta.label }}
               </Button>
 
               <Button
-                  bg-color="button-white"
-                  color="blue"
-                  data-mode="popup"
-                  class="w-full sm:w-1/3 md:w-1/6 sm:mx-2 typeform-share"
-                  rounded="medium"
-                  href="https://form.typeform.com/to/uJLP7anG">
+                v-if="support?.url"
+                bg-color="button-white"
+                color="blue"
+                data-mode="popup"
+                class="w-full sm:w-1/3 md:w-1/6 sm:mx-2 typeform-share"
+                rounded="medium"
+                :href="support?.url">
                 Contact us
               </Button>
             </div>
@@ -105,6 +107,15 @@ export default {
       })
     },
 
+    support () {
+      if (this.$site.themeConfig.support) {
+        return this.$site.themeConfig.support
+      }
+
+      const {support} = this.$page.frontmatter
+      return support
+    },
+
     sponsorsAfterBacker () {
       const sponsors = this.sponsors
       const now = Date.now()
@@ -113,20 +124,20 @@ export default {
       const list = sponsors.items.filter((item) => {
         return item.position === 'after-backers'
       })
-          .map((item) => {
-            const items = item.items.filter((item) => {
-              return item.expireAt ? new Date(item.expireAt).getTime() > now : true
-            })
-
-            if (items.length) {
-              hasItems = true
-            }
-
-            return {
-              ...item,
-              items
-            }
+        .map((item) => {
+          const items = item.items.filter((item) => {
+            return item.expireAt ? new Date(item.expireAt).getTime() > now : true
           })
+
+          if (items.length) {
+            hasItems = true
+          }
+
+          return {
+            ...item,
+            items
+          }
+        })
 
       if (!hasItems) {
         return []
