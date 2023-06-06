@@ -47,13 +47,13 @@
               </Button>
 
               <Button
-                v-if="support?.url"
+                v-if="support"
                 bg-color="button-white"
                 color="blue"
                 data-mode="popup"
                 class="w-full sm:w-1/3 md:w-1/6 sm:mx-2 typeform-share"
                 rounded="medium"
-                :href="support?.url">
+                :href="support.url">
                 Contact us
               </Button>
             </div>
