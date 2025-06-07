@@ -9,7 +9,7 @@ Vue.use({
       created() {
         this.$site = {
           themeConfig: {
-            apiUrl: 'https://tsed.io/api.json',
+            apiUrl: 'https://v7.tsed.dev/api.json',
             repo: 'tsedio/tsed',
             githubProxyUrl: 'https://api.tsed.io/rest/github/tsedio/tsed',
             openCollective: 'https://api.tsed.io/rest/opencollective',

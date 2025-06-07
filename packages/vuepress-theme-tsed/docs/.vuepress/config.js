@@ -53,7 +53,7 @@ module.exports = {
     docsDir: 'docs',
     sidebar: 'auto',
     docsBranch: 'production',
-    apiUrl: 'https://tsed.io/api.json',
+    apiUrl: 'https://v7.tsed.dev/api.json',
     apiRedirectUrl: 'https://api-doc.tsed.io',
     smoothScroll: true,
     lastUpdated: 'Last updated',
